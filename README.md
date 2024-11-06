@@ -1,11 +1,11 @@
 # SAE S3 - Groupe 3 FitPulse
 ## IUT de Bayonne et du Pays Basque
 
-Membres du groupe :
-    - BERGOS Ugo (Scrum Master, développeur)  
-    - CECILIA URRA Christopher (Développeur) 
-    - KLEIN-POL Manon (Product Owner, développeur) 
-    - LOUSTAU-CAZAUX David (Développeur) 
-    - JEANNIN-LAORDEN Guillem (Développeur)
+Membres du groupe :<br>
+    - BERGOS Ugo (Scrum Master, développeur)<br>
+    - CECILIA URRA Christopher (Développeur)<br>
+    - KLEIN-POL Manon (Product Owner, développeur)<br>
+    - LOUSTAU-CAZAUX David (Développeur)<br>
+    - JEANNIN-LAORDEN Guillem (Développeur)<br>
 
 Enseignante tutrice : RUSTICI Chiara
