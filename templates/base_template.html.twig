@@ -1,20 +1,34 @@
+<!-- Template de base pour les pages du site -->
+<!-- Blocs définissables par page : "titre", "css", "contenu", "script" -->
+
 <!DOCTYPE html>
 <html lang="{{ constant('WEBSITE_LANGUAGE')}}">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page, par défaut la constante WEBSITE_TITLE -->
+    <title>{% block titre %}{{ constant('WEBSITE_TITLE')}}{% endblock %}</title>
+
+    <!-- Description de la page passé par le controller, par défaut la constante WEBSITE_DESCRIPTION -->
+    <meta name="description" content="{{ description is defined ? description : constant('WEBSITE_DESCRIPTION') }}">
+ 
+    <!-- CSS compilé commun dont Bootstrap -->
     <link rel="stylesheet" type="text/css" href="CSS/styles.css">
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <meta name="description" content="{%if description is defined %} {{description}} {% else %} {{constant('WEBSITE_DESCRIPTION')}} {% endif %}">
-
-    {% block css %} {% endblock %}
-
-    <title>{% block title %}{{ constant('WEBSITE_TITLE')}}{% endblock %}</title>
+    
+    <!-- CSS spécifiques à la page -->
+    {% block css %}{% endblock %}
 
 </head>
-<body class="container">   
 
-    <header>
+<body>
+
+<!-- Header -->
+<div class="container">   
+
+  <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">{{ constant('WEBSITE_TITLE')}} {{ constant('WEBSITE_VERSION')}}</a>
@@ -23,33 +37,78 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+
                 <li class="nav-item">
-                <a class="nav-link {% if menu=='categories' %} active {% endif %}" aria-current="page" href="index.php">Catégories</a>
+                  <a class="nav-link {% if menu=='accueil' %} active {% endif %}" aria-current="page" href="index.php">Accueil</a>
                 </li>
+
                 <li class="nav-item">
-                <a class="nav-link {% if menu=='recettes'%} active {% endif %}" href="index.php?controleur=recette&methode=lister">Recettes</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link {% if menu=='recettes_tableau'%} active {% endif %}" href="index.php?controleur=recette&methode=listerTableau">Recette_tableau</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link {% if menu=='categories_tableau'%} active {% endif %}" href="index.php?controleur=categorie&methode=listerTableau">Catégories tableau</a>
+                  <a class="nav-link {% if menu=='recherche' %} active {% endif %}" aria-current="page" href="index.php?controleur=coach&methode=lister">Recherche</a>
                 </li>
             </ul>
+            <ul class="navbar-nav ms-auto">
+                <!-- Affichage sélectif en fonction de si l'utilisateur est connecté ou non -->
+                <!-- Par défaut, il n'est pas connecté -->
+
+                <!-- Bloc aligné à droite -->
+
+                {% if estConnecte %}   
+
+                  <li class="nav-item">
+                    <a class="nav-link {% if menu=='suiviSeances' %} active {% endif %}" aria-current="page" href="index.php?controleur=seance&methode=lister">Suivi des séances</a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link {% if menu=='parametres' %} active {% endif %}" aria-current="page" href="index.php?controleur=profil&methode=parametrer">Paramètres</a>
+                  </li>
+
+                {% else %}
+                
+                  <li class="nav-item">
+                    <a class="nav-link {% if menu=='connexion' %} active {% endif %}" aria-current="page" href="index.php?controleur=session&methode=connecter">Se connecter</a>
+                  </li>
+                
+                  <li class="nav-item">
+                    <a class="nav-link {% if menu=='enregistrement' %} active {% endif %}" aria-current="page" href="index.php?controleur=session&methode=enregistrer">Créer un compte</a>
+                  </li>
+              
+                {% endif %}
+
+              </ul>
+
             </div>
         </div>
     </nav>
-    </header>
+  </header>
 
-    {% block content %}
-    {% endblock %}
-   
-    <footer class="text-body-secondary py-5">
-            <p class="mb-1">SAE S3 - Groupe 3 FitPulse</p>
-    </footer>
+</div>
 
-    {% block script %} {% endblock %}
+<!-- Contenu de la page -->
+<div class="container">
+  {% block contenu %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<div class="container">
+
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div class="col-md-4">
+      <span class="text-muted">© 2024 FitPulse</span> <br>
+      <span class="text-muted">Groupe 3 - SAE S3</span> <br>
+      <span class="text-muted">IUT de Bayonne et du Pays basque</span>
+    </div>  
+  </footer>
+
+</div>
+
+<!-- Script Bootstrap commun -->
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+<!-- Scripts spécifiques à la page -->
+{% block script %}{% endblock %}
+
 </body>
+
 </html>
 
 
