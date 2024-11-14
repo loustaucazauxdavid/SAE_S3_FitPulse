@@ -16,14 +16,15 @@ require_once 'modeles/bd.class.php';
 //Ajout des contrôleurs
 require_once 'controllers/controller.class.php';
 require_once 'controllers/controller_factory.class.php';
-require_once 'controllers/controller_categorie.class.php';
+require_once 'controllers/controller_coach.class.php';
 
 //Ajout des modèles classes
 require_once 'modeles/coach.class.php';
 require_once 'modeles/creneau.class.php';
 require_once 'modeles/discipline.class.php';
 require_once 'modeles/salledesport.class.php';
-require_once 'modeles/seance.class.php';
+require_once 'modeles/seance.class.php';  
+require_once 'modeles/commenter.class.php';
 
 // Ajout des modèles DAO
-require_once 'modeles/discipline.dao.php';
+require_once 'modeles/coach.dao.php';

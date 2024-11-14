@@ -3,10 +3,10 @@
 /**
  * Enumération pour LieuCours
  */
-enum LieuCours: int {
-    case DISTANCIEL = 0;
-    case PRESENTIEL = 1;
-    case HYBRIDE = 2;
+enum LieuCours: string {
+    case DISTANCIEL = 'Distanciel';
+    case PRESENTIEL = 'Présentiel';
+    case HYBRIDE = 'Hybride';
 }
 
 /**

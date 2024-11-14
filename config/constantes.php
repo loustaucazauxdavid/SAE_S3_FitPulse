@@ -6,7 +6,7 @@ define('DB_NAME', 'ubergos_pro');
 define('DB_USER', 'ubergos_pro');
 define('DB_PASS', 'ubergos_pro');
 
-define('PREFIXE_TABLE', 'yabontiap_');
+define('PREFIXE_TABLE', 'fitpulse_');
 
 // Constante de la partie vue
 define('WEBSITE_TITLE', 'FitPulse');

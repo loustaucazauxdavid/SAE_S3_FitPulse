@@ -18,7 +18,7 @@ try  {
 
     //Gestion de la page d'accueil par défaut
     if ($controllerName == '' && $methode ==''){
-        $controllerName='categorie';
+        $controllerName='coach';
         $methode='lister';
     }
 
