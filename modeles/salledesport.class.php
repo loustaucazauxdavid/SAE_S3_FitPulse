@@ -9,20 +9,38 @@ class SalleDeSport {
     private ?string $nom;
     private ?string $photo;
     private ?string $description;
+    private ?bool $accessPmr;
+    private ?bool $enLigne;
     private ?string $adresse;
-    private ?int $codePostal;
+    private ?string $codePostal;
     private ?string $ville;
     private ?string $pays;
+    private ?string $lienGoogleMaps;
 
-    public function __construct(?int $id = null, ?string $nom = null, ?string $photo = null, ?string $description = null, ?string $adresse = null, ?int $codePostal = null, ?string $ville = null, ?string $pays = null) {
+    public function __construct(
+        ?int $id = null, 
+        ?string $nom = null,
+        ?string $photo = null,
+        ?string $description = null,
+        ?bool $accessPmr = null,
+        ?bool $enLigne = null,
+        ?string $adresse = null,
+        ?string $codePostal = null,
+        ?string $ville = null,
+        ?string $pays = null,
+        ?string $lienGoogleMaps = null) 
+    {
         $this->id = $id;
         $this->nom = $nom;
         $this->photo = $photo;
         $this->description = $description;
+        $this->accessPmr = $accessPmr;
+        $this->enLigne = $enLigne;
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
         $this->ville = $ville;
         $this->pays = $pays;
+        $this->lienGoogleMaps = $lienGoogleMaps;
     }
 
     /**
@@ -86,6 +104,34 @@ class SalleDeSport {
     }
 
     /**
+     * Getter de la variable membre accessPmr
+     */ 
+    public function getAccessPmr(): ?bool {
+        return $this->accessPmr;
+    }
+
+    /**
+     * Setter de la variable membre accessPmr
+     */ 
+    public function setAccessPmr(?bool $accessPmr): void {
+        $this->accessPmr = $accessPmr;
+    }
+
+    /**
+     * Getter de la variable membre enLigne
+     */ 
+    public function getEnLigne(): ?bool {
+        return $this->enLigne;
+    }
+
+    /**
+     * Setter de la variable membre enLigne
+     */ 
+    public function setEnLigne(?bool $enLigne): void {
+        $this->enLigne = $enLigne;
+    }
+
+    /**
      * Getter de la variable membre adresse
      */ 
     public function getAdresse(): ?string {
@@ -100,16 +146,16 @@ class SalleDeSport {
     }
 
     /**
-     * Getter de la variable membre code postal
+     * Getter de la variable membre codePostal
      */ 
-    public function getCodePostal(): ?int {
+    public function getCodePostal(): ?string {
         return $this->codePostal;
     }
 
     /**
-     * Setter de la variable membre code postal
+     * Setter de la variable membre codePostal
      */ 
-    public function setCodePostal(?int $codePostal): void {
+    public function setCodePostal(?string $codePostal): void {
         $this->codePostal = $codePostal;
     }
 
@@ -139,5 +185,19 @@ class SalleDeSport {
      */ 
     public function setPays(?string $pays): void {
         $this->pays = $pays;
+    }
+
+    /**
+     * Getter de la variable membre lienGoogleMaps
+     */ 
+    public function getLienGoogleMaps(): ?string {
+        return $this->lienGoogleMaps;
+    }
+
+    /**
+     * Setter de la variable membre lienGoogleMaps
+     */ 
+    public function setLienGoogleMaps(?string $lienGoogleMaps): void {
+        $this->lienGoogleMaps = $lienGoogleMaps;
     }
 }

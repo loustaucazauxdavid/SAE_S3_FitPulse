@@ -10,13 +10,25 @@ class Creneau {
     private ?DateTime $dateFin;
     private ?int $capacite;
     private ?int $tarif;
+    private ?int $idDiscipline;
+    private ?int $idCoach;
 
-    public function __construct(?int $id = null, ?DateTime $dateDebut = null, ?DateTime $dateFin = null, ?int $capacite = null, ?int $tarif = null) {
+    public function __construct(
+        ?int $id = null,
+        ?DateTime $dateDebut = null,
+        ?DateTime $dateFin = null,
+        ?int $capacite = null,
+        ?int $tarif = null,
+        ?int $idDiscipline = null,
+        ?int $idCoach = null) 
+    {
         $this->id = $id;
         $this->dateDebut = $dateDebut;
         $this->dateFin = $dateFin;
         $this->capacite = $capacite;
         $this->tarif = $tarif;
+        $this->idDiscipline = $idDiscipline;
+        $this->idCoach = $idCoach;
     }
 
     /**
@@ -97,5 +109,37 @@ class Creneau {
     public function setTarif(?int $tarif): void
     {
         $this->tarif = $tarif;
+    }
+
+    /**
+     * Getter de la variable membre idDiscipline
+     */ 
+    public function getIdDiscipline(): ?int
+    {
+        return $this->idDiscipline;
+    }
+
+    /**
+     * Setter de la variable membre idDiscipline
+     */ 
+    public function setIdDiscipline(?int $idDiscipline): void
+    {
+        $this->idDiscipline = $idDiscipline;
+    }
+
+    /**
+     * Getter de la variable membre idCoach
+     */ 
+    public function getIdCoach(): ?int
+    {
+        return $this->idCoach;
+    }
+
+    /**
+     * Setter de la variable membre idCoach
+     */ 
+    public function setIdCoach(?int $idCoach): void
+    {
+        $this->idCoach = $idCoach;
     }
 }

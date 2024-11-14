@@ -9,7 +9,11 @@ class Seance {
     private ?bool $estPaye;
     private ?bool $estAnnule;
 
-    public function __construct(?int $id = null, ?bool $estPaye = null, ?bool $estAnnule = null) {
+    public function __construct(
+        ?int $id = null,
+        ?bool $estPaye = null,
+        ?bool $estAnnule = null
+    ) {
         $this->id = $id;
         $this->estPaye = $estPaye;
         $this->estAnnule = $estAnnule;

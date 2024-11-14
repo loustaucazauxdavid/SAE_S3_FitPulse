@@ -16,22 +16,28 @@ enum LieuCours: int {
 class Coach {
     private ?int $id;
     private ?string $contact;
-    private ?string $photo;
     private ?string $description;
-    private ?LieuCours $lieuCours; // Utilisation de l'énumération
+    private ?LieuCours $lieuCours; // Utilisation de l'énumération LieuCours
     private ?bool $estVerifie;
     private ?string $emailPaypal;
-    private ?string $nomUtilisateur;
+    private ?int $idUtilisateur;
 
-    public function __construct(?int $id = null, ?string $contact = null, ?string $photo = null, ?string $description = null, ?LieuCours $lieuCours = null, ?bool $estVerifie = null, ?string $emailPaypal = null, ?string $nomUtilisateur = null) {
+    public function __construct(
+        ?int $id = null,
+        ?string $contact = null,
+        ?string $description = null,
+        ?LieuCours $lieuCours = null,
+        ?bool $estVerifie = null,
+        ?string $emailPaypal = null,
+        ?int $idUtilisateur = null)
+    {
         $this->id = $id;
         $this->contact = $contact;
-        $this->photo = $photo;
         $this->description = $description;
         $this->lieuCours = $lieuCours;
         $this->estVerifie = $estVerifie;
         $this->emailPaypal = $emailPaypal;
-        $this->nomUtilisateur = $nomUtilisateur;
+        $this->idUtilisateur = $idUtilisateur;
     }
 
     /**
@@ -64,22 +70,6 @@ class Coach {
     public function setContact(?string $contact): void
     {
         $this->contact = $contact;
-    }
-
-    /**
-     * Getter de la variable membre photo
-     */ 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    /**
-     * Setter de la variable membre photo
-     */ 
-    public function setPhoto(?string $photo): void
-    {
-        $this->photo = $photo;
     }
 
     /**
@@ -147,18 +137,18 @@ class Coach {
     }
 
     /**
-     * Getter de la variable membre nomUtilisateur
+     * Getter de la variable membre idUtilisateur
      */ 
-    public function getNomUtilisateur(): ?string
+    public function getIdUtilisateur(): ?int
     {
-        return $this->nomUtilisateur;
+        return $this->idUtilisateur;
     }
 
     /**
-     * Setter de la variable membre nomUtilisateur
+     * Setter de la variable membre idUtilisateur
      */ 
-    public function setNomUtilisateur(?string $nomUtilisateur): void
+    public function setIdUtilisateur(?int $idUtilisateur): void
     {
-        $this->nomUtilisateur = $nomUtilisateur;
+        $this->idUtilisateur = $idUtilisateur;
     }
 }

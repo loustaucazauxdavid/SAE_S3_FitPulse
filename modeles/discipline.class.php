@@ -8,7 +8,10 @@ class Discipline {
     private ?int $id;
     private ?string $nom;
 
-    public function __construct(?int $id = null, ?string $nom = null) {
+    public function __construct(
+        ?int $id = null,
+        ?string $nom = null)
+    {
         $this->id = $id;
         $this->nom = $nom; 
     }   
@@ -27,7 +30,6 @@ class Discipline {
     public function setId(?int $id): void
     {
         $this->id = $id;
-
     }
 
     /**
