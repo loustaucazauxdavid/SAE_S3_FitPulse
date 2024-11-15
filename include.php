@@ -28,3 +28,4 @@ require_once 'modeles/commenter.class.php';
 
 // Ajout des modèles DAO
 require_once 'modeles/coach.dao.php';
+require_once 'modeles/commenter.dao.php';

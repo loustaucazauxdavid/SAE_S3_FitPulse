@@ -14,8 +14,8 @@ class CoachDao {
     }
 
     /**
-     * Récupère une catégorie sous forme de tableau associatif par son ID.
-     * @param int $idCoach L'ID du Coach à récupérer.
+     * Récupère un coach sous forme de tableau associatif par son ID.
+     * @param int $idCoach L'ID du coach à récupérer.
      * @return array|null Le tableau associatif représentant un coach.
      */
     public function findAssoc(int $idCoach): ?array {
@@ -49,7 +49,7 @@ class CoachDao {
         $coach->setContact($coachAssoc['contact']);
         $coach->setDescription($coachAssoc['description']);
         $coach->setLieuCours(LieuCours::from($coachAssoc['lieuCours'])); // Conversion en Enum
-        $coach->setEstVerifie((bool) $coachAssoc['estVerifie']);
+        $coach->setEstVerifie((bool) $coachAssoc['estVerifie']); // Conversion en booléen
         $coach->setEmailPaypal($coachAssoc['emailPaypal']);
         $coach->setIdUtilisateur($coachAssoc['idUtilisateur']);
         return $coach;
