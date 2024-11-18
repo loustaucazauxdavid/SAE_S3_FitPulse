@@ -1,10 +1,12 @@
+/**
+ * Classe Singleton pour la connexion à la base de données
+ */
 <?php
 
 class Bd{
 
     private static ?Bd $instance = null;
-
-    private ?PDO $pdo;
+    private ?PDO $pdo; 
 
     private function __construct(){
         try {

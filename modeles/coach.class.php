@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file coach.class.php
+ * @brief Classe Coach
+ */
 
 /**
  * Enumération pour LieuCours
@@ -9,10 +13,6 @@ enum LieuCours: string {
     case HYBRIDE = 'Hybride';
 }
 
-/**
- * Classe Coach
- */
-
 class Coach {
     private ?int $id;
     private ?string $contact;
@@ -22,6 +22,18 @@ class Coach {
     private ?string $emailPaypal;
     private ?int $idUtilisateur;
 
+    /**
+     * Constructeur de la classe Coach
+     * Initialise les variables membres de la classe
+     * @param int|null $id
+     * @param string|null $contact
+     * @param string|null $description
+     * @param LieuCours|null $lieuCours
+     * @param bool|null $estVerifie
+     * @param string|null $emailPaypal
+     * @param int|null $idUtilisateur
+     * @return void
+     */
     public function __construct(
         ?int $id = null,
         ?string $contact = null,
@@ -42,6 +54,7 @@ class Coach {
 
     /**
      * Getter de la variable membre id
+     * @return int|null L'identifiant du coach
      */ 
     public function getId(): ?int
     {
@@ -50,6 +63,7 @@ class Coach {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id L'identifiant du coach
      */ 
     public function setId(?int $id): void
     {
@@ -58,6 +72,7 @@ class Coach {
 
     /**
      * Getter de la variable membre contact
+     * @return string|null Le contact du coach
      */ 
     public function getContact(): ?string
     {
@@ -66,6 +81,7 @@ class Coach {
 
     /**
      * Setter de la variable membre contact
+     * @param string|null $contact Le contact du coach
      */ 
     public function setContact(?string $contact): void
     {
@@ -74,6 +90,7 @@ class Coach {
 
     /**
      * Getter de la variable membre description
+     * @return string|null La description du coach
      */ 
     public function getDescription(): ?string
     {
@@ -82,6 +99,7 @@ class Coach {
 
     /**
      * Setter de la variable membre description
+     * @param string|null $description La description du coach
      */ 
     public function setDescription(?string $description): void
     {
@@ -90,6 +108,7 @@ class Coach {
 
     /**
      * Getter de la variable membre lieuCours
+     * @return LieuCours|null Le lieu des cours du coach
      */ 
     public function getLieuCours(): ?LieuCours
     {
@@ -98,6 +117,7 @@ class Coach {
 
     /**
      * Setter de la variable membre lieuCours
+     * @param LieuCours|null $lieuCours Le lieu des cours du coach
      */ 
     public function setLieuCours(?LieuCours $lieuCours): void
     {
@@ -106,6 +126,7 @@ class Coach {
 
     /**
      * Getter de la variable membre estVerifie
+     * @return bool|null Le statut de vérification du coach
      */ 
     public function getEstVerifie(): ?bool
     {
@@ -114,6 +135,7 @@ class Coach {
 
     /**
      * Setter de la variable membre estVerifie
+     * @param bool|null $estVerifie Le statut de vérification du coach
      */ 
     public function setEstVerifie(?bool $estVerifie): void
     {
@@ -122,6 +144,7 @@ class Coach {
 
     /**
      * Getter de la variable membre emailPaypal
+     * @return string|null L'email PayPal du coach
      */ 
     public function getEmailPaypal(): ?string
     {
@@ -130,6 +153,7 @@ class Coach {
 
     /**
      * Setter de la variable membre emailPaypal
+     * @param string|null $emailPaypal L'email PayPal du coach
      */ 
     public function setEmailPaypal(?string $emailPaypal): void
     {
@@ -138,6 +162,7 @@ class Coach {
 
     /**
      * Getter de la variable membre idUtilisateur
+     * @return int|null L'identifiant du compte utilisateur
      */ 
     public function getIdUtilisateur(): ?int
     {
@@ -146,6 +171,7 @@ class Coach {
 
     /**
      * Setter de la variable membre idUtilisateur
+     * @param int|null $idUtilisateur L'identifiant du compte utilisateur
      */ 
     public function setIdUtilisateur(?int $idUtilisateur): void
     {
