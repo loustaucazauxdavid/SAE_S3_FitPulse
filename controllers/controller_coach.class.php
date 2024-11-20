@@ -4,13 +4,24 @@
  * @brief Controller pour les coachs
  */
 
+/**
+ * @brief Controller pour les coachs
+ * @details Gère les actions liées aux coachs
+ */
 class ControllerCoach extends Controller{
+    /**
+     * Constructeur de la classe ControllerCoach
+     * @param \Twig\Environment $twig
+     * @param \Twig\Loader\FilesystemLoader $loader
+     * @return void
+     */
     public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {
         parent::__construct($twig, $loader);
     }  
 
     /**
-     * Liste les coachs sur la page d'accueil.
+     * @brief Liste les coachs
+     * @return void
      */
     public function lister(){
         // Recupération de tous les coachs (Test avant de lister les coachs par notes)

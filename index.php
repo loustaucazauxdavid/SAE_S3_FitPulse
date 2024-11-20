@@ -1,25 +1,29 @@
 <?php
+/**
+ * @file index.php
+ * @brief Point d'entrée de l'application
+ */
 
-//Ajout du code commun à toutes les pages
+// Ajout du code commun à toutes les pages
 require_once 'include.php';
 
-try  {
+try{
     if (isset($_GET['controleur'])){
-        $controllerName=$_GET['controleur'];
+        $controllerName = $_GET['controleur'];
     }else{
-        $controllerName='';
+        $controllerName = '';
     }
 
     if (isset($_GET['methode'])){
         $methode=$_GET['methode'];
     }else{
-        $methode='';
+        $methode = '';
     }
 
     //Gestion de la page d'accueil par défaut
     if ($controllerName == '' && $methode ==''){
-        $controllerName='coach';
-        $methode='lister';
+        $controllerName = 'coach';
+        $methode = 'lister';
     }
 
     if ($controllerName == '' ){

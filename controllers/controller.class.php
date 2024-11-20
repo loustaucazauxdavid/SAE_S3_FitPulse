@@ -1,5 +1,18 @@
 <?php
+/**
+ * @file controller.class.php
+ * @brief Classe Controller
+ */
 
+/**
+ * @brief Classe Controller
+ * @details Classe abstraite qui permet de gérer les contrôleurs
+ * @param PDO $pdo Connexion à la base de données
+ * @param \Twig\Loader\FilesystemLoader $loader Loader de fichiers
+ * @param \Twig\Environment $twig Environnement Twig
+ * @param array|null $get Tableau des paramètres GET
+ * @param array|null $post Tableau des paramètres POST
+ */
 class Controller{
     private PDO $pdo;
     private \Twig\Loader\FilesystemLoader $loader;
