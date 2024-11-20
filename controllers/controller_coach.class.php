@@ -1,4 +1,8 @@
 <?php 
+/**
+ * @file controller_coach.class.php
+ * @brief Controller pour les coachs
+ */
 
 class ControllerCoach extends Controller{
     public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {

@@ -1,7 +1,7 @@
 <?php
-
 /**
- * Classe Discipline
+ * @file discipline.class.php
+ * @brief Classe Discipline
  */
 
 class Discipline {

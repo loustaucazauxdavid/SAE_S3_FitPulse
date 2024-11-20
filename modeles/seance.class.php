@@ -1,7 +1,7 @@
 <?php
-
 /**
- * Classe Seance
+ * @file seance.class.php
+ * @brief Classe Seance
  */
 
 class Seance {

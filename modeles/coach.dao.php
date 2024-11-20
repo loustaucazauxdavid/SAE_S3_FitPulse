@@ -1,7 +1,7 @@
 <?php
-
 /**
- * DAO Coach
+ * @file coach.dao.php
+ * @brief DAO de la table Coach
  */
 
 const TABLE_COACH = PREFIXE_TABLE . 'Coach';

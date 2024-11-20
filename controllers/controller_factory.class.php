@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file controller_factory.class.php
+ * @brief Factory de controleurs
+ */
 
 class ControllerFactory
 {

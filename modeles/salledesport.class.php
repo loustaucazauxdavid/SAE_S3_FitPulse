@@ -1,7 +1,7 @@
 <?php
-
 /**
- * Classe SalleDeSport
+ * @file salledesport.class.php
+ * @brief Classe SalleDeSport
  */
 
 class SalleDeSport {

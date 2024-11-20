@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file constantes.php
+ * @brief Fichier contenant les constantes du site
+ */
 
 // Connexion à la base de données
 define('DB_HOST', 'lakartxela');

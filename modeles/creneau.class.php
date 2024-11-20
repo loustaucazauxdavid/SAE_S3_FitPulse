@@ -1,7 +1,7 @@
 <?php
-
 /**
- * Classe Creneau
+ * @file creneau.class.php
+ * @brief Classe Creneau
  */
 
 class Creneau {

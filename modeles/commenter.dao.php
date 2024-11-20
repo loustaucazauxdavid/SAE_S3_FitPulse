@@ -1,7 +1,7 @@
 <?php
-
 /**
- * DAO Commenter
+ * @file commenter.dao.php
+ * @brief DAO de la table commenter
  */
 
 const TABLE_COMMENTER = PREFIXE_TABLE . 'commenter';

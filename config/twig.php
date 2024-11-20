@@ -1,4 +1,9 @@
 <?php
+/**
+ * @file config/twig.php
+ * @brief Configuration de l'environnement twig
+ */
+
 //ajout de la classe IntlExtension et creation de l’alias IntlExtension
 use Twig\Extra\Intl\IntlExtension;
 

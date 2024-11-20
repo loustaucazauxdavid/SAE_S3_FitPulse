@@ -1,7 +1,7 @@
 <?php
-
 /**
- * Classe Commenter
+ * @file commenter.class.php
+ * @brief Classe Commenter
  */
 
 class Commenter {

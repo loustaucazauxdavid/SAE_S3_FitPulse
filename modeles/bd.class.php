@@ -1,7 +1,8 @@
-/**
- * Classe Singleton pour la connexion à la base de données
- */
 <?php
+/**
+ * @file bd.class.php
+ * @brief Classe Singleton pour la connexion à la base de données
+ */
 
 class Bd{
 
