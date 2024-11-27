@@ -5,7 +5,7 @@
  */
 
 /**
- * Enumération pour LieuCours
+ * Variable d'énumération pour le lieu des cours du coach : Distanciel, Présentiel, Hybride
  */
 enum LieuCours: string {
     case DISTANCIEL = 'Distanciel';

@@ -4,6 +4,10 @@
  * @brief Classe Commenter
  */
 
+/**
+ * @brief Classe Commenter
+ * @details Cette classe permet de créer un commentaire
+ */
 class Commenter {
     private ?int $idPratiquant;
     private ?int $idCoach;
@@ -12,6 +16,15 @@ class Commenter {
     private ?string $contenu;
     private ?DateTime $datePost;
 
+    /**
+     * @brief Constructeur de la classe Commenter
+     * @param int $idPratiquant Identifiant du pratiquant
+     * @param int $idCoach Identifiant du coach
+     * @param float $note Note attribuée au coach
+     * @param string $titre Titre du commentaire
+     * @param string $contenu Contenu du commentaire
+     * @param DateTime $datePost Date de publication du commentaire
+     */
     public function __construct(
         ?int $idPratiquant = null,
         ?int $idCoach = null,

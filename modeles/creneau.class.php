@@ -4,6 +4,10 @@
  * @brief Classe Creneau
  */
 
+/**
+ * @brief Classe Creneau
+ * @details Cette classe permet de gérer les créneaux
+ */
 class Creneau {
     private ?int $id;
     private ?DateTime $dateDebut;
@@ -13,6 +17,10 @@ class Creneau {
     private ?int $idDiscipline;
     private ?int $idCoach;
 
+    /**
+     * @brief Constructeur de la classe Creneau
+     * @param int $id Identifiant du créneau
+     */
     public function __construct(
         ?int $id = null,
         ?DateTime $dateDebut = null,
