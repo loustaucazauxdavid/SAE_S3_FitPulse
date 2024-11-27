@@ -90,13 +90,16 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">Controller Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe <a class="el" href="class_controller.html" title="Classe Controller.">Controller</a>.  
+ <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for Controller:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_controller.png" usemap="#Controller_map" alt=""/>
   <map id="Controller_map" name="Controller_map">
-<area href="class_controller_coach.html" alt="ControllerCoach" shape="rect" coords="0,56,105,80"/>
+<area href="class_controller_coach.html" title="Controller pour les coachs." alt="ControllerCoach" shape="rect" coords="0,56,105,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -127,7 +130,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a06aa127ce0f51b87c67ce99e8b90387b" id="r_a06aa127ce0f51b87c67ce99e8b90387b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06aa127ce0f51b87c67ce99e8b90387b">setPost</a> (?array $post)</td></tr>
 <tr class="separator:a06aa127ce0f51b87c67ce99e8b90387b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe <a class="el" href="class_controller.html" title="Classe Controller.">Controller</a>. </p>
+<p>Classe abstraite qui permet de gérer les contrôleurs </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aac1b432a1dde9fc9cd6a6c7a699e4d39" name="aac1b432a1dde9fc9cd6a6c7a699e4d39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac1b432a1dde9fc9cd6a6c7a699e4d39">&#9670;&#160;</a></span>__construct()</h2>
 
@@ -146,6 +152,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructeur de la classe <a class="el" href="class_controller.html" title="Classe Controller.">Controller</a> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">\Twig\Environment</td><td class="paramname">$twig</td><td></td></tr>
+    <tr><td class="paramtype">\Twig\Loader\FilesystemLoader</td><td class="paramname">$loader</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
 <p>Reimplemented in <a class="el" href="class_controller_coach.html#aac1b432a1dde9fc9cd6a6c7a699e4d39">ControllerCoach</a>.</p>
 
@@ -166,6 +180,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Méthode abstraite call </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">string</td><td class="paramname">$methode</td><td>Nom de la méthode à appeler </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>mixed </dd></dl>
 
 </div>
 </div>
@@ -183,7 +204,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the value of get </p>
+<p>Getters et setters des variables get et post </p>
 
 </div>
 </div>
@@ -201,7 +222,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the value of loader </p>
+<p>Getter de la variable membre loader </p>
 
 </div>
 </div>
@@ -219,7 +240,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the value of pdo </p>
+<p>Getter de la variable membre pdo </p>
 
 </div>
 </div>
@@ -237,7 +258,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the value of post </p>
+<p>Getters de la variable post </p>
 
 </div>
 </div>
@@ -255,7 +276,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the value of twig </p>
+<p>Getter de la variable membre twig </p>
 
 </div>
 </div>
@@ -273,7 +294,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the value of get </p>
+<p>Setters de la variable get </p>
 
 </div>
 </div>
@@ -291,7 +312,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the value of loader </p>
+<p>Setter de la variable membre loader </p>
 
 </div>
 </div>
@@ -309,7 +330,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the value of pdo </p>
+<p>Setter de la variable membre pdo </p>
 
 </div>
 </div>
@@ -327,7 +348,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the value of post </p>
+<p>Setters de la variable post </p>
 
 </div>
 </div>
@@ -345,7 +366,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set the value of twig </p>
+<p>Setter de la variable membre twig </p>
 
 </div>
 </div>

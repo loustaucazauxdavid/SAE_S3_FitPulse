@@ -7,11 +7,6 @@
 /**
  * @brief Classe Controller
  * @details Classe abstraite qui permet de gérer les contrôleurs
- * @param PDO $pdo Connexion à la base de données
- * @param \Twig\Loader\FilesystemLoader $loader Loader de fichiers
- * @param \Twig\Environment $twig Environnement Twig
- * @param array|null $get Tableau des paramètres GET
- * @param array|null $post Tableau des paramètres POST
  */
 class Controller{
     private PDO $pdo;
@@ -20,7 +15,13 @@ class Controller{
     private ?array $get = null;
     private ?array $post =null;
 
-   public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {
+    /**
+     * Constructeur de la classe Controller
+     * @param \Twig\Environment $twig
+     * @param \Twig\Loader\FilesystemLoader $loader
+     * @return void
+     */
+    public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {
         $db = Bd::getInstance();
         $this->pdo = $db->getConnexion();
 
@@ -35,6 +36,11 @@ class Controller{
         }
     }
 
+    /**
+     * Méthode abstraite call
+     * @param string $methode Nom de la méthode à appeler
+     * @return mixed
+     */
     public function call(string $methode): mixed{
 
         if (!method_exists($this, $methode)){
@@ -44,21 +50,17 @@ class Controller{
         
     }
 
-    
-
-
     /**
-     * Get the value of pdo
-     */ 
+     * Getter de la variable membre pdo
+     */
     public function getPdo(): ?PDO
     {
         return $this->pdo;
     }
 
     /**
-     * Set the value of pdo
-     *
-     */ 
+     * Setter de la variable membre pdo
+     */
     public function setPdo(?PDO $pdo):void
     {
         $this->pdo = $pdo;
@@ -67,7 +69,7 @@ class Controller{
     }
 
     /**
-     * Get the value of loader
+     * Getter de la variable membre loader
      */ 
     public function getLoader(): \Twig\Loader\FilesystemLoader
     {
@@ -75,19 +77,16 @@ class Controller{
     }
 
     /**
-     * Set the value of loader
-     *
-     */ 
+     * Setter de la variable membre loader
+     */
     public function setLoader(\Twig\Loader\FilesystemLoader $loader) :void
     {
         $this->loader = $loader;
 
     }
 
-    
-
     /**
-     * Get the value of twig
+     * Getter de la variable membre twig
      */ 
     public function getTwig(): \Twig\Environment
     {
@@ -95,28 +94,24 @@ class Controller{
     }
 
     /**
-     * Set the value of twig
-     *
-     */ 
+     * Setter de la variable membre twig
+     */
     public function setTwig(\Twig\Environment $twig): void
     {
         $this->twig = $twig;
 
     }
 
-    
-
     /**
-     * Get the value of get
-     */ 
+     * Getters et setters des variables get et post
+     */
     public function getGet(): ?array
     {
         return $this->get;
     }
 
     /**
-     * Set the value of get
-     *
+     * Setters de la variable get
      */ 
     public function setGet(?array $get): void
     {
@@ -125,7 +120,7 @@ class Controller{
     }
 
     /**
-     * Get the value of post
+     * Getters de la variable post
      */ 
     public function getPost(): ?array
     {
@@ -133,15 +128,11 @@ class Controller{
     }
 
     /**
-     * Set the value of post
-     *
-
+     * Setters de la variable post
      */ 
     public function setPost(?array $post): void
     {
         $this->post = $post;
-
-
     }
 }
 

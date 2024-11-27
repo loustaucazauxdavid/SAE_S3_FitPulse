@@ -6,9 +6,17 @@
 
 const TABLE_COMMENTER = PREFIXE_TABLE . 'commenter';
 
+/**
+ * @brief Classe CommenterDao
+ * @details Cette classe permet de gérer les interactions avec la table commenter.
+ */
 class CommenterDao {
     private ?PDO $pdo;
 
+    /**
+     * Constructeur de la classe CommenterDao
+     * @param PDO $pdo Objet PDO à utiliser pour la communication avec la base de données.
+     */
     public function __construct(PDO $pdo = null) {
         $this->pdo = $pdo;
     }
@@ -66,7 +74,6 @@ class CommenterDao {
         }
         return $commenters;
     }
-
 
     /**
      * Getter de la variable membre PDO

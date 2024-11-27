@@ -4,6 +4,10 @@
  * @brief Classe Seance
  */
 
+/**
+ * @brief Classe Seance
+ * @details Cette classe permet de gérer les séances
+ */
 class Seance {
     private ?int $id;
     private ?bool $estPaye;

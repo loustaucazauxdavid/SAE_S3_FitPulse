@@ -37,5 +37,4 @@ class ControllerCoach extends Controller{
             'listeCoachs' => $listeCoachs,
         ));
     }
-
 }

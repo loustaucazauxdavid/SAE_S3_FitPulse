@@ -4,10 +4,19 @@
  * @brief Classe Discipline
  */
 
+/**
+ * @brief Classe Discipline
+ * @details Cette classe permet de gérer les disciplines
+ */
 class Discipline {
     private ?int $id;
     private ?string $nom;
 
+    /**
+     * @brief Constructeur de la classe Discipline
+     * @param int|null $id Identifiant de la discipline
+     * @param string|null $nom Nom de la discipline
+     */
     public function __construct(
         ?int $id = null,
         ?string $nom = null)
