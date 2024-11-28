@@ -5,5 +5,7 @@ var searchData=
   ['db_5fpass_2',['DB_PASS',['../constantes_8php.html#a8bb9c4546d91667cfa61879d83127a92',1,'constantes.php']]],
   ['db_5fuser_3',['DB_USER',['../constantes_8php.html#a1d1d99f8e08f387d84fe9848f3357156',1,'constantes.php']]],
   ['discipline_4',['Discipline',['../class_discipline.html',1,'']]],
-  ['discipline_2eclass_2ephp_5',['discipline.class.php',['../discipline_8class_8php.html',1,'']]]
+  ['discipline_2eclass_2ephp_5',['discipline.class.php',['../discipline_8class_8php.html',1,'']]],
+  ['dossier_6',['Dossier',['../class_dossier.html',1,'']]],
+  ['dossier_2eclass_2ephp_7',['dossier.class.php',['../dossier_8class_8php.html',1,'']]]
 ];
