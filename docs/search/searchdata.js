@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "$_bcdfghilprstw",
-  1: "bcds",
-  2: "bcdirst",
+  0: "$_bcdfghilprstuw",
+  1: "bcdsu",
+  2: "bcdirstu",
   3: "_cfghls",
   4: "$dptw",
   5: "l",
