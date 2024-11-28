@@ -1,8 +1,12 @@
 <?php
-
 /**
  * @file utilisateur.class.php
  * @brief Classe Utilisateur
+ */
+
+/**
+ * @brief Classe Utilisateur
+ * @details Cette classe permet de gérer les utilisateurs
  */
 class Utilisateur {
     private ?int $id;

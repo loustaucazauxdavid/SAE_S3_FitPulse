@@ -1,8 +1,12 @@
 <?php
-
 /**
  * @file dossier.class.php
  * @brief Classe Dossier
+ */
+
+/**
+ * @brief Classe Dossier
+ * @details Cette classe permet de gérer les dossiers
  */
 class Dossier {
     private ?int $id;
