@@ -1,23 +1,14 @@
 <?php
-/**
- * @file coach.class.php
- * @brief Classe Coach
- */
 
 /**
- * Variable d'énumération pour le lieu des cours du coach : Distanciel, Présentiel, Hybride
+ * Classe Coach
  */
-enum LieuCours: string {
-    case DISTANCIEL = 'Distanciel';
-    case PRESENTIEL = 'Présentiel';
-    case HYBRIDE = 'Hybride';
-}
 
 class Coach {
     private ?int $id;
     private ?string $contact;
     private ?string $description;
-    private ?LieuCours $lieuCours; // Utilisation de l'énumération LieuCours
+    private ?string $lieuCours; // Utilisation de l'énumération LieuCours
     private ?bool $estVerifie;
     private ?string $emailPaypal;
     private ?int $idUtilisateur;
@@ -110,7 +101,7 @@ class Coach {
      * Getter de la variable membre lieuCours
      * @return LieuCours|null Le lieu des cours du coach
      */ 
-    public function getLieuCours(): ?LieuCours
+    public function getLieuCours(): ?string
     {
         return $this->lieuCours;
     }
@@ -119,8 +110,15 @@ class Coach {
      * Setter de la variable membre lieuCours
      * @param LieuCours|null $lieuCours Le lieu des cours du coach
      */ 
-    public function setLieuCours(?LieuCours $lieuCours): void
+    public function setLieuCours(?string $lieuCours): void
     {
+        // Première version de controles des valeurs (cf. Videos Etcheverry)
+        $valeursValides = ['Distanciel', 'Présentiel', 'Hybride'];
+        
+        if (!in_array($lieuCours, $valeursValides, true)) {
+            throw new InvalidArgumentException("Valeur invalide passé dans LieuCours : $value");
+        }
+
         $this->lieuCours = $lieuCours;
     }
 

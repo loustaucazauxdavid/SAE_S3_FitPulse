@@ -23,6 +23,7 @@ require_once 'controllers/controller_coach.class.php';
 
 // Ajout des modèles classes
 require_once 'modeles/coach.class.php';
+require_once 'modeles/coachNote.class.php';
 require_once 'modeles/creneau.class.php';
 require_once 'modeles/discipline.class.php';
 require_once 'modeles/salledesport.class.php';
@@ -31,4 +32,5 @@ require_once 'modeles/commenter.class.php';
 
 // Ajout des modèles DAO
 require_once 'modeles/coach.dao.php';
+require_once 'modeles/coachNote.dao.php';
 require_once 'modeles/commenter.dao.php';
