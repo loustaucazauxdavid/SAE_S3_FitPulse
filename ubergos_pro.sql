@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : mysql-5.7
--- Généré le : jeu. 28 nov. 2024 à 09:35
+-- Généré le : mar. 03 déc. 2024 à 15:35
 -- Version du serveur : 5.7.28
 -- Version de PHP : 8.0.19
 
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `fitpulse_Coach`
 --
 
-
 CREATE TABLE `fitpulse_Coach` (
   `id` int(10) NOT NULL,
   `contact` varchar(255) NOT NULL,
@@ -46,8 +45,18 @@ INSERT INTO `fitpulse_Coach` (`id`, `contact`, `description`, `lieuCours`, `estV
 (1, 'pierre.leblanc@example.com', 'Coach en musculation', 'Présentiel', 1, 'jean.paypal@example.com', 1),
 (2, 'sophie.boucher@example.com', 'Coach en yoga', 'Distanciel', 1, 'claire.paypal@example.com', 2),
 (3, 'marc.muller@example.com', 'Coach en HIIT et CrossFit', 'Hybride', 1, 'paul.paypal@example.com', 3),
-(4, 'elise.vidal@example.com', 'Coach en pilates', 'Présentiel', 0, 'lisa.paypal@example.com', 4),
-(5, 'luca.guillaume@example.com', 'Coach en boxe', 'Distanciel', 0, 'sophie.paypal@example.com', 5);
+(4, 'elise.vidal@example.com', 'Coach en pilates', 'Présentiel', 1, 'lisa.paypal@example.com', 4),
+(5, 'luca.guillaume@example.com', 'Coach en boxe', 'Distanciel', 1, 'sophie.paypal@example.com', 5),
+(6, 'alexandre.lemoine@example.com', 'Coach en musculation', 'Présentiel', 1, 'alexandre.paypal@example.com', 13),
+(7, 'isabelle.tanguy@example.com', 'Coach en yoga', 'Distanciel', 1, 'isabelle.paypal@example.com', 14),
+(8, 'julien.durand@example.com', 'Coach en HIIT et CrossFit', 'Hybride', 1, 'julien.paypal@example.com', 15),
+(9, 'francois.lemoine@example.com', 'Coach en pilates', 'Présentiel', 1, 'francois.paypal@example.com', 16),
+(10, 'nathalie.chauvet@example.com', 'Coach en boxe', 'Distanciel', 1, 'nathalie.paypal@example.com', 17),
+(11, 'michel.delacroix@example.com', 'Coach en fitness', 'Présentiel', 1, 'michel.paypal@example.com', 18),
+(12, 'elena.martin@example.com', 'Coach en danse', 'Hybride', 1, 'elena.paypal@example.com', 19),
+(13, 'sophie.girard@example.com', 'Coach en bien-être', 'Distanciel', 1, 'sophie.paypal@example.com', 20),
+(14, 'antoine.perrin@example.com', 'Coach en musculation', 'Présentiel', 1, 'antoine.paypal@example.com', 21),
+(15, 'caroline.benoit@example.com', 'Coach en yoga', 'Distanciel', 1, 'caroline.paypal@example.com', 22);
 
 -- --------------------------------------------------------
 
@@ -68,11 +77,20 @@ CREATE TABLE `fitpulse_commenter` (
 -- Déchargement des données de la table `fitpulse_commenter`
 --
 
-INSERT INTO `fitpulse_commenter` (`idPratiquant`, `idCoach`, `note`, `titre`, `contenu`, `DatePost`) 
-VALUES
-(1, 1, '4.5', 'Super coach', 'Pierre a une approche très motivante.', '2024-11-28 10:00:00'), -- Pratiquant 1 avec Coach 1
-(2, 2, '5.0', 'Yoga au top', 'Sophie a un excellent savoir-faire en yoga.', '2024-11-28 10:30:00'), -- Pratiquant 2 avec Coach 2
-(3, 3, '4.0', 'Entraînement intense', 'Marc est super, mais les séances sont trop difficiles pour moi.', '2024-11-28 11:00:00'); -- Pratiquant 3 avec Coach 3
+INSERT INTO `fitpulse_commenter` (`idPratiquant`, `idCoach`, `note`, `titre`, `contenu`, `DatePost`) VALUES
+(1, 1, '4.5', 'Super coach', 'Pierre a une approche très motivante.', '2024-11-28 10:00:00'),
+(2, 2, '5.0', 'Yoga au top', 'Sophie a un excellent savoir-faire en yoga.', '2024-11-28 10:30:00'),
+(3, 3, '4.0', 'Entraînement intense', 'Marc est super, mais les séances sont trop difficiles pour moi.', '2024-11-28 11:00:00'),
+(4, 4, '3.5', 'Séances intéressantes', 'Elise propose des exercices intéressants, mais j\'aurais aimé plus de variété.', '2024-11-28 11:30:00'),
+(5, 5, '4.8', 'Boxe top niveau', 'Luca est un coach incroyable, ses séances de boxe sont parfaites.', '2024-11-28 12:00:00'),
+(6, 6, '4.2', 'Excellente méthode', 'Alexandre est très méthodique, mais les séances manquent un peu de dynamisme.', '2024-11-28 12:30:00'),
+(7, 7, '4.9', 'Yoga et relaxation', 'Isabelle a une approche douce et relaxante, j\'adore ses cours de yoga.', '2024-11-28 13:00:00'),
+(8, 8, '3.7', 'Pas assez de suivi', 'Julien est un bon coach, mais il manque de suivi personnalisé.', '2024-11-28 13:30:00'),
+(9, 9, '4.3', 'Cardio efficace', 'Luc m\'a bien motivé à augmenter mon niveau d\'endurance. Les cours sont bien structurés.', '2024-11-28 14:00:00'),
+(10, 10, '4.6', 'CrossFit de qualité', 'Camille est un coach dynamique et passionné par le CrossFit.', '2024-11-28 14:30:00'),
+(11, 11, '4.0', 'Coaching en musculation', 'Marie est bonne, mais je trouve que ses exercices manquent parfois de difficulté.', '2024-11-28 15:00:00'),
+(12, 12, '4.7', 'Séances de yoga relaxantes', 'Pierre a une approche zen et relaxante, idéale pour se détendre.', '2024-11-28 15:30:00'),
+(13, 13, '4.5', 'Fitness complet', 'Marc est motivant et ses exercices sont complets, je me sens beaucoup plus en forme.', '2024-11-28 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -107,7 +125,6 @@ INSERT INTO `fitpulse_Creneau` (`id`, `dateDebut`, `dateFin`, `capacite`, `tarif
 -- Structure de la table `fitpulse_Discipline`
 --
 
-
 CREATE TABLE `fitpulse_Discipline` (
   `id` int(10) NOT NULL,
   `nom` varchar(50) NOT NULL
@@ -136,12 +153,12 @@ INSERT INTO `fitpulse_Discipline` (`id`, `nom`) VALUES
 --
 
 CREATE TABLE `fitpulse_Dossier` (
-    `id` INT(10) NOT NULL,
-    `identiteRecto` VARCHAR(255) NOT NULL,
-    `identiteVerso` VARCHAR(255) NOT NULL,
-    `certificat` VARCHAR(255) NOT NULL,
-    `cv` VARCHAR(255) NOT NULL,
-    `idCoach` INT(10) NOT NULL
+  `id` int(10) NOT NULL,
+  `identiteRecto` varchar(255) NOT NULL,
+  `identiteVerso` varchar(255) NOT NULL,
+  `certificat` varchar(255) NOT NULL,
+  `cv` varchar(255) NOT NULL,
+  `idCoach` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -174,7 +191,15 @@ INSERT INTO `fitpulse_Pratiquant` (`id`, `contact`, `description`, `idUtilisateu
 (2, 'claire.martin@example.com', 'Amoureuse du yoga et de la danse', 7),
 (3, 'paul.durand@example.com', 'Débutant en fitness', 8),
 (4, 'luc.morel@example.com', 'Entraînement régulier en cardio', 9),
-(5, 'camille.bernard@example.com', 'Fan de CrossFit', 10);
+(5, 'camille.bernard@example.com', 'Fan de CrossFit', 10),
+(6, 'marc.girard@example.com', 'Fan de fitness et de musculation', 23),
+(7, 'julien.lemoine@example.com', 'Amateur de sport en extérieur', 24),
+(8, 'sophie.martin@example.com', 'Pratique le yoga et la méditation', 25),
+(9, 'luc.durand@example.com', 'Débutant en musculation', 26),
+(10, 'isabelle.chauvet@example.com', 'Passionnée de danse', 27),
+(11, 'caroline.benoit@example.com', 'Pratique le yoga et la course à pied', 28),
+(12, 'alexandre.girard@example.com', 'Pratique le CrossFit', 29),
+(13, 'louis.morel@example.com', 'Entraînement en force et résistance', 30);
 
 -- --------------------------------------------------------
 
@@ -310,17 +335,31 @@ INSERT INTO `fitpulse_Utilisateur` (`id`, `motDePasse`, `nom`, `prenom`, `mail`,
 (3, 'mypassword', 'Muller', 'Marc', 'marc.muller@example.com', NULL, '2023-11-05', 1, 0),
 (4, 'password456', 'Vidal', 'Elise', 'elise.vidal@example.com', NULL, '2024-02-01', 1, 0),
 (5, 'password789', 'Guillaume', 'Luca', 'luca.guillaume@example.com', NULL, '2024-02-05', 1, 0),
-
--- Les pratiquants
 (6, 'password123', 'Leclerc', 'Anne', 'anne.leclerc@example.com', NULL, '2024-01-15', 1, 0),
 (7, 'securepass', 'Lemoine', 'Pauline', 'pauline.lemoine@example.com', 'pauline.jpg', '2023-12-10', 1, 0),
 (8, 'mypassword', 'Morel', 'Louis', 'louis.morel@example.com', NULL, '2023-11-05', 1, 0),
 (9, 'password123', 'Morel', 'Luc', 'luc.morel@example.com', NULL, '2024-02-01', 1, 0),
 (10, 'password123', 'Bernard', 'Camille', 'camille.bernard@example.com', NULL, '2024-02-05', 1, 0),
-
--- Les admins :
 (11, 'superpassword!12', 'Dupuis', 'Marc', 'marc.dupuis@example.com', NULL, '2023-01-01', 1, 1),
-(12, 'mdpsuper!34', 'Dupont', 'Julie', 'julie.dupont@example.com', NULL, '2023-01-01', 1, 1);
+(12, 'mdpsuper!34', 'Dupont', 'Julie', 'julie.dupont@example.com', NULL, '2023-01-01', 1, 1),
+(13, 'newpassword123', 'Lemoine', 'Alexandre', 'alexandre.lemoine@example.com', NULL, '2024-12-03', 1, 0),
+(14, 'strongpass456', 'Tanguy', 'Isabelle', 'isabelle.tanguy@example.com', NULL, '2024-12-03', 1, 0),
+(15, 'passwordxyz', 'Durand', 'Julien', 'julien.durand@example.com', NULL, '2024-12-03', 1, 0),
+(16, 'mypassword!7', 'Lemoine', 'François', 'francois.lemoine@example.com', NULL, '2024-12-03', 1, 0),
+(17, 'newsecurepass', 'Chauvet', 'Nathalie', 'nathalie.chauvet@example.com', NULL, '2024-12-03', 1, 0),
+(18, 'coachpass123', 'Delacroix', 'Michel', 'michel.delacroix@example.com', NULL, '2024-12-03', 1, 0),
+(19, 'qwerty2024', 'Martin', 'Elena', 'elena.martin@example.com', NULL, '2024-12-03', 1, 0),
+(20, 'securepassword01', 'Girard', 'Sophie', 'sophie.girard@example.com', NULL, '2024-12-03', 1, 0),
+(21, 'coachpassword44', 'Perrin', 'Antoine', 'antoine.perrin@example.com', NULL, '2024-12-03', 1, 0),
+(22, 'trainingpass2024', 'Benoit', 'Caroline', 'caroline.benoit@example.com', NULL, '2024-12-03', 1, 0),
+(23, 'password456', 'Girard', 'Marc', 'marc.girard@example.com', NULL, '2024-12-03', 1, 0),
+(24, 'mypassword456', 'Lemoine', 'Julien', 'julien.lemoine@example.com', NULL, '2024-12-03', 1, 0),
+(25, 'mypassword!23', 'Martin', 'Sophie', 'sophie.martin@example.com', NULL, '2024-12-03', 1, 0),
+(26, 'password789456', 'Durand', 'Luc', 'luc.durand@example.com', NULL, '2024-12-03', 1, 0),
+(27, 'newpassword!23', 'Chauvet', 'Isabelle', 'isabelle.chauvet@example.com', NULL, '2024-12-03', 1, 0),
+(28, 'securepass789', 'Benoit', 'Caroline', 'caroline.benoit@example.com', NULL, '2024-12-03', 1, 0),
+(29, 'qwerty1234', 'Girard', 'Alexandre', 'alexandre.girard@example.com', NULL, '2024-12-03', 1, 0),
+(30, 'password5678', 'Morel', 'Louis', 'louis.morel@example.com', NULL, '2024-12-03', 1, 0);
 
 --
 -- Index pour les tables déchargées
@@ -411,13 +450,13 @@ ALTER TABLE `fitpulse_Utilisateur`
 -- AUTO_INCREMENT pour la table `fitpulse_Coach`
 --
 ALTER TABLE `fitpulse_Coach`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `fitpulse_Creneau`
 --
 ALTER TABLE `fitpulse_Creneau`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `fitpulse_Discipline`
@@ -429,13 +468,13 @@ ALTER TABLE `fitpulse_Discipline`
 -- AUTO_INCREMENT pour la table `fitpulse_Dossier`
 --
 ALTER TABLE `fitpulse_Dossier`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `fitpulse_Pratiquant`
 --
 ALTER TABLE `fitpulse_Pratiquant`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `fitpulse_Salle_de_sport`
@@ -447,13 +486,13 @@ ALTER TABLE `fitpulse_Salle_de_sport`
 -- AUTO_INCREMENT pour la table `fitpulse_Seance`
 --
 ALTER TABLE `fitpulse_Seance`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT pour la table `fitpulse_Utilisateur`
 --
 ALTER TABLE `fitpulse_Utilisateur`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Contraintes pour les tables déchargées
