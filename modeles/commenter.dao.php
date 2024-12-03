@@ -4,8 +4,6 @@
  * @brief DAO de la table commenter
  */
 
-const TABLE_COMMENTER = PREFIXE_TABLE . 'commenter';
-
 /**
  * @brief Classe CommenterDao
  * @details Cette classe permet de gérer les interactions avec la table commenter.

@@ -25,7 +25,6 @@ class CoachDao {
     }
 
 
-
     /**
      * Récupère tous les coachs sous forme de tableaux associatifs.
      * @return array[] Un tableau de tableaux associatifs représentant tous les coachs.
@@ -36,7 +35,6 @@ class CoachDao {
         $pdoStatement->execute();
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
         return $pdoStatement->fetchAll(); 
-    }
     }
 
     /**
@@ -49,7 +47,6 @@ class CoachDao {
         $coach->setId($coachAssoc['id']);
         $coach->setContact($coachAssoc['contact']);
         $coach->setDescription($coachAssoc['description']);
-        $coach->setLieuCours($coachAssoc['lieuCours']);
         $coach->setLieuCours($coachAssoc['lieuCours']);
         $coach->setEstVerifie((bool) $coachAssoc['estVerifie']); // Conversion en booléen
         $coach->setEmailPaypal($coachAssoc['emailPaypal']);

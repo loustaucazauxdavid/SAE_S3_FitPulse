@@ -29,10 +29,6 @@ class ControllerCoach extends Controller{
         $listeCoachsNotesAssoc = $managerCoach->findTopNbByNote(10);
         $listeCoachsNotes = $managerCoach->hydrateAll($listeCoachsNotesAssoc);
 
-        $managerCoach = new CoachNoteDao($this->getPdo());
-        $listeCoachsNotesAssoc = $managerCoach->findTopNbByNote(10);
-        $listeCoachsNotes = $managerCoach->hydrateAll($listeCoachsNotesAssoc);
-
         // Chargement du template index
         $template = $this->getTwig()->load('index.html.twig');
 
