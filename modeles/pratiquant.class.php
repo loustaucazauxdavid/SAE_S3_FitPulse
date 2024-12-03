@@ -12,6 +12,7 @@ class Pratiquant {
     private ?int $id;
     private ?string $contact;
     private ?string $description;
+    private ?int $idUtilisateur;
     
     /**
      * @brief Constructeur de la classe Pratiquant
@@ -29,21 +30,21 @@ class Pratiquant {
      * Getter de la variable membre id
      */ 
     public function getId(): ?int{
-        return $id;
+        return $this->id;
     }
 
     /**
      * Getter de la variable membre contact
      */
-    public function getContact(): ?int{
-        return $contact;
+    public function getContact(): ?string{
+        return $this->contact;
     }
 
     /**
      * Getter de la variable membre description
      */
-    public function getDescription(): ?int{
-        return $description;
+    public function getDescription(): ?string{
+        return $this->description;
     }
 
     /**
@@ -65,5 +66,13 @@ class Pratiquant {
      */
     public function setDescription(?string $description): void{
         $this->description = $description;
+    }
+
+    public function getIdUtilisateur(): ?int{
+        return $this->idUtilisateur;
+    }
+
+    public function setIdUtilisateur(?int $idUtilisateur): void{
+        $this->idUtilisateur = $idUtilisateur;
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-const TABLE_COACH = PREFIXE_TABLE . 'Coach';
+const TABLE_UTILISATEUR = PREFIXE_TABLE . 'Utilisateur';
 
-class CoachDao {
+class UtilisateurDao {
     private ?PDO $pdo;
 
     public function __construct(PDO $pdo = null) {
@@ -18,36 +18,40 @@ class CoachDao {
         $this->pdo = $pdo;
     }
 
-    public function find(int $id): ?Coach {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_COACH . ' WHERE id = :id');
+    public function find(int $id): ?Utilisateur {
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_UTILISATEUR . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Coach::class);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
         return $stmt->fetch();
     }
 
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_COACH);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Coach::class);
+        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_UTILISATEUR);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
         return $stmt->fetchAll();
     }
 
-    public function hydrate(array $coachAssoc): Coach {
-        $coach = new Coach();
-        $coach->setId($coachAssoc['id']);
-        $coach->setContact($coachAssoc['contact']);
-        $coach->setDescription($coachAssoc['description']);
-        $coach->setLieuCours(LieuCours::from($coachAssoc['lieuCours'])); // Conversion en Enum
-        $coach->setEstVerifie((bool) $coachAssoc['estVerifie']); // Conversion en booléen
-        $coach->setEmailPaypal($coachAssoc['emailPaypal']);
-        $coach->setIdUtilisateur($coachAssoc['idUtilisateur']);
-        return $coach;
+    public function hydrate(array $utilisateurAssoc): Utilisateur {
+        $utilisateur = new Utilisateur();
+        $utilisateur->setId($utilisateurAssoc['id']);
+        $utilisateur->setNom($utilisateurAssoc['nom']);
+        $utilisateur->setPrenom($utilisateurAssoc['prenom']);
+        $utilisateur->setMail($utilisateurAssoc['email']);
+        $utilisateur->setMotDePasse($utilisateurAssoc['motDePasse']);
+        $utilisateur->setPhoto($utilisateurAssoc[NULL]);
+        $utilisateur->setDateInscription($utilisateurAssoc[date('d/m/Y')]);
+        $utilisateur->setEstActif($utilisateurAssoc[FALSE]);
+        $utilisateur->setEstAdmin($utilisateurAssoc[FALSE]);
+        return $utilisateur;
     }
 
-    public function hydrateAll(array $coachsAssoc): array {
-        $coachs = [];
-        foreach ($coachsAssoc as $coachAssoc) {
-            $coachs[] = $this->hydrate($coachAssoc);
+    public function hydrateAll(array $utilisateursAssoc): array {
+        $utilisateurs = [];
+        foreach ($utilisateursAssoc as $utilisateurAssoc) {
+            $utilisateurs[] = $this->hydrate($utilisateurAssoc);
         }
-        return $coachs;
+        return $utilisateurs;
     }
+
+
 }
