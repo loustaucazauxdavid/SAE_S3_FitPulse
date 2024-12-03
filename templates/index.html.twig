@@ -2,10 +2,22 @@
     
     {% block title %}FitPulse - Accueil{% endblock %}
     
-    {% block content %}
+    {% block contenu %}
 
     <main>
-        
+        {% for coachNote in listeCoachsNotes %}
+    <h2>Informations du Coach noté : </h2>
+    <p>ID: {{ coachNote.coach.id }}</p>
+    <p>Contact: {{ coachNote.coach.contact }}</p>
+    <p>Description: {{ coachNote.coach.description }}</p>
+    <p>Lieu du cours: {{ coachNote.coach.lieuCours }}</p>
+    <p>Est vérifié : {{ coachNote.coach.estVerifie ? 'Oui' : 'Non' }}</p>
+    <p>Email PayPal: {{ coachNote.coach.emailPaypal }}</p>
+    <p>ID Utilisateur: {{ coachNote.coach.idUtilisateur }}</p>
+
+    <h2>Note Moyenne</h2>
+    <p>{{ coachNote.noteMoyenne }}</p>
+{% endfor %}
 
 
     </main>

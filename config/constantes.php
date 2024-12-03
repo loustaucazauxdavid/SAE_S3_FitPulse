@@ -10,7 +10,11 @@ define('DB_NAME', 'ubergos_pro'); /// Nom de la base de données
 define('DB_USER', 'ubergos_pro'); /// Nom d'utilisateur
 define('DB_PASS', 'ubergos_pro'); /// Mot de passe
 
-define('PREFIXE_TABLE', 'fitpulse_'); /// Préfixe des tables
+// Tables
+define('PREFIXE_TABLE', 'fitpulse_');
+define('TABLE_COMMENTER', PREFIXE_TABLE . "commenter");
+define('TABLE_COACH', PREFIXE_TABLE . "Coach");
+
 
 // Constante de la partie vue
 define('WEBSITE_TITLE', 'FitPulse'); /// Titre du site
