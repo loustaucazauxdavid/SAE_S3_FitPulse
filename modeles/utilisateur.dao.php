@@ -40,8 +40,8 @@ class UtilisateurDao {
         $utilisateur->setMotDePasse($utilisateurAssoc['motDePasse']);
         $utilisateur->setPhoto($utilisateurAssoc['photo']);
         $utilisateur->setDateInscription($utilisateurAssoc['dateInscription']);
-        $utilisateur->setEstActif($utilisateurAssoc[TRUE]);
-        $utilisateur->setEstAdmin($utilisateurAssoc[FALSE]);
+        $utilisateur->setEstActif($utilisateurAssoc['estActif']);
+        $utilisateur->setEstAdmin($utilisateurAssoc['estAdmin']);
         return $utilisateur;
     }
 
