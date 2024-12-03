@@ -38,9 +38,9 @@ class UtilisateurDao {
         $utilisateur->setPrenom($utilisateurAssoc['prenom']);
         $utilisateur->setMail($utilisateurAssoc['email']);
         $utilisateur->setMotDePasse($utilisateurAssoc['motDePasse']);
-        $utilisateur->setPhoto($utilisateurAssoc[NULL]);
-        $utilisateur->setDateInscription($utilisateurAssoc[date('d/m/Y')]);
-        $utilisateur->setEstActif($utilisateurAssoc[FALSE]);
+        $utilisateur->setPhoto($utilisateurAssoc['photo']);
+        $utilisateur->setDateInscription($utilisateurAssoc['dateInscription']);
+        $utilisateur->setEstActif($utilisateurAssoc[TRUE]);
         $utilisateur->setEstAdmin($utilisateurAssoc[FALSE]);
         return $utilisateur;
     }
