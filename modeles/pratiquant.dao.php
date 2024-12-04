@@ -39,4 +39,12 @@ class PratiquantDao {
         return $pratiquant;
     }
 
+    public function hydrateAll(array $pratiquantsAssoc): array {
+        $pratiquants = [];
+        foreach ($pratiquantsAssoc as $pratiquantAssoc) {
+            $pratiquants[] = $this->hydrate($pratiquantAssoc);
+        }
+        return $pratiquants;
+    }
+
 }
