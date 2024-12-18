@@ -18,8 +18,16 @@ class Creneau {
     private ?int $idCoach;
 
     /**
-     * @brief Constructeur de la classe Creneau
-     * @param int $id Identifiant du créneau
+     * Constructeur de la classe Creneau
+     * Initialise les variables membres de la classe
+     * @param int|null $id
+     * @param DateTime|null $dateDebut
+     * @param DateTime|null $dateFin
+     * @param int|null $capacite
+     * @param int|null $tarif
+     * @param int|null $idDiscipline
+     * @param int|null $idCoach
+     * @return void
      */
     public function __construct(
         ?int $id = null,
@@ -41,6 +49,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre id
+     * @return int|null L'identifiant du créneau
      */ 
     public function getId(): ?int
     {
@@ -49,6 +58,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id
      */ 
     public function setId(?int $id): void
     {
@@ -57,6 +67,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre dateDebut
+     * @return DateTime|null La date de début du créneau
      */ 
     public function getDateDebut(): ?DateTime
     {
@@ -65,6 +76,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre dateDebut
+     * @param DateTime|null $dateDebut
      */ 
     public function setDateDebut(?DateTime $dateDebut): void
     {
@@ -73,6 +85,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre dateFin
+     * @return DateTime|null La date de fin du créneau
      */ 
     public function getDateFin(): ?DateTime
     {
@@ -81,6 +94,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre dateFin
+     * @param DateTime|null $dateFin
      */ 
     public function setDateFin(?DateTime $dateFin): void
     {
@@ -89,6 +103,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre capacite
+     * @return int|null La capacité du créneau
      */ 
     public function getCapacite(): ?int
     {
@@ -97,6 +112,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre capacite
+     * @param int|null $capacite
      */ 
     public function setCapacite(?int $capacite): void
     {
@@ -105,6 +121,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre tarif
+     * @return int|null Le tarif du créneau
      */ 
     public function getTarif(): ?int
     {
@@ -113,6 +130,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre tarif
+     * @param int|null $tarif
      */ 
     public function setTarif(?int $tarif): void
     {
@@ -121,6 +139,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre idDiscipline
+     * @return int|null L'identifiant de la discipline
      */ 
     public function getIdDiscipline(): ?int
     {
@@ -129,6 +148,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre idDiscipline
+     * @param int|null $idDiscipline
      */ 
     public function setIdDiscipline(?int $idDiscipline): void
     {
@@ -137,6 +157,7 @@ class Creneau {
 
     /**
      * Getter de la variable membre idCoach
+     * @return int|null L'identifiant du coach
      */ 
     public function getIdCoach(): ?int
     {
@@ -145,6 +166,7 @@ class Creneau {
 
     /**
      * Setter de la variable membre idCoach
+     * @param int|null $idCoach
      */ 
     public function setIdCoach(?int $idCoach): void
     {

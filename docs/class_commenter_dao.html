@@ -98,10 +98,10 @@ $(function(){ initResizable(false); });
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1af66732d88f0cf13159e9a0475fcbf3" id="r_a1af66732d88f0cf13159e9a0475fcbf3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1af66732d88f0cf13159e9a0475fcbf3">__construct</a> (PDO $pdo=null)</td></tr>
 <tr class="separator:a1af66732d88f0cf13159e9a0475fcbf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5581a13ac4699f9526bee3b53d4b5589" id="r_a5581a13ac4699f9526bee3b53d4b5589"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5581a13ac4699f9526bee3b53d4b5589">findAssoc</a> (int $idCommentaire)</td></tr>
-<tr class="separator:a5581a13ac4699f9526bee3b53d4b5589"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a584ce41683cc8dfa9f035be21416074d" id="r_a584ce41683cc8dfa9f035be21416074d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a584ce41683cc8dfa9f035be21416074d">findAllAssoc</a> ()</td></tr>
-<tr class="separator:a584ce41683cc8dfa9f035be21416074d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a433e54df244aec92b33e1c65b10aa777" id="r_a433e54df244aec92b33e1c65b10aa777"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a433e54df244aec92b33e1c65b10aa777">find</a> (int $idPratiquant, int $idCoach)</td></tr>
+<tr class="separator:a433e54df244aec92b33e1c65b10aa777"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73a1b0348919b6755e4f69dcc70eba64" id="r_a73a1b0348919b6755e4f69dcc70eba64"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73a1b0348919b6755e4f69dcc70eba64">findAll</a> ()</td></tr>
+<tr class="separator:a73a1b0348919b6755e4f69dcc70eba64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7bdf1084b8a7b00a6eace2c7709070" id="r_abf7bdf1084b8a7b00a6eace2c7709070"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf7bdf1084b8a7b00a6eace2c7709070">hydrate</a> (array $commenterAssoc)</td></tr>
 <tr class="separator:abf7bdf1084b8a7b00a6eace2c7709070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac636f6b352707e7457bcead0b4639d13" id="r_ac636f6b352707e7457bcead0b4639d13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac636f6b352707e7457bcead0b4639d13">hydrateAll</a> (array $commentersAssoc)</td></tr>
@@ -139,45 +139,50 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a584ce41683cc8dfa9f035be21416074d" name="a584ce41683cc8dfa9f035be21416074d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a584ce41683cc8dfa9f035be21416074d">&#9670;&#160;</a></span>findAllAssoc()</h2>
+<a id="a433e54df244aec92b33e1c65b10aa777" name="a433e54df244aec92b33e1c65b10aa777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433e54df244aec92b33e1c65b10aa777">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">findAllAssoc </td>
+          <td class="memname">find </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idPratiquant</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idCoach</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Trouve un commentaire dans la base de données de l'id d'un pratiquant et d'un coach donnés. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">int</td><td class="paramname">$idPratiquant</td><td>L'identifiant du pratiquant. </td></tr>
+    <tr><td class="paramtype">int</td><td class="paramname">$idCoach</td><td>L'identifiant du coach. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Commenter|null Le commentaire trouvé, ou null s'il n'existe pas. </dd></dl>
+
+</div>
+</div>
+<a id="a73a1b0348919b6755e4f69dcc70eba64" name="a73a1b0348919b6755e4f69dcc70eba64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73a1b0348919b6755e4f69dcc70eba64">&#9670;&#160;</a></span>findAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">findAll </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Récupère tous les commentaires sous forme de tableaux associatifs. </p><dl class="section return"><dt>Returns</dt><dd>array[] Un tableau de tableaux associatifs représentant tous les commentaires. </dd></dl>
-
-</div>
-</div>
-<a id="a5581a13ac4699f9526bee3b53d4b5589" name="a5581a13ac4699f9526bee3b53d4b5589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5581a13ac4699f9526bee3b53d4b5589">&#9670;&#160;</a></span>findAssoc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">findAssoc </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>$idCommentaire</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Récupère un commentaire sous forme de tableau associatif par son ID. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramtype">int</td><td class="paramname">$idCommentaire</td><td>L'ID du commentaire à récupérer. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>array|null Le tableau associatif représentant un commentaire. </dd></dl>
+<p>Trouve tous les commentaires dans la base de données. </p><dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>[] Un tableau d'objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>. </dd></dl>
 
 </div>
 </div>
@@ -195,7 +200,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter de la variable membre PDO </p>
+<p>Getter de la variable membre PDO </p><dl class="section return"><dt>Returns</dt><dd>PDO|null L'objet PDO à utiliser pour la communication avec la base de données. </dd></dl>
 
 </div>
 </div>
@@ -213,13 +218,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Hydrate un tableau associatif dans un objet <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Méthode pour hydrater un objet <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">array</td><td class="paramname">$commenterAssoc</td><td>Le tableau associatif représentant un commentaire. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$pratiquerAssoc</td><td>Le tableau associatif représentant un objet <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> L'objet <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> hydraté. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> L'objet <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> hydraté </dd></dl>
 
 </div>
 </div>
@@ -237,13 +242,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Hydrate un tableau de tableaux associatifs dans un tableau d'objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Méthode pour hydrater un tableau d'objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramtype">array</td><td class="paramname">$commentersAssoc</td><td>Un tableau de tableaux associatifs représentant les commentaires. </td></tr>
+    <tr><td class="paramtype">array</td><td class="paramname">$commentersAssoc</td><td>Le tableau associatif représentant un tableau d'objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>[] Un tableau d'objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> hydratés. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a>[] Les objets <a class="el" href="class_commenter.html" title="Classe Commenter.">Commenter</a> hydratés </dd></dl>
 
 </div>
 </div>
@@ -261,7 +266,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Setter de la variable membre PDO </p>
+<p>Setter de la variable membre PDO </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">PDO</td><td class="paramname">$pdo</td><td>L'objet PDO à utiliser pour la communication avec la base de données. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

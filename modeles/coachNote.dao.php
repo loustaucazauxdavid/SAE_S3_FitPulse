@@ -1,22 +1,33 @@
 <?php
-
 /**
- * DAO CoachNote
+ * @file coachNote.dao.php
+ * @brief DAO pour les notes des coachs
  */
 
+require_once '/config/constantes.php';
+
+/**
+ * @brief DAO pour les notes des coachs
+ * @details Gère les requêtes vers la table coachNote
+ */
 class CoachNoteDao {
     private ?PDO $pdo;
 
+    /**
+     * Constructeur de la classe CoachNoteDao
+     * @param PDO|null $pdo
+     * @return void
+     */
     public function __construct(PDO $pdo = null) {
         $this->pdo = $pdo;
     }
 
-
     /**
-     * Récupère les 10 meilleurs coachs selon la moyenne de leurs notes.
+     * Récupère les meilleurs coachs selon la moyenne de leurs notes.
+     * @param int $nbResultats Le nombre de coachs à récupérer.
      * @return array[] Un tableau de tableaux associatifs représentant les meilleurs coachs.
      */
-    public function findTopNbByNote(int $nbResultats): array {
+    public function findTopNbByNote(int $nbResultats = 10): array {
         $sql = "
             SELECT c.*, AVG(com.note) AS moyenneNote
             FROM " . TABLE_COACH . " c
@@ -32,11 +43,10 @@ class CoachNoteDao {
         return $pdoStatement->fetchAll();
     }
 
-    
     /**
-     * Hydrate un tableau associatif dans un objet Coach.
-     * @param array $coachAssoc Le tableau associatif représentant un coach.
-     * @return Coach L'objet Coach hydraté.
+     * Méthode pour hydrater un objet CoachNote
+     * @param array $pratiquerAssoc Le tableau associatif représentant un objet CoachNote
+     * @return CoachNote L'objet CoachNote hydraté
      */
     public function hydrate(array $coachAssoc): CoachNote {
         $coachNote = new CoachNote();
@@ -50,11 +60,10 @@ class CoachNoteDao {
         return $coachNote;
     }
 
-
     /**
-     * Hydrate un tableau de tableaux associatifs dans un tableau d'objets Coach.
-     * @param array $coachsAssoc Un tableau de tableaux associatifs représentant les coachs.
-     * @return Coach[] Un tableau d'objets Coach hydratés.
+     * Méthode pour hydrater tous les objets CoachNote
+     * @param array $coachsAssoc Le tableau associatif représentant des objets CoachNote
+     * @return CoachNote[] Les objets CoachNote hydratés
      */
     public function hydrateAll(array $coachsAssoc): array {
     
@@ -64,7 +73,6 @@ class CoachNoteDao {
         }
         return $coachs;
     }
-
 
     /**
      * Getter de la variable membre PDO

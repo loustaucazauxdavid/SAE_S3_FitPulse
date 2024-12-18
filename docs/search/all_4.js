@@ -6,6 +6,10 @@ var searchData=
   ['db_5fuser_3',['DB_USER',['../constantes_8php.html#a1d1d99f8e08f387d84fe9848f3357156',1,'constantes.php']]],
   ['discipline_4',['Discipline',['../class_discipline.html',1,'']]],
   ['discipline_2eclass_2ephp_5',['discipline.class.php',['../discipline_8class_8php.html',1,'']]],
-  ['dossier_6',['Dossier',['../class_dossier.html',1,'']]],
-  ['dossier_2eclass_2ephp_7',['dossier.class.php',['../dossier_8class_8php.html',1,'']]]
+  ['discipline_2edao_2ephp_6',['discipline.dao.php',['../discipline_8dao_8php.html',1,'']]],
+  ['disciplinedao_7',['DisciplineDao',['../class_discipline_dao.html',1,'']]],
+  ['dossier_8',['Dossier',['../class_dossier.html',1,'']]],
+  ['dossier_2eclass_2ephp_9',['dossier.class.php',['../dossier_8class_8php.html',1,'']]],
+  ['dossier_2edao_2ephp_10',['dossier.dao.php',['../dossier_8dao_8php.html',1,'']]],
+  ['dossierdao_11',['DossierDao',['../class_dossier_dao.html',1,'']]]
 ];

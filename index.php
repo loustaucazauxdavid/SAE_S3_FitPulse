@@ -4,10 +4,10 @@
  * @brief Point d'entrée de l'application
  */
 
-// Ajout du code commun à toutes les pages
 require_once 'include.php';
 
-try{
+try 
+{
     if (isset($_GET['controleur'])){
         $controllerName = $_GET['controleur'];
     }else{
@@ -37,7 +37,8 @@ try{
     $controller = ControllerFactory::getController($controllerName, $loader, $twig);
   
     $controller->call($methode);
-}catch (Exception $e) {
+}
+catch (Exception $e) {
    die('Erreur : ' . $e->getMessage());
 }
 

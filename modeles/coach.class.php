@@ -1,9 +1,13 @@
 <?php
-
 /**
- * Classe Coach
+ * @file coach.class.php
+ * @brief Classe pour les coachs
  */
 
+/**
+ * @brief Classe pour les coachs
+ * @details Gère les informations des coachs
+ */
 class Coach {
     private ?int $id;
     private ?string $contact;

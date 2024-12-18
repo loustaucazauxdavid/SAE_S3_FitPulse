@@ -43,6 +43,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre idPratiquant
+     * @return int|null L'identifiant du pratiquant
      */ 
     public function getIdPratiquant(): ?int
     {
@@ -51,6 +52,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre idPratiquant
+     * @param int|null $idPratiquant
      */ 
     public function setIdPratiquant(?int $idPratiquant): void
     {
@@ -59,6 +61,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre idCoach
+     * @return int|null L'identifiant du coach
      */ 
     public function getIdCoach(): ?int
     {
@@ -67,6 +70,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre idCoach
+     * @param int|null $idCoach
      */ 
     public function setIdCoach(?int $idCoach): void
     {
@@ -75,6 +79,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre note
+     * @return float|null La note attribuée au coach
      */ 
     public function getNote(): ?float
     {
@@ -83,6 +88,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre note
+     * @param float|null $note
      */ 
     public function setNote(?float $note): void
     {
@@ -91,6 +97,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre titre
+     * @return string|null Le titre du commentaire
      */ 
     public function getTitre(): ?string
     {
@@ -99,6 +106,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre titre
+     * @param string|null $titre
      */ 
     public function setTitre(?string $titre): void
     {
@@ -107,6 +115,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre contenu
+     * @return string|null Le contenu du commentaire
      */ 
     public function getContenu(): ?string
     {
@@ -115,6 +124,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre contenu
+     * @param string|null $contenu
      */ 
     public function setContenu(?string $contenu): void
     {
@@ -123,6 +133,7 @@ class Commenter {
 
     /**
      * Getter de la variable membre datePost
+     * @return DateTime|null La date de publication du commentaire
      */ 
     public function getDatePost(): ?DateTime
     {
@@ -131,6 +142,7 @@ class Commenter {
 
     /**
      * Setter de la variable membre datePost
+     * @param DateTime|null $datePost
      */ 
     public function setDatePost(?DateTime $datePost): void
     {

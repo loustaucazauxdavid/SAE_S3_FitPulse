@@ -1,13 +1,11 @@
 var indexSectionsWithContent =
 {
   0: "$_bcdfghilprstuw",
-  1: "bcdsu",
-  2: "bcdirstu",
+  1: "bcdpsu",
+  2: "bcdiprstu",
   3: "_cfghls",
   4: "$dptw",
-  5: "l",
-  6: "h",
-  7: "r"
+  5: "r"
 };
 
 var indexSectionNames =
@@ -17,9 +15,7 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "enums",
-  6: "enumvalues",
-  7: "pages"
+  5: "pages"
 };
 
 var indexSectionLabels =
@@ -29,8 +25,6 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Enumerations",
-  6: "Enumerator",
-  7: "Pages"
+  5: "Pages"
 };
 

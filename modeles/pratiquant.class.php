@@ -28,6 +28,7 @@ class Pratiquant {
 
     /**
      * Getter de la variable membre id
+     * @return int|null
      */ 
     public function getId(): ?int{
         return $this->id;
@@ -35,6 +36,7 @@ class Pratiquant {
 
     /**
      * Getter de la variable membre contact
+     * @return string|null
      */
     public function getContact(): ?string{
         return $this->contact;
@@ -42,6 +44,7 @@ class Pratiquant {
 
     /**
      * Getter de la variable membre description
+     * @return string|null
      */
     public function getDescription(): ?string{
         return $this->description;
@@ -49,6 +52,7 @@ class Pratiquant {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id
      */
     public function setId(?int $id): void{
         $this->id = $id;
@@ -56,6 +60,7 @@ class Pratiquant {
 
     /**
      * Setter de la variable membre contact
+     * @param string|null $contact
      */
     public function setContact(?string $contact): void{
         $this->contact = $contact;
@@ -63,15 +68,24 @@ class Pratiquant {
 
     /**
      * Setter de la variable membre description
+     * @param string|null $description
      */
     public function setDescription(?string $description): void{
         $this->description = $description;
     }
 
+    /**
+     * Getter de la variable membre idUtilisateur
+     * @return int|null
+     */
     public function getIdUtilisateur(): ?int{
         return $this->idUtilisateur;
     }
 
+    /**
+     * Setter de la variable membre idUtilisateur
+     * @param int|null $idUtilisateur
+     */
     public function setIdUtilisateur(?int $idUtilisateur): void{
         $this->idUtilisateur = $idUtilisateur;
     }
