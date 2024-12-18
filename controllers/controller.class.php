@@ -64,8 +64,6 @@ class Controller{
     public function setPdo(?PDO $pdo):void
     {
         $this->pdo = $pdo;
-
-
     }
 
     /**
