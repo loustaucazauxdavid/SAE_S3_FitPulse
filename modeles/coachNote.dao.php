@@ -61,7 +61,7 @@ class CoachNoteDao {
     }
 
     /**
-     * Méthode pour hydrater tous les objets CoachNote
+     * Méthode pour hydrater un tableau d'objets CoachNote
      * @param array $coachsAssoc Le tableau associatif représentant des objets CoachNote
      * @return CoachNote[] Les objets CoachNote hydratés
      */

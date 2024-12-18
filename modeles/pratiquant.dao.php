@@ -75,9 +75,9 @@ class PratiquantDao {
     }
 
     /**
-     * Méthode pour hydrater un tableau de tableaux associatifs en un tableau d'objets Pratiquant
-     * @param array $pratiquantsAssoc Un tableau de tableaux associatifs représentant les pratiquants
-     * @return Pratiquant[] Un tableau d'objets Pratiquant hydratés
+     * Méthode pour hydrater un tableau de pratiquants
+     * @param array $pratiquantsAssoc Le tableau associatif représentant un tableau de pratiquants
+     * @return Pratiquant[] Le tableau de pratiquants hydraté
      */
     public function hydrateAll(array $pratiquantsAssoc): array {
         $pratiquants = [];

@@ -62,7 +62,7 @@ class UtilisateurDao {
 
     /**
      * Méthode pour hydrater un utilisateur
-     * @param array $utilisateurAssoc
+     * @param array $utilisateurAssoc Le tableau associatif représentant un utilisateur
      * @return Utilisateur L'utilisateur hydraté
      */
     public function hydrate(array $utilisateurAssoc): Utilisateur {

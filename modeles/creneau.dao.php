@@ -74,7 +74,7 @@ class CreneauDao {
     }
 
     /**
-     * Méthode pour hydrater tous les créneaux
+     * Méthode pour hydrater un tableau de créneaux
      * @param array $creneauxAssoc Le tableau associatif représentant les créneaux
      * @return Creneau[] Les créneaux hydratés
      */

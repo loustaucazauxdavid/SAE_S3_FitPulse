@@ -11,18 +11,18 @@ define('DB_USER', 'ubergos_pro'); /// Nom d'utilisateur
 define('DB_PASS', 'ubergos_pro'); /// Mot de passe
 
 // Tables
-define('PREFIXE_TABLE', 'fitpulse_');
-define('TABLE_COMMENTER', PREFIXE_TABLE . "commenter");
-define('TABLE_COACH', PREFIXE_TABLE . "Coach");
-define('TABLE_CRENEAU', PREFIXE_TABLE . "creneau");
-define('TABLE_DISCIPLINE', PREFIXE_TABLE . "discipline");
-define('TABLE_DOSSIER', PREFIXE_TABLE . "dossier");
-define('TABLE_PRATIQUANT', PREFIXE_TABLE . "pratiquant");
-define('TABLE_PRATIQUER', PREFIXE_TABLE . "pratiquer");
-define('TABLE_PROPOSER_DANS', PREFIXE_TABLE . "proposer_dans");
-define('TABLE_SALLE_DE_SPORT', PREFIXE_TABLE . "salle_de_sport");
-define('TABLE_SEANCE', PREFIXE_TABLE . "seance");
-define('TABLE_UTILISATEUR', PREFIXE_TABLE . "utilisateur");
+define('PREFIXE_TABLE', 'fitpulse_'); /// Préfixe des tables : Nom de la base de données
+define('TABLE_COMMENTER', PREFIXE_TABLE . "commenter"); /// Table commenter
+define('TABLE_COACH', PREFIXE_TABLE . "Coach"); /// Table Coach
+define('TABLE_CRENEAU', PREFIXE_TABLE . "creneau"); /// Table creneau
+define('TABLE_DISCIPLINE', PREFIXE_TABLE . "discipline"); /// Table discipline
+define('TABLE_DOSSIER', PREFIXE_TABLE . "dossier"); /// Table dossier
+define('TABLE_PRATIQUANT', PREFIXE_TABLE . "pratiquant"); /// Table pratiquant
+define('TABLE_PRATIQUER', PREFIXE_TABLE . "pratiquer"); /// Table pratiquer
+define('TABLE_PROPOSER_DANS', PREFIXE_TABLE . "proposer_dans"); /// Table proposer_dans
+define('TABLE_SALLE_DE_SPORT', PREFIXE_TABLE . "salle_de_sport"); /// Table salle_de_sport
+define('TABLE_SEANCE', PREFIXE_TABLE . "seance"); /// Table seance
+define('TABLE_UTILISATEUR', PREFIXE_TABLE . "utilisateur"); /// Table utilisateur
 
 // Constante de la partie vue
 define('WEBSITE_TITLE', 'FitPulse'); /// Titre du site
