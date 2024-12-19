@@ -4,7 +4,7 @@
  * @brief DAO de la table commenter
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief Classe CommenterDao

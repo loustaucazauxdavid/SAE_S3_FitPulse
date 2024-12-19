@@ -4,7 +4,7 @@
  * @brief DAO de la table Coach
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief Classe CoachDao

@@ -4,7 +4,7 @@
  * @brief Fichier de la classe PratiquantDao
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief Classe PratiquantDao

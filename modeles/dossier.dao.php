@@ -4,7 +4,7 @@
  * @brief Classe DossierDao
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief Classe DossierDao

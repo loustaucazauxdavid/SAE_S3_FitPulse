@@ -4,7 +4,7 @@
  * @brief DAO de la table Discipline
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief Classe DisciplineDao

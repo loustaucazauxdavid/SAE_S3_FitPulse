@@ -4,7 +4,7 @@
  * @brief DAO pour les notes des coachs
  */
 
-require_once '/config/constantes.php';
+require_once 'config/constantes.php';
 
 /**
  * @brief DAO pour les notes des coachs

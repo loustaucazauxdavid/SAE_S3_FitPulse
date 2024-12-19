@@ -26,7 +26,7 @@ require_once 'modeles/coach.class.php';
 require_once 'modeles/coachNote.class.php';
 require_once 'modeles/creneau.class.php';
 require_once 'modeles/discipline.class.php';
-require_once 'modeles/salledesport.class.php';
+require_once 'modeles/salle_de_sport.class.php';
 require_once 'modeles/seance.class.php';  
 require_once 'modeles/commenter.class.php';
 
