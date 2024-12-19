@@ -27,6 +27,7 @@ class Discipline {
 
     /**
      * Getter de la variable membre id
+     * @return int|null L'identifiant de la discipline
      */ 
     public function getId(): ?int
     {
@@ -35,6 +36,7 @@ class Discipline {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id
      */ 
     public function setId(?int $id): void
     {
@@ -43,6 +45,7 @@ class Discipline {
 
     /**
      * Getter de la variable membre nom
+     * @return string|null Le nom de la discipline
      */ 
     public function getNom(): ?string
     {
@@ -51,6 +54,7 @@ class Discipline {
 
     /**
      * Setter de la variable membre nom
+     * @param string|null $nom
      */ 
     public function setNom(?string $nom): void
     {

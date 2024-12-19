@@ -55,6 +55,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre id
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -63,6 +64,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id
      */
     public function setId(?int $id): void
     {
@@ -71,6 +73,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre motDePasse
+     * @return string|null
      */
     public function getMotDePasse(): ?string
     {
@@ -79,6 +82,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre motDePasse
+     * @param string|null $motDePasse
      */
     public function setMotDePasse(?string $motDePasse): void
     {
@@ -87,6 +91,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre nom
+     * @return string|null
      */
     public function getNom(): ?string
     {
@@ -95,6 +100,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre nom
+     * @param string|null $nom
      */
     public function setNom(?string $nom): void
     {
@@ -103,6 +109,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre prenom
+     * @return string|null
      */
     public function getPrenom(): ?string
     {
@@ -111,6 +118,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre prenom
+     * @param string|null $prenom
      */
     public function setPrenom(?string $prenom): void
     {
@@ -119,6 +127,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre mail
+     * @return string|null
      */
     public function getMail(): ?string
     {
@@ -127,6 +136,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre mail
+     * @param string|null $mail
      */
     public function setMail(?string $mail): void
     {
@@ -135,6 +145,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre photo
+     * @return string|null
      */
     public function getPhoto(): ?string
     {
@@ -143,6 +154,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre photo
+     * @param string|null $photo
      */
     public function setPhoto(?string $photo): void
     {
@@ -151,6 +163,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre dateInscription
+     * @return DateTime|null
      */
     public function getDateInscription(): ?DateTime
     {
@@ -159,6 +172,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre dateInscription
+     * @param DateTime|null $dateInscription
      */
     public function setDateInscription(?DateTime $dateInscription): void
     {
@@ -167,6 +181,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre estActif
+     * @return bool|null
      */
     public function getEstActif(): ?bool
     {
@@ -175,6 +190,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre estActif
+     * @param bool|null $estActif
      */
     public function setEstActif(?bool $estActif): void
     {
@@ -183,6 +199,7 @@ class Utilisateur {
 
     /**
      * Getter de la variable membre estAdmin
+     * @return bool|null
      */
     public function getEstAdmin(): ?bool
     {
@@ -191,6 +208,7 @@ class Utilisateur {
 
     /**
      * Setter de la variable membre estAdmin
+     * @param bool|null $estAdmin
      */
     public function setEstAdmin(?bool $estAdmin): void
     {

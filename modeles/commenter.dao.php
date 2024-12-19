@@ -4,6 +4,8 @@
  * @brief DAO de la table commenter
  */
 
+require_once '/config/constantes.php';
+
 /**
  * @brief Classe CommenterDao
  * @details Cette classe permet de gérer les interactions avec la table commenter.
@@ -20,34 +22,32 @@ class CommenterDao {
     }
 
     /**
-     * Récupère un commentaire sous forme de tableau associatif par son ID.
-     * @param int $idCommentaire L'ID du commentaire à récupérer.
-     * @return array|null Le tableau associatif représentant un commentaire.
+     * Trouve un commentaire dans la base de données de l'id d'un pratiquant et d'un coach donnés.
+     * @param int $idPratiquant L'identifiant du pratiquant.
+     * @param int $idCoach L'identifiant du coach.
+     * @return Commenter|null Le commentaire trouvé, ou null s'il n'existe pas.
      */
-    public function findAssoc(int $idCommentaire): ?array {
-        $sql = "SELECT * FROM " . TABLE_COMMENTER . " WHERE id = :idCommentaire";
-        $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->execute(array(':idCommentaire' => $idCommentaire));
-        $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
-        return $pdoStatement->fetch();
+    public function find(int $idPratiquant, int $idCoach): ?Commenter {
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_COMMENTER . ' WHERE id = :id');
+        $stmt->execute(['id' => $id]);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Creneau::class);
+        return $stmt->fetch();
     }
 
     /**
-     * Récupère tous les commentaires sous forme de tableaux associatifs.
-     * @return array[] Un tableau de tableaux associatifs représentant tous les commentaires.
+     * Trouve tous les commentaires dans la base de données.
+     * @return Commenter[] Un tableau d'objets Commenter.
      */
-    public function findAllAssoc(): array {
-        $sql = "SELECT * FROM " . TABLE_COMMENTER;
-        $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->execute();
-        $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
-        return $pdoStatement->fetchAll(); 
-    } 
+    public function findAll(): array {
+        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_COMMENTER);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Commenter::class);
+        return $stmt->fetchAll();
+    }
 
     /**
-     * Hydrate un tableau associatif dans un objet Commenter.
-     * @param array $commenterAssoc Le tableau associatif représentant un commentaire.
-     * @return Commenter L'objet Commenter hydraté.
+     * Méthode pour hydrater un objet Commenter
+     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Commenter
+     * @return Commenter L'objet Commenter hydraté
      */
     public function hydrate(array $commenterAssoc): Commenter {
         $commenter = new Commenter();
@@ -61,9 +61,9 @@ class CommenterDao {
     }
 
     /**
-     * Hydrate un tableau de tableaux associatifs dans un tableau d'objets Commenter.
-     * @param array $commentersAssoc Un tableau de tableaux associatifs représentant les commentaires.
-     * @return Commenter[] Un tableau d'objets Commenter hydratés.
+     * Méthode pour hydrater un tableau d'objets Commenter
+     * @param array $commentersAssoc Le tableau associatif représentant un tableau d'objets Commenter
+     * @return Commenter[] Les objets Commenter hydratés
      */
     public function hydrateAll(array $commentersAssoc): array {
         $commenters = [];
@@ -75,6 +75,7 @@ class CommenterDao {
 
     /**
      * Getter de la variable membre PDO
+     * @return PDO|null L'objet PDO à utiliser pour la communication avec la base de données.
      */ 
     public function getPdo(): ?PDO {
         return $this->pdo;
@@ -82,6 +83,7 @@ class CommenterDao {
 
     /**
      * Setter de la variable membre PDO
+     * @param PDO $pdo L'objet PDO à utiliser pour la communication avec la base de données.
      */ 
     public function setPdo(PDO $pdo): void {
         $this->pdo = $pdo;

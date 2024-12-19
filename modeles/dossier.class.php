@@ -43,6 +43,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre id
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -51,6 +52,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre id
+     * @param int|null $id
      */
     public function setId(?int $id): void
     {
@@ -59,6 +61,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre identiteRecto
+     * @return string|null
      */
     public function getIdentiteRecto(): ?string
     {
@@ -67,6 +70,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre identiteRecto
+     * @param string|null $identiteRecto
      */
     public function setIdentiteRecto(?string $identiteRecto): void
     {
@@ -75,6 +79,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre identiteVerso
+     * @return string|null
      */
     public function getIdentiteVerso(): ?string
     {
@@ -83,6 +88,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre identiteVerso
+     * @param string|null $identiteVerso
      */
     public function setIdentiteVerso(?string $identiteVerso): void
     {
@@ -91,6 +97,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre certificat
+     * @return string|null
      */
     public function getCertificat(): ?string
     {
@@ -99,6 +106,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre certificat
+     * @param string|null $certificat
      */
     public function setCertificat(?string $certificat): void
     {
@@ -107,6 +115,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre cv
+     * @return string|null
      */
     public function getCv(): ?string
     {
@@ -115,6 +124,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre cv
+     * @param string|null $cv
      */
     public function setCv(?string $cv): void
     {
@@ -123,6 +133,7 @@ class Dossier {
 
     /**
      * Getter de la variable membre idCoach
+     * @return int|null
      */
     public function getIdCoach(): ?int
     {
@@ -131,6 +142,7 @@ class Dossier {
 
     /**
      * Setter de la variable membre idCoach
+     * @param int|null $idCoach
      */
     public function setIdCoach(?int $idCoach): void
     {

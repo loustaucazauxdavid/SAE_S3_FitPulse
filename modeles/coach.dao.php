@@ -4,9 +4,20 @@
  * @brief DAO de la table Coach
  */
 
+require_once '/config/constantes.php';
+
+/**
+ * @brief Classe CoachDao
+ * @details DAO de la table Coach
+ */
 class CoachDao {
     private ?PDO $pdo;
 
+    /**
+     * Constructeur de la classe CoachDao
+     * @param PDO|null $pdo
+     * @return void
+     */
     public function __construct(PDO $pdo = null) {
         $this->pdo = $pdo;
     }
@@ -38,9 +49,9 @@ class CoachDao {
     }
 
     /**
-     * Hydrate un tableau associatif dans un objet Coach.
-     * @param array $coachAssoc Le tableau associatif représentant un coach.
-     * @return Coach L'objet Coach hydraté.
+     * Méthode pour hydrater un objet Coach
+     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Coach
+     * @return Coach L'objet Coach hydraté
      */
     public function hydrate(array $coachAssoc): Coach {
         $coach = new Coach();
@@ -55,9 +66,9 @@ class CoachDao {
     }
 
     /**
-     * Hydrate un tableau de tableaux associatifs dans un tableau d'objets Coach.
-     * @param array $coachsAssoc Un tableau de tableaux associatifs représentant les coachs.
-     * @return Coach[] Un tableau d'objets Coach hydratés.
+     * Méthode pour hydrater un tableau d'objets Coach
+     * @param array[] $coachsAssoc Le tableau associatif représentant des objets Coach
+     * @return Coach[] Les objets Coach hydratés
      */
     public function hydrateAll(array $coachsAssoc): array {
         $coachs = [];
@@ -69,6 +80,7 @@ class CoachDao {
 
     /**
      * Getter de la variable membre PDO
+     * @return PDO|null L'objet PDO à utiliser pour la communication avec la base de données.
      */ 
     public function getPdo(): ?PDO {
         return $this->pdo;
@@ -76,6 +88,7 @@ class CoachDao {
 
     /**
      * Setter de la variable membre PDO
+     * @param PDO $pdo L'objet PDO à utiliser pour la communication avec la base de données.
      */ 
     public function setPdo(PDO $pdo): void {
         $this->pdo = $pdo;

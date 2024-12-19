@@ -1,12 +1,12 @@
 <?php
 /**
- * @file controller_salleDeSport.class.php
- * @brief Controller pour salleDeSport
+ * @file controller_salle_de_sport.class.php
+ * @brief Controller pour salle_de_sport
  */
 
 /**
- * @brief Controller pour salleDeSport
- * @details Gère les actions liées à salleDeSport
+ * @brief Controller pour salle_de_sport
+ * @details Gère les actions liées à salle_de_sport
  */
 class ControllerSalleDeSport extends Controller{
     /**
