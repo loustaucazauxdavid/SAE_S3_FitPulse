@@ -9,7 +9,7 @@
 		SAE 3.A.01 - Développement d’application et Gestion de projet <br/>
 		IUT de Bayonne et du Pays Basque <br/>
 		BUT Informatique 2024-2025 Semestre 3 <br/> <br/>
-	<a href="https://github.com/othneildrew/Best-README-Template"><strong>Voir la documentation »</strong></a>
+	<a href="https://loustaucazauxdavid.github.io/SAE_S3_FitPulse/"><strong>Voir la documentation »</strong></a>
 </div>
 
  
