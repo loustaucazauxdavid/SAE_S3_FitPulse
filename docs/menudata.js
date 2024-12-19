@@ -23,14 +23,13 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Main Page",url:"index.html"},
-{text:"Related Pages",url:"pages.html"},
-{text:"Data Structures",url:"annotated.html",children:[
-{text:"Data Structures",url:"annotated.html"},
-{text:"Data Structure Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"hierarchy.html"},
-{text:"Data Fields",url:"functions.html",children:[
-{text:"All",url:"functions.html",children:[
+{text:"Page principale",url:"index.html"},
+{text:"Structures de données",url:"annotated.html",children:[
+{text:"Structures de données",url:"annotated.html"},
+{text:"Index des structures de données",url:"classes.html"},
+{text:"Hiérarchie des classes",url:"hierarchy.html"},
+{text:"Champs de donnée",url:"functions.html",children:[
+{text:"Tout",url:"functions.html",children:[
 {text:"_",url:"functions.html#index__5F"},
 {text:"c",url:"functions_c.html#index_c"},
 {text:"f",url:"functions_f.html#index_f"},
@@ -38,7 +37,7 @@ var menudata={children:[
 {text:"h",url:"functions_h.html#index_h"},
 {text:"l",url:"functions_l.html#index_l"},
 {text:"s",url:"functions_s.html#index_s"}]},
-{text:"Functions",url:"functions_func.html",children:[
+{text:"Fonctions",url:"functions_func.html",children:[
 {text:"_",url:"functions_func.html#index__5F"},
 {text:"c",url:"functions_func_c.html#index_c"},
 {text:"f",url:"functions_func_f.html#index_f"},
@@ -46,8 +45,8 @@ var menudata={children:[
 {text:"h",url:"functions_func_h.html#index_h"},
 {text:"l",url:"functions_func_l.html#index_l"},
 {text:"s",url:"functions_func_s.html#index_s"}]}]}]},
-{text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"},
-{text:"Globals",url:"globals.html",children:[
-{text:"All",url:"globals.html"},
+{text:"Fichiers",url:"files.html",children:[
+{text:"Liste des fichiers",url:"files.html"},
+{text:"Variables globale",url:"globals.html",children:[
+{text:"Tout",url:"globals.html"},
 {text:"Variables",url:"globals_vars.html"}]}]}]}

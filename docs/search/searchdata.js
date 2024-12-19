@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "$_bcdfghilprstuw",
+  0: "$023_abcdfghilmnprstuwà",
   1: "bcdpsu",
   2: "bcdiprstu",
   3: "_cfghls",
   4: "$dptw",
-  5: "r"
+  5: "023afgps"
 };
 
 var indexSectionNames =
@@ -20,10 +20,10 @@ var indexSectionNames =
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Data Structures",
-  2: "Files",
-  3: "Functions",
+  0: "Tout",
+  1: "Structures de données",
+  2: "Fichiers",
+  3: "Fonctions",
   4: "Variables",
   5: "Pages"
 };
