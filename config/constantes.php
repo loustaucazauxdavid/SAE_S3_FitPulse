@@ -5,10 +5,10 @@
  */
 
 // Constante de la partie contrôleur
-define('DB_HOST', 'lakartxela'); /// Adresse de l'hôte
-define('DB_NAME', 'ubergos_pro'); /// Nom de la base de données
-define('DB_USER', 'ubergos_pro'); /// Nom d'utilisateur
-define('DB_PASS', 'ubergos_pro'); /// Mot de passe
+define('DB_HOST', '192.168.1.100:3306'); /// Adresse de l'hôte
+define('DB_NAME', 'fitpulse'); /// Nom de la base de données
+define('DB_USER', 'fitpulse'); /// Nom d'utilisateur
+define('DB_PASS', 'fitpulse'); /// Mot de passe
 
 // Tables
 define('PREFIXE_TABLE', 'fitpulse_');
