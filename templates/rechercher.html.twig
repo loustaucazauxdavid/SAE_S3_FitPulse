@@ -1,0 +1,99 @@
+{% extends 'base_template.html.twig' %}
+
+{% block titre %}FitPulse - Recherche
+{% endblock %}
+
+{%block css %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block contenu %}
+	<nav id="sidebar" class="sidebar-content">
+		<form
+			method="POST" action="{{ path('your_route_name') }}">
+			<!-- Toggle switch button -->
+			<div class="form-check form-switch">
+				<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="coach_seance" {% if app.request.post('coach_seance') %} checked {% endif %}>
+				<label class="form-check-label" for="flexSwitchCheckDefault">Recherche de [Coach/Séance]</label>
+			</div>
+
+			<!-- Stars radio buttons -->
+			<div class="sidebar-stars">
+				<p>Note minimale</p>
+				<input type="radio" id="star5" name="star" value="5" {% if app.request.post('star') == '5' %} checked {% endif %}>
+				<label for="star5">5</label>
+				<input type="radio" id="star4" name="star" value="4" {% if app.request.post('star') == '4' %} checked {% endif %}>
+				<label for="star4">4</label>
+				<input type="radio" id="star3" name="star" value="3" {% if app.request.post('star') == '3' %} checked {% endif %}>
+				<label for="star3">3</label>
+				<input type="radio" id="star2" name="star" value="2" {% if app.request.post('star') == '2' %} checked {% endif %}>
+				<label for="star2">2</label>
+				<input type="radio" id="star1" name="star" value="1" {% if app.request.post('star') == '1' %} checked {% endif %}>
+				<label for="star1">1</label>
+			</div>
+
+			<!-- Rechercher par nom -->
+			<div class="sidebar-search">
+				<p>Nom du coach</p>
+				<div class="input-group">
+					<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
+				</div>
+			</div>
+
+			<!-- Slider budget -->
+			<div class="sidebar-slider">
+				<p>Budget
+					<span id="demo"></span>
+				</p>
+				<input type="range" min="0" max="100" value="" class="slider" name="budget" id="myRange">
+			</div>
+
+			<!-- Type de séance -->
+			<div class="sidebar-checkbox">
+				<p>Type de séance</p>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]" {% if 'presentiel' in app.request.post('seance_type') %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]" {% if 'hybride' in app.request.post('seance_type') %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]" {% if 'distanciel' in app.request.post('seance_type') %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+				</div>
+			</div>
+
+			<!-- Widget calendrier -->
+			<div class="container mt-5">
+				<p>Date</p>
+				<div class="input-group date" id="datepicker"></div>
+			</div>
+
+			<!-- Bouton valider -->
+			<button type="submit" class="btn btn-primary">Valider</button>
+		</form>
+	</nav>
+
+	<main class="page-content">
+		<div class="container-fluid">
+			<h2>Résultats</h2>
+			<hr>
+			<div class="row">
+				<div class="form-group col-md-12">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					</p>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock %}
+
+{% block script %}
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.fr.min.js"></script>
+	<script src="JS/rechercher.js"></script>
+{% endblock %}
