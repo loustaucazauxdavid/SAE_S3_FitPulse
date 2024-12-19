@@ -49,7 +49,9 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 		<img src="https://contrib.rocks/image?repo=loustaucazauxdavid/SAE_S3_FitPulse"/>
 	</a>
 </div>
-  
+<br/>
+
+
 <!-- LIENS/IMAGES -->
 
 [capture-site]: images/README/capture.jpg
