@@ -4,22 +4,38 @@
     
     {% block contenu %}
 
-    <main>
-        {% for coachNote in listeCoachsNotes %}
-    <h2>Informations du Coach noté : </h2>
-    <p>ID: {{ coachNote.coach.id }}</p>
-    <p>Contact: {{ coachNote.coach.contact }}</p>
-    <p>Description: {{ coachNote.coach.description }}</p>
-    <p>Lieu du cours: {{ coachNote.coach.lieuCours }}</p>
-    <p>Est vérifié : {{ coachNote.coach.estVerifie ? 'Oui' : 'Non' }}</p>
-    <p>Email PayPal: {{ coachNote.coach.emailPaypal }}</p>
-    <p>ID Utilisateur: {{ coachNote.coach.idUtilisateur }}</p>
+    <body>
 
-    <h2>Note Moyenne</h2>
-    <p>{{ coachNote.noteMoyenne }}</p>
-{% endfor %}
+    <div class="container">
+        <h1>UNE NOUVELLE DEMANDE DE FORMATION :</h1>
+        <p><p>Bienvenue dans votre nouvelle vie fitness ! Ici, nous vous motivons à atteindre vos objectifs grâce à l'exercice et à un mode de vie sain.<br>Rejoignez notre communauté, découvrez des routines adaptées à votre niveau et transformez votre corps et votre esprit.<br> Commencez aujourd'hui et ressentez l'énergie d'un nouveau départ !</p>
+    </div>
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="images/image1.jpg" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="images/image2.jpg" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="images/image3.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    
 
 
-    </main>
+    </body>
+
     
     {% endblock %}
