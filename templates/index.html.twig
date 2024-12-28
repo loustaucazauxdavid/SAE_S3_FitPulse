@@ -4,22 +4,25 @@
     {% block css %}
 
     <style>
-        .carouselExampleControls {
+        .container-carousel {
             display: grid; /* Habilita Flexbox */
-            grid-template-columns: repeat(3, 1fr); /* Una columna flexible */
-            grid-column: 1/2; /* Coloca el carrusel en la segunda columna */
+            grid-template-columns: 1fr 1fr; /* Una columna flexible */
+            grid-column: 1; /* Coloca el carrusel en la segunda columna */
             width: 500px; /* Ajustar el ancho deseado */
             height: 1000px; /* Ajustar la altura deseada */
             overflow: hidden; /* Oculta el contenido que sobresale */
-            width: 200%; /* Asegura que la imagen ocupe el ancho del contenedor */
+            width: 100%; /* Asegura que la imagen ocupe el ancho del contenedor */
             height: auto; /* Mantiene la proporción de la imagen */
         }
 
-        .container {
+        .container-text {
             display: grid; /* Habilita Grid */
-            grid-template-columns: (3, 1fr); /* Primera columna flexible, segunda con ancho automático */
-            grid-column: 3; /* Coloca el texto en la segunda columna */
-            
+            grid-template-columns: 1fr 1fr; /* Dos columnas flexibles */
+            grid-column: 1; /* Coloca el texto en la segunda columna */
+            background: linear-gradient(-45deg, #49c249,rgb(195, 231, 195)); /* Degradado diagonal inverso */
+            font-weight: bold; /* Letras en negrita */
+            padding: 10px; /* Espaciado interno */
+            color: #333; /* Color del texto */
         }
 
     </style>  
@@ -28,18 +31,18 @@
 
     {% block contenu %}
 
-    <div class="container">
+    <div class="container-text">
         <h1>UNE NOUVELLE DEMANDE DE FORMATION :</h1>
         <p><p>Bienvenue dans votre nouvelle vie fitness ! Ici, nous vous motivons à atteindre vos objectifs grâce à l'exercice et à un mode de vie sain.<br>Rejoignez notre communauté, découvrez des routines adaptées à votre niveau et transformez votre corps et votre esprit.<br> Commencez aujourd'hui et ressentez l'énergie d'un nouveau départ !</p>
     </div>
     
 <div class="container-carousel">
 
-<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+<div id="carouselControls" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -52,11 +55,11 @@
       <img class="d-block w-100" src="images/image3 .jpg" alt="Third slide">
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+  <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only"></span>
   </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+  <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only"></span>
   </a>
