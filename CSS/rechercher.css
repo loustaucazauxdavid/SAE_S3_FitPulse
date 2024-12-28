@@ -1,0 +1,108 @@
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-check, .sidebar-stars, .sidebar-search, .sidebar-slider, .sidebar-checkbox, .sidebar-calendar {
+    margin-bottom: 20px;
+}
+
+.sidebar-search .form-control {
+    width: 100%;
+}
+
+.sidebar-stars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.sidebar-stars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type="radio"] {
+    display: none; /* Masquer les boutons radio */
+}
+
+.sidebar-stars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input[type="radio"] {
+    display: none; /* Masquer les boutons radio */
+}
+
+label.star {
+    font-size: 30px;
+    color: gray; /* Couleur de l'étoile vide par défaut */
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+label.star:before {
+    content: "\2606"; /* Symbole d'étoile vide */
+}
+
+/* Les étoiles ne changent pas lors du survol */
+label.star:hover,
+label.star:hover ~ label.star {
+    color: gray; /* Les étoiles restent grises au survol */
+}
+
+/* Lors de la sélection, les étoiles restent vides */
+input[type="radio"]:checked ~ label.star,
+input[type="radio"]:checked ~ label.star ~ label.star {
+    color: gray; /* Les étoiles restent vides et grises même après sélection */
+}
+
+.form-check-label {
+    font-size: 14px;
+}
+
+.sidebar-slider input[type="range"] {
+    width: 100%;
+}
+
+#datepicker {
+    width: 100%;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+}
+
+.page-content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        width: 200px;
+    }
+    .page-content {
+        margin-left: 200px;
+    }
+}
