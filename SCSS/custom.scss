@@ -1,28 +1,9 @@
-// Custom.scss
-// Option A: Include all of Bootstrap
-
-// Include any default variable overrides here (though functions won't be available)
-
-
-// Required
+// Importer les variables Bootstrap
 @import "../node_modules/bootstrap/scss/functions";
-$primary: #e027c2;
-
-
-
-// Required
 @import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/variables-dark";
 
-$theme-colors: (
-        "primary": $primary,
+// Police par défaut
+$font-family-sans-serif: 'Aptos', Arial, sans-serif;
 
-);
-@import "../node_modules/bootstrap/scss/maps";
-@import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
-
+// Importer le reste de Bootstrap
 @import "../node_modules/bootstrap/scss/bootstrap";
-.mycolor {
-  color: $primary;
-}

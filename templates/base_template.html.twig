@@ -1,115 +1,108 @@
-<!-- Template de base pour les pages du site -->
-<!-- Blocs définissables par page : "titre", "css", "contenu", "script" -->
+{# Template de base pour les pages du site #}
+{# Blocs définissables par page : "titre", "css", "contenu", "script" #}
 
 <!DOCTYPE html>
-<html lang="{{ constant('WEBSITE_LANGUAGE')}}">
+<html lang="{{ constant('WEBSITE_LANGUAGE') }}">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Titre de la page, par défaut la constante WEBSITE_TITLE -->
-    <title>{% block titre %}{{ constant('WEBSITE_TITLE')}}{% endblock %}</title>
+    {# Titre de la page, par défaut la constante WEBSITE_TITLE #}
+    <title>{% block titre %}{{ constant('WEBSITE_TITLE') }}{% endblock %}</title>
 
-    <!-- Description de la page passé par le controller, par défaut la constante WEBSITE_DESCRIPTION -->
+    {# Description de la page passé par le controller, par défaut la constante WEBSITE_DESCRIPTION #}
     <meta name="description" content="{{ description is defined ? description : constant('WEBSITE_DESCRIPTION') }}">
- 
-    <!-- CSS compilé commun dont Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
-    
-    <!-- CSS spécifiques à la page -->
-    {% block css %}{% endblock %}
 
+    {# CSS compilé commun dont Bootstrap #}
+    <link rel="stylesheet" type="text/css" href="CSS/styles.css">
+
+    {# CSS spécifiques à la page #}
+    <link rel="stylesheet" type="text/css" href="CSS/base_template.css">
+
+    {% block css %}{% endblock %}
 </head>
 
 <body>
 
-<!-- Header -->
-<div class="container">   
+{# Header #}
 
-  <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">{{ constant('WEBSITE_TITLE')}} {{ constant('WEBSITE_VERSION')}}</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid d-flex w-100" id="navbar-container-fitpulse">
+
+            {# Logo flottant #}
+            <div id="navbar-divlogo-fitpulse">
+                <img id="navbar-logo-fitpulse" src="images/logo.png" alt="Fitpulse">
+            </div>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
 
-                <li class="nav-item">
-                  <a class="nav-link {% if menu=='accueil' %} active {% endif %}" aria-current="page" href="index.php">Accueil</a>
-                </li>
+            <div class="container-fluid d-flex w-100 justify-content-between" id="navbar-content-fitpulse">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    
+                    {# Items en début de barre #}
+                    <ul class="navbar-nav">
+                        <li class="nav-item active"><a class="nav-link" href="#">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Suivi des séances</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Offres</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul> 
 
-                <li class="nav-item">
-                  <a class="nav-link {% if menu=='recherche' %} active {% endif %}" aria-current="page" href="index.php?controleur=coach&methode=lister">Recherche</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <!-- Affichage sélectif en fonction de si l'utilisateur est connecté ou non -->
-                <!-- Par défaut, il n'est pas connecté -->
+                    {# Items en fin de barre #}                
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">   
 
-                <!-- Bloc aligné à droite -->
+                        {% if estConnecte %}   
+                        <form class="form-inline d-flex align-items-center">
+                            <input id="navbar-search-fitpulse" class="form-control" type="search" placeholder="Recherche" aria-label="Search">
+                        </form>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img src="images/default-profile.png" alt="Profil" class="rounded-circle" width="30" height="30">
+                            </a>
+                        </li>
 
-                {% if estConnecte %}   
+                        {% else %}
 
-                  <li class="nav-item">
-                    <a class="nav-link {% if menu=='suiviSeances' %} active {% endif %}" aria-current="page" href="index.php?controleur=seance&methode=lister">Suivi des séances</a>
-                  </li>
+                        <li><a href="#login" id="login-button">Se connecter</a></li>
+
+                        {% endif %}
+                    </ul>
+                    
+                </div>
                 
-                  <li class="nav-item">
-                    <a class="nav-link {% if menu=='parametres' %} active {% endif %}" aria-current="page" href="index.php?controleur=profil&methode=parametrer">Paramètres</a>
-                  </li>
-
-                {% else %}
-                
-                  <li class="nav-item">
-                    <a class="nav-link {% if menu=='connexion' %} active {% endif %}" aria-current="page" href="index.php?controleur=session&methode=connecter">Se connecter</a>
-                  </li>
-                
-                  <li class="nav-item">
-                    <a class="nav-link {% if menu=='enregistrement' %} active {% endif %}" aria-current="page" href="index.php?controleur=session&methode=enregistrer">Créer un compte</a>
-                  </li>
-              
-                {% endif %}
-
-              </ul>
-
             </div>
         </div>
     </nav>
-  </header>
 
-</div>
+    {# Contenu de la page #}
+    <div class="container">
+        {% block contenu %}{% endblock %}
+    </div>
 
-<!-- Contenu de la page -->
-<div class="container">
-  {% block contenu %}{% endblock %}
-</div>
+    {# Footer #}
+    <footer class="bg-dark text-light py-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <p class="mb-0">
+                <a href="#" class="text-light" style="text-decoration: none;">↑ Remonter</a>
+            </p>
+            <p class="mb-0">
+                <img src="images/logo.png" alt="Fitpulse" width="40" height="40" class="me-2" id="footer-logo">
+            </p>
+            <p class="mb-0">
+                <strong>FitPulse</strong> &copy; 2024
+            </p>
+        </div>
+    </footer>
 
-<!-- Footer -->
-<div class="container">
-
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <div class="col-md-4">
-      <span class="text-muted">© 2024 FitPulse</span> <br>
-      <span class="text-muted">Groupe 3 - SAE S3</span> <br>
-      <span class="text-muted">IUT de Bayonne et du Pays basque</span>
-    </div>  
-  </footer>
-
-</div>
-
-<!-- Script Bootstrap commun -->
+{# Script Bootstrap commun #}
+{# JQuery et Popper ne sont plus nécessaires depuis Bootstrap v5 #}
 <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
-<!-- Scripts spécifiques à la page -->
+{# Scripts spécifiques à la page #}
 {% block script %}{% endblock %}
 
 </body>
 
 </html>
-
-
-
