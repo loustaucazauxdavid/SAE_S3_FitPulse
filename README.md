@@ -27,12 +27,15 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 <!-- Instructions de déploiement -->
 ## Instructions de déploiement
 
-### Prérequis
+### Prérequis 
   * Git
   * Composer
   * Npm
+  * Serveur Apache et PHP avec l'extension PDO
 
 ### Étapes de déploiement
+
+**Le fichier SQL inclus à la racine du dépôt contient les tables et données nécessaires au déploiement.**
 
 1. Cloner le dépôt Git de FitPulse à l'aide de la commande suivante :
 `git clone https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git`
@@ -47,12 +50,14 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 3. Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante :
 `sass SCSS/custom.scss css/styles.css`
 
-4. Modifier les informations de connexion à la base de données dans le fichier *config/constantes.php* :
+4. Modifier les informations de connexion à la base de données dans le fichier de configuration *config/constantes.php* :
 
 	* DB_HOST : Adresse du service de bases de données
 	* DB_NAME : Nom de la base de données
 	* DB_USER : Nom d'utilisateur utilisé pour se connecter à la base de données
 	* DB_PASS : Mot de passe utilisé pour se connecter à la base de données
+
+5. Déployer le site web sur un serveur Apache et PHP avec l'extension PDO activée.
 	
 <!-- Réalisé avec -->
 ## Réalisé avec
