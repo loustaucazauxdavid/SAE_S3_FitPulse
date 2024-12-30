@@ -1,3 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+}
+
+.fitpulse-container {
+    display: flex;
+    flex-direction: row;
+}
+
 #sidebar {
     position: fixed;
     top: 0;
@@ -8,6 +20,8 @@
     padding: 20px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    overflow-y: auto;
+    transition: all 0.3s;
 }
 
 .sidebar-content {
@@ -15,7 +29,12 @@
     flex-direction: column;
 }
 
-.form-check, .sidebar-stars, .sidebar-search, .sidebar-slider, .sidebar-checkbox, .sidebar-calendar {
+.form-check,
+.sidebar-stars,
+.sidebar-search,
+.sidebar-slider,
+.sidebar-checkbox,
+.sidebar-calendar {
     margin-bottom: 20px;
 }
 
@@ -25,55 +44,22 @@
 
 .sidebar-stars {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
 }
+
+.sidebar-stars div {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar-stars label {
+    margin-right: 5px;
+}
+
 
 input[type="radio"] {
     display: none;
-}
-
-.sidebar-stars {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-input[type="radio"] {
-    display: none; /* Masquer les boutons radio */
-}
-
-.sidebar-stars {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-input[type="radio"] {
-    display: none; /* Masquer les boutons radio */
-}
-
-label.star {
-    font-size: 30px;
-    color: gray; /* Couleur de l'étoile vide par défaut */
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-label.star:before {
-    content: "\2606"; /* Symbole d'étoile vide */
-}
-
-/* Les étoiles ne changent pas lors du survol */
-label.star:hover,
-label.star:hover ~ label.star {
-    color: gray; /* Les étoiles restent grises au survol */
-}
-
-/* Lors de la sélection, les étoiles restent vides */
-input[type="radio"]:checked ~ label.star,
-input[type="radio"]:checked ~ label.star ~ label.star {
-    color: gray; /* Les étoiles restent vides et grises même après sélection */
+    /* Masquer les boutons radio */
 }
 
 .form-check-label {
@@ -93,15 +79,59 @@ input[type="radio"]:checked ~ label.star ~ label.star {
     padding: 10px;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    padding: 10px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    color: rgb(243, 243, 243);
+}
+
 .page-content {
     margin-left: 250px;
     padding: 20px;
+    transition: margin-left 0.3s ease;
 }
+
+/* Symbole d'étoile pleine */
+.star::before {
+    content: "\2605";
+    color: #4CAF50;
+    font-size: 25px;
+}
+
+.form-check-input:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
 
 @media (max-width: 768px) {
     #sidebar {
         width: 200px;
     }
+
     .page-content {
         margin-left: 200px;
     }
