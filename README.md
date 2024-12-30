@@ -24,6 +24,34 @@ FitPulse connecte les utilisateurs à des professionnels certifiés qui proposen
 
 Les pratiquants peuvent  réserver des séances au selon leur préférence : en présentielle dans une salle de sport ou en visioconférence. L'application permet ainsi une flexibilité maximale et s'adapte aux contraintes des utilisateurs où qu'ils soient. Les coachs présents sur la plateforme encadrent les pratiquants en leur montrant comment réaliser correctement les exercices et mouvements.
 
+<!-- Instructions de déploiement -->
+## Instructions de déploiement
+### Prérequis
+  * Git
+  * Composer
+  * Npm
+
+### Étapes de déploiement
+
+#### Clonage du projet
+Cloner le dépôt Git de FitPulse à l'aide de la commande suivante : ```bash git clone https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git```
+
+#### Installation des dépendances
+Installer les dépendances en exécutant les commandes suivantes : 
+* dépendances composer : ```bash composer install```
+* dépendances npm : ```bash npm install```
+
+#### Compiler le SCSS
+Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante : ```bash sass SCSS/custom.scss css/styles.css```
+
+#### Modif les infos de co à la bd
+Modifiez les informations suivantes dans le fichier `config/constantes.php` :
+
+* DB_HOST : Adresse du service de bases de données
+* DB_NAME : Nom de la base de données
+* DB_USER : Nom d'utilisateur utilisé pour se connecter à la base de données
+* DB_PASS : Mot de passe utilisé pour se connecter à la base de données
+
 <!-- Réalisé avec -->
 ## Réalisé avec
 
