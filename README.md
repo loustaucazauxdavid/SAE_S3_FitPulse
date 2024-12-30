@@ -26,6 +26,7 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 
 <!-- Instructions de déploiement -->
 ## Instructions de déploiement
+
 ### Prérequis
   * Git
   * Composer
@@ -33,19 +34,18 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 
 ### Étapes de déploiement
 
-#### Clonage du projet
-Cloner le dépôt Git de FitPulse à l'aide de la commande suivante : ```bash git clone https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git```
+1. Cloner le dépôt Git de FitPulse à l'aide de la commande suivante :
+```shell
+git clone https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git
+```
 
-#### Installation des dépendances
-Installer les dépendances en exécutant les commandes suivantes : 
-* dépendances composer : ```bash composer install```
-* dépendances npm : ```bash npm install```
+2. Installer les dépendances en exécutant les commandes suivantes :
+* dépendances composer : ```shell composer install```
+* dépendances npm : ```shell npm install```
 
-#### Compiler le SCSS
-Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante : ```bash sass SCSS/custom.scss css/styles.css```
+3. Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante : ```shell sass SCSS/custom.scss css/styles.css```
 
-#### Modif les infos de co à la bd
-Modifiez les informations suivantes dans le fichier `config/constantes.php` :
+4. Modifier les informations de connexion à la base de données dans le fichier *config/constantes.php* :
 
 * DB_HOST : Adresse du service de bases de données
 * DB_NAME : Nom de la base de données
