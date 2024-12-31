@@ -4,6 +4,7 @@ body {
     padding: 0;
     width: 100%;
     height: 100%;
+
 }
 
 .page-content {
@@ -11,8 +12,8 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 20px;
-    min-height: 100vh;
-    /* Assure que la page occupe toute la hauteur */
+    margin-top: 80px;
+    /* Ajustez cette valeur en fonction de la hauteur de votre navbar */
 }
 
 html,
@@ -22,28 +23,44 @@ body,
     color: #000000;
 }
 
-#sidebar {
+footer.bg-dark {
+    padding: 10px 0;
+    background-color: #232322;
+    color: #f3f4f6;
+}
+
+nav.navbar {
     position: fixed;
     top: 0;
+    left: 0;
+    width: 100%;
+    /* Pour que la navbar prenne toute la largeur */
+    z-index: 1000;
+    /* Pour s'assurer qu'elle reste au-dessus des autres éléments */
+}
+
+#sidebar {
+    position: fixed;
+    margin-top: 85px;
     left: 0;
     width: 250px;
     height: 100%;
     background-color: #232322;
-    /* Noir pour correspondre à l'entête */
     color: #f3f4f6;
-    /* Texte blanc */
     padding: 20px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
-    /* Légère ombre pour démarquer */
     overflow-y: auto;
-    /* Permet de défiler si le contenu est trop long */
-    z-index: 1000;
+    z-index: 10;
     /* Assure que la barre latérale est au-dessus du contenu */
+    scrollbar-color: linear-gradient(to bottom, #99dc8f, #86f3e6) #232322;
+    /* Style pour les navigateurs supportant scrollbar-color et scrollbar-width */
+    padding-top: 30px;
 }
 
 /* Styles personnalisés pour la scrollbar */
 #sidebar::-webkit-scrollbar {
-    width: 10px; /* Largeur de la scrollbar */
+    width: 10px;
+    /* Largeur de la scrollbar */
 }
 
 #sidebar::-webkit-scrollbar-track {
@@ -52,29 +69,25 @@ body,
 }
 
 #sidebar::-webkit-scrollbar-thumb {
-    background: linear-gradient(to bottom, #99dc8f, #86f3e6); /* Indicateur de position en vert */
+    background: linear-gradient(to bottom, #99dc8f, #86f3e6);
+    /* Indicateur de position en vert */
     border-radius: 20px;
     border: none;
 }
 
-/* Style pour les navigateurs supportant scrollbar-color et scrollbar-width */
 #sidebar {
-    scrollbar-color: linear-gradient(to bottom, #99dc8f, #86f3e6) #232322; /* Vert pour le thumb, noir pour le track */
-}
-
-.sidebar-content {
     display: flex;
     flex-direction: column;
 }
 
-.sidebar-content h6,
-.sidebar-content label,
-.sidebar-content button {
+#sidebar h6,
+#sidebar label,
+#sidebar button {
     color: #f3f4f6;
     /* Texte blanc */
 }
 
-.sidebar-content input {
+#sidebar input {
     border-radius: 20px;
     padding-left: 10px;
 }
