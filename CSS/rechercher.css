@@ -1,13 +1,25 @@
+html,
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.fitpulse-container {
+.page-content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    /* Assure que la page occupe toute la hauteur */
+}
+
+html,
+body,
+.page-content {
+    background-color: #f8f8f8;
+    color: #000000;
 }
 
 #sidebar {
@@ -16,12 +28,17 @@ body {
     left: 0;
     width: 250px;
     height: 100%;
-    background-color: #f8f9fa;
+    background-color: #232322;
+    /* Noir pour correspondre à l'entête */
+    color: #f3f4f6;
+    /* Texte blanc */
     padding: 20px;
-    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    /* Légère ombre pour démarquer */
     overflow-y: auto;
-    transition: all 0.3s;
+    /* Permet de défiler si le contenu est trop long */
+    z-index: 1000;
+    /* Assure que la barre latérale est au-dessus du contenu */
 }
 
 .sidebar-content {
@@ -29,12 +46,30 @@ body {
     flex-direction: column;
 }
 
+.sidebar-content h6,
+.sidebar-content label,
+.sidebar-content button {
+    color: #f3f4f6;
+    /* Texte blanc */
+}
+
+.sidebar-content input {
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.sidebar-participants input {
+    width: 50px;
+}
+
 .form-check,
 .sidebar-stars,
 .sidebar-search,
 .sidebar-slider,
 .sidebar-checkbox,
-.sidebar-calendar {
+.sidebar-calendar,
+.sidebar-participants,
+.sidebar-budget {
     margin-bottom: 20px;
 }
 
@@ -79,14 +114,51 @@ input[type="radio"] {
     padding: 10px;
 }
 
+/* Conteneur principal pour les cards */
 .card-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Grille adaptable */
     gap: 20px;
+    /* Espacement entre les cards */
+    width: 100%;
+    max-width: 1200px;
+    /* Largeur maximale du conteneur */
+    margin: 0 auto;
+    /* Centrer le conteneur */
+    padding: 20px;
 }
 
+/* Styles pour chaque card */
 .card {
+    border: none;
+    /* Supprimer les bordures */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Ombre légère */
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-bottom: 20px;
+}
+
+/* Titre et sous-titre des cards */
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
 }
 
 .btn-primary {
