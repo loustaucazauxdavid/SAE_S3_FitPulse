@@ -41,6 +41,27 @@ body,
     /* Assure que la barre latérale est au-dessus du contenu */
 }
 
+/* Styles personnalisés pour la scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 10px; /* Largeur de la scrollbar */
+}
+
+#sidebar::-webkit-scrollbar-track {
+    background: #232322;
+    border-radius: 20px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #99dc8f, #86f3e6); /* Indicateur de position en vert */
+    border-radius: 20px;
+    border: none;
+}
+
+/* Style pour les navigateurs supportant scrollbar-color et scrollbar-width */
+#sidebar {
+    scrollbar-color: linear-gradient(to bottom, #99dc8f, #86f3e6) #232322; /* Vert pour le thumb, noir pour le track */
+}
+
 .sidebar-content {
     display: flex;
     flex-direction: column;
