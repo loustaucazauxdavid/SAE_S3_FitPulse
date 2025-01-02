@@ -9,8 +9,8 @@
 {% endblock %}
 
 {% block contenu %}
-	<nav id="sidebar" class="sidebar-content">
-
+	<nav
+		id="sidebar" class="sidebar-content">
 		<!-- Boutons radio étoiles -->
 		<div class="sidebar-stars">
 			<h6>Note minimale</h6>
@@ -102,61 +102,49 @@
 		<hr>
 		<div class="row">
 			<div class="form-group col-md-12">
-				<div class="card d-flex flex-row">
-					<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
-					<div class="card-body d-flex flex-row justify-content-between">
-						<div>
-							<h5 class="card-title">Nom du coach</h5>
-							<h6 class="card-subtitle mb-2 text-muted">
-								<div class="star-rating">
-									<span class="star filled"></span>
-									<span class="star filled"></span>
-									<span class="star filled"></span>
-									<span class="star empty"></span>
-									<span class="star empty"></span>
-								</div>
-								Sport(s) pratiqué(s)
-							</h6>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-																																																								tempor incididunt ut labore et dolore magna aliqua.
-							</p>
-							<a href="#" class="btn btn-primary">Voir plus</a>
-						</div>
-						<div class="card-calendar" style="margin-left: 20px;">
-							<h5>Séances disponibles</h5>
-							<div class="input-group date" id="datepicker-idcoach"></div>
-						</div>
-					</div>
-				</div>
+				{% for coachData in coachs %}
+					<div class="card d-flex flex-row">
+						<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
+						<div class="card-body d-flex flex-row justify-content-between">
+							<div>
+								<!-- Affichage du nom du coach -->
+								<h5 class="card-title">{{ coachData.coach.prenom }} {{ coachData.coach.nom }}</h5>
 
-				<div class="card d-flex flex-row">
-					<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
-					<div class="card-body d-flex flex-row justify-content-between">
-						<div>
-							<h5 class="card-title">Nom du coach</h5>
-							<h6 class="card-subtitle mb-2 text-muted">
-								<div class="star-rating">
-									<span class="star filled"></span>
-									<span class="star filled"></span>
-									<span class="star filled"></span>
-									<span class="star empty"></span>
-									<span class="star empty"></span>
-								</div>
-								Sport(s) pratiqué(s)
-							</h6>
-							<p class="card-text">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-																																																								tempor incididunt ut labore et dolore magna aliqua.
-							</p>
-							<a href="#" class="btn btn-primary">Voir plus</a>
-						</div>
-						<div class="card-calendar" style="margin-left: 20px;">
-							<h5>Séances disponibles</h5>
-							<div class="input-group date" id="datepicker-idcoach"></div>
+								<h6 class="card-subtitle mb-2 text-muted">
+									<!-- Affichage de la note moyenne du coach -->
+									<div class="star-rating">
+										{% for i in 0..4 %}
+											<span class="star {% if i < coachData.coach.note_moyenne|round %}filled{% else %}empty{% endif %}"></span>
+										{% endfor %}
+									</div>
+									<!-- Affichage des sports pratiqués -->
+									{{ coachData.coach.sports}}
+								</h6>
+								<p
+									class="card-text">
+									<!-- Description du coach -->
+									{{ coachData.coach.description }}
+								</p>
+								<a href="#" class="btn btn-primary">Voir plus</a>
+							</div>
+
+							<div class="card-calendar" style="margin-left: 20px;">
+								<h5>Séances disponibles</h5>
+								<!-- Affichage des séances disponibles -->
+								{% for seance in coachData.seances %}
+									<div>
+										<!-- Formatage des dates -->
+										<p>{{ seance.date_debut|date('d/m/Y H:i') }}
+											-
+											{{ seance.date_fin|date('d/m/Y H:i') }}</p>
+										<!-- Affichage d'une description de séance si elle existe, sinon afficher un texte par défaut -->
+										<p>{{ seance.description ?: 'Pas de description disponible' }}</p>
+									</div>
+								{% endfor %}
+							</div>
 						</div>
 					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</main>

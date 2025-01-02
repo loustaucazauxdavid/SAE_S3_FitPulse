@@ -1,13 +1,9 @@
 <?php
 require_once 'include.php';
 
-// Définir les variables pour le template
-$data = [
-    'menu' => 'recherche', // Pour activer l'onglet "Recherche" dans le menu
-    'description' => 'Page de recherche pour FitPulse',
-    'estConnecte' => false, // Change à true si l'utilisateur est connecté
-];
+// Création du contrôleur
+$controller = new ControllerCoach($twig, $loader);
 
-// Charger et afficher le template
-echo $twig->render('rechercher.html.twig', $data);
-
+// Appel à la méthode pour récupérer les coachs disponibles
+$controller->displayAvailableCoachs();
+?>
