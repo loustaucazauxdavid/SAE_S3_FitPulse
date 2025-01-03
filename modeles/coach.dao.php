@@ -112,6 +112,7 @@ class CoachDao
         $now = date('Y-m-d H:i:s');
         $sql = "
         SELECT c.id,
+               c.description,
                u.prenom,
                u.nom,
                s.id AS seanceId, 
@@ -145,12 +146,14 @@ class CoachDao
                         'id' => $row['id'],
                         'prenom' => $row['prenom'],
                         'nom' => $row['nom'],
+                        'description' => $row['description'],
                         'sports' => $row['sports'],
                     ],
                     'creneaux' => [],
                 ];
             }
 
+            // Ajouter les créneaux du coach
             $coachs[$row['id']]['creneaux'][] = [
                 'creneau_id' => $row['creneauId'],
                 'date_debut' => $row['dateDebut'],
@@ -166,6 +169,7 @@ class CoachDao
 
         return $coachs;
     }
+
 
     /**
      * Récupère un coach et ses séances par son ID.
