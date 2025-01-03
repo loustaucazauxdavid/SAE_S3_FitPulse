@@ -104,29 +104,31 @@ class CoachDao
     }
 
     /**
-     * Récupère les coachs disponibles pour des séances futures.
-     * @return array Un tableau associatif représentant les coachs et leurs séances.
+     * Récupère les coachs disponibles pour des créneaux.
+     * @return array Un tableau associatif représentant les coachs et leurs créneaux.
      */
     public function findAvailableCoachs(): array
     {
         $now = date('Y-m-d H:i:s');
         $sql = "
-        SELECT c.*,
-        u.prenom,
-        u.nom,
-        s.id AS seance_id, 
-        GROUP_CONCAT(d.nom ORDER BY d.nom) AS sports, 
-        cr.dateDebut, 
-        cr.dateFin
+        SELECT c.id,
+               u.prenom,
+               u.nom,
+               s.id AS seanceId, 
+               GROUP_CONCAT(DISTINCT d.nom ORDER BY d.nom) AS sports,
+               cr.id AS creneauId,
+               cr.dateDebut, 
+               cr.dateFin
         FROM " . TABLE_CRENEAU . " cr
         INNER JOIN " . TABLE_COACH . " c ON cr.idCoach = c.id
         INNER JOIN " . TABLE_UTILISATEUR . " u ON u.id = c.idUtilisateur
-        INNER JOIN " . TABLE_SEANCE . " s ON cr.id = s.idCreneau
+        LEFT JOIN " . TABLE_SEANCE . " s ON cr.id = s.idCreneau
         LEFT JOIN " . TABLE_DISCIPLINE . " d ON cr.idDiscipline = d.id
         WHERE cr.dateDebut <= :now
-        GROUP BY c.id, s.id, cr.dateDebut, cr.dateFin
+              AND s.id IS NULL
+        GROUP BY c.id, cr.id, u.prenom, u.nom, cr.dateDebut, cr.dateFin, s.id
         ORDER BY cr.dateDebut ASC;
-        ";
+    ";
 
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute([':now' => $now]);
@@ -134,24 +136,29 @@ class CoachDao
 
         $coachsAssoc = $pdoStatement->fetchAll();
 
-        // Organiser les coachs et leurs séances
+        // Organiser les coachs et leurs créneaux
         $coachs = [];
         foreach ($coachsAssoc as $row) {
             if (!isset($coachs[$row['id']])) {
                 $coachs[$row['id']] = [
-                    'coach' => $row,
-                    'seances' => []
+                    'coach' => [
+                        'id' => $row['id'],
+                        'prenom' => $row['prenom'],
+                        'nom' => $row['nom'],
+                        'sports' => $row['sports'],
+                    ],
+                    'creneaux' => [],
                 ];
             }
 
-            $coachs[$row['id']]['seances'][] = [
-                'seance_id' => $row['seance_id'],
+            $coachs[$row['id']]['creneaux'][] = [
+                'creneau_id' => $row['creneauId'],
                 'date_debut' => $row['dateDebut'],
                 'date_fin' => $row['dateFin'],
             ];
         }
 
-        // Récupérer et ajouter la note moyenne pour chaque coach
+        // Ajouter la note moyenne pour chaque coach
         foreach ($coachs as &$coachData) {
             $noteMoyenne = $this->getNoteMoyenne($coachData['coach']['id']);
             $coachData['coach']['note_moyenne'] = $noteMoyenne;

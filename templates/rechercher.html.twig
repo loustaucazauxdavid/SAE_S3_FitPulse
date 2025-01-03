@@ -3,7 +3,7 @@
 {% block titre %}FitPulse - Recherche
 {% endblock %}
 
-{%block css %}
+{% block css %}
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 	<link href="CSS/rechercher.css" rel="stylesheet">
 {% endblock %}
@@ -11,148 +11,152 @@
 {% block contenu %}
 	<nav
 		id="sidebar" class="sidebar-content">
-		<!-- Boutons radio étoiles -->
-		<div class="sidebar-stars">
-			<h6>Note minimale</h6>
-			<div>
-				<input type="radio" id="star5" name="star" value="5">
-				<label for="star5" class="star"></label>
+		<!-- Formulaire de recherche -->
+		<form
+			method="POST" action="#">
+			<!-- Boutons radio étoiles -->
+			<div class="sidebar-stars">
+				<h6>Note minimale</h6>
+				<div>
+					<input type="radio" id="star5" name="star" value="5">
+					<label for="star5" class="star"></label>
 
-				<input type="radio" id="star4" name="star" value="4">
-				<label for="star4" class="star"></label>
+					<input type="radio" id="star4" name="star" value="4">
+					<label for="star4" class="star"></label>
 
-				<input type="radio" id="star3" name="star" value="3">
-				<label for="star3" class="star"></label>
+					<input type="radio" id="star3" name="star" value="3">
+					<label for="star3" class="star"></label>
 
-				<input type="radio" id="star2" name="star" value="2">
-				<label for="star2" class="star"></label>
+					<input type="radio" id="star2" name="star" value="2">
+					<label for="star2" class="star"></label>
 
-				<input type="radio" id="star1" name="star" value="1">
-				<label for="star1" class="star"></label>
+					<input type="radio" id="star1" name="star" value="1">
+					<label for="star1" class="star"></label>
+				</div>
 			</div>
-		</div>
 
-
-		<!-- Rechercher par nom -->
-		<div class="sidebar-search">
-			<h6>Nom du coach</h6>
-			<div class="input-group">
-				<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
+			<!-- Rechercher par nom -->
+			<div class="sidebar-search">
+				<h6>Nom du coach</h6>
+				<div class="input-group">
+					<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
+				</div>
 			</div>
-		</div>
 
-		<!-- Rechercher par sport -->
-		<div class="sidebar-search">
-			<h6>Sport(s)</h6>
-			<div class="input-group">
-				<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
+			<!-- Rechercher par sport -->
+			<div class="sidebar-search">
+				<h6>Sport(s)</h6>
+				<div class="input-group">
+					<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
+				</div>
 			</div>
-		</div>
 
-		<!-- Slider budget -->
-		<div class="sidebar-budget">
-			<h6>Budget</h6>
-			<input type="range" id="budget-range" name="budget" min="0" max="1000" step="1" value="200">
-			<div class="budget-values">
-				<span id="budget-min-value">20</span>
-				€ -
-				<span id="budget-max-value">1000</span>
-				€
+			<!-- Slider budget -->
+			<div class="sidebar-budget">
+				<h6>Budget</h6>
+				<input type="range" id="budget-range" name="budget" min="0" max="1000" step="1" value="200">
+				<div class="budget-values">
+					<span id="budget-min-value">20</span>
+					€ -
+					<span id="budget-max-value">1000</span>
+					€
+				</div>
 			</div>
-		</div>
 
-
-		<!-- Type de séance -->
-		<div class="sidebar-checkbox">
-			<h6>Type de séance</h6>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]">
-				<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
+			<!-- Type de séance -->
+			<div class="sidebar-checkbox">
+				<h6>Type de séance</h6>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]">
+					<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]">
+					<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+				</div>
+				<div class="form-check">
+					<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]">
+					<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+				</div>
 			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]">
-				<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+
+			<!-- Nombre de participants -->
+			<div class="sidebar-participants">
+				<h6>Nombre de participants</h6>
+				<input type="number" id="participants" name="participants" min="1" max="100" value="1">
 			</div>
-			<div class="form-check">
-				<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]">
-				<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+
+			<!-- Widget calendrier -->
+			<div class="sidebar-calendar">
+				<h6>Date</h6>
+				<div class="input-group date" id="datepicker"></div>
 			</div>
-		</div>
 
-		<!-- Nombre de participants -->
-		<div class="sidebar-participants">
-			<h6>Nombre de participants</h6>
-			<input type="number" id="participants" name="participants" min="1" max="100" value="1">
-		</div>
+			<!-- Bouton valider -->
+			<button type="submit" class="btn btn-primary">Valider</button>
+		</form>
+	</nav>
 
-		<!-- Widget calendrier -->
-		<div class="sidebar-calendar">
-			<h6>Date</h6>
-			<div class="input-group date" id="datepicker"></div>
-		</div>
+	<main class="page-content">
+		<div class="container-fluid">
+			<h2>Résultats</h2>
+			<hr>
+			<div class="row">
+				<div class="form-group col-md-12">
+					{% for coachData in coachs %}
+						<div class="card d-flex flex-row">
+							<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
+							<div class="card-body d-flex flex-row justify-content-between">
+								<div>
+									<!-- Affichage du nom du coach -->
+									<h5 class="card-title">{{ coachData.coach.prenom }}
+										{{ coachData.coach.nom }}</h5>
 
-		<!-- Bouton valider -->
-		<button type="submit" class="btn btn-primary">Valider</button>
-	</form>
-</nav>
+									<h6
+										class="card-subtitle mb-2 text-muted">
+										<!-- Affichage de la note moyenne du coach -->
+										<div class="star-rating">
+											{% for i in 0..4 %}
+												<span class="star {% if i < coachData.coach.note_moyenne|round %}filled{% else %}empty{% endif %}"></span>
+											{% endfor %}
+										</div>
+										<!-- Affichage des sports pratiqués -->
+										{{ coachData.coach.sports}}
+									</h6>
+									<p
+										class="card-text">
+										<!-- Description du coach -->
+										{{ coachData.coach.description }}
+									</p>
+									<a href="#" class="btn btn-primary">Voir plus</a>
+								</div>
 
-<main class="page-content">
-	<div class="container-fluid">
-		<h2>Résultats</h2>
-		<hr>
-		<div class="row">
-			<div class="form-group col-md-12">
-				{% for coachData in coachs %}
-					<div class="card d-flex flex-row">
-						<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
-						<div class="card-body d-flex flex-row justify-content-between">
-							<div>
-								<!-- Affichage du nom du coach -->
-								<h5 class="card-title">{{ coachData.coach.prenom }} {{ coachData.coach.nom }}</h5>
+								<div class="card-calendar" style="margin-left: 20px;">
+									<h5>Séances disponibles</h5>
+									<!-- Affichage des séances disponibles -->
+									{% for creneau in coachData.creneaux %}
+										<div>
+											<!-- Formatage des dates -->
+											<p>{{ creneau.date_debut|date('d/m/Y H:i') }}
+												-
+												{{ creneau.date_fin|date('d/m/Y H:i') }}</p>
+										</div>
+									{% endfor %}
 
-								<h6 class="card-subtitle mb-2 text-muted">
-									<!-- Affichage de la note moyenne du coach -->
-									<div class="star-rating">
-										{% for i in 0..4 %}
-											<span class="star {% if i < coachData.coach.note_moyenne|round %}filled{% else %}empty{% endif %}"></span>
-										{% endfor %}
-									</div>
-									<!-- Affichage des sports pratiqués -->
-									{{ coachData.coach.sports}}
-								</h6>
-								<p
-									class="card-text">
-									<!-- Description du coach -->
-									{{ coachData.coach.description }}
-								</p>
-								<a href="#" class="btn btn-primary">Voir plus</a>
-							</div>
-
-							<div class="card-calendar" style="margin-left: 20px;">
-								<h5>Séances disponibles</h5>
-								<!-- Affichage des séances disponibles -->
-								{% for seance in coachData.seances %}
-									<div>
-										<!-- Formatage des dates -->
-										<p>{{ seance.date_debut|date('d/m/Y H:i') }}
-											-
-											{{ seance.date_fin|date('d/m/Y H:i') }}</p>
-										<!-- Affichage d'une description de séance si elle existe, sinon afficher un texte par défaut -->
-										<p>{{ seance.description ?: 'Pas de description disponible' }}</p>
-									</div>
-								{% endfor %}
+								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</main>
 {% endblock %}
+
 {% block script %}
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.fr.min.js"></script>
-	<script src="JS/rechercher.js"></script>
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.fr.min.js"></script>
+	 <script src="JS/rechercher.js"></script>
 {% endblock %}
