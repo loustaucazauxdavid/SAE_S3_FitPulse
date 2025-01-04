@@ -57,6 +57,14 @@ nav.navbar {
     padding-top: 30px;
 }
 
+form {
+    margin-bottom: 100px;
+}
+
+form .btn-primary {
+    margin-top: 30px;
+}
+
 /* Styles personnalisés pour la scrollbar */
 #sidebar::-webkit-scrollbar {
     width: 10px;
@@ -139,10 +147,6 @@ input[type="radio"] {
     width: 100%;
 }
 
-#datepicker {
-    width: 100%;
-}
-
 .btn-primary {
     width: 100%;
     padding: 10px;
@@ -185,14 +189,35 @@ input[type="radio"] {
 }
 
 .card-subtitle {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: normal;
     margin-bottom: 15px;
 }
 
 .card-text {
-    font-size: 0.95rem;
+    font-size: 1rem;
     margin-bottom: 15px;
+}
+
+.card-calendar {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow-x: hidden;
+    /* Assure qu'il n'y a pas de barre de défilement horizontale */
+}
+
+#week-days {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#week-days .day {
+    width: calc(100% / 4 - 10px);
+    text-align: center;
 }
 
 .btn-primary {
@@ -209,9 +234,18 @@ input[type="radio"] {
     margin: 0 auto;
 }
 
-.btn-primary:hover {
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    width: auto;
+    margin-bottom: 5px;
+}
+
+.btn-primary:hover,
+#week-days .day button:hover {
     background-color: #45a049;
     color: rgb(243, 243, 243);
+    transform: scale(1.1);
 }
 
 .page-content {
