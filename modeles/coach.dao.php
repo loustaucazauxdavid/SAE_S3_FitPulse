@@ -125,7 +125,7 @@ class CoachDao
         INNER JOIN " . TABLE_UTILISATEUR . " u ON u.id = c.idUtilisateur
         LEFT JOIN " . TABLE_SEANCE . " s ON cr.id = s.idCreneau
         LEFT JOIN " . TABLE_DISCIPLINE . " d ON cr.idDiscipline = d.id
-        WHERE cr.dateDebut <= :now
+        WHERE cr.dateDebut >= :now
               AND s.id IS NULL
         GROUP BY c.id, cr.id, u.prenom, u.nom, cr.dateDebut, cr.dateFin, s.id
         ORDER BY cr.dateDebut ASC;
