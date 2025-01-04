@@ -1,0 +1,24 @@
+.card-header h3 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.form-label {
+    font-size: 1.2rem;
+}
+
+.form-control {
+    font-size: 1.05rem;
+}
+
+.btn {
+    font-size: 1rem;
+}
+
+#submit-btn {
+    background-color: #00AA88;
+}
+
+#submit-btn:hover {
+    background-color: #008F74;
+}

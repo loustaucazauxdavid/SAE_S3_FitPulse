@@ -1,0 +1,72 @@
+{% extends 'base_template.html.twig' %}
+
+{% block titre %}FitPulse - {{ mode == 'inscription' ? 'Créer un compte' : 'Connexion' }}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="CSS/authentification.css">
+{# Inclusion de la feuille de style spécifique à la page d'authentification #}
+{% endblock %}
+
+{% block contenu %}
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="my-1">{{ mode == 'inscription' ? 'Inscription' : 'Connexion' }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="index.php?controleur=utilisateur&methode={{mode}}">
+
+                            {# Si on est en mode inscription, on affiche en plus les champs nom, prénom et photo #}
+                            {% if mode == 'inscription' %}
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="nom" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" required>
+                                    </div>
+                                    <div class="col">
+                                        <label for="prenom" class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="photo" class="form-label">Photo de profil</label>
+                                    <input type="file" class="form-control" id="photo" name="photo" placeholder="Entrez un URL vers une photo">
+                                </div>
+
+                                {# Séparateur thématique #}
+                                <hr class="my-4">
+                            {% endif %}
+
+                            {# Champs email et mot de passe communs aux modes d'inscription et de connexion #}
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Adresse email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Mot de passe</label>
+                                <input type="password" class="form-control" id="password" name="motDePasse" placeholder="Entrez votre mot de passe" required>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button id="submit-btn" type="submit" class="btn btn-primary">{{ mode == 'inscription' ? 'Créer un compte' : 'Se connecter' }}</button>
+                            </div>
+                        </form>
+
+                        {# Bouton de redirection vers connexion / inscription en fonction du contexte de la page #}
+                        <div class="text-center mt-3">
+                            {% if mode == 'inscription' %}
+                                <a id="demande-btn" href="index.php?controleur=utilisateur&methode=afficher&demande=connexion" class="btn btn-outline-secondary">Déjà un compte ? Connectez-vous</a>
+                            {% else %}
+                                <a id="demande-btn" href="index.php?controleur=utilisateur&methode=afficher&demande=inscription" class="btn btn-outline-secondary">Pas encore de compte ? Créer un compte</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
