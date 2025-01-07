@@ -5,46 +5,24 @@
 
     <style>
 
-        .container-total {
-            display: grid; /* Habilita Grid */
-            grid-template-columns: 1fr 1fr; /* Dos columnas flexibles */
-            font-weight: bold; /* Letras en negrita */
-            padding: 10px; /* Espaciado interno */
-            color: #333; /* Color del texto */
-        }
-        .container-carousel {
-            display: grid; /* Habilita Flexbox */
-            grid-column: 1; /* Coloca el carrusel en la segunda columna */
-            width: 500px; /* Ajustar el ancho deseado */
-            height: 1000px; /* Ajustar la altura deseada */
-            overflow: hidden; /* Oculta el contenido que sobresale */
-            width: 100%; /* Asegura que la imagen ocupe el ancho del contenedor */
-            height: auto; /* Mantiene la proporción de la imagen */
-        }
-
-        .container-text {
-            display: grid; /* Habilita Grid */
-            grid-column: 2; /* Coloca el texto en la segunda columna */
+        .col-md-4 {
             background: linear-gradient(-45deg, #49c249,rgb(195, 231, 195)); /* Degradado diagonal inverso */
             font-weight: bold; /* Letras en negrita */
             padding: 10px; /* Espaciado interno */
             color: #333; /* Color del texto */
         }
 
-
     </style>  
     {% endblock %}
 
 
     {% block contenu %}
-<div class="container-total">
+<div class="container">
 
-  <div class="container-text">
-    <h1>UNE NOUVELLE DEMANDE DE FORMATION :</h1>
-    <p>Bienvenue dans votre nouvelle vie fitness ! Ici, nous vous motivons à atteindre vos objectifs grâce à l'exercice et à un mode de vie sain.<br>Rejoignez notre communauté, découvrez des routines adaptées à votre niveau et transformez votre corps et votre esprit.<br> Commencez aujourd'hui et ressentez l'énergie d'un nouveau départ !</p>
-  </div>
+<div class="row">
+
     
-  <div class="container-carousel">
+  <div class="col-md-8">
 
   <div id="carouselControls" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -72,7 +50,15 @@
     <span class="sr-only"></span>
   </a>
   </div>
-
   </div>
+
+  <div class="col-md-4">
+    <h1>UNE NOUVELLE DEMANDE DE FORMATION :</h1>
+    <p>Bienvenue dans votre nouvelle vie fitness ! Ici, nous vous motivons à atteindre vos objectifs grâce à l'exercice et à un mode de vie sain.<br>Rejoignez notre communauté, découvrez des routines adaptées à votre niveau et transformez votre corps et votre esprit.<br> Commencez aujourd'hui et ressentez l'énergie d'un nouveau départ !</p>
+  </div>
+
 </div>
+</div>
+
     {% endblock %}
+   
