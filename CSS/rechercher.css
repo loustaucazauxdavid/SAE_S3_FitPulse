@@ -23,42 +23,20 @@ body,
     color: #000000;
 }
 
-footer.bg-dark {
-    padding: 10px 0;
-    background-color: #232322;
-    color: #f3f4f6;
-}
-
-nav.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* Pour que la navbar prenne toute la largeur */
-    z-index: 1000;
-    /* Pour s'assurer qu'elle reste au-dessus des autres éléments */
-}
-
 #sidebar {
     position: fixed;
-    margin-top: 85px;
+    top: 85px; /* Assure que la sidebar commence après la navbar */
     left: 0;
     width: 250px;
-    height: 100%;
+    height: calc(100% - 173px); /* Hauteur de la sidebar ajustée entre la navbar et le footer */
     background-color: #232322;
     color: #f3f4f6;
     padding: 20px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
-    z-index: 10;
-    /* Assure que la barre latérale est au-dessus du contenu */
+    z-index: 500; /* Assurez-vous que la sidebar soit au-dessus du contenu, mais en dessous du header */
     scrollbar-color: linear-gradient(to bottom, #99dc8f, #86f3e6) #232322;
-    /* Style pour les navigateurs supportant scrollbar-color et scrollbar-width */
     padding-top: 30px;
-}
-
-form {
-    margin-bottom: 100px;
 }
 
 form .btn-primary {
@@ -81,11 +59,6 @@ form .btn-primary {
     /* Indicateur de position en vert */
     border-radius: 20px;
     border: none;
-}
-
-#sidebar {
-    display: flex;
-    flex-direction: column;
 }
 
 #sidebar h6,
@@ -270,9 +243,13 @@ input[type="radio"] {
 @media (max-width: 768px) {
     #sidebar {
         width: 200px;
+        top: 200px; /* Assure que la sidebar commence après la navbar */
+        height: calc(100% - 288px); /* Hauteur de la sidebar ajustée entre la navbar et le footer */
     }
 
     .page-content {
         margin-left: 200px;
+        margin-top: 200px;
     }
+    
 }
