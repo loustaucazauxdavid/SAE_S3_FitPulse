@@ -30,8 +30,10 @@ require_once 'modeles/discipline.class.php';
 require_once 'modeles/salle_de_sport.class.php';
 require_once 'modeles/seance.class.php';  
 require_once 'modeles/commenter.class.php';
+require_once 'modeles/utilisateur.class.php';
 
 // Ajout des modèles DAO
 require_once 'modeles/coach.dao.php';
 require_once 'modeles/coachNote.dao.php';
 require_once 'modeles/commenter.dao.php';
+require_once 'modeles/utilisateur.dao.php';

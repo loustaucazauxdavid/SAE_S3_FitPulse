@@ -5,6 +5,7 @@
  */
 
 require_once 'config/constantes.php';
+require_once 'utils/datetime.php';
 
 /**
  * @brief Classe UtilisateurDao
@@ -39,25 +40,28 @@ class UtilisateurDao {
     }
 
     /**
-     * Méthode pour trouver un utilisateur
+     * Méthode pour trouver un utilisateur par son identifiant
      * @param int $id L'identifiant de l'utilisateur
-     * @return Utilisateur|null L'utilisateur trouvé
+     * @return Utilisateur|null L'utilisateur si trouvé, null sinon
      */
-    public function find(int $id): ?Utilisateur {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_UTILISATEUR . ' WHERE id = :id');
-        $stmt->execute(['id' => $id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-        return $stmt->fetch();
+    public function findAssoc(int $idUtilisateur): ?array {
+        $sql = "SELECT * FROM " . TABLE_UTILISATEUR . " WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute(array(':idUtilisateur' => $idUtilisateur));
+        $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
+        return $pdoStatement->fetch();
     }
 
     /**
      * Méthode pour récupérer tous les utilisateurs
      * @return Utilisateur[] Les utilisateurs récupérés
      */
-    public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_UTILISATEUR);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Utilisateur::class);
-        return $stmt->fetchAll();
+    public function findAllAssoc(): array {
+        $sql = "SELECT * FROM " . TABLE_UTILISATEUR;
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute();
+        $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
+        return $pdoStatement->fetchAll(); 
     }
 
     /**
@@ -70,12 +74,16 @@ class UtilisateurDao {
         $utilisateur->setId($utilisateurAssoc['id']);
         $utilisateur->setNom($utilisateurAssoc['nom']);
         $utilisateur->setPrenom($utilisateurAssoc['prenom']);
-        $utilisateur->setMail($utilisateurAssoc['email']);
+        $utilisateur->setMail($utilisateurAssoc['mail']);
         $utilisateur->setMotDePasse($utilisateurAssoc['motDePasse']);
         $utilisateur->setPhoto($utilisateurAssoc['photo']);
-        $utilisateur->setDateInscription($utilisateurAssoc['dateInscription']);
-        $utilisateur->setEstActif($utilisateurAssoc['estActif']);
+        $utilisateur->setDateInscription(strToDateTime($utilisateurAssoc['dateInscription']));
+        $utilisateur->setStatutCompte($utilisateurAssoc['statutCompte']);
         $utilisateur->setEstAdmin($utilisateurAssoc['estAdmin']);
+        $utilisateur->setTentativesEchoueesConn($utilisateurAssoc['tentativesEchoueesConn']);
+        $utilisateur->setDateDernierEchecConn(strToDateTime($utilisateurAssoc['dateDernierEchecConn']));
+        $utilisateur->setTokenReinitialisation($utilisateurAssoc['tokenReinitialisation']);
+        $utilisateur->setExpirationToken(strToDateTime($utilisateurAssoc['expirationToken']));
         return $utilisateur;
     }
 
@@ -91,4 +99,5 @@ class UtilisateurDao {
         }
         return $utilisateurs;
     }
+
 }

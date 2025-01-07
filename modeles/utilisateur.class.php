@@ -10,14 +10,18 @@
  */
 class Utilisateur {
     private ?int $id;
+    private ?string $mail;
     private ?string $motDePasse;
     private ?string $nom;
     private ?string $prenom;
-    private ?string $mail;
     private ?string $photo;
     private ?DateTime $dateInscription;    
-    private ?bool $estActif;
+    private ?string $statutCompte;
     private ?bool $estAdmin;
+    private ?int $tentativesEchoueesConn;
+    private ?DateTime $dateDernierEchecConn;
+    private ?string $tokenReinitialisation;
+    private ?DateTime $expirationToken;
 
     /**
      * @brief Constructeur de la classe Utilisateur
@@ -25,11 +29,15 @@ class Utilisateur {
      * @param string|null $motDePasse Mot de passe de l'utilisateur
      * @param string|null $nom Nom de l'utilisateur
      * @param string|null $prenom Prénom de l'utilisateur
-     * @param string|null $mail Mail de l'utilisateur
+     * @param string|null $mail mail de l'utilisateur
      * @param string|null $photo Photo de l'utilisateur
      * @param DateTime|null $dateInscription Date d'inscription de l'utilisateur
-     * @param bool|null $estActif Si l'utilisateur est actif
+     * @param string|null $statutCompte Statut du compte ("active" ou "desactive")
      * @param bool|null $estAdmin Si l'utilisateur est admin
+     * @param int|null $tentativesEchoueesConn Nombre de tentatives de connexion échouées
+     * @param DateTime|null $dateDernierEchecConn Date du dernier échec de connexion
+     * @param string|null $tokenReinitialisation Token de réinitialisation de mot de passe
+     * @param DateTime|null $expirationToken Expiration du token de réinitialisation
      */
     public function __construct(
         ?int $id = null,
@@ -39,8 +47,12 @@ class Utilisateur {
         ?string $mail = null,
         ?string $photo = null,
         ?DateTime $dateInscription = null,
-        ?bool $estActif = null,
-        ?bool $estAdmin = null
+        ?string $statutCompte = null,
+        ?bool $estAdmin = null,
+        ?int $tentativesEchoueesConn = null,
+        ?DateTime $dateDernierEchecConn = null,
+        ?string $tokenReinitialisation = null,
+        ?DateTime $expirationToken = null
     ) {
         $this->id = $id;
         $this->motDePasse = $motDePasse;
@@ -49,170 +61,119 @@ class Utilisateur {
         $this->mail = $mail;
         $this->photo = $photo;
         $this->dateInscription = $dateInscription;
-        $this->estActif = $estActif;
+        $this->statutCompte = $statutCompte;
         $this->estAdmin = $estAdmin;
+        $this->tentativesEchoueesConn = $tentativesEchoueesConn;
+        $this->dateDernierEchecConn = $dateDernierEchecConn;
+        $this->tokenReinitialisation = $tokenReinitialisation;
+        $this->expirationToken = $expirationToken;
     }
 
     /**
-     * Getter de la variable membre id
-     * @return int|null
+     * Getter et setter pour chaque variable membre
      */
-    public function getId(): ?int
-    {
+
+    public function getId(): ?int {
         return $this->id;
     }
 
-    /**
-     * Setter de la variable membre id
-     * @param int|null $id
-     */
-    public function setId(?int $id): void
-    {
+    public function setId(?int $id): void {
         $this->id = $id;
     }
 
-    /**
-     * Getter de la variable membre motDePasse
-     * @return string|null
-     */
-    public function getMotDePasse(): ?string
-    {
+    public function getMotDePasse(): ?string {
         return $this->motDePasse;
     }
 
-    /**
-     * Setter de la variable membre motDePasse
-     * @param string|null $motDePasse
-     */
-    public function setMotDePasse(?string $motDePasse): void
-    {
+    public function setMotDePasse(?string $motDePasse): void {
         $this->motDePasse = $motDePasse;
     }
 
-    /**
-     * Getter de la variable membre nom
-     * @return string|null
-     */
-    public function getNom(): ?string
-    {
+    public function getNom(): ?string {
         return $this->nom;
     }
 
-    /**
-     * Setter de la variable membre nom
-     * @param string|null $nom
-     */
-    public function setNom(?string $nom): void
-    {
+    public function setNom(?string $nom): void {
         $this->nom = $nom;
     }
 
-    /**
-     * Getter de la variable membre prenom
-     * @return string|null
-     */
-    public function getPrenom(): ?string
-    {
+    public function getPrenom(): ?string {
         return $this->prenom;
     }
 
-    /**
-     * Setter de la variable membre prenom
-     * @param string|null $prenom
-     */
-    public function setPrenom(?string $prenom): void
-    {
+    public function setPrenom(?string $prenom): void {
         $this->prenom = $prenom;
     }
 
-    /**
-     * Getter de la variable membre mail
-     * @return string|null
-     */
-    public function getMail(): ?string
-    {
+    public function getmail(): ?string {
         return $this->mail;
     }
 
-    /**
-     * Setter de la variable membre mail
-     * @param string|null $mail
-     */
-    public function setMail(?string $mail): void
-    {
+    public function setmail(?string $mail): void {
         $this->mail = $mail;
     }
 
-    /**
-     * Getter de la variable membre photo
-     * @return string|null
-     */
-    public function getPhoto(): ?string
-    {
+    public function getPhoto(): ?string {
         return $this->photo;
     }
 
-    /**
-     * Setter de la variable membre photo
-     * @param string|null $photo
-     */
-    public function setPhoto(?string $photo): void
-    {
+    public function setPhoto(?string $photo): void {
         $this->photo = $photo;
     }
 
-    /**
-     * Getter de la variable membre dateInscription
-     * @return DateTime|null
-     */
-    public function getDateInscription(): ?DateTime
-    {
+    public function getDateInscription(): ?DateTime {
         return $this->dateInscription;
     }
 
-    /**
-     * Setter de la variable membre dateInscription
-     * @param DateTime|null $dateInscription
-     */
-    public function setDateInscription(?DateTime $dateInscription): void
-    {
+    public function setDateInscription(?DateTime $dateInscription): void {
         $this->dateInscription = $dateInscription;
     }
 
-    /**
-     * Getter de la variable membre estActif
-     * @return bool|null
-     */
-    public function getEstActif(): ?bool
-    {
-        return $this->estActif;
+    public function getStatutCompte(): ?string {
+        return $this->statutCompte;
     }
 
-    /**
-     * Setter de la variable membre estActif
-     * @param bool|null $estActif
-     */
-    public function setEstActif(?bool $estActif): void
-    {
-        $this->estActif = $estActif;
+    public function setStatutCompte(?string $statutCompte): void {
+        $this->statutCompte = $statutCompte;
     }
 
-    /**
-     * Getter de la variable membre estAdmin
-     * @return bool|null
-     */
-    public function getEstAdmin(): ?bool
-    {
+    public function getEstAdmin(): ?bool {
         return $this->estAdmin;
     }
 
-    /**
-     * Setter de la variable membre estAdmin
-     * @param bool|null $estAdmin
-     */
-    public function setEstAdmin(?bool $estAdmin): void
-    {
+    public function setEstAdmin(?bool $estAdmin): void {
         $this->estAdmin = $estAdmin;
     }
-}
 
+    public function getTentativesEchoueesConn(): ?int {
+        return $this->tentativesEchoueesConn;
+    }
+
+    public function setTentativesEchoueesConn(?int $tentativesEchoueesConn): void {
+        $this->tentativesEchoueesConn = $tentativesEchoueesConn;
+    }
+
+    public function getDateDernierEchecConn(): ?DateTime {
+        return $this->dateDernierEchecConn;
+    }
+
+    public function setDateDernierEchecConn(?DateTime $dateDernierEchecConn): void {
+        $this->dateDernierEchecConn = $dateDernierEchecConn;
+    }
+
+    public function getTokenReinitialisation(): ?string {
+        return $this->tokenReinitialisation;
+    }
+
+    public function setTokenReinitialisation(?string $tokenReinitialisation): void {
+        $this->tokenReinitialisation = $tokenReinitialisation;
+    }
+
+    public function getExpirationToken(): ?DateTime {
+        return $this->expirationToken;
+    }
+
+    public function setExpirationToken(?DateTime $expirationToken): void {
+        $this->expirationToken = $expirationToken;
+    }
+}

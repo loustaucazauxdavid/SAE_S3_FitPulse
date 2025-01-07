@@ -22,7 +22,7 @@ define('TABLE_PRATIQUER', PREFIXE_TABLE . "pratiquer"); /// Table pratiquer
 define('TABLE_PROPOSER_DANS', PREFIXE_TABLE . "proposer_dans"); /// Table proposer_dans
 define('TABLE_SALLE_DE_SPORT', PREFIXE_TABLE . "salle_de_sport"); /// Table salle_de_sport
 define('TABLE_SEANCE', PREFIXE_TABLE . "seance"); /// Table seance
-define('TABLE_UTILISATEUR', PREFIXE_TABLE . "utilisateur"); /// Table utilisateur
+define('TABLE_UTILISATEUR', PREFIXE_TABLE . "Utilisateur"); /// Table utilisateur
 
 // Constante de la partie vue
 define('WEBSITE_TITLE', 'FitPulse'); /// Titre du site
