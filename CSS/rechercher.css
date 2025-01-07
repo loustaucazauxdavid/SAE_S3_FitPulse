@@ -23,6 +23,23 @@ body,
     color: #000000;
 }
 
+footer.bg-dark {
+    background-color: #232322;
+    color: #f3f4f6;
+    z-index: 1000;
+    position: relative;
+}
+
+nav.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Pour que la navbar prenne toute la largeur */
+    z-index: 1000;
+    /* Pour s'assurer qu'elle reste au-dessus des autres éléments */
+}
+
 #sidebar {
     position: fixed;
     top: 85px; /* Assure que la sidebar commence après la navbar */
