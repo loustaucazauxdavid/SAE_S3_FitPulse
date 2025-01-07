@@ -10,17 +10,11 @@
 
 {% block contenu %}
 	<nav id="sidebar" class="sidebar-content">
-		<form
-			method="POST" action="">
-			<!-- Toggle switch button -->
-			<div class="form-check form-switch">
-				<input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="coach_seance">
-				<label class="form-check-label" for="flexSwitchCheckDefault">Recherche de [Coach/Séance]</label>
-			</div>
 
-			<!-- Stars radio buttons -->
-			<div class="sidebar-stars">
-				<p>Note minimale</p>
+		<!-- Boutons radio étoiles -->
+		<div class="sidebar-stars">
+			<h6>Note minimale</h6>
+			<div>
 				<input type="radio" id="star5" name="star" value="5">
 				<label for="star5" class="star"></label>
 
@@ -36,66 +30,130 @@
 				<input type="radio" id="star1" name="star" value="1">
 				<label for="star1" class="star"></label>
 			</div>
+		</div>
 
 
-			<!-- Rechercher par nom -->
-			<div class="sidebar-search">
-				<p>Nom du coach</p>
-				<div class="input-group">
-					<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
-				</div>
+		<!-- Rechercher par nom -->
+		<div class="sidebar-search">
+			<h6>Nom du coach</h6>
+			<div class="input-group">
+				<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
 			</div>
+		</div>
 
-			<!-- Slider budget -->
-			<div class="sidebar-slider">
-				<p>Budget</p>
-				<input type="range" min="0" max="100" value="" class="slider" name="budget" id="myRange">
+		<!-- Rechercher par sport -->
+		<div class="sidebar-search">
+			<h6>Sport(s)</h6>
+			<div class="input-group">
+				<input type="text" class="form-control search-menu" name="search_name" placeholder="Search..." value="">
 			</div>
+		</div>
 
-			<!-- Type de séance -->
-			<div class="sidebar-checkbox">
-				<p>Type de séance</p>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckHybride">Hybride</label>
-				</div>
-				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
-				</div>
+		<!-- Slider budget -->
+		<div class="sidebar-budget">
+			<h6>Budget</h6>
+			<input type="range" id="budget-range" name="budget" min="0" max="1000" step="1" value="200">
+			<div class="budget-values">
+				<span id="budget-min-value">20</span>
+				€ -
+				<span id="budget-max-value">1000</span>
+				€
 			</div>
+		</div>
 
-			<!-- Widget calendrier -->
-			<div class="sidebar-calendar">
-				<p>Date</p>
-				<div class="input-group date" id="datepicker"></div>
+
+		<!-- Type de séance -->
+		<div class="sidebar-checkbox">
+			<h6>Type de séance</h6>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]">
+				<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
 			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]">
+				<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+			</div>
+			<div class="form-check">
+				<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]">
+				<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+			</div>
+		</div>
 
-			<!-- Bouton valider -->
-			<button type="submit" class="btn btn-primary">Valider</button>
-		</form>
-	</nav>
+		<!-- Nombre de participants -->
+		<div class="sidebar-participants">
+			<h6>Nombre de participants</h6>
+			<input type="number" id="participants" name="participants" min="1" max="100" value="1">
+		</div>
 
-	<main class="page-content">
-		<div class="container-fluid">
-			<h2>Résultats</h2>
-			<hr>
-			<div class="row">
-				<div class="form-group col-md-12">
-					<div class="card d-flex flex-row">
-						<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 200px; height: auto; object-fit: contain;">
-						<div class="card-body">
+		<!-- Widget calendrier -->
+		<div class="sidebar-calendar">
+			<h6>Date</h6>
+			<div class="input-group date" id="datepicker"></div>
+		</div>
+
+		<!-- Bouton valider -->
+		<button type="submit" class="btn btn-primary">Valider</button>
+	</form>
+</nav>
+
+<main class="page-content">
+	<div class="container-fluid">
+		<h2>Résultats</h2>
+		<hr>
+		<div class="row">
+			<div class="form-group col-md-12">
+				<div class="card d-flex flex-row">
+					<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
+					<div class="card-body d-flex flex-row justify-content-between">
+						<div>
 							<h5 class="card-title">Nom du coach</h5>
+							<h6 class="card-subtitle mb-2 text-muted">
+								<div class="star-rating">
+									<span class="star filled"></span>
+									<span class="star filled"></span>
+									<span class="star filled"></span>
+									<span class="star empty"></span>
+									<span class="star empty"></span>
+								</div>
+								Sport(s) pratiqué(s)
+							</h6>
 							<p class="card-text">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-																							    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-																								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+																																																								tempor incididunt ut labore et dolore magna aliqua.
 							</p>
 							<a href="#" class="btn btn-primary">Voir plus</a>
+						</div>
+						<div class="card-calendar" style="margin-left: 20px;">
+							<h5>Séances disponibles</h5>
+							<div class="input-group date" id="datepicker-idcoach"></div>
+						</div>
+					</div>
+				</div>
+
+				<div class="card d-flex flex-row">
+					<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
+					<div class="card-body d-flex flex-row justify-content-between">
+						<div>
+							<h5 class="card-title">Nom du coach</h5>
+							<h6 class="card-subtitle mb-2 text-muted">
+								<div class="star-rating">
+									<span class="star filled"></span>
+									<span class="star filled"></span>
+									<span class="star filled"></span>
+									<span class="star empty"></span>
+									<span class="star empty"></span>
+								</div>
+								Sport(s) pratiqué(s)
+							</h6>
+							<p class="card-text">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+																																																								tempor incididunt ut labore et dolore magna aliqua.
+							</p>
+							<a href="#" class="btn btn-primary">Voir plus</a>
+						</div>
+						<div class="card-calendar" style="margin-left: 20px;">
+							<h5>Séances disponibles</h5>
+							<div class="input-group date" id="datepicker-idcoach"></div>
 						</div>
 					</div>
 				</div>
@@ -103,8 +161,8 @@
 		</div>
 	</main>
 {% endblock %}
-
 {% block script %}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.fr.min.js"></script>

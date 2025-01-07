@@ -35,6 +35,7 @@ class ControllerCoach extends Controller{
         // Affichage de la page
         echo $template->render(array(
             'listeCoachsNotes' => $listeCoachsNotes,
+            'estConnecte' => false // TODO : Implémenter système de connexion et passer la variable dans les controlleurs
         ));
     }
 }
