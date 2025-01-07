@@ -20,6 +20,7 @@ require_once 'modeles/bd.class.php';
 require_once 'controllers/controller.class.php';
 require_once 'controllers/controller_factory.class.php';
 require_once 'controllers/controller_coach.class.php';
+require_once 'controllers/controller_utilisateur.class.php';
 
 // Ajout des modèles classes
 require_once 'modeles/coach.class.php';
