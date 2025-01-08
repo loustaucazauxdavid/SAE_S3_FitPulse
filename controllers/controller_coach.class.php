@@ -24,7 +24,7 @@ class ControllerCoach extends Controller{
      * @return void
      */
     public function lister(){
-        // Recupération de tous les coachs (Test avant de lister les coachs par notes)
+        // Recupération des 10 coachs les mieux notés
         $managerCoach = new CoachNoteDao($this->getPdo());
         $listeCoachsNotesAssoc = $managerCoach->findTopNbByNote(10);
         $listeCoachsNotes = $managerCoach->hydrateAll($listeCoachsNotesAssoc);

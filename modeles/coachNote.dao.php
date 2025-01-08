@@ -23,7 +23,7 @@ class CoachNoteDao {
     }
 
     /**
-     * Récupère les meilleurs coachs selon la moyenne de leurs notes.
+     * Récupère les $nbResultats de meilleurs coachs selon la moyenne de leurs notes.
      * @param int $nbResultats Le nombre de coachs à récupérer.
      * @return array[] Un tableau de tableaux associatifs représentant les meilleurs coachs.
      */
