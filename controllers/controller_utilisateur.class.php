@@ -26,7 +26,7 @@ class ControllerUtilisateur extends Controller {
      * @return void
      */
     public function afficher() {
-        verifierConnexionInterdite(); // Interdire l'accès si l'utilisateur est déjà authentifié  
+        verifierConnexionInterdite(); // Interdire l'accès si le visiteur de la page est déjà authentifié  
     
         // Récuperer la demande d'affichage du visiteur de la page. Si non spécifiée, définir par défaut à 'connexion'
         $demande = (isset(parent::getGet()['demande'])) ? parent::getGet()['demande'] : 'connexion'; 
@@ -47,13 +47,13 @@ class ControllerUtilisateur extends Controller {
      * @return void
      */
     public function connexion() {
-        verifierConnexionInterdite(); // Interdire l'accès si l'utilisateur est déjà authentifié
+        verifierConnexionInterdite(); // Interdire l'accès si le visiteur de la page est déjà authentifié
 
         $loginInfo = $this->handleConnexion(); // Gérer la tentative de connexion de l'utilisateur
 
         if ($loginInfo['success']) { 
             // Connexion réussie
-            echo "Connexion réussie.";
+            header('Location: index.php');
         } else {   
             // Connexion échouée, affichage à nouveau de la page de connexion avec les messages d'erreurs
             $template = $this->getTwig()->load('authentification.html.twig');    
@@ -63,13 +63,24 @@ class ControllerUtilisateur extends Controller {
             ));            
         }
     }
+
+    public function deconnexion() {
+        verifierConnexionObligatoire(); // Interdire l'accès si le visiteur de la page n'est pas connecté
+
+        // Déconnexion de l'utilisateur
+        session_unset(); // Supprimer toutes les variables de session
+        session_destroy(); // Détruire la session
+
+        // Redirection vers la page d'accueil
+        header('Location: index.php');
+    }
     
     /**
      * @brief Affiche la page d'inscription et valide la tentative d'inscription
      * @return void
      */
     public function inscription() {
-        verifierConnexionInterdite(); // Interdire l'accès si l'utilisateur est déjà authentifié
+        verifierConnexionInterdite(); // Interdire l'accès si le visiteur de la page est déjà authentifié
     
         echo "Fonction d'inscription pas encore implémentée.";       
     }
@@ -79,7 +90,7 @@ class ControllerUtilisateur extends Controller {
      * @return void
      */
     public function motdepasseoublie() {
-        verifierConnexionInterdite(); // Interdire l'accès si l'utilisateur est déjà authentifié
+        verifierConnexionInterdite(); // Interdire l'accès si le visiteur de la page est déjà authentifié
         
         echo "Fonction de mot de passe oublié pas encore implémentée.";
     }  

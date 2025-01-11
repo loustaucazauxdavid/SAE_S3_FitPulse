@@ -8,7 +8,7 @@
  * @return bool
  */
 function estConnecte(): bool {
-    return !empty($_SESSION['authentifie']);
+    return isset($_SESSION['authentifie']) && $_SESSION['authentifie'] === true;
 }
 
 /**
