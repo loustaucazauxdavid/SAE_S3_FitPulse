@@ -4,7 +4,8 @@
  * @brief Fichier contenant les constantes du site
  */
 
-// Constante de la partie contrôleur
+
+// Constantes de la partie contrôleur
 define('DB_HOST', '192.168.1.100:3306'); /// Adresse de l'hôte
 define('DB_NAME', 'fitpulse'); /// Nom de la base de données
 define('DB_USER', 'fitpulse'); /// Nom d'utilisateur
@@ -24,9 +25,13 @@ define('TABLE_SALLE_DE_SPORT', PREFIXE_TABLE . "salle_de_sport"); /// Table sall
 define('TABLE_SEANCE', PREFIXE_TABLE . "seance"); /// Table seance
 define('TABLE_UTILISATEUR', PREFIXE_TABLE . "Utilisateur"); /// Table utilisateur
 
-// Constante de la partie vue
+// Constantes de la partie vue
 define('WEBSITE_TITLE', 'FitPulse'); /// Titre du site
 define('WEBSITE_VERSION', '0.1'); /// Version du site
 define('WEBSITE_DESCRIPTION', 'Application Sport et Bien-être permettant d\'organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d\'entraînement'); /// Description du site
 define('WEBSITE_LANGUAGE', 'fr'); /// Langue du site
-?> 
+
+// Constantes du système d'authentification 
+define('MAX_CONNEXIONS_ECHOUEES', 3); // Nombre maximum de tentatives échouées avant désactivation du compte
+define('DELAI_ATTENTE_CONNEXION', 30 * 60); // Délai d'attente après désactivation (en secondes)
+?>

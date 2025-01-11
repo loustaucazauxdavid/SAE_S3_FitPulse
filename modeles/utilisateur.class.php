@@ -9,70 +9,33 @@
  * @details Cette classe permet de gérer les utilisateurs
  */
 class Utilisateur {
-    private ?int $id;
+    private ?int $id = null;
     private ?string $mail;
     private ?string $motDePasse;
-    private ?string $nom;
-    private ?string $prenom;
-    private ?string $photo;
-    private ?DateTime $dateInscription;    
-    private ?string $statutCompte;
-    private ?bool $estAdmin;
-    private ?int $tentativesEchoueesConn;
-    private ?DateTime $dateDernierEchecConn;
-    private ?string $tokenReinitialisation;
-    private ?DateTime $expirationToken;
+    private ?string $nom = null;
+    private ?string $prenom = null;
+    private ?string $photo = null;
+    private ?DateTime $dateInscription = null;
+    private ?string $statutCompte = 'active';
+    private ?bool $estAdmin = false;
+    private ?int $tentativesEchoueesConn = 0;
+    private ?DateTime $dateDernierEchecConn = null;
+    private ?string $tokenReinitialisation = null;
+    private ?DateTime $expirationToken = null;
 
     /**
      * @brief Constructeur de la classe Utilisateur
-     * @param int|null $id Identifiant de l'utilisateur
-     * @param string|null $motDePasse Mot de passe de l'utilisateur
-     * @param string|null $nom Nom de l'utilisateur
-     * @param string|null $prenom Prénom de l'utilisateur
-     * @param string|null $mail mail de l'utilisateur
-     * @param string|null $photo Photo de l'utilisateur
-     * @param DateTime|null $dateInscription Date d'inscription de l'utilisateur
-     * @param string|null $statutCompte Statut du compte ("active" ou "desactive")
-     * @param bool|null $estAdmin Si l'utilisateur est admin
-     * @param int|null $tentativesEchoueesConn Nombre de tentatives de connexion échouées
-     * @param DateTime|null $dateDernierEchecConn Date du dernier échec de connexion
-     * @param string|null $tokenReinitialisation Token de réinitialisation de mot de passe
-     * @param DateTime|null $expirationToken Expiration du token de réinitialisation
+     * @param string $mail Mail de l'utilisateur
+     * @param string $motDePasse Mot de passe de l'utilisateur
      */
-    public function __construct(
-        ?int $id = null,
-        ?string $motDePasse = null,
-        ?string $nom = null,
-        ?string $prenom = null,
-        ?string $mail = null,
-        ?string $photo = null,
-        ?DateTime $dateInscription = null,
-        ?string $statutCompte = null,
-        ?bool $estAdmin = null,
-        ?int $tentativesEchoueesConn = null,
-        ?DateTime $dateDernierEchecConn = null,
-        ?string $tokenReinitialisation = null,
-        ?DateTime $expirationToken = null
-    ) {
-        $this->id = $id;
-        $this->motDePasse = $motDePasse;
-        $this->nom = $nom;
-        $this->prenom = $prenom;
+    public function __construct(string $mail, string $motDePasse) {
         $this->mail = $mail;
-        $this->photo = $photo;
-        $this->dateInscription = $dateInscription;
-        $this->statutCompte = $statutCompte;
-        $this->estAdmin = $estAdmin;
-        $this->tentativesEchoueesConn = $tentativesEchoueesConn;
-        $this->dateDernierEchecConn = $dateDernierEchecConn;
-        $this->tokenReinitialisation = $tokenReinitialisation;
-        $this->expirationToken = $expirationToken;
+        $this->motDePasse = $motDePasse;
     }
 
     /**
      * Getter et setter pour chaque variable membre
      */
-
     public function getId(): ?int {
         return $this->id;
     }
@@ -105,11 +68,11 @@ class Utilisateur {
         $this->prenom = $prenom;
     }
 
-    public function getmail(): ?string {
+    public function getMail(): ?string {
         return $this->mail;
     }
 
-    public function setmail(?string $mail): void {
+    public function setMail(?string $mail): void {
         $this->mail = $mail;
     }
 
@@ -175,5 +138,112 @@ class Utilisateur {
 
     public function setExpirationToken(?DateTime $expirationToken): void {
         $this->expirationToken = $expirationToken;
+    }
+
+    /**
+     * Vérifie si le délai d'attente est écoulé pour réactiver le compte.
+     *
+     * @return bool true si le délai est écoulé, false sinon.
+     */
+    public function delaiAttenteEstEcoule(): bool {
+        return $this->tempsRestantAvantReactivationCompte() === 0;
+    }
+
+    /**
+     * Calcule le temps restant avant que le compte soit réactivé.
+     *
+     * @return int Temps restant en secondes. Retourne 0 si le délai est écoulé.
+     */
+    public function tempsRestantAvantReactivationCompte(): int {
+        if (!$this->dateDernierEchecConn) {
+            return 0;
+        }
+
+        $dernierEchecTimestamp = strtotime($this->dateDernierEchecConn->format('Y-m-d H:i:s'));
+        $tempsEcoule = time() - $dernierEchecTimestamp;
+
+        return max(0, DELAI_ATTENTE_CONNEXION - $tempsEcoule);
+    }
+
+    /**
+     * Réactive un compte désactivé si le délai d'attente est écoulé.
+     */
+    private function reactiverCompte(): void {
+        $this->tentativesEchoueesConn = 0;
+        $this->dateDernierEchecConn = null;
+        $this->statutCompte = 'active';
+    }
+
+    private function reinitialiserTentativesConnexions(): void {
+        $this->tentativesEchoueesConn = 0;
+        $this->dateDernierEchecConn = null;
+    }
+
+    private function gererEchecConnexion(): void {
+        $this->tentativesEchoueesConn++;
+
+        // Si les tentatives échouées dépassent ou égalent le maximum autorisé, on désactive le compte
+        if ($this->getTentativesEchoueesConn() >= MAX_CONNEXIONS_ECHOUEES) {
+            $this->statutCompte = 'desactive';
+            $this->dateDernierEchecConn = new DateTime();
+        } else {
+            $this->statutCompte = 'active';
+            $this->dateDernierEchecConn = new DateTime();
+        }
+    }
+
+    public function authentification($pdo): bool {
+        $mail = $this->mail;
+        $motDePasse = $this->motDePasse;
+
+        $managerUtilisateur = new UtilisateurDao($pdo);
+        $utilisateurAssoc = $managerUtilisateur->findAssocByMail($this->mail);
+
+
+        // Si l'utilisateur n'existe pas, refuser la connexion
+        if (is_null($utilisateurAssoc)) {
+            return false;
+        } else {
+         // Hydrate l'instance avec les données récupérées depuis la BD
+         $this->setMail($utilisateurAssoc['mail']);
+         $this->setMotDePasse($utilisateurAssoc['motDePasse']);
+         $this->setId($utilisateurAssoc['id']);
+         $this->setNom($utilisateurAssoc['nom']);
+         $this->setPrenom($utilisateurAssoc['prenom']);
+         $this->setPhoto($utilisateurAssoc['photo']);
+         $this->setDateInscription(strToDateTime($utilisateurAssoc['dateInscription']));
+         $this->setStatutCompte($utilisateurAssoc['statutCompte']);
+         $this->setEstAdmin($utilisateurAssoc['estAdmin']);
+         $this->setTentativesEchoueesConn($utilisateurAssoc['tentativesEchoueesConn']);
+         $this->setDateDernierEchecConn(strToDateTime($utilisateurAssoc['dateDernierEchecConn']));
+         $this->setTokenReinitialisation($utilisateurAssoc['tokenReinitialisation']);
+         $this->setExpirationToken(strToDateTime($utilisateurAssoc['expirationToken']));
+            }
+
+        // Vérification du statut du compte
+        if ($this->statutCompte === 'desactive') {
+            if (!$this->delaiAttenteEstEcoule()) {
+                // Lever une exception si le délai d'attente n'est pas écoulé
+                throw new Exception("compte_desactive");
+            }
+            $this->reactiverCompte(); // Réactiver le compte si le délai est écoulé
+            $managerUtilisateur->reactiverCompte($this); // BD
+       }
+
+        // Vérification du mot de passe
+        if (!password_verify($motDePasse, $this->getMotDePasse())) {
+            $this->gererEchecConnexion(); // Gérer un échec de connexion
+            $managerUtilisateur->gererEchecConnexion($this); // BD
+            return false; // Authentification échouée
+        } 
+
+            // Réinitialiser les tentatives échouées si nécessaire
+            if ($this->tentativesEchoueesConn > 0) {
+                $this->reinitialiserTentativesConnexions(); // Réinitialiser les tentatives échouées en mémoire
+                $managerUtilisateur->reinitialiserTentativesConnexions($this); // Réinitialiser les tentatives échouées en BD
+            }
+
+            return true; // Authentification réussie
+      
     }
 }
