@@ -4,6 +4,8 @@
  * @brief Point d'entrée de l'application
  */
 
+session_start(); // Démarrer la session
+
 require_once 'include.php';
 
 try 
