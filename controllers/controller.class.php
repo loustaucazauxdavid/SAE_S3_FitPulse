@@ -1,8 +1,6 @@
 <?php
-/**
- * @file controller.class.php
- * @brief Classe Controller
- */
+
+require_once 'utils/session.php';
 
 /**
  * @brief Classe Controller
@@ -27,6 +25,9 @@ class Controller{
 
         $this->loader = $loader;
         $this->twig = $twig;
+        
+        // Variables globales Twig
+        $this->twig->addGlobal('estConnecte', estConnecte());
 
         if (isset($_GET) && !empty($_GET)){
             $this->get = $_GET;
@@ -43,11 +44,11 @@ class Controller{
      */
     public function call(string $methode): mixed{
 
-        if (!method_exists($this, $methode)){
-            throw new Exception("La méthode $methode n'existe pas dans le controller ". __CLASS__ ); 
+        if (!method_exists($this, $methode) || !is_callable([$this, $methode])) {
+            throw new Exception("La méthode $methode n'existe pas ou n'est pas accessible dans le controlleur " . __CLASS__);
         }
-        return $this->$methode();
-        
+
+        return $this->$methode(); 
     }
 
     /**

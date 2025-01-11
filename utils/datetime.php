@@ -11,3 +11,4 @@ function strToDateTime(?string $dateString): ?DateTime {
     }
     return null;
 }
+?>
