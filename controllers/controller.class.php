@@ -11,7 +11,8 @@ class Controller{
     private \Twig\Loader\FilesystemLoader $loader;
     private \Twig\Environment $twig;
     private ?array $get = null;
-    private ?array $post =null;
+    private ?array $post = null;
+    private ?array $files = null;
 
     /**
      * Constructeur de la classe Controller
@@ -27,13 +28,22 @@ class Controller{
         $this->twig = $twig;
         
         // Variables globales Twig
-        $this->twig->addGlobal('estConnecte', estConnecte());
+        $this->twig->addGlobal('estConnecte', estConnecte()); // Base template
 
+        verifierSessionActive(); 
+        $utilisateur = $_SESSION['utilisateur'] ?? null;
+        if ($utilisateur && isset($utilisateur['photo'])) { $utilisateur['photo'] = $this->convertirEnCheminClient($utilisateur['photo']); } // Convertir le chemin absolu de l'image en chemin relatif client
+        $this->twig->addGlobal('utilisateur', $utilisateur); // Base template
+
+        // Variables des données passés en arguments
         if (isset($_GET) && !empty($_GET)){
             $this->get = $_GET;
         }
         if (isset($_POST) && !empty($_POST)){
             $this->post = $_POST;
+        }
+        if (isset($_FILES) && !empty($_FILES)){
+            $this->files = $_FILES;
         }
     }
 
@@ -133,8 +143,28 @@ class Controller{
     {
         $this->post = $post;
     }
+
+    /**
+     * Getters de la variable files
+     */ 
+    public function getFiles(): ?array
+    {
+        return $this->files;
+    }
+
+    /**
+     * Setters de la variable files
+     */ 
+    public function setFiles(?array $files): void
+    {
+        $this->files = $files;
+    }
+
+    /**
+     * Convertit un chemin absolu en chemin relatif pour le client.
+     */
+    private function convertirEnCheminClient($chemin): string
+    {
+        return str_replace(dirname(__DIR__) . '/', '', $chemin);
+    }
 }
-
-
-
-

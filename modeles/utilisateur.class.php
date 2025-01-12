@@ -192,18 +192,20 @@ class Utilisateur {
         }
     }
 
-    public function authentification($pdo): bool {
-        $mail = $this->mail;
-        $motDePasse = $this->motDePasse;
 
+    /**
+     * Met à jour les données de l'utilisateur depuis les informations contenues BD
+     */
+    public function mettreAJourDepuisBD($pdo): bool {
         $managerUtilisateur = new UtilisateurDao($pdo);
         $utilisateurAssoc = $managerUtilisateur->findAssocByMail($this->mail);
-
 
         // Si l'utilisateur n'existe pas, refuser la connexion
         if (is_null($utilisateurAssoc)) {
             return false;
-        } else {
+        } 
+        else 
+        {
          // Hydrate l'instance avec les données récupérées depuis la BD
          $this->setMail($utilisateurAssoc['mail']);
          $this->setMotDePasse($utilisateurAssoc['motDePasse']);
@@ -218,7 +220,19 @@ class Utilisateur {
          $this->setDateDernierEchecConn(strToDateTime($utilisateurAssoc['dateDernierEchecConn']));
          $this->setTokenReinitialisation($utilisateurAssoc['tokenReinitialisation']);
          $this->setExpirationToken(strToDateTime($utilisateurAssoc['expirationToken']));
-            }
+         }
+
+        return true;
+    }
+
+    public function authentification($pdo): bool {
+        $mail = $this->mail;
+        $motDePasse = $this->motDePasse;
+
+        $managerUtilisateur = new UtilisateurDao($pdo);
+        $utilisateurAssoc = $managerUtilisateur->findAssocByMail($this->mail);
+
+        $this->mettreAJourDepuisBD($pdo);
 
         // Vérification du statut du compte
         if ($this->statutCompte === 'desactive') {
@@ -245,5 +259,36 @@ class Utilisateur {
 
             return true; // Authentification réussie
       
+    }
+
+    private function estRobuste(string $password): bool {
+        $regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'; // Regex pour un mot de passe robuste
+
+        return preg_match($regex, $password) === 1; // Retourne 1 si l'évaluation regex réussie.
+    }
+
+    public function inscription($pdo): void {
+        $managerUtilisateur = new UtilisateurDao($pdo);
+
+        // Vérifie si le mot de passe est robuste
+        if (!$this->estRobuste($this->motDePasse)) {
+            throw new Exception("mdp_faible");
+        }
+
+        // Vérifie si l'email existe déjà
+        if ($managerUtilisateur->mailExiste($this->mail)) {
+            throw new Exception("compte_existant");
+        }
+
+        // Hachage du mot de passe
+        $passwordHache = password_hash($this->motDePasse, PASSWORD_BCRYPT);
+
+        // Remplace le mot de passe en clair par le mot de passe haché
+        $this->motDePasse = $passwordHache; 
+
+        // Ajout de l'utilisateur en BD
+        $utilisateurAssoc = $managerUtilisateur->add($this);
+
+        $this->mettreAJourDepuisBD($pdo);
     }
 }

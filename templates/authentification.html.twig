@@ -32,7 +32,7 @@
                         <h3 class="my-1">{{ mode == 'inscription' ? 'Créer un compte' : 'Connexion' }}</h3>
                     </div>
                     <div class="card-body"> 
-                        <form method="POST" action="index.php?controleur=utilisateur&methode={{mode}}">
+                        <form method="POST" action="index.php?controleur=utilisateur&methode={{mode}}" enctype="multipart/form-data">
 
                             {# Si on est en mode inscription, on affiche en plus les champs nom, prénom et photo #}
                             {% if mode == 'inscription' %}

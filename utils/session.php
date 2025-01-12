@@ -39,4 +39,13 @@ function verifierConnexionInterdite(string $redirection = 'index.php'): void {
         exit();
     }
 }
+
+/**
+ * Vérifie si la session est active. Si non, démarre une session.
+ */
+function verifierSessionActive(): void {
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        session_start();
+    }
+}
 ?>
