@@ -4,38 +4,18 @@
  * @brief DAO de la table Discipline
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe DisciplineDao
  * @details DAO de la table Discipline
  */
-class DisciplineDao {
-    private ?PDO $pdo;
-
+class DisciplineDao extends Dao {
     /**
      * Constructeur de la classe DisciplineDao
      * @param PDO|null $pdo
      * @return void
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
@@ -44,7 +24,7 @@ class DisciplineDao {
      * @return Discipline|null La discipline récupérée.
      */
     public function find(int $id): ?Discipline {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_DISCPLINE . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['discipline'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Discipline::class);
         return $stmt->fetch();
@@ -55,15 +35,15 @@ class DisciplineDao {
      * @return Discipline[] Les disciplines récupérées.
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_DISCPLINE);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, Discipline::class); 
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['discipline']);
+        $stmt->setFetchMode(PDO::FETCH_CLASS, Discipline::class);
         return $stmt->fetchAll();
     }
 
     /**
      * Méthode pour hydrater un objet Discipline
-     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Discipline
-     * @return Pratiquant L'objet Discipline hydraté
+     * @param array $disciplineAssoc Le tableau associatif représentant un objet Discipline
+     * @return Discipline L'objet Discipline hydraté
      */
     public function hydrate(array $disciplineAssoc): Discipline {
         $discipline = new Discipline();
