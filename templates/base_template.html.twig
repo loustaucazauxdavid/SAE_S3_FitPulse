@@ -2,17 +2,17 @@
 {# Blocs définissables par page : "titre", "css", "contenu", "script" #}
 
 <!DOCTYPE html>
-<html lang="{{ constant('WEBSITE_LANGUAGE') }}">
+<html lang="{{website_language}}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    {# Titre de la page, par défaut la constante WEBSITE_TITLE #}
-    <title>{% block titre %}{{ constant('WEBSITE_TITLE') }}{% endblock %}</title>
+    {# Titre de la page, par défaut website_title #}
+    <title>{% block titre %}{{website_title}}{% endblock %}</title>
 
-    {# Description de la page passé par le controller, par défaut la constante WEBSITE_DESCRIPTION #}
-    <meta name="description" content="{{ description is defined ? description : constant('WEBSITE_DESCRIPTION') }}">
+    {# Description de la page passé par le controller, par défaut website_description #}
+    <meta name="description" content="{{ description is defined ? description : website_description }}">
 
     {# CSS compilé commun dont Bootstrap #}
     <link rel="stylesheet" type="text/css" href="CSS/styles.css">

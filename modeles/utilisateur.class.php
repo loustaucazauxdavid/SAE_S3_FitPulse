@@ -4,6 +4,8 @@
  * @brief Classe Utilisateur
  */
 
+require_once 'utils/datetime.php';
+
 /**
  * @brief Classe Utilisateur
  * @details Cette classe permet de gérer les utilisateurs
@@ -23,12 +25,17 @@ class Utilisateur {
     private ?string $tokenReinitialisation = null;
     private ?DateTime $expirationToken = null;
 
+    // Config
+    private $authConfig;
+
     /**
      * @brief Constructeur de la classe Utilisateur
      * @param string $mail Mail de l'utilisateur
      * @param string $motDePasse Mot de passe de l'utilisateur
      */
     public function __construct(string $mail, string $motDePasse) {
+        $this->authConfig = Config::getInstance()->getAuthConfig();
+       
         $this->mail = $mail;
         $this->motDePasse = $motDePasse;
     }
@@ -162,7 +169,7 @@ class Utilisateur {
         $dernierEchecTimestamp = strtotime($this->dateDernierEchecConn->format('Y-m-d H:i:s'));
         $tempsEcoule = time() - $dernierEchecTimestamp;
 
-        return max(0, DELAI_ATTENTE_CONNEXION - $tempsEcoule);
+        return max(0, $this->authConfig['getlockout_duration'] - $tempsEcoule);
     }
 
     /**
@@ -183,7 +190,7 @@ class Utilisateur {
         $this->tentativesEchoueesConn++;
 
         // Si les tentatives échouées dépassent ou égalent le maximum autorisé, on désactive le compte
-        if ($this->getTentativesEchoueesConn() >= MAX_CONNEXIONS_ECHOUEES) {
+        if ($this->getTentativesEchoueesConn() >= $this->authConfig['max_failed_logins']) {
             $this->statutCompte = 'desactive';
             $this->dateDernierEchecConn = new DateTime();
         } else {

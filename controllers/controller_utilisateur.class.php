@@ -182,9 +182,9 @@ class ControllerUtilisateur extends Controller {
         try {
             // Tentative d'inscription
             $utilisateur->inscription($this->getPdo());
-    
+
             // Ajouter la photo de profil si elle a été fournie
-            if (isset(parent::getFiles()['photo'])) {
+            if (isset(parent::getFiles()['photo']) && parent::getFiles()['photo']['error'] != 4) { // Erreur 4 : Aucun fichier n'a été envoyé par le formulaire
                 // Traiter l'upload de la photo de profil
                 FileUpload::init();
                 $lienPhoto = FileUpload::enregistrerPhotoProfil($utilisateur, parent::getFiles()['photo']);
@@ -192,7 +192,7 @@ class ControllerUtilisateur extends Controller {
                 // Mettre à jour le lien de la photo de profil de l'utilisateur 
                 $utilisateur->setPhoto($lienPhoto);
                 $managerUtilisateur = new UtilisateurDao($this->getPdo());
-                $managerUtilisateur->updatePhoto($utilisateur);
+                $managerUtilisateur->updatePhoto($utilisateur);   
             }
         } 
         catch (Exception $e) {

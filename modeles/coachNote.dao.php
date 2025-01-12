@@ -4,22 +4,18 @@
  * @brief DAO pour les notes des coachs
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief DAO pour les notes des coachs
  * @details Gère les requêtes vers la table coachNote
  */
-class CoachNoteDao {
-    private ?PDO $pdo;
-
+class CoachNoteDao extends Dao {
     /**
      * Constructeur de la classe CoachNoteDao
      * @param PDO|null $pdo
      * @return void
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
@@ -30,8 +26,8 @@ class CoachNoteDao {
     public function findTopNbByNote(int $nbResultats = 10): array {
         $sql = "
             SELECT c.*, AVG(com.note) AS moyenneNote
-            FROM " . TABLE_COACH . " c
-            INNER JOIN " . TABLE_COMMENTER . " com ON c.id = com.idCoach
+            FROM " . $this->tables['coach'] . " c
+            INNER JOIN " . $this->tables['commenter'] . " com ON c.id = com.idCoach
             GROUP BY c.id
             ORDER BY moyenneNote DESC
             LIMIT :nbResultats
@@ -66,25 +62,10 @@ class CoachNoteDao {
      * @return CoachNote[] Les objets CoachNote hydratés
      */
     public function hydrateAll(array $coachsAssoc): array {
-    
         $coachs = [];
         foreach ($coachsAssoc as $coachAssoc) {
             $coachs[] = $this->hydrate($coachAssoc); // Hydrate chaque tableau associatif
         }
         return $coachs;
-    }
-
-    /**
-     * Getter de la variable membre PDO
-     */ 
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre PDO
-     */ 
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
     }
 }

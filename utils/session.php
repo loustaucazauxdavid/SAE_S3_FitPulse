@@ -8,9 +8,7 @@
  * @return bool
  */
 function estConnecte(): bool {
-    if (session_status() !== PHP_SESSION_ACTIVE) {
-        session_start();
-    }
+    verifierSessionActive();
     return isset($_SESSION['authentifie']) && $_SESSION['authentifie'] === true;
 }
 

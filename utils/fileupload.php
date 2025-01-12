@@ -1,14 +1,12 @@
 <?php
 
 class FileUpload {
-    private static $dossierUpload;
+    private static $dossierUpload = APP_ROOT . '/upload/';
 
     /**
      * Initialiser le dossier d'uploads si nécessaire.
      */
     public static function init(): void {
-        self::$dossierUpload = dirname(__DIR__) . '/upload/';
-
         if (!is_dir(self::$dossierUpload)) {
             try {
                 mkdir(self::$dossierUpload, 0755, true);

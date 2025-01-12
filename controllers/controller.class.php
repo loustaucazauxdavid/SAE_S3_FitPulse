@@ -21,20 +21,28 @@ class Controller{
      * @return void
      */
     public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {
+        // Initialiser la connexion PDO
         $db = Bd::getInstance();
         $this->pdo = $db->getConnexion();
 
+        // Initialiser les variables membres
         $this->loader = $loader;
         $this->twig = $twig;
         
-        // Variables globales Twig
-        $this->twig->addGlobal('estConnecte', estConnecte()); // Base template
+        // Variables globales Twig - Base template
+        $this->twig->addGlobal('estConnecte', estConnecte());
 
         verifierSessionActive(); 
         $utilisateur = $_SESSION['utilisateur'] ?? null;
         if ($utilisateur && isset($utilisateur['photo'])) { $utilisateur['photo'] = $this->convertirEnCheminClient($utilisateur['photo']); } // Convertir le chemin absolu de l'image en chemin relatif client
-        $this->twig->addGlobal('utilisateur', $utilisateur); // Base template
+        $this->twig->addGlobal('utilisateur', $utilisateur); 
 
+        $config = Config::getInstance();
+        $this->twig->addGlobal('website_language', $config->getAppConfig('language'));
+        $this->twig->addGlobal('website_title', $config->getAppConfig('title'));
+        $this->twig->addGlobal('website_description', $config->getAppConfig('description'));
+        $this->twig->addGlobal('website_version', $config->getAppConfig('version'));
+    
         // Variables des données passés en arguments
         if (isset($_GET) && !empty($_GET)){
             $this->get = $_GET;
@@ -165,6 +173,6 @@ class Controller{
      */
     private function convertirEnCheminClient($chemin): string
     {
-        return str_replace(dirname(__DIR__) . '/', '', $chemin);
+        return str_replace(APP_ROOT . '/', '', $chemin);
     }
 }

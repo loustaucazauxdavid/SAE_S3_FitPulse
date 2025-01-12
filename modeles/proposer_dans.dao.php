@@ -4,48 +4,27 @@
  * @brief Classe ProposerDansDao
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe ProposerDansDao
  * @details Cette classe permet de gérer les propositions de créneaux dans des salles de sport
  */
-class ProposerDansDao {
-    private ?PDO $pdo;
-
+class ProposerDansDao extends Dao {
     /**
      * Constructeur de la classe ProposerDansDao
      * @param PDO|null $pdo
      * @return void
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
      * Méthode pour trouver une proposition de créneau dans une salle de sport par son identifiant
-     * @param int $idCreneau L'identifiant du créneau
-     * @param int $idSalleDeSport L'identifiant de la salle de sport
+     * @param int $id L'identifiant de la proposition de créneau
      * @return ProposerDans|null La proposition de créneau trouvée
      */
     public function find(int $id): ?ProposerDans {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_PROPOSER_DANS . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['proposer_dans'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, ProposerDans::class);
         return $stmt->fetch();
@@ -56,7 +35,7 @@ class ProposerDansDao {
      * @return ProposerDans[] Les propositions de créneaux récupérées
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_PROPOSER_DANS);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['proposer_dans']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, ProposerDans::class);
         return $stmt->fetchAll();
     }
@@ -76,7 +55,7 @@ class ProposerDansDao {
     /**
      * Méthode pour hydrater un tableau d'objets ProposerDans
      * @param array $proposerDansAssoc Le tableau associatif représentant des objets ProposerDans
-     * @return ProposerDans Le tableau d'objets ProposerDans hydraté
+     * @return ProposerDans[] Le tableau d'objets ProposerDans hydraté
      */
     public function hydrateAll(array $proposerDansAssoc): array {
         $proposerDanss = [];
@@ -85,5 +64,4 @@ class ProposerDansDao {
         }
         return $proposerDanss;
     }
-
 }

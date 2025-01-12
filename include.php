@@ -7,8 +7,9 @@
 // Ajout de l'autoload de composer
 require_once 'vendor/autoload.php';
 
-// Ajout du fichier constantes qui permet de configurer le site
+// Ajout du fichier de config qui permet de configurer le site
 require_once 'config/constantes.php';
+require_once 'utils/config.php';
 
 // Ajout du code pour initialiser twig
 require_once 'config/twig.php';
@@ -33,6 +34,7 @@ require_once 'modeles/commenter.class.php';
 require_once 'modeles/utilisateur.class.php';
 
 // Ajout des modèles DAO
+require_once 'modeles/dao.class.php';
 require_once 'modeles/coach.dao.php';
 require_once 'modeles/coachNote.dao.php';
 require_once 'modeles/commenter.dao.php';
