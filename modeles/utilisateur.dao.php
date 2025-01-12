@@ -4,15 +4,13 @@
  * @brief DAO de la table Utilisateur
  */
 
-require_once 'config/constantes.php';
-require_once 'utils/datetime.php';
-
 /**
  * @brief Classe UtilisateurDao
  * @details DAO de la table Utilisateur
  */
-class UtilisateurDao {
-    private ?PDO $pdo;
+class UtilisateurDao extends Dao {
+     // Config
+     private $authConfig;
 
     /**
      * Constructeur de la classe UtilisateurDao
@@ -20,50 +18,34 @@ class UtilisateurDao {
      * @return void
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
+        $this->authConfig = Config::getInstance()->getAuthConfig();
     }
 
     /**
      * Méthode pour trouver un utilisateur par son identifiant
-     * @param int $id L'identifiant de l'utilisateur
+     * @param int $idUtilisateur L'identifiant de l'utilisateur
      * @return Utilisateur|null L'utilisateur si trouvé, null sinon
      */
     public function findAssoc(int $idUtilisateur): ?array {
-        $sql = "SELECT * FROM " . TABLE_UTILISATEUR . " WHERE id = :idUtilisateur";
+        $sql = "SELECT * FROM " . $this->tables['utilisateur'] . " WHERE id = :idUtilisateur";
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->execute(array(':idUtilisateur' => $idUtilisateur));
+        $pdoStatement->execute([':idUtilisateur' => $idUtilisateur]);
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
         return $pdoStatement->fetch();
     }
 
     /**
      * Méthode pour trouver un utilisateur par son mail
-     * @param int $mail L'adresse mail de l'utilisateur à trouver
+     * @param string $mail L'adresse mail de l'utilisateur
      * @return Utilisateur|null L'utilisateur si trouvé, null sinon
      */
     public function findAssocByMail(string $mail): ?array {
-        $sql = "SELECT * FROM " . TABLE_UTILISATEUR . " WHERE mail = :mail";
+        $sql = "SELECT * FROM " . $this->tables['utilisateur'] . " WHERE mail = :mail";
         $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->execute(array(':mail' => $mail));
+        $pdoStatement->execute([':mail' => $mail]);
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
-        $fetchResult = $pdoStatement->fetch();
-        return $fetchResult ? $fetchResult : null;
+        return $pdoStatement->fetch() ?: null;
     }
 
     /**
@@ -71,11 +53,11 @@ class UtilisateurDao {
      * @return Utilisateur[] Les utilisateurs récupérés
      */
     public function findAllAssoc(): array {
-        $sql = "SELECT * FROM " . TABLE_UTILISATEUR;
+        $sql = "SELECT * FROM " . $this->tables['utilisateur'];
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute();
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
-        return $pdoStatement->fetchAll(); 
+        return $pdoStatement->fetchAll();
     }
 
     /**
@@ -101,8 +83,8 @@ class UtilisateurDao {
 
     /**
      * Méthode pour hydrater un tableau d'Utilisateur
-     * @param array $utilisateursAssoc Le tableau associatif représentant un utilisateur
-     * @return Utilisateur[] Le tableau d'Utilisateur hydraté
+     * @param array $utilisateursAssoc Le tableau associatif représentant des utilisateurs
+     * @return Utilisateur[] Le tableau d'Utilisateurs hydraté
      */
     public function hydrateAll(array $utilisateursAssoc): array {
         $utilisateurs = [];
@@ -118,145 +100,133 @@ class UtilisateurDao {
      * @return bool
      */
     public function mailExiste(string $mail): bool {
-        $sql = "SELECT COUNT(*) FROM " . TABLE_UTILISATEUR . " WHERE mail = :mail";
+        $sql = "SELECT COUNT(*) FROM " . $this->tables['utilisateur'] . " WHERE mail = :mail";
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute([':mail' => $mail]);
         return $pdoStatement->fetchColumn() > 0;
     }
 
-/**
- * Méthode pour ajouter un nouvel utilisateur dans la BD
- * La photo de profil n'est pas traitée ici, elle est traitée proprement dans une autre fonction du DAO
- * @param Utilisateur $utilisateur
- * @return bool
- */
-public function add(Utilisateur $utilisateur): bool {
-    $sql = "INSERT INTO " . TABLE_UTILISATEUR . " 
-            (motDePasse, nom, prenom, mail, photo, dateInscription, estAdmin, statutCompte, tentativesEchoueesConn, dateDernierEchecConn, tokenReinitialisation, expirationToken)
-            VALUES (:motDePasse, :nom, :prenom, :mail, :photo, NOW(), :estAdmin, :statutCompte, :tentativesEchoueesConn, :dateDernierEchecConn, :tokenReinitialisation, :expirationToken)";
-    
-    $pdoStatement = $this->pdo->prepare($sql);
-    
-    return $pdoStatement->execute([
-        ':motDePasse' => $utilisateur->getMotDePasse(),
-        ':nom' => $utilisateur->getNom(),
-        ':prenom' => $utilisateur->getPrenom(),
-        ':mail' => $utilisateur->getMail(),
-        ':photo' => NULL, // Photo de profil par défaut, traitement à part
-        ':estAdmin' => (int)$utilisateur->getEstAdmin(),
-        ':statutCompte' => $utilisateur->getStatutCompte(),
-        ':tentativesEchoueesConn' => $utilisateur->getTentativesEchoueesConn(),
-        ':dateDernierEchecConn' => $utilisateur->getDateDernierEchecConn()?->format('Y-m-d H:i:s'),
-        ':tokenReinitialisation' => $utilisateur->getTokenReinitialisation(),
-        ':expirationToken' => $utilisateur->getExpirationToken()?->format('Y-m-d H:i:s')
-    ]);
-}
-
-/**
- * Méthode pour mettre à jour le nom d'un utilisateur
- * @param Utilisateur $utilisateur
- * @return bool
- */
-public function updateNom(Utilisateur $utilisateur): bool {
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET nom = :nom WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    return $pdoStatement->execute([
-        ':nom' => $utilisateur->getNom(),
-        ':idUtilisateur' => $utilisateur->getId()
-    ]);
-}
-
-/**
- * Méthode pour mettre à jour le prénom d'un utilisateur
- * @param Utilisateur $utilisateur
- * @return bool
- */
-public function updatePrenom(Utilisateur $utilisateur): bool {
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET prenom = :prenom WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    return $pdoStatement->execute([
-        ':prenom' => $utilisateur->getPrenom(),
-        ':idUtilisateur' => $utilisateur->getId()
-    ]);
-}
-
-/**
- * Méthode pour mettre à jour le mail d'un utilisateur
- * @param Utilisateur $utilisateur
- * @return bool
- */
-public function updateMail(Utilisateur $utilisateur): bool {
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET mail = :mail WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    return $pdoStatement->execute([
-        ':mail' => $utilisateur->getMail(),
-        ':idUtilisateur' => $utilisateur->getId()
-    ]);
-}
-
-/**
- * Méthode pour mettre à jour la photo d'un utilisateur
- * @param Utilisateur $utilisateur
- * @return bool
- */
-public function updatePhoto(Utilisateur $utilisateur): bool {
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET photo = :photo WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    return $pdoStatement->execute([
-        ':photo' => $utilisateur->getPhoto(),
-        ':idUtilisateur' => $utilisateur->getId()
-    ]);
-}
-
-/**
- * Gère un échec d'authentification, incrémente les tentatives échouées et désactive le compte si nécessaire.
- * @param Utilisateur $utilisateur L'objet utilisateur contenant les données nécessaires
- * @return void
- */
-public function gererEchecConnexion(Utilisateur $utilisateur): void {
-    $idUtilisateur = $utilisateur->getId(); // Utilisation du getter pour récupérer l'ID
-    $tentativesEchoueesConn = $utilisateur->getTentativesEchoueesConn(); // Utilisation du getter pour récupérer les tentatives échouées
-
-    // Si les tentatives échouées dépassent ou égalent le maximum autorisé, on désactive le compte
-    if ($tentativesEchoueesConn >= MAX_CONNEXIONS_ECHOUEES) {
-        $sql = "UPDATE " . TABLE_UTILISATEUR . " 
-                SET tentativesEchoueesConn = :tentatives, dateDernierEchecConn = NOW(), statutCompte = 'desactive' 
-                WHERE id = :idUtilisateur";
-    } else {
-        $sql = "UPDATE " . TABLE_UTILISATEUR . " 
-                SET tentativesEchoueesConn = :tentatives, dateDernierEchecConn = NOW() 
-                WHERE id = :idUtilisateur";
+    /**
+     * Méthode pour ajouter un nouvel utilisateur dans la BD
+     * @param Utilisateur $utilisateur
+     * @return bool
+     */
+    public function add(Utilisateur $utilisateur): bool {
+        $sql = "INSERT INTO " . $this->tables['utilisateur'] . " 
+                (motDePasse, nom, prenom, mail, photo, dateInscription, estAdmin, statutCompte, tentativesEchoueesConn, dateDernierEchecConn, tokenReinitialisation, expirationToken)
+                VALUES (:motDePasse, :nom, :prenom, :mail, :photo, NOW(), :estAdmin, :statutCompte, :tentativesEchoueesConn, :dateDernierEchecConn, :tokenReinitialisation, :expirationToken)";
+        
+        $pdoStatement = $this->pdo->prepare($sql);
+        return $pdoStatement->execute([
+            ':motDePasse' => $utilisateur->getMotDePasse(),
+            ':nom' => $utilisateur->getNom(),
+            ':prenom' => $utilisateur->getPrenom(),
+            ':mail' => $utilisateur->getMail(),
+            ':photo' => NULL, // Photo de profil par défaut, traitement à part
+            ':estAdmin' => (int)$utilisateur->getEstAdmin(),
+            ':statutCompte' => $utilisateur->getStatutCompte(),
+            ':tentativesEchoueesConn' => $utilisateur->getTentativesEchoueesConn(),
+            ':dateDernierEchecConn' => $utilisateur->getDateDernierEchecConn()?->format('Y-m-d H:i:s'),
+            ':tokenReinitialisation' => $utilisateur->getTokenReinitialisation(),
+            ':expirationToken' => $utilisateur->getExpirationToken()?->format('Y-m-d H:i:s')
+        ]);
     }
 
-    $pdoStatement = $this->pdo->prepare($sql);
-    $pdoStatement->execute([
-        'tentatives' => $tentativesEchoueesConn,
-        'idUtilisateur' => $idUtilisateur,
-    ]);
-}
+    /**
+     * Méthode pour mettre à jour le nom d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return bool
+     */
+    public function updateNom(Utilisateur $utilisateur): bool {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET nom = :nom WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        return $pdoStatement->execute([
+            ':nom' => $utilisateur->getNom(),
+            ':idUtilisateur' => $utilisateur->getId()
+        ]);
+    }
 
-public function reactiverCompte(Utilisateur $utilisateur): void {
-    $idUtilisateur = $utilisateur->getId(); // Utilisation du getter pour récupérer l'ID
+    /**
+     * Méthode pour mettre à jour le prénom d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return bool
+     */
+    public function updatePrenom(Utilisateur $utilisateur): bool {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET prenom = :prenom WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        return $pdoStatement->execute([
+            ':prenom' => $utilisateur->getPrenom(),
+            ':idUtilisateur' => $utilisateur->getId()
+        ]);
+    }
 
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " 
-                SET tentativesEchoueesConn = 0, dateDernierEchecConn = NULL , statutCompte = 'active' 
-                WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    $pdoStatement->execute(['idUtilisateur' => $idUtilisateur]);
-}
+    /**
+     * Méthode pour mettre à jour le mail d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return bool
+     */
+    public function updateMail(Utilisateur $utilisateur): bool {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET mail = :mail WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        return $pdoStatement->execute([
+            ':mail' => $utilisateur->getMail(),
+            ':idUtilisateur' => $utilisateur->getId()
+        ]);
+    }
 
-/**
- * Méthode pour réinitialiser les tentatives échouées d'un utilisateur
- * @param Utilisateur $utilisateur L'objet utilisateur contenant les données nécessaires
- * @return void
- */
-public function reinitialiserTentativesConnexions(Utilisateur $utilisateur): void {
-    $idUtilisateur = $utilisateur->getId(); // Utilisation du getter pour récupérer l'ID
+    /**
+     * Méthode pour mettre à jour la photo d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return bool
+     */
+    public function updatePhoto(Utilisateur $utilisateur): bool {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET photo = :photo WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        return $pdoStatement->execute([
+            ':photo' => $utilisateur->getPhoto(),
+            ':idUtilisateur' => $utilisateur->getId()
+        ]);
+    }
 
-    $sql = "UPDATE " . TABLE_UTILISATEUR . " 
-            SET tentativesEchoueesConn = 0, dateDernierEchecConn = NULL 
-            WHERE id = :idUtilisateur";
-    $pdoStatement = $this->pdo->prepare($sql);
-    $pdoStatement->execute([':idUtilisateur' => $idUtilisateur]);
-}
+    /**
+     * Gère un échec d'authentification, incrémente les tentatives échouées et désactive le compte si nécessaire.
+     * @param Utilisateur $utilisateur
+     * @return void
+     */
+    public function gererEchecConnexion(Utilisateur $utilisateur): void {
+        $idUtilisateur = $utilisateur->getId();
+        $tentativesEchoueesConn = $utilisateur->getTentativesEchoueesConn();
+
+        $sql = ($tentativesEchoueesConn >=  $this->authConfig['max_failed_logins'])
+            ? "UPDATE " . $this->tables['utilisateur'] . " SET tentativesEchoueesConn = :tentatives, dateDernierEchecConn = NOW(), statutCompte = 'desactive' WHERE id = :idUtilisateur"
+            : "UPDATE " . $this->tables['utilisateur'] . " SET tentativesEchoueesConn = :tentatives, dateDernierEchecConn = NOW() WHERE id = :idUtilisateur";
+
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute([
+            'tentatives' => $tentativesEchoueesConn,
+            'idUtilisateur' => $idUtilisateur
+        ]);
+    }
+
+    /**
+     * Méthode pour réactiver un compte utilisateur
+     * @param Utilisateur $utilisateur
+     * @return void
+     */
+    public function reactiverCompte(Utilisateur $utilisateur): void {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET tentativesEchoueesConn = 0, dateDernierEchecConn = NULL, statutCompte = 'active' WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute(['idUtilisateur' => $utilisateur->getId()]);
+    }
+
+    /**
+     * Méthode pour réinitialiser les tentatives échouées d'un utilisateur
+     * @param Utilisateur $utilisateur
+     * @return void
+     */
+    public function reinitialiserTentativesConnexions(Utilisateur $utilisateur): void {
+        $sql = "UPDATE " . $this->tables['utilisateur'] . " SET tentativesEchoueesConn = 0, dateDernierEchecConn = NULL WHERE id = :idUtilisateur";
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute([':idUtilisateur' => $utilisateur->getId()]);
+    }
 }
