@@ -125,6 +125,90 @@ class UtilisateurDao {
     }
 
 /**
+ * Méthode pour ajouter un nouvel utilisateur dans la BD
+ * La photo de profil n'est pas traitée ici, elle est traitée proprement dans une autre fonction du DAO
+ * @param Utilisateur $utilisateur
+ * @return bool
+ */
+public function add(Utilisateur $utilisateur): bool {
+    $sql = "INSERT INTO " . TABLE_UTILISATEUR . " 
+            (motDePasse, nom, prenom, mail, photo, dateInscription, estAdmin, statutCompte, tentativesEchoueesConn, dateDernierEchecConn, tokenReinitialisation, expirationToken)
+            VALUES (:motDePasse, :nom, :prenom, :mail, :photo, NOW(), :estAdmin, :statutCompte, :tentativesEchoueesConn, :dateDernierEchecConn, :tokenReinitialisation, :expirationToken)";
+    
+    $pdoStatement = $this->pdo->prepare($sql);
+    
+    return $pdoStatement->execute([
+        ':motDePasse' => $utilisateur->getMotDePasse(),
+        ':nom' => $utilisateur->getNom(),
+        ':prenom' => $utilisateur->getPrenom(),
+        ':mail' => $utilisateur->getMail(),
+        ':photo' => NULL, // Photo de profil par défaut, traitement à part
+        ':estAdmin' => (int)$utilisateur->getEstAdmin(),
+        ':statutCompte' => $utilisateur->getStatutCompte(),
+        ':tentativesEchoueesConn' => $utilisateur->getTentativesEchoueesConn(),
+        ':dateDernierEchecConn' => $utilisateur->getDateDernierEchecConn()?->format('Y-m-d H:i:s'),
+        ':tokenReinitialisation' => $utilisateur->getTokenReinitialisation(),
+        ':expirationToken' => $utilisateur->getExpirationToken()?->format('Y-m-d H:i:s')
+    ]);
+}
+
+/**
+ * Méthode pour mettre à jour le nom d'un utilisateur
+ * @param Utilisateur $utilisateur
+ * @return bool
+ */
+public function updateNom(Utilisateur $utilisateur): bool {
+    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET nom = :nom WHERE id = :idUtilisateur";
+    $pdoStatement = $this->pdo->prepare($sql);
+    return $pdoStatement->execute([
+        ':nom' => $utilisateur->getNom(),
+        ':idUtilisateur' => $utilisateur->getId()
+    ]);
+}
+
+/**
+ * Méthode pour mettre à jour le prénom d'un utilisateur
+ * @param Utilisateur $utilisateur
+ * @return bool
+ */
+public function updatePrenom(Utilisateur $utilisateur): bool {
+    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET prenom = :prenom WHERE id = :idUtilisateur";
+    $pdoStatement = $this->pdo->prepare($sql);
+    return $pdoStatement->execute([
+        ':prenom' => $utilisateur->getPrenom(),
+        ':idUtilisateur' => $utilisateur->getId()
+    ]);
+}
+
+/**
+ * Méthode pour mettre à jour le mail d'un utilisateur
+ * @param Utilisateur $utilisateur
+ * @return bool
+ */
+public function updateMail(Utilisateur $utilisateur): bool {
+    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET mail = :mail WHERE id = :idUtilisateur";
+    $pdoStatement = $this->pdo->prepare($sql);
+    return $pdoStatement->execute([
+        ':mail' => $utilisateur->getMail(),
+        ':idUtilisateur' => $utilisateur->getId()
+    ]);
+}
+
+/**
+ * Méthode pour mettre à jour la photo d'un utilisateur
+ * @param Utilisateur $utilisateur
+ * @return bool
+ */
+public function updatePhoto(Utilisateur $utilisateur): bool {
+    $sql = "UPDATE " . TABLE_UTILISATEUR . " SET photo = :photo WHERE id = :idUtilisateur";
+    $pdoStatement = $this->pdo->prepare($sql);
+    return $pdoStatement->execute([
+        ':photo' => $utilisateur->getPhoto(),
+        ':idUtilisateur' => $utilisateur->getId()
+    ]);
+}
+
+/**
  * Gère un échec d'authentification, incrémente les tentatives échouées et désactive le compte si nécessaire.
  * @param Utilisateur $utilisateur L'objet utilisateur contenant les données nécessaires
  * @return void
