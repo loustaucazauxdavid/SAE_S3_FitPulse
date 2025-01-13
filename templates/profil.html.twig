@@ -1,0 +1,132 @@
+{% extends 'base_template.html.twig' %}
+    
+    {% block titre %}FitPulse - Accueil{% endblock %}
+    {% block css %}
+
+    <style>
+    & when not (@fullScreen) {
+  padding-top: (@paddingTop * 1rem);
+  padding-bottom: (@paddingBottom * 1rem);
+}
+& when (@bg-type = 'color') {
+  background-color: @bg-value;
+}
+& when (@bg-type = 'image') {
+  background-image: url(@bg-value);
+}
+.mbr-fallback-image.disabled {
+  display: none;
+}
+.mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  & when (@bg-type = 'video') {
+    background-image: url(@fallBackImage);
+  }
+}
+.items-wrap {
+  justify-content: center;
+  .item {
+    margin-bottom: 48px;
+    @media (max-width: 992px) {
+      margin-bottom: 14px;
+    }
+    .item-wrapper {
+      .item-img {
+        img {
+          height: 360px;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .card_1 {
+        img {
+          transform: rotate(-6deg);
+          @media (max-width: 992px) {
+            transform: none;
+          }
+        }
+      }
+      .card_2 {
+        img {
+          transform: rotate(6deg);
+          @media (max-width: 992px) {
+            transform: none;
+          }
+        }
+      }
+      .card_3 {
+        img {
+          transform: rotate(10deg);
+          @media (max-width: 992px) {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+    </style> 
+    
+    {% endblock %}
+
+    {% block contenu %}
+
+<section data-bs-version="5.1" class="gallery tradem5" group="Gallery &amp; Slider" mbr-class="{
+    'mbr-fullscreen': fullScreen,
+    'mbr-parallax-background': bg.parallax}">
+    <mbr-parameters>
+        <header>Size</header>
+        <input type="checkbox" title="Full Screen" name="fullScreen">
+        <input type="checkbox" title="Full Width" name="fullWidth">
+        <input type="range" inline="" title="Top" name="paddingTop" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <input type="range" inline="" title="Bottom" name="paddingBottom" min="0" max="12" step="1" value="5" condition="fullScreen == false">
+        <header>Background</header>
+        <fieldset type="background" name="bg" parallax="">
+            <input type="image" title="Image" value="../_images/background1.jpg">
+            <input type="color" title="Color" value="#00A8E8" selected="">
+        </fieldset>
+        <header condition="bg.type === 'video'">Fallback Image</header>
+        <input type="image" title="Fallback Image" value="../_images/background1.jpg" name="fallBackImage" condition="bg.type === 'video'">
+        <input type="checkbox" title="Overlay" name="overlay" condition="bg.type !== 'color'" checked="">
+        <input type="color" title="Overlay Color" name="overlayColor" value="#080813" condition="overlay &amp;&amp; bg.type !== 'color'">
+        <input type="range" inline="" title="Opacity" name="overlayOpacity" min="0" max="1" step="0.1" value="0.7" condition="overlay &amp;&amp; bg.type !== 'color'">
+    </mbr-parameters>
+
+    <div class="mbr-fallback-image disabled" mbr-if="bg.type == 'video'"></div>
+    <div class="mbr-overlay" mbr-if="overlay &amp;&amp; bg.type !== 'color'" opacity="{{overlayOpacity}}" bg-color="{{overlayColor}}"></div>
+
+    <div mbr-class="{'container': !fullWidth, 'container-fluid': fullWidth}">
+        <div class="row items-wrap">
+            <div class="item features-image col-12 col-lg-4">
+                <div class="item-wrapper">
+                    <div class="item-img card_1">
+                        <img src="https://r.mobirisesite.com/1087586/assets/images/photo-1583243567239-3727551e0-h_m5u1uu13.jpg" alt="Mobirise Website Builder">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item features-image col-12 col-lg-7">
+                <div class="item-wrapper">
+                    <div class="item-img card_2">
+                        <img src="https://r.mobirisesite.com/1087586/assets/images/photo-1519648023493-d82b5f8d7-h_m5u1ulgh.jpg" alt="Mobirise Website Builder" data-slide-to="1">
+                    </div>
+                </div>
+            </div><div class="item features-image col-12 col-lg-7">
+                <div class="item-wrapper">
+                    <div class="item-img card_2">
+                        <img src="https://r.mobirisesite.com/1087586/images/image1.jpg" alt="Mobirise Website Builder" data-slide-to="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
