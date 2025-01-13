@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const daysOfWeek = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-    const visibleDaysCount = 4;
+    const visibleDaysCount = 7;
 
     const parseDatabaseDate = (dateString) => {
         const [datePart, timePart] = dateString.split(" ");
@@ -91,13 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         calendar.querySelector(`.prevDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
             if (startIndex > 0) {
-                startIndex -= 4;
+                startIndex -= 7;
                 updateDays();
             }
         });
 
         calendar.querySelector(`.nextDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
-            startIndex += 4;
+            startIndex += 7;
             updateDays();
         });
 
