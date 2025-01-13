@@ -45,10 +45,12 @@ nav.navbar {
     top: 85px; /* Assure que la sidebar commence après la navbar */
     left: 0;
     width: 250px;
-    height: calc(100% - 173px); /* Hauteur de la sidebar ajustée entre la navbar et le footer */
+    height: 100%;
+    /*height: calc(100% - 173px); /* Hauteur de la sidebar ajustée entre la navbar et le footer */
     background-color: #232322;
     color: #f3f4f6;
     padding: 20px;
+    padding-bottom: 180px;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
     overflow-y: auto;
     z-index: 500; /* Assurez-vous que la sidebar soit au-dessus du contenu, mais en dessous du header */
@@ -90,8 +92,9 @@ form .btn-primary {
     padding-left: 10px;
 }
 
-.sidebar-participants input {
-    width: 50px;
+.sidebar-participants input,
+.sidebar-note input {
+    width: 60px;
 }
 
 .form-check,
@@ -101,7 +104,9 @@ form .btn-primary {
 .sidebar-checkbox,
 .sidebar-calendar,
 .sidebar-participants,
-.sidebar-budget {
+.sidebar-budget span,
+.sidebar-note
+ {
     margin-bottom: 20px;
 }
 
@@ -261,7 +266,8 @@ input[type="radio"] {
     #sidebar {
         width: 200px;
         top: 200px; /* Assure que la sidebar commence après la navbar */
-        height: calc(100% - 288px); /* Hauteur de la sidebar ajustée entre la navbar et le footer */
+        height: 100%;
+        padding-bottom: 300px;
     }
 
     .page-content {
