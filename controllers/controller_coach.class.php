@@ -44,25 +44,29 @@ class ControllerCoach extends Controller
     }
 
 
-    public function displayAvailableCoachs()
+    public function getAvailableCoachs() : array
     {
         // Récupérer la liste des coachs ayant des séances disponibles
         $managerCoach = new CoachDao($this->getPdo());
-        $coachs = $managerCoach->findAllWithDetails();
+
+        // Récupération des données du formulaire
+        $filters = [
+            'date' => isset($_POST['date']) ? $_POST['date'] : null,
+            'note' => isset($_POST['note']) ? $_POST['note'] : null,
+            'search_name' => isset($_POST['search_name']) ? $_POST['search_name'] : null,
+            'budget' => isset($_POST['budget']) ? $_POST['budget'] : null,
+            'seance_type' => isset($_POST['seance_type']) ? $_POST['seance_type'] : [],
+            'participants' => isset($_POST['participants']) ? $_POST['participants'] : null,
+        ];
+        
+        // Appel à la méthode findAllWithDetails en passant les filtres
+        $coachs = $managerCoach->findAllWithDetails($filters);
 
         // Sérialiser les données des coachs
         $coachData = $this->serializeCoachData($coachs);
 
-        // Charger le template 'rechercher.html.twig'
-        $template = $this->getTwig()->load('rechercher.html.twig');
+        return $coachData;
 
-        // Passer les données sérialisées à Twig
-        echo $template->render([
-            'menu' => 'Recherche',
-            'description' => 'Page de recherche pour FitPulse',
-            'estConnecte' => false, // Change à true si l'utilisateur est connecté
-            'coachs' => $coachData, // Liste des coachs avec leurs informations
-        ]);
     }
 
     /**
@@ -107,4 +111,5 @@ class ControllerCoach extends Controller
 
         return $coachData;
     }
+
 }

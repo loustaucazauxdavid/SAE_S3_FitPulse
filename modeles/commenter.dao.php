@@ -13,8 +13,8 @@ class CommenterDao extends Dao {
      * Constructeur de la classe CommenterDao
      * @param PDO|null $pdo Objet PDO à utiliser pour la communication avec la base de données.
      */
-    public function __construct(PDO $pdo = null) {
-        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
+    public function __construct(?PDO $pdo = null) {
+        $this->pdo = $pdo;
     }
 
     /**

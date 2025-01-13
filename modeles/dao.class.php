@@ -8,7 +8,7 @@ class Dao {
      * @param PDO|null $pdo
      * @return void
      */
-    public function __construct(PDO $pdo = null) {
+    public function __construct(?PDO $pdo = null) {
         $this->pdo = $pdo;
         $config = Config::getInstance();
         $this->tables = $config->getTables();

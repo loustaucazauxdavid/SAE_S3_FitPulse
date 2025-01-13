@@ -1,6 +1,19 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('budget-range');
+    const budgetValue = document.getElementById('budget-max-value');
+
+    // Mettre à jour la valeur lorsque l'utilisateur change le slider
+    slider.addEventListener('input', function() {
+        budgetValue.textContent = slider.value + ' €';
+    });
+
+    // Initialiser la valeur affichée avec la valeur par défaut
+    budgetValue.textContent = slider.value + ' €';
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const daysOfWeek = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-    const visibleDaysCount = 4;
+    const visibleDaysCount = 7;
 
     const parseDatabaseDate = (dateString) => {
         const [datePart, timePart] = dateString.split(" ");
@@ -78,13 +91,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         calendar.querySelector(`.prevDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
             if (startIndex > 0) {
-                startIndex -= 4;
+                startIndex -= 7;
                 updateDays();
             }
         });
 
         calendar.querySelector(`.nextDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
-            startIndex += 4;
+            startIndex += 7;
             updateDays();
         });
 
