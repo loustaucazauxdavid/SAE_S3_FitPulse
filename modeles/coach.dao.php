@@ -5,24 +5,22 @@
  * @brief DAO de la table Coach
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe CoachDao
  * @details DAO de la table Coach
  */
-class CoachDao
-{
-    private ?PDO $pdo;
+
+class CoachDao extends Dao {
 
     /**
      * Constructeur de la classe CoachDao
      * @param PDO|null $pdo
      * @return void
      */
-    public function __construct(?PDO $pdo = null)
-    {
-        $this->pdo = $pdo;
+
+    public function __construct(PDO $pdo = null) {
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
+
     }
 
     /**
@@ -30,23 +28,22 @@ class CoachDao
      * @param int $idCoach L'ID du coach à récupérer.
      * @return array|null Le tableau associatif représentant un coach.
      */
-    public function find(int $idCoach): ?array
-    {
-        $sql = "SELECT * FROM " . TABLE_COACH . " WHERE id = :idCoach;";
+
+    public function findAssoc(int $idCoach): ?array {
+        $sql = "SELECT * FROM " . $this->tables['coach'] . " WHERE id = :idCoach";
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute(array(':idCoach' => $idCoach));
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
         return $pdoStatement->fetch();
     }
 
-
     /**
      * Récupère tous les coachs sous forme de tableaux associatifs.
      * @return array[] Un tableau de tableaux associatifs représentant tous les coachs.
      */
-    public function findAll(): array
-    {
-        $sql = "SELECT * FROM " . TABLE_COACH;
+
+    public function findAllAssoc(): array {
+        $sql = "SELECT * FROM " . $this->tables['coach'];
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute();
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
@@ -115,25 +112,7 @@ class CoachDao
         }
         return $coachs;
     }
-
-    /**
-     * Getter de la variable membre PDO
-     * @return PDO|null L'objet PDO à utiliser pour la communication avec la base de données.
-     */
-    public function getPdo(): ?PDO
-    {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre PDO
-     * @param PDO $pdo L'objet PDO à utiliser pour la communication avec la base de données.
-     */
-    public function setPdo(PDO $pdo): void
-    {
-        $this->pdo = $pdo;
-    }
-
+  
     public function findAllWithDetails(): array
     {
         $now = date('Y-m-d H:i:s');

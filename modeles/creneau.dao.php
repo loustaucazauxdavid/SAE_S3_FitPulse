@@ -4,35 +4,17 @@
  * @brief DAO pour creneau
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe CreneauDao
  * @details Cette classe permet de gérer les créneaux
  */
-class CreneauDao {
-    private ?PDO $pdo;
-
+class CreneauDao extends Dao {
     /**
      * Constructeur de la classe CreneauDao
-     * @param PDO $pdo Objet PDO à utiliser pour la communication avec la base de données.
+     * @param PDO|null $pdo Objet PDO à utiliser pour la communication avec la base de données.
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Getter de la variable membre pdo
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
@@ -41,7 +23,7 @@ class CreneauDao {
      * @return Creneau|null Le créneau trouvé
      */
     public function find(int $id): ?Creneau {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_CRENEAU . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['creneau'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Creneau::class);
         return $stmt->fetch();
@@ -52,14 +34,14 @@ class CreneauDao {
      * @return Creneau[] Les créneaux récupérés
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_CRENEAU);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['creneau']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Creneau::class);
         return $stmt->fetchAll();
     }
 
     /**
      * Méthode pour hydrater un objet Creneau
-     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Creneau
+     * @param array $creneauAssoc Le tableau associatif représentant un objet Creneau
      * @return Creneau L'objet Creneau hydraté
      */
     public function hydrate(array $creneauAssoc): Creneau {
@@ -85,5 +67,4 @@ class CreneauDao {
         }
         return $creneaux;
     }
-
 }

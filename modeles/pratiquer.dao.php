@@ -4,38 +4,18 @@
  * @brief Classe PratiquerDao
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe PratiquerDao
  * @details Cette classe permet de gérer les pratiques
  */
-class PratiquerDao {
-    private ?PDO $pdo;
-
+class PratiquerDao extends Dao {
     /**
      * Constructeur de la classe PratiquerDao
      * @param PDO|null $pdo
      * @return void
      */
     public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
@@ -44,7 +24,7 @@ class PratiquerDao {
      * @return Pratiquer|null La pratique trouvée
      */
     public function find(int $id): ?Pratiquer {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_PRATIQUER . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['pratiquer'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Pratiquer::class);
         return $stmt->fetch();
@@ -55,7 +35,7 @@ class PratiquerDao {
      * @return Pratiquer[] Les pratiques récupérées
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_PRATIQUER);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['pratiquer']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Pratiquer::class);
         return $stmt->fetchAll();
     }
@@ -75,15 +55,13 @@ class PratiquerDao {
     /**
      * Méthode pour hydrater un tableau d'objets Pratiquer
      * @param array $pratiquerAssoc Le tableau associatif représentant des objets Pratiquer
-     * @return Pratiquer Le tableau d'objets Pratiquer hydraté
+     * @return Pratiquer[] Le tableau d'objets Pratiquer hydraté
      */
-    public function hydrateAll(array $pratiquersAssoc): array {
+    public function hydrateAll(array $pratiquerAssoc): array {
         $pratiquers = [];
-        foreach ($pratiquersAssoc as $pratiquerAssoc) {
-            $pratiquers[] = $this->hydrate($pratiquerAssoc);
+        foreach ($pratiquerAssoc as $pratiquer) {
+            $pratiquers[] = $this->hydrate($pratiquer);
         }
         return $pratiquers;
     }
-
-
 }

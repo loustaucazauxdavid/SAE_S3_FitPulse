@@ -26,9 +26,10 @@ class ControllerCoach extends Controller
      * @brief Liste les coachs
      * @return void
      */
+
     public function lister()
     {
-        // Recupération de tous les coachs (Test avant de lister les coachs par notes)
+        // Recupération des 10 coachs les mieux notés
         $managerCoach = new CoachNoteDao($this->getPdo());
         $listeCoachsNotesAssoc = $managerCoach->findTopNbByNote(10);
         $listeCoachsNotes = $managerCoach->hydrateAll($listeCoachsNotesAssoc);
@@ -39,7 +40,6 @@ class ControllerCoach extends Controller
         // Affichage de la page
         echo $template->render(array(
             'listeCoachsNotes' => $listeCoachsNotes,
-            'estConnecte' => false // TODO : Implémenter système de connexion et passer la variable dans les controlleurs
         ));
     }
 
