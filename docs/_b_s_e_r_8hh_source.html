@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025:  Fichier source de node_modules/@parcel/watcher/src/watchman/BSER.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_4537fafb72a1a0e006bd4562da949b7b.html">watchman</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">BSER.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_b_s_e_r_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef BSER_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define BSER_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55">   10</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55">BSERType</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af">   11</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af">BSER_ARRAY</a> = 0x00,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8">   12</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8">BSER_OBJECT</a> = 0x01,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318">   13</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318">BSER_STRING</a> = 0x02,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438">   14</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438">BSER_INT8</a> = 0x03,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8">   15</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8">BSER_INT16</a> = 0x04,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83">   16</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83">BSER_INT32</a> = 0x05,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0">   17</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0">BSER_INT64</a> = 0x06,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e">   18</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e">BSER_REAL</a> = 0x07,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8">   19</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8">BSER_BOOL_TRUE</a> = 0x08,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4">   20</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4">BSER_BOOL_FALSE</a> = 0x09,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178">   21</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178">BSER_NULL</a> = 0x0a,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610">   22</a></span>  <a class="code hl_enumvalue" href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610">BSER_TEMPLATE</a> = 0x0b</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">class </span><a class="code hl_class" href="class_b_s_e_r_value.html">BSERValue</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="class_b_s_e_r.html">   27</a></span><span class="keyword">class </span><a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a> {</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">   29</a></span>  <span class="keyword">typedef</span> std::vector&lt;BSER&gt; <a class="code hl_typedef" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">Array</a>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">   30</a></span>  <span class="keyword">typedef</span> std::unordered_map&lt;std::string, BSER&gt; <a class="code hl_typedef" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">Object</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(<a class="code hl_typedef" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">BSER::Array</a> value);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(<a class="code hl_typedef" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a> value);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(std::string value);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *value);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(int64_t value);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(<span class="keywordtype">bool</span> value);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <a class="code hl_function" href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER</a>(std::istream &amp;iss);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <a class="code hl_typedef" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">BSER::Array</a> <a class="code hl_function" href="class_b_s_e_r.html#a0e7bc5d894724e4e617c2e7604dea962">arrayValue</a>();</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_typedef" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a> <a class="code hl_function" href="class_b_s_e_r.html#a4e2b7abb8470f30c1b2924171d94b254">objectValue</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  std::string <a class="code hl_function" href="class_b_s_e_r.html#a160c1a0001fa7ed11de5fbbde3716c9f">stringValue</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  int64_t <a class="code hl_function" href="class_b_s_e_r.html#a492753e506c920fcef5ca5b701bb35c5">intValue</a>();</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordtype">double</span> <a class="code hl_function" href="class_b_s_e_r.html#aad7c86e3a7c4753efa88b5c659496c05">doubleValue</a>();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_b_s_e_r.html#ae9ab4772626e62e20eb02cd8534068a6">boolValue</a>();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_s_e_r.html#ad236fe917e7543c22425a12bddbdc821">encode</a>(std::ostream &amp;oss);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keyword">static</span> int64_t <a class="code hl_function" href="class_b_s_e_r.html#a4e99aa4215063c2f8ce149f1df003626">decodeLength</a>(std::istream &amp;iss);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  std::string <a class="code hl_function" href="class_b_s_e_r.html#ad236fe917e7543c22425a12bddbdc821">encode</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  std::shared_ptr&lt;BSERValue&gt; m_ptr;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html">   56</a></span><span class="keyword">class </span><a class="code hl_class" href="class_b_s_e_r_value.html">BSERValue</a> {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a107f9c3da32d95e8cc4684602ccb5c38">   58</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_friend" href="class_b_s_e_r_value.html#a107f9c3da32d95e8cc4684602ccb5c38">BSER</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a7aadae4c05560302f9fe9b1c9a5f73ee">   59</a></span>  <span class="keyword">virtual</span> <a class="code hl_typedef" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">BSER::Array</a> <a class="code hl_function" href="class_b_s_e_r_value.html#a7aadae4c05560302f9fe9b1c9a5f73ee">arrayValue</a>() { <span class="keywordflow">return</span> <a class="code hl_typedef" href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">BSER::Array</a>(); }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a7a31f6d7cd8878569f4778dfb1a65914">   60</a></span>  <span class="keyword">virtual</span> <a class="code hl_typedef" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a> <a class="code hl_function" href="class_b_s_e_r_value.html#a7a31f6d7cd8878569f4778dfb1a65914">objectValue</a>() { <span class="keywordflow">return</span> <a class="code hl_typedef" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a>(); }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#aee9a7ee9124de1ab4a267ad8c92e977a">   61</a></span>  <span class="keyword">virtual</span> std::string <a class="code hl_function" href="class_b_s_e_r_value.html#aee9a7ee9124de1ab4a267ad8c92e977a">stringValue</a>() { <span class="keywordflow">return</span> std::string(); }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a713fd13e26392f9537cbfde055236011">   62</a></span>  <span class="keyword">virtual</span> int64_t <a class="code hl_function" href="class_b_s_e_r_value.html#a713fd13e26392f9537cbfde055236011">intValue</a>() { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a4eb54a3d85eedc918eb9a8dddb975581">   63</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="class_b_s_e_r_value.html#a4eb54a3d85eedc918eb9a8dddb975581">doubleValue</a>() { <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a97b77d8296cdc451c9a6dbe562408442">   64</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="class_b_s_e_r_value.html#a97b77d8296cdc451c9a6dbe562408442">boolValue</a>() { <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#ae9583ddf86697e918b46ea2eb0d48473">   65</a></span>  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_b_s_e_r_value.html#ae9583ddf86697e918b46ea2eb0d48473">encode</a>(std::ostream &amp;oss) {}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_b_s_e_r_value.html#a0c8b379b24762c8c8039dbfcd523ce25">   66</a></span>  <span class="keyword">virtual</span> <a class="code hl_function" href="class_b_s_e_r_value.html#a0c8b379b24762c8c8039dbfcd523ce25">~BSERValue</a>() {}</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55">BSERType</a></div><div class="ttdeci">BSERType</div><div class="ttdef"><b>Definition</b> BSER.hh:10</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8">BSER_OBJECT</a></div><div class="ttdeci">@ BSER_OBJECT</div><div class="ttdef"><b>Definition</b> BSER.hh:12</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0">BSER_INT64</a></div><div class="ttdeci">@ BSER_INT64</div><div class="ttdef"><b>Definition</b> BSER.hh:17</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318">BSER_STRING</a></div><div class="ttdeci">@ BSER_STRING</div><div class="ttdef"><b>Definition</b> BSER.hh:13</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4">BSER_BOOL_FALSE</a></div><div class="ttdeci">@ BSER_BOOL_FALSE</div><div class="ttdef"><b>Definition</b> BSER.hh:20</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e">BSER_REAL</a></div><div class="ttdeci">@ BSER_REAL</div><div class="ttdef"><b>Definition</b> BSER.hh:18</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af">BSER_ARRAY</a></div><div class="ttdeci">@ BSER_ARRAY</div><div class="ttdef"><b>Definition</b> BSER.hh:11</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610">BSER_TEMPLATE</a></div><div class="ttdeci">@ BSER_TEMPLATE</div><div class="ttdef"><b>Definition</b> BSER.hh:22</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83">BSER_INT32</a></div><div class="ttdeci">@ BSER_INT32</div><div class="ttdef"><b>Definition</b> BSER.hh:16</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8">BSER_INT16</a></div><div class="ttdeci">@ BSER_INT16</div><div class="ttdef"><b>Definition</b> BSER.hh:15</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8">BSER_BOOL_TRUE</a></div><div class="ttdeci">@ BSER_BOOL_TRUE</div><div class="ttdef"><b>Definition</b> BSER.hh:19</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178">BSER_NULL</a></div><div class="ttdeci">@ BSER_NULL</div><div class="ttdef"><b>Definition</b> BSER.hh:21</div></div>
+<div class="ttc" id="a_b_s_e_r_8hh_html_ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438"><div class="ttname"><a href="_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438">BSER_INT8</a></div><div class="ttdeci">@ BSER_INT8</div><div class="ttdef"><b>Definition</b> BSER.hh:14</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a0e7bc5d894724e4e617c2e7604dea962"><div class="ttname"><a href="class_b_s_e_r.html#a0e7bc5d894724e4e617c2e7604dea962">BSER::arrayValue</a></div><div class="ttdeci">BSER::Array arrayValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:273</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a160c1a0001fa7ed11de5fbbde3716c9f"><div class="ttname"><a href="class_b_s_e_r.html#a160c1a0001fa7ed11de5fbbde3716c9f">BSER::stringValue</a></div><div class="ttdeci">std::string stringValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:275</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a492753e506c920fcef5ca5b701bb35c5"><div class="ttname"><a href="class_b_s_e_r.html#a492753e506c920fcef5ca5b701bb35c5">BSER::intValue</a></div><div class="ttdeci">int64_t intValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:276</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a4e2b7abb8470f30c1b2924171d94b254"><div class="ttname"><a href="class_b_s_e_r.html#a4e2b7abb8470f30c1b2924171d94b254">BSER::objectValue</a></div><div class="ttdeci">BSER::Object objectValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:274</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a4e99aa4215063c2f8ce149f1df003626"><div class="ttname"><a href="class_b_s_e_r.html#a4e99aa4215063c2f8ce149f1df003626">BSER::decodeLength</a></div><div class="ttdeci">static int64_t decodeLength(std::istream &amp;iss)</div><div class="ttdef"><b>Definition</b> BSER.cc:283</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a767ae293abbc85209cf3787e62d9b21b"><div class="ttname"><a href="class_b_s_e_r.html#a767ae293abbc85209cf3787e62d9b21b">BSER::BSER</a></div><div class="ttdeci">BSER()</div><div class="ttdef"><b>Definition</b> BSER.cc:264</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_a88c3f97b16a2cb3190e54bd4d7e588e3"><div class="ttname"><a href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a></div><div class="ttdeci">std::unordered_map&lt; std::string, BSER &gt; Object</div><div class="ttdef"><b>Definition</b> BSER.hh:30</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_aad7c86e3a7c4753efa88b5c659496c05"><div class="ttname"><a href="class_b_s_e_r.html#aad7c86e3a7c4753efa88b5c659496c05">BSER::doubleValue</a></div><div class="ttdeci">double doubleValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:277</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_ab6da80cf39a0f311f97590fcd48f0b48"><div class="ttname"><a href="class_b_s_e_r.html#ab6da80cf39a0f311f97590fcd48f0b48">BSER::Array</a></div><div class="ttdeci">std::vector&lt; BSER &gt; Array</div><div class="ttdef"><b>Definition</b> BSER.hh:29</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_ad236fe917e7543c22425a12bddbdc821"><div class="ttname"><a href="class_b_s_e_r.html#ad236fe917e7543c22425a12bddbdc821">BSER::encode</a></div><div class="ttdeci">std::string encode()</div><div class="ttdef"><b>Definition</b> BSER.cc:292</div></div>
+<div class="ttc" id="aclass_b_s_e_r_html_ae9ab4772626e62e20eb02cd8534068a6"><div class="ttname"><a href="class_b_s_e_r.html#ae9ab4772626e62e20eb02cd8534068a6">BSER::boolValue</a></div><div class="ttdeci">bool boolValue()</div><div class="ttdef"><b>Definition</b> BSER.cc:278</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html"><div class="ttname"><a href="class_b_s_e_r_value.html">BSERValue</a></div><div class="ttdef"><b>Definition</b> BSER.hh:56</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a0c8b379b24762c8c8039dbfcd523ce25"><div class="ttname"><a href="class_b_s_e_r_value.html#a0c8b379b24762c8c8039dbfcd523ce25">BSERValue::~BSERValue</a></div><div class="ttdeci">virtual ~BSERValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:66</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a107f9c3da32d95e8cc4684602ccb5c38"><div class="ttname"><a href="class_b_s_e_r_value.html#a107f9c3da32d95e8cc4684602ccb5c38">BSERValue::BSER</a></div><div class="ttdeci">friend class BSER</div><div class="ttdef"><b>Definition</b> BSER.hh:58</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a4eb54a3d85eedc918eb9a8dddb975581"><div class="ttname"><a href="class_b_s_e_r_value.html#a4eb54a3d85eedc918eb9a8dddb975581">BSERValue::doubleValue</a></div><div class="ttdeci">virtual double doubleValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:63</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a713fd13e26392f9537cbfde055236011"><div class="ttname"><a href="class_b_s_e_r_value.html#a713fd13e26392f9537cbfde055236011">BSERValue::intValue</a></div><div class="ttdeci">virtual int64_t intValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:62</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a7a31f6d7cd8878569f4778dfb1a65914"><div class="ttname"><a href="class_b_s_e_r_value.html#a7a31f6d7cd8878569f4778dfb1a65914">BSERValue::objectValue</a></div><div class="ttdeci">virtual BSER::Object objectValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:60</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a7aadae4c05560302f9fe9b1c9a5f73ee"><div class="ttname"><a href="class_b_s_e_r_value.html#a7aadae4c05560302f9fe9b1c9a5f73ee">BSERValue::arrayValue</a></div><div class="ttdeci">virtual BSER::Array arrayValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:59</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_a97b77d8296cdc451c9a6dbe562408442"><div class="ttname"><a href="class_b_s_e_r_value.html#a97b77d8296cdc451c9a6dbe562408442">BSERValue::boolValue</a></div><div class="ttdeci">virtual bool boolValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:64</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_ae9583ddf86697e918b46ea2eb0d48473"><div class="ttname"><a href="class_b_s_e_r_value.html#ae9583ddf86697e918b46ea2eb0d48473">BSERValue::encode</a></div><div class="ttdeci">virtual void encode(std::ostream &amp;oss)</div><div class="ttdef"><b>Definition</b> BSER.hh:65</div></div>
+<div class="ttc" id="aclass_b_s_e_r_value_html_aee9a7ee9124de1ab4a267ad8c92e977a"><div class="ttname"><a href="class_b_s_e_r_value.html#aee9a7ee9124de1ab4a267ad8c92e977a">BSERValue::stringValue</a></div><div class="ttdeci">virtual std::string stringValue()</div><div class="ttdef"><b>Definition</b> BSER.hh:61</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

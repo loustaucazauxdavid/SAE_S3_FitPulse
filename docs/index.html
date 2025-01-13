@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -34,7 +34,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.11.0 -->
+<!-- Généré par Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -103,6 +103,36 @@ $(function(){ initResizable(false); });
 </p>
 <p>Les pratiquants peuvent réserver des séances au selon leur préférence : en présentielle dans une salle de sport ou en visioconférence. L'application permet ainsi une flexibilité maximale et s'adapte aux contraintes des utilisateurs où qu'ils soient. Les coachs présents sur la plateforme encadrent les pratiquants en leur montrant comment réaliser correctement les exercices et mouvements.</p>
 <h2><a class="anchor" id="autotoc_md1"></a>
+Instructions de déploiement</h2>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Prérequis</h3>
+<ul>
+<li>Git</li>
+<li>Composer</li>
+<li>Npm</li>
+<li>Serveur Apache et PHP avec l'extension PDO</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Étapes de déploiement</h3>
+<p><b>Le fichier SQL inclus à la racine du dépôt contient les tables et données nécessaires au déploiement.</b></p>
+<ol type="1">
+<li>Cloner le dépôt Git de FitPulse à l'aide de la commande suivante : <code>git clone <a href="https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git">https://github.com/loustaucazauxdavid/SAE_S3_FitPulse.git</a></code></li>
+<li>Installer les dépendances du project en exécutant les commandes suivantes :<ul>
+<li>Dépendances composer : <code>composer install</code> <pre class="fragment">* Dépendances npm :
+</pre> <code>npm install</code></li>
+</ul>
+</li>
+<li>Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante : <code>sass SCSS/custom.scss css/styles.css</code></li>
+<li>Modifier les informations de connexion à la base de données dans le fichier de configuration *config/constantes.php* :<ul>
+<li>DB_HOST : Adresse du service de bases de données</li>
+<li>DB_NAME : Nom de la base de données</li>
+<li>DB_USER : Nom d'utilisateur utilisé pour se connecter à la base de données</li>
+<li>DB_PASS : Mot de passe utilisé pour se connecter à la base de données</li>
+</ul>
+</li>
+<li>Déployer le site web sur un serveur Apache et PHP avec l'extension PDO activée.</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md4"></a>
 Réalisé avec</h2>
 <ul>
 <li><a href="https://getbootstrap.com"><img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&amp;logo=bootstrap&amp;logoColor=white" alt="Bootstrap" class="inline"/></a></li>
@@ -110,7 +140,7 @@ Réalisé avec</h2>
 <li><a href="https://sass-lang.com/"><img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&amp;logo=sass&amp;logoColor=white" alt="Sass" class="inline"/></a></li>
 <li><a href="https://twig.symfony.com/"><img src="https://img.shields.io/badge/Twig-000000?style=for-the-badge&amp;logo=symfony&amp;logoColor=white" alt="Twig" class="inline"/></a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Membre du groupe</h2>
 <ul>
 <li>
@@ -128,11 +158,11 @@ LOUSTAU-CAZAUX David (Développeur) </li>
  </p><div align="center"> <a href="https://github.com/loustaucazauxdavid/SAE_S3_FitPulse/graphs/contributors" align="center"><img src="https://contrib.rocks/image?repo=loustaucazauxdavid/SAE_S3_FitPulse" alt="" class="inline"/> </a> </div><p> <br  />
  </p>
 </div></div><!-- PageDoc -->
-<a href="doxygen_crawl.html"/>
+<a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
 </div><!-- doc-content -->
 </body>

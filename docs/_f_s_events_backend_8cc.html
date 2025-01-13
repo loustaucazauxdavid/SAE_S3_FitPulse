@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence du fichier node_modules/@parcel/watcher/src/macos/FSEventsBackend.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_470e6f7d25364f0dc10035ce7cf3c62b.html">macos</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier FSEventsBackend.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;CoreServices/CoreServices.h&gt;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;unordered_set&gt;</code><br />
+<code>#include &quot;<a class="el" href="_event_8hh_source.html">../Event.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_backend_8hh_source.html">../Backend.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_f_s_events_backend_8hh_source.html">./FSEventsBackend.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_watcher_8hh_source.html">../Watcher.hh</a>&quot;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_state.html">State</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afaf5541c2981eaa03c51bb45b26f66d8" id="r_afaf5541c2981eaa03c51bb45b26f66d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afaf5541c2981eaa03c51bb45b26f66d8">CONVERT_TIME</a>(ts)</td></tr>
+<tr class="separator:afaf5541c2981eaa03c51bb45b26f66d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5dc54837129b6151f0f9a0680a81e72" id="r_ae5dc54837129b6151f0f9a0680a81e72"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5dc54837129b6151f0f9a0680a81e72">IGNORED_FLAGS</a>&#160;&#160;&#160;(kFSEventStreamEventFlagItemIsHardlink | kFSEventStreamEventFlagItemIsLastHardlink | kFSEventStreamEventFlagItemIsSymlink | kFSEventStreamEventFlagItemIsDir | kFSEventStreamEventFlagItemIsFile)</td></tr>
+<tr class="separator:ae5dc54837129b6151f0f9a0680a81e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af25ea9bca7aa29dbad8fd61ee65b8809" id="r_af25ea9bca7aa29dbad8fd61ee65b8809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af25ea9bca7aa29dbad8fd61ee65b8809">stopStream</a> (FSEventStreamRef stream, CFRunLoopRef runLoop)</td></tr>
+<tr class="separator:af25ea9bca7aa29dbad8fd61ee65b8809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe44266407d8ce8330ac15fe813e89f8" id="r_afe44266407d8ce8330ac15fe813e89f8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe44266407d8ce8330ac15fe813e89f8">pathExists</a> (char *path)</td></tr>
+<tr class="separator:afe44266407d8ce8330ac15fe813e89f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2936de71c7802a85381bd2c140ed9fc9" id="r_a2936de71c7802a85381bd2c140ed9fc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2936de71c7802a85381bd2c140ed9fc9">FSEventsCallback</a> (ConstFSEventStreamRef streamRef, void *clientCallBackInfo, size_t numEvents, void *eventPaths, const FSEventStreamEventFlags eventFlags[], const FSEventStreamEventId eventIds[])</td></tr>
+<tr class="separator:a2936de71c7802a85381bd2c140ed9fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91323a49344b00c619731903e6b5f0b" id="r_aa91323a49344b00c619731903e6b5f0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa91323a49344b00c619731903e6b5f0b">checkWatcher</a> (<a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher)</td></tr>
+<tr class="separator:aa91323a49344b00c619731903e6b5f0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="afaf5541c2981eaa03c51bb45b26f66d8" name="afaf5541c2981eaa03c51bb45b26f66d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaf5541c2981eaa03c51bb45b26f66d8">&#9670;&#160;</a></span>CONVERT_TIME</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define CONVERT_TIME</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>ts</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">((uint64_t)ts.tv_sec * 1000000000 + ts.tv_nsec)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae5dc54837129b6151f0f9a0680a81e72" name="ae5dc54837129b6151f0f9a0680a81e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5dc54837129b6151f0f9a0680a81e72">&#9670;&#160;</a></span>IGNORED_FLAGS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define IGNORED_FLAGS&#160;&#160;&#160;(kFSEventStreamEventFlagItemIsHardlink | kFSEventStreamEventFlagItemIsLastHardlink | kFSEventStreamEventFlagItemIsSymlink | kFSEventStreamEventFlagItemIsDir | kFSEventStreamEventFlagItemIsFile)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="aa91323a49344b00c619731903e6b5f0b" name="aa91323a49344b00c619731903e6b5f0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91323a49344b00c619731903e6b5f0b">&#9670;&#160;</a></span>checkWatcher()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void checkWatcher </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a></td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2936de71c7802a85381bd2c140ed9fc9" name="a2936de71c7802a85381bd2c140ed9fc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2936de71c7802a85381bd2c140ed9fc9">&#9670;&#160;</a></span>FSEventsCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FSEventsCallback </td>
+          <td>(</td>
+          <td class="paramtype">ConstFSEventStreamRef</td>          <td class="paramname"><span class="paramname"><em>streamRef</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>clientCallBackInfo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>numEvents</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>eventPaths</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FSEventStreamEventFlags</td>          <td class="paramname"><span class="paramname"><em>eventFlags</em></span>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const FSEventStreamEventId</td>          <td class="paramname"><span class="paramname"><em>eventIds</em></span>[]&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe44266407d8ce8330ac15fe813e89f8" name="afe44266407d8ce8330ac15fe813e89f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe44266407d8ce8330ac15fe813e89f8">&#9670;&#160;</a></span>pathExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool pathExists </td>
+          <td>(</td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>path</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af25ea9bca7aa29dbad8fd61ee65b8809" name="af25ea9bca7aa29dbad8fd61ee65b8809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af25ea9bca7aa29dbad8fd61ee65b8809">&#9670;&#160;</a></span>stopStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void stopStream </td>
+          <td>(</td>
+          <td class="paramtype">FSEventStreamRef</td>          <td class="paramname"><span class="paramname"><em>stream</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">CFRunLoopRef</td>          <td class="paramname"><span class="paramname"><em>runLoop</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

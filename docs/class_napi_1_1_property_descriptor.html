@@ -1,0 +1,2214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence de la classe PropertyDescriptor</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_napi.html">Napi</a></li><li class="navelem"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Types publics</a> &#124;
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pub-static-methods">Fonctions membres publiques statiques</a>  </div>
+  <div class="headertitle"><div class="title">Référence de la classe PropertyDescriptor</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="napi_8h_source.html">napi.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Types publics</h2></td></tr>
+<tr class="memitem:ad2c20678fdfdd808f199211ecfee4791" id="r_ad2c20678fdfdd808f199211ecfee4791"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> = <a class="el" href="class_napi_1_1_value.html">Napi::Value</a> (*)(const <a class="el" href="class_napi_1_1_callback_info.html">Napi::CallbackInfo</a>&amp; info)</td></tr>
+<tr class="separator:ad2c20678fdfdd808f199211ecfee4791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad058dc6859469dfb452878293486cf4b" id="r_ad058dc6859469dfb452878293486cf4b"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad058dc6859469dfb452878293486cf4b">SetterCallback</a> = void (*)(const <a class="el" href="class_napi_1_1_callback_info.html">Napi::CallbackInfo</a>&amp; info)</td></tr>
+<tr class="separator:ad058dc6859469dfb452878293486cf4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Fonctions membres publiques</h2></td></tr>
+<tr class="memitem:a30d26da4b99348eb3089fd129adb7624" id="r_a30d26da4b99348eb3089fd129adb7624"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30d26da4b99348eb3089fd129adb7624">PropertyDescriptor</a> (napi_property_descriptor desc)</td></tr>
+<tr class="separator:a30d26da4b99348eb3089fd129adb7624"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27e226e2b1e3444dc458a8edd2b4f658" id="r_a27e226e2b1e3444dc458a8edd2b4f658"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27e226e2b1e3444dc458a8edd2b4f658">operator napi_property_descriptor &amp;</a> ()</td></tr>
+<tr class="separator:a27e226e2b1e3444dc458a8edd2b4f658"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae061c72ca6f26051875ec192c11bb0e1" id="r_ae061c72ca6f26051875ec192c11bb0e1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae061c72ca6f26051875ec192c11bb0e1">operator const napi_property_descriptor &amp;</a> () const</td></tr>
+<tr class="separator:ae061c72ca6f26051875ec192c11bb0e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb85610bfe68e8f070cc5ef6b1cecd40" id="r_abb85610bfe68e8f070cc5ef6b1cecd40"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:abb85610bfe68e8f070cc5ef6b1cecd40"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abb85610bfe68e8f070cc5ef6b1cecd40">Accessor</a> (const char *utf8name, Getter getter, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:abb85610bfe68e8f070cc5ef6b1cecd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad14b421d9b63cbc86a8f885e66b9145c" id="r_ad14b421d9b63cbc86a8f885e66b9145c"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:ad14b421d9b63cbc86a8f885e66b9145c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad14b421d9b63cbc86a8f885e66b9145c">Accessor</a> (const std::string &amp;utf8name, Getter getter, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:ad14b421d9b63cbc86a8f885e66b9145c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85447ed2ac1edd80c86a6b3fc3415760" id="r_a85447ed2ac1edd80c86a6b3fc3415760"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a85447ed2ac1edd80c86a6b3fc3415760"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a85447ed2ac1edd80c86a6b3fc3415760">Accessor</a> (napi_value name, Getter getter, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:a85447ed2ac1edd80c86a6b3fc3415760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accff1878002b3e92612ed51d9fc1758f" id="r_accff1878002b3e92612ed51d9fc1758f"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:accff1878002b3e92612ed51d9fc1758f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#accff1878002b3e92612ed51d9fc1758f">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:accff1878002b3e92612ed51d9fc1758f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35a9db471005f79a2f9a5e63fa678bf4" id="r_a35a9db471005f79a2f9a5e63fa678bf4"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a35a9db471005f79a2f9a5e63fa678bf4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a35a9db471005f79a2f9a5e63fa678bf4">Accessor</a> (const char *utf8name, Getter getter, Setter setter, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:a35a9db471005f79a2f9a5e63fa678bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ad4d8bea69bceeea27658d1c20ba469" id="r_a5ad4d8bea69bceeea27658d1c20ba469"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a5ad4d8bea69bceeea27658d1c20ba469"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5ad4d8bea69bceeea27658d1c20ba469">Accessor</a> (const std::string &amp;utf8name, Getter getter, Setter setter, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:a5ad4d8bea69bceeea27658d1c20ba469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a353aff7c60f025cec425b750a19fe77c" id="r_a353aff7c60f025cec425b750a19fe77c"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a353aff7c60f025cec425b750a19fe77c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a353aff7c60f025cec425b750a19fe77c">Accessor</a> (napi_value name, Getter getter, Setter setter, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:a353aff7c60f025cec425b750a19fe77c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95149bd2df2247b26199382af631d7c6" id="r_a95149bd2df2247b26199382af631d7c6"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a95149bd2df2247b26199382af631d7c6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a95149bd2df2247b26199382af631d7c6">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, Setter setter, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:a95149bd2df2247b26199382af631d7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbae2d2cd0aecb958fc30bf840812524" id="r_abbae2d2cd0aecb958fc30bf840812524"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:abbae2d2cd0aecb958fc30bf840812524"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abbae2d2cd0aecb958fc30bf840812524">Function</a> (const char *utf8name, Callable cb, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:abbae2d2cd0aecb958fc30bf840812524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621554d995aa59e128662fb95d167444" id="r_a621554d995aa59e128662fb95d167444"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a621554d995aa59e128662fb95d167444"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a621554d995aa59e128662fb95d167444">Function</a> (const std::string &amp;utf8name, Callable cb, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:a621554d995aa59e128662fb95d167444"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41687dbeef3622f75c8b0376c53f0d27" id="r_a41687dbeef3622f75c8b0376c53f0d27"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a41687dbeef3622f75c8b0376c53f0d27"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a41687dbeef3622f75c8b0376c53f0d27">Function</a> (napi_value name, Callable cb, napi_property_attributes attributes, void *)</td></tr>
+<tr class="separator:a41687dbeef3622f75c8b0376c53f0d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90f90b51b41212006a94f739e366cb7" id="r_ac90f90b51b41212006a94f739e366cb7"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:ac90f90b51b41212006a94f739e366cb7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac90f90b51b41212006a94f739e366cb7">Function</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Callable cb, napi_property_attributes attributes, void *data)</td></tr>
+<tr class="separator:ac90f90b51b41212006a94f739e366cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Fonctions membres publiques statiques</h2></td></tr>
+<tr class="memitem:a0be7035b6ed33b7d0deb4870d81fd0f9" id="r_a0be7035b6ed33b7d0deb4870d81fd0f9"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a0be7035b6ed33b7d0deb4870d81fd0f9"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0be7035b6ed33b7d0deb4870d81fd0f9">Accessor</a> (const char *utf8name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a0be7035b6ed33b7d0deb4870d81fd0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54e0353080ad7adc94a319738c37b33f" id="r_a54e0353080ad7adc94a319738c37b33f"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a54e0353080ad7adc94a319738c37b33f"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a54e0353080ad7adc94a319738c37b33f">Accessor</a> (const std::string &amp;utf8name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a54e0353080ad7adc94a319738c37b33f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adddcd9eaa4437af1d2d71492c0d5defe" id="r_adddcd9eaa4437af1d2d71492c0d5defe"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:adddcd9eaa4437af1d2d71492c0d5defe"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adddcd9eaa4437af1d2d71492c0d5defe">Accessor</a> (napi_value name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:adddcd9eaa4437af1d2d71492c0d5defe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae680303150129b0498a5400754af01f7" id="r_ae680303150129b0498a5400754af01f7"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:ae680303150129b0498a5400754af01f7"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae680303150129b0498a5400754af01f7">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:ae680303150129b0498a5400754af01f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ed6f894e71faa101ac4c9fa4e64b80" id="r_a54ed6f894e71faa101ac4c9fa4e64b80"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a54ed6f894e71faa101ac4c9fa4e64b80"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a54ed6f894e71faa101ac4c9fa4e64b80">Accessor</a> (const char *utf8name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a54ed6f894e71faa101ac4c9fa4e64b80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ff40524414a5dc64d8f6a7a1a803e81" id="r_a5ff40524414a5dc64d8f6a7a1a803e81"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a5ff40524414a5dc64d8f6a7a1a803e81"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5ff40524414a5dc64d8f6a7a1a803e81">Accessor</a> (const std::string &amp;utf8name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a5ff40524414a5dc64d8f6a7a1a803e81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37047af527a8c815525954dc4ccdbb58" id="r_a37047af527a8c815525954dc4ccdbb58"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a37047af527a8c815525954dc4ccdbb58"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a37047af527a8c815525954dc4ccdbb58">Accessor</a> (napi_value name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a37047af527a8c815525954dc4ccdbb58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76ae17edbd5fe1dafbf64f03373d54ab" id="r_a76ae17edbd5fe1dafbf64f03373d54ab"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a76ae17edbd5fe1dafbf64f03373d54ab"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a76ae17edbd5fe1dafbf64f03373d54ab">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a76ae17edbd5fe1dafbf64f03373d54ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dd81c33f596feafa3d41e2f61fb2fe2" id="r_a7dd81c33f596feafa3d41e2f61fb2fe2"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a7dd81c33f596feafa3d41e2f61fb2fe2"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7dd81c33f596feafa3d41e2f61fb2fe2">Function</a> (const char *utf8name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a7dd81c33f596feafa3d41e2f61fb2fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525a0ac26099f370393ffd2b07dce3e0" id="r_a525a0ac26099f370393ffd2b07dce3e0"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a525a0ac26099f370393ffd2b07dce3e0"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a525a0ac26099f370393ffd2b07dce3e0">Function</a> (const std::string &amp;utf8name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a525a0ac26099f370393ffd2b07dce3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e8ff6c84fd4764300211c892127b131" id="r_a7e8ff6c84fd4764300211c892127b131"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a7e8ff6c84fd4764300211c892127b131"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7e8ff6c84fd4764300211c892127b131">Function</a> (napi_value name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a7e8ff6c84fd4764300211c892127b131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3208a15b828cd0c1c6b3a4fc9a2b2655" id="r_a3208a15b828cd0c1c6b3a4fc9a2b2655"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a3208a15b828cd0c1c6b3a4fc9a2b2655"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3208a15b828cd0c1c6b3a4fc9a2b2655">Function</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a3208a15b828cd0c1c6b3a4fc9a2b2655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed85f6e41f790a8f1d1f0713995c1252" id="r_aed85f6e41f790a8f1d1f0713995c1252"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter&gt; </td></tr>
+<tr class="memitem:aed85f6e41f790a8f1d1f0713995c1252"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aed85f6e41f790a8f1d1f0713995c1252">Accessor</a> (const char *utf8name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:aed85f6e41f790a8f1d1f0713995c1252"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1040723807983501f7f9b8f7f5948a4" id="r_aa1040723807983501f7f9b8f7f5948a4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter&gt; </td></tr>
+<tr class="memitem:aa1040723807983501f7f9b8f7f5948a4"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa1040723807983501f7f9b8f7f5948a4">Accessor</a> (const std::string &amp;utf8name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:aa1040723807983501f7f9b8f7f5948a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a1fe2817ea63179036bcd924018941" id="r_ab7a1fe2817ea63179036bcd924018941"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter&gt; </td></tr>
+<tr class="memitem:ab7a1fe2817ea63179036bcd924018941"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab7a1fe2817ea63179036bcd924018941">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:ab7a1fe2817ea63179036bcd924018941"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d9e32e5153714cbcb0d0490cc35c007" id="r_a6d9e32e5153714cbcb0d0490cc35c007"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter, <a class="el" href="#ad058dc6859469dfb452878293486cf4b">SetterCallback</a> Setter&gt; </td></tr>
+<tr class="memitem:a6d9e32e5153714cbcb0d0490cc35c007"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6d9e32e5153714cbcb0d0490cc35c007">Accessor</a> (const char *utf8name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a6d9e32e5153714cbcb0d0490cc35c007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1feb2041a1b1a95b90c59956516fc5d4" id="r_a1feb2041a1b1a95b90c59956516fc5d4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter, <a class="el" href="#ad058dc6859469dfb452878293486cf4b">SetterCallback</a> Setter&gt; </td></tr>
+<tr class="memitem:a1feb2041a1b1a95b90c59956516fc5d4"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1feb2041a1b1a95b90c59956516fc5d4">Accessor</a> (const std::string &amp;utf8name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a1feb2041a1b1a95b90c59956516fc5d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8c63c730c7b1b138c81be845c6f4845" id="r_aa8c63c730c7b1b138c81be845c6f4845"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> Getter, <a class="el" href="#ad058dc6859469dfb452878293486cf4b">SetterCallback</a> Setter&gt; </td></tr>
+<tr class="memitem:aa8c63c730c7b1b138c81be845c6f4845"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa8c63c730c7b1b138c81be845c6f4845">Accessor</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:aa8c63c730c7b1b138c81be845c6f4845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a00b9222da215ef752aadba997e5431" id="r_a6a00b9222da215ef752aadba997e5431"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a6a00b9222da215ef752aadba997e5431"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6a00b9222da215ef752aadba997e5431">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const char *utf8name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a6a00b9222da215ef752aadba997e5431"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cda05f2275d1641787023cb561dfa4" id="r_a32cda05f2275d1641787023cb561dfa4"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a32cda05f2275d1641787023cb561dfa4"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a32cda05f2275d1641787023cb561dfa4">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const std::string &amp;utf8name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a32cda05f2275d1641787023cb561dfa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03dca92f3c9712968fbd0f66323be692" id="r_a03dca92f3c9712968fbd0f66323be692"><td class="memTemplParams" colspan="2">template&lt;typename Getter&gt; </td></tr>
+<tr class="memitem:a03dca92f3c9712968fbd0f66323be692"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a03dca92f3c9712968fbd0f66323be692">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, <a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a03dca92f3c9712968fbd0f66323be692"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13c0487361a3244aa36e05774c372d85" id="r_a13c0487361a3244aa36e05774c372d85"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:a13c0487361a3244aa36e05774c372d85"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a13c0487361a3244aa36e05774c372d85">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const char *utf8name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a13c0487361a3244aa36e05774c372d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc39190375a849e767639e4b9a3e3971" id="r_afc39190375a849e767639e4b9a3e3971"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:afc39190375a849e767639e4b9a3e3971"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afc39190375a849e767639e4b9a3e3971">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const std::string &amp;utf8name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:afc39190375a849e767639e4b9a3e3971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45d416fb94dc0376b98a06ac0aebbd8" id="r_ae45d416fb94dc0376b98a06ac0aebbd8"><td class="memTemplParams" colspan="2">template&lt;typename Getter, typename Setter&gt; </td></tr>
+<tr class="memitem:ae45d416fb94dc0376b98a06ac0aebbd8"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae45d416fb94dc0376b98a06ac0aebbd8">Accessor</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, <a class="el" href="class_napi_1_1_name.html">Name</a> name, Getter getter, Setter setter, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:ae45d416fb94dc0376b98a06ac0aebbd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5e11d3fb1aaed2b7042fd57e4ffd169" id="r_ac5e11d3fb1aaed2b7042fd57e4ffd169"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:ac5e11d3fb1aaed2b7042fd57e4ffd169"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac5e11d3fb1aaed2b7042fd57e4ffd169">Function</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const char *utf8name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:ac5e11d3fb1aaed2b7042fd57e4ffd169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f355379331d4c610169c29726ed93d6" id="r_a4f355379331d4c610169c29726ed93d6"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:a4f355379331d4c610169c29726ed93d6"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4f355379331d4c610169c29726ed93d6">Function</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, const std::string &amp;utf8name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:a4f355379331d4c610169c29726ed93d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e3c855562a1de9a2db17ad29a3318c" id="r_ac4e3c855562a1de9a2db17ad29a3318c"><td class="memTemplParams" colspan="2">template&lt;typename Callable&gt; </td></tr>
+<tr class="memitem:ac4e3c855562a1de9a2db17ad29a3318c"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac4e3c855562a1de9a2db17ad29a3318c">Function</a> (<a class="el" href="class_napi_1_1_env.html">Napi::Env</a> env, <a class="el" href="class_napi_1_1_object.html">Napi::Object</a> object, <a class="el" href="class_napi_1_1_name.html">Name</a> name, Callable cb, napi_property_attributes attributes=napi_default, void *data=nullptr)</td></tr>
+<tr class="separator:ac4e3c855562a1de9a2db17ad29a3318c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cdc957a5ce9fc5c82c7b15f755d8fcd" id="r_a8cdc957a5ce9fc5c82c7b15f755d8fcd"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cdc957a5ce9fc5c82c7b15f755d8fcd">Value</a> (const char *utf8name, napi_value value, napi_property_attributes attributes=napi_default)</td></tr>
+<tr class="separator:a8cdc957a5ce9fc5c82c7b15f755d8fcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76192b020a1a0c6f588253c773170e25" id="r_a76192b020a1a0c6f588253c773170e25"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76192b020a1a0c6f588253c773170e25">Value</a> (const std::string &amp;utf8name, napi_value value, napi_property_attributes attributes=napi_default)</td></tr>
+<tr class="separator:a76192b020a1a0c6f588253c773170e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1355d6490d5b026ccead84a6e117ac" id="r_acd1355d6490d5b026ccead84a6e117ac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd1355d6490d5b026ccead84a6e117ac">Value</a> (napi_value name, napi_value value, napi_property_attributes attributes=napi_default)</td></tr>
+<tr class="separator:acd1355d6490d5b026ccead84a6e117ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7a4139e862c8e35e9d187b20cb97a8c" id="r_ab7a4139e862c8e35e9d187b20cb97a8c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7a4139e862c8e35e9d187b20cb97a8c">Value</a> (<a class="el" href="class_napi_1_1_name.html">Name</a> name, <a class="el" href="class_napi_1_1_value.html">Napi::Value</a> value, napi_property_attributes attributes=napi_default)</td></tr>
+<tr class="separator:ab7a4139e862c8e35e9d187b20cb97a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des définitions de type membres</h2>
+<a id="ad2c20678fdfdd808f199211ecfee4791" name="ad2c20678fdfdd808f199211ecfee4791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2c20678fdfdd808f199211ecfee4791">&#9670;&#160;</a></span>GetterCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">GetterCallback</a> = <a class="el" href="class_napi_1_1_value.html">Napi::Value</a> (*)(const <a class="el" href="class_napi_1_1_callback_info.html">Napi::CallbackInfo</a>&amp; info)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad058dc6859469dfb452878293486cf4b" name="ad058dc6859469dfb452878293486cf4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad058dc6859469dfb452878293486cf4b">&#9670;&#160;</a></span>SetterCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad058dc6859469dfb452878293486cf4b">SetterCallback</a> = void (*)(const <a class="el" href="class_napi_1_1_callback_info.html">Napi::CallbackInfo</a>&amp; info)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
+<a id="a30d26da4b99348eb3089fd129adb7624" name="a30d26da4b99348eb3089fd129adb7624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30d26da4b99348eb3089fd129adb7624">&#9670;&#160;</a></span>PropertyDescriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> </td>
+          <td>(</td>
+          <td class="paramtype">napi_property_descriptor</td>          <td class="paramname"><span class="paramname"><em>desc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions membres</h2>
+<a id="abb85610bfe68e8f070cc5ef6b1cecd40" name="abb85610bfe68e8f070cc5ef6b1cecd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb85610bfe68e8f070cc5ef6b1cecd40">&#9670;&#160;</a></span>Accessor() <span class="overload">[1/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0be7035b6ed33b7d0deb4870d81fd0f9" name="a0be7035b6ed33b7d0deb4870d81fd0f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be7035b6ed33b7d0deb4870d81fd0f9">&#9670;&#160;</a></span>Accessor() <span class="overload">[2/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a35a9db471005f79a2f9a5e63fa678bf4" name="a35a9db471005f79a2f9a5e63fa678bf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35a9db471005f79a2f9a5e63fa678bf4">&#9670;&#160;</a></span>Accessor() <span class="overload">[3/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54ed6f894e71faa101ac4c9fa4e64b80" name="a54ed6f894e71faa101ac4c9fa4e64b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54ed6f894e71faa101ac4c9fa4e64b80">&#9670;&#160;</a></span>Accessor() <span class="overload">[4/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed85f6e41f790a8f1d1f0713995c1252" name="aed85f6e41f790a8f1d1f0713995c1252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed85f6e41f790a8f1d1f0713995c1252">&#9670;&#160;</a></span>Accessor() <span class="overload">[5/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d9e32e5153714cbcb0d0490cc35c007" name="a6d9e32e5153714cbcb0d0490cc35c007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d9e32e5153714cbcb0d0490cc35c007">&#9670;&#160;</a></span>Accessor() <span class="overload">[6/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter, typename <a class="el" href="#ad058dc6859469dfb452878293486cf4b">PropertyDescriptor::SetterCallback</a> Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad14b421d9b63cbc86a8f885e66b9145c" name="ad14b421d9b63cbc86a8f885e66b9145c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad14b421d9b63cbc86a8f885e66b9145c">&#9670;&#160;</a></span>Accessor() <span class="overload">[7/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a54e0353080ad7adc94a319738c37b33f" name="a54e0353080ad7adc94a319738c37b33f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54e0353080ad7adc94a319738c37b33f">&#9670;&#160;</a></span>Accessor() <span class="overload">[8/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ad4d8bea69bceeea27658d1c20ba469" name="a5ad4d8bea69bceeea27658d1c20ba469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ad4d8bea69bceeea27658d1c20ba469">&#9670;&#160;</a></span>Accessor() <span class="overload">[9/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ff40524414a5dc64d8f6a7a1a803e81" name="a5ff40524414a5dc64d8f6a7a1a803e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ff40524414a5dc64d8f6a7a1a803e81">&#9670;&#160;</a></span>Accessor() <span class="overload">[10/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1040723807983501f7f9b8f7f5948a4" name="aa1040723807983501f7f9b8f7f5948a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1040723807983501f7f9b8f7f5948a4">&#9670;&#160;</a></span>Accessor() <span class="overload">[11/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1feb2041a1b1a95b90c59956516fc5d4" name="a1feb2041a1b1a95b90c59956516fc5d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1feb2041a1b1a95b90c59956516fc5d4">&#9670;&#160;</a></span>Accessor() <span class="overload">[12/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter, typename <a class="el" href="#ad058dc6859469dfb452878293486cf4b">PropertyDescriptor::SetterCallback</a> Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="accff1878002b3e92612ed51d9fc1758f" name="accff1878002b3e92612ed51d9fc1758f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accff1878002b3e92612ed51d9fc1758f">&#9670;&#160;</a></span>Accessor() <span class="overload">[13/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae680303150129b0498a5400754af01f7" name="ae680303150129b0498a5400754af01f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae680303150129b0498a5400754af01f7">&#9670;&#160;</a></span>Accessor() <span class="overload">[14/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a95149bd2df2247b26199382af631d7c6" name="a95149bd2df2247b26199382af631d7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95149bd2df2247b26199382af631d7c6">&#9670;&#160;</a></span>Accessor() <span class="overload">[15/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76ae17edbd5fe1dafbf64f03373d54ab" name="a76ae17edbd5fe1dafbf64f03373d54ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76ae17edbd5fe1dafbf64f03373d54ab">&#9670;&#160;</a></span>Accessor() <span class="overload">[16/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7a1fe2817ea63179036bcd924018941" name="ab7a1fe2817ea63179036bcd924018941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a1fe2817ea63179036bcd924018941">&#9670;&#160;</a></span>Accessor() <span class="overload">[17/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa8c63c730c7b1b138c81be845c6f4845" name="aa8c63c730c7b1b138c81be845c6f4845"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8c63c730c7b1b138c81be845c6f4845">&#9670;&#160;</a></span>Accessor() <span class="overload">[18/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="#ad2c20678fdfdd808f199211ecfee4791">PropertyDescriptor::GetterCallback</a> Getter, typename <a class="el" href="#ad058dc6859469dfb452878293486cf4b">PropertyDescriptor::SetterCallback</a> Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a00b9222da215ef752aadba997e5431" name="a6a00b9222da215ef752aadba997e5431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a00b9222da215ef752aadba997e5431">&#9670;&#160;</a></span>Accessor() <span class="overload">[19/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a13c0487361a3244aa36e05774c372d85" name="a13c0487361a3244aa36e05774c372d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13c0487361a3244aa36e05774c372d85">&#9670;&#160;</a></span>Accessor() <span class="overload">[20/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a32cda05f2275d1641787023cb561dfa4" name="a32cda05f2275d1641787023cb561dfa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32cda05f2275d1641787023cb561dfa4">&#9670;&#160;</a></span>Accessor() <span class="overload">[21/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afc39190375a849e767639e4b9a3e3971" name="afc39190375a849e767639e4b9a3e3971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc39190375a849e767639e4b9a3e3971">&#9670;&#160;</a></span>Accessor() <span class="overload">[22/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a03dca92f3c9712968fbd0f66323be692" name="a03dca92f3c9712968fbd0f66323be692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03dca92f3c9712968fbd0f66323be692">&#9670;&#160;</a></span>Accessor() <span class="overload">[23/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae45d416fb94dc0376b98a06ac0aebbd8" name="ae45d416fb94dc0376b98a06ac0aebbd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae45d416fb94dc0376b98a06ac0aebbd8">&#9670;&#160;</a></span>Accessor() <span class="overload">[24/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85447ed2ac1edd80c86a6b3fc3415760" name="a85447ed2ac1edd80c86a6b3fc3415760"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85447ed2ac1edd80c86a6b3fc3415760">&#9670;&#160;</a></span>Accessor() <span class="overload">[25/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adddcd9eaa4437af1d2d71492c0d5defe" name="adddcd9eaa4437af1d2d71492c0d5defe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adddcd9eaa4437af1d2d71492c0d5defe">&#9670;&#160;</a></span>Accessor() <span class="overload">[26/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a353aff7c60f025cec425b750a19fe77c" name="a353aff7c60f025cec425b750a19fe77c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a353aff7c60f025cec425b750a19fe77c">&#9670;&#160;</a></span>Accessor() <span class="overload">[27/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a37047af527a8c815525954dc4ccdbb58" name="a37047af527a8c815525954dc4ccdbb58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37047af527a8c815525954dc4ccdbb58">&#9670;&#160;</a></span>Accessor() <span class="overload">[28/28]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Getter, typename Setter&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> Accessor </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Getter</td>          <td class="paramname"><span class="paramname"><em>getter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Setter</td>          <td class="paramname"><span class="paramname"><em>setter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbae2d2cd0aecb958fc30bf840812524" name="abbae2d2cd0aecb958fc30bf840812524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbae2d2cd0aecb958fc30bf840812524">&#9670;&#160;</a></span>Function() <span class="overload">[1/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7dd81c33f596feafa3d41e2f61fb2fe2" name="a7dd81c33f596feafa3d41e2f61fb2fe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dd81c33f596feafa3d41e2f61fb2fe2">&#9670;&#160;</a></span>Function() <span class="overload">[2/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a621554d995aa59e128662fb95d167444" name="a621554d995aa59e128662fb95d167444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621554d995aa59e128662fb95d167444">&#9670;&#160;</a></span>Function() <span class="overload">[3/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a525a0ac26099f370393ffd2b07dce3e0" name="a525a0ac26099f370393ffd2b07dce3e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525a0ac26099f370393ffd2b07dce3e0">&#9670;&#160;</a></span>Function() <span class="overload">[4/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac90f90b51b41212006a94f739e366cb7" name="ac90f90b51b41212006a94f739e366cb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac90f90b51b41212006a94f739e366cb7">&#9670;&#160;</a></span>Function() <span class="overload">[5/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3208a15b828cd0c1c6b3a4fc9a2b2655" name="a3208a15b828cd0c1c6b3a4fc9a2b2655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3208a15b828cd0c1c6b3a4fc9a2b2655">&#9670;&#160;</a></span>Function() <span class="overload">[6/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5e11d3fb1aaed2b7042fd57e4ffd169" name="ac5e11d3fb1aaed2b7042fd57e4ffd169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5e11d3fb1aaed2b7042fd57e4ffd169">&#9670;&#160;</a></span>Function() <span class="overload">[7/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4f355379331d4c610169c29726ed93d6" name="a4f355379331d4c610169c29726ed93d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f355379331d4c610169c29726ed93d6">&#9670;&#160;</a></span>Function() <span class="overload">[8/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4e3c855562a1de9a2db17ad29a3318c" name="ac4e3c855562a1de9a2db17ad29a3318c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e3c855562a1de9a2db17ad29a3318c">&#9670;&#160;</a></span>Function() <span class="overload">[9/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_env.html">Napi::Env</a></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_object.html">Napi::Object</a></td>          <td class="paramname"><span class="paramname"><em>object</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41687dbeef3622f75c8b0376c53f0d27" name="a41687dbeef3622f75c8b0376c53f0d27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41687dbeef3622f75c8b0376c53f0d27">&#9670;&#160;</a></span>Function() <span class="overload">[10/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e8ff6c84fd4764300211c892127b131" name="a7e8ff6c84fd4764300211c892127b131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e8ff6c84fd4764300211c892127b131">&#9670;&#160;</a></span>Function() <span class="overload">[11/11]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Callable&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_function.html">Function</a> </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Callable</td>          <td class="paramname"><span class="paramname"><em>cb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae061c72ca6f26051875ec192c11bb0e1" name="ae061c72ca6f26051875ec192c11bb0e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae061c72ca6f26051875ec192c11bb0e1">&#9670;&#160;</a></span>operator const napi_property_descriptor &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">operator const napi_property_descriptor &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27e226e2b1e3444dc458a8edd2b4f658" name="a27e226e2b1e3444dc458a8edd2b4f658"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27e226e2b1e3444dc458a8edd2b4f658">&#9670;&#160;</a></span>operator napi_property_descriptor &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">operator napi_property_descriptor &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8cdc957a5ce9fc5c82c7b15f755d8fcd" name="a8cdc957a5ce9fc5c82c7b15f755d8fcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cdc957a5ce9fc5c82c7b15f755d8fcd">&#9670;&#160;</a></span>Value() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_value.html">Value</a> </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76192b020a1a0c6f588253c773170e25" name="a76192b020a1a0c6f588253c773170e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76192b020a1a0c6f588253c773170e25">&#9670;&#160;</a></span>Value() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_value.html">Value</a> </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>utf8name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7a4139e862c8e35e9d187b20cb97a8c" name="ab7a4139e862c8e35e9d187b20cb97a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7a4139e862c8e35e9d187b20cb97a8c">&#9670;&#160;</a></span>Value() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_value.html">Value</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_name.html">Name</a></td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_napi_1_1_value.html">Napi::Value</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd1355d6490d5b026ccead84a6e117ac" name="acd1355d6490d5b026ccead84a6e117ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd1355d6490d5b026ccead84a6e117ac">&#9670;&#160;</a></span>Value() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a> <a class="el" href="class_napi_1_1_value.html">Value</a> </td>
+          <td>(</td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_value</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">napi_property_attributes</td>          <td class="paramname"><span class="paramname"><em>attributes</em></span><span class="paramdefsep"> = </span><span class="paramdefval">napi_default</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<li>node_modules/node-addon-api/<a class="el" href="napi_8h_source.html">napi.h</a></li>
+<li>node_modules/node-addon-api/<a class="el" href="napi-inl_8deprecated_8h_source.html">napi-inl.deprecated.h</a></li>
+<li>node_modules/node-addon-api/<a class="el" href="napi-inl_8h_source.html">napi-inl.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

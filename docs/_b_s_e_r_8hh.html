@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence du fichier node_modules/@parcel/watcher/src/watchman/BSER.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_4537fafb72a1a0e006bd4562da949b7b.html">watchman</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#enum-members">Énumérations</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier BSER.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;unordered_map&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+</div>
+<p><a href="_b_s_e_r_8hh_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_e_r.html">BSER</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_b_s_e_r_value.html">BSERValue</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Énumérations</h2></td></tr>
+<tr class="memitem:ac6863b470f6a47235d59630f7c7e7b55" id="r_ac6863b470f6a47235d59630f7c7e7b55"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55">BSERType</a> { <br />
+&#160;&#160;<a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af">BSER_ARRAY</a> = 0x00
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8">BSER_OBJECT</a> = 0x01
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318">BSER_STRING</a> = 0x02
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438">BSER_INT8</a> = 0x03
+, <br />
+&#160;&#160;<a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8">BSER_INT16</a> = 0x04
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83">BSER_INT32</a> = 0x05
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0">BSER_INT64</a> = 0x06
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e">BSER_REAL</a> = 0x07
+, <br />
+&#160;&#160;<a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8">BSER_BOOL_TRUE</a> = 0x08
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4">BSER_BOOL_FALSE</a> = 0x09
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178">BSER_NULL</a> = 0x0a
+, <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610">BSER_TEMPLATE</a> = 0x0b
+<br />
+ }</td></tr>
+<tr class="separator:ac6863b470f6a47235d59630f7c7e7b55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation du type de l'énumération</h2>
+<a id="ac6863b470f6a47235d59630f7c7e7b55" name="ac6863b470f6a47235d59630f7c7e7b55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6863b470f6a47235d59630f7c7e7b55">&#9670;&#160;</a></span>BSERType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#ac6863b470f6a47235d59630f7c7e7b55">BSERType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Valeurs énumérées</th></tr><tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af" name="ac6863b470f6a47235d59630f7c7e7b55a70cd410505f090d329eef1b660d429af"></a>BSER_ARRAY&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8" name="ac6863b470f6a47235d59630f7c7e7b55a06a433b5bde6b608a7e56502651f93b8"></a>BSER_OBJECT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318" name="ac6863b470f6a47235d59630f7c7e7b55a27389116af3da5d954881b2fac515318"></a>BSER_STRING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438" name="ac6863b470f6a47235d59630f7c7e7b55afb095c405d7326574764c7c457ffa438"></a>BSER_INT8&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8" name="ac6863b470f6a47235d59630f7c7e7b55acfb05164fa50cb03cf04d523742b3fb8"></a>BSER_INT16&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83" name="ac6863b470f6a47235d59630f7c7e7b55aa77d63a7090204ea0beb7dc048b20b83"></a>BSER_INT32&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0" name="ac6863b470f6a47235d59630f7c7e7b55a0b2bce46dfeb4e9c70e35cfdc3bc69d0"></a>BSER_INT64&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e" name="ac6863b470f6a47235d59630f7c7e7b55a405a9479adb00d0ae1b9e25308396f8e"></a>BSER_REAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8" name="ac6863b470f6a47235d59630f7c7e7b55ad37e1637b449d162201ee396ab4715c8"></a>BSER_BOOL_TRUE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4" name="ac6863b470f6a47235d59630f7c7e7b55a33cbfc480a7d1f93ccf2eea3c563f1d4"></a>BSER_BOOL_FALSE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178" name="ac6863b470f6a47235d59630f7c7e7b55ad45b1c36d33a1d3fbb8a3541d77fb178"></a>BSER_NULL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610" name="ac6863b470f6a47235d59630f7c7e7b55a9c4dad040f74dbdf5ff339f9d1cad610"></a>BSER_TEMPLATE&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

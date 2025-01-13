@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lieucours_0',['LieuCours',['../coach_8class_8php.html#a7947ea6ddb451544fe25c4592e6ebebc',1,'coach.class.php']]]
+  ['bsertype_0',['BSERType',['../_b_s_e_r_8hh.html#ac6863b470f6a47235d59630f7c7e7b55',1,'BSER.hh']]]
 ];

@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025:  Fichier source de node_modules/@parcel/watcher/src/Signal.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Signal.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_signal_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SIGNAL_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SIGNAL_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;mutex&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;condition_variable&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_signal.html">    7</a></span><span class="keyword">class </span><a class="code hl_function" href="class_signal.html#a44146dfdbec17a8ab7207e52ffae152c">Signal</a> {</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_signal.html#a44146dfdbec17a8ab7207e52ffae152c">    9</a></span>  <a class="code hl_function" href="class_signal.html#a44146dfdbec17a8ab7207e52ffae152c">Signal</a>() : mFlag(false), mWaiting(false) {}</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_signal.html#aa3b21853f890838c88d047d6c2786917">   10</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_signal.html#aa3b21853f890838c88d047d6c2786917">wait</a>() {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    std::unique_lock&lt;std::mutex&gt; lock(mMutex);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordflow">while</span> (!mFlag) {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>      mWaiting = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>      mCond.wait(lock);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    }</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  }</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="class_signal.html#aa8d6b52ae43d386f5a14da67cd3ae84b">   18</a></span>  std::cv_status <a class="code hl_function" href="class_signal.html#aa8d6b52ae43d386f5a14da67cd3ae84b">waitFor</a>(std::chrono::milliseconds ms) {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::unique_lock&lt;std::mutex&gt; lock(mMutex);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordflow">return</span> mCond.wait_for(lock, ms);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  }</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="class_signal.html#a7ff19734eb024bd6f3e2ad95647b1b27">   23</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_signal.html#a7ff19734eb024bd6f3e2ad95647b1b27">notify</a>() {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    std::unique_lock&lt;std::mutex&gt; lock(mMutex);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    mFlag = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    mCond.notify_all();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  }</div>
+</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="class_signal.html#ad20897c5c8bd47f5d4005989bead0e55">   29</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_signal.html#ad20897c5c8bd47f5d4005989bead0e55">reset</a>() {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::unique_lock&lt;std::mutex&gt; lock(mMutex);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    mFlag = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    mWaiting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  </div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="class_signal.html#ab79b74b3b795d6b4fd5dd06cc061610b">   35</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_signal.html#ab79b74b3b795d6b4fd5dd06cc061610b">isWaiting</a>() {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">return</span> mWaiting;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordtype">bool</span> mFlag;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordtype">bool</span> mWaiting;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  std::mutex mMutex;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  std::condition_variable mCond;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
+</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_signal_html_a44146dfdbec17a8ab7207e52ffae152c"><div class="ttname"><a href="class_signal.html#a44146dfdbec17a8ab7207e52ffae152c">Signal::Signal</a></div><div class="ttdeci">Signal()</div><div class="ttdef"><b>Definition</b> Signal.hh:9</div></div>
+<div class="ttc" id="aclass_signal_html_a7ff19734eb024bd6f3e2ad95647b1b27"><div class="ttname"><a href="class_signal.html#a7ff19734eb024bd6f3e2ad95647b1b27">Signal::notify</a></div><div class="ttdeci">void notify()</div><div class="ttdef"><b>Definition</b> Signal.hh:23</div></div>
+<div class="ttc" id="aclass_signal_html_aa3b21853f890838c88d047d6c2786917"><div class="ttname"><a href="class_signal.html#aa3b21853f890838c88d047d6c2786917">Signal::wait</a></div><div class="ttdeci">void wait()</div><div class="ttdef"><b>Definition</b> Signal.hh:10</div></div>
+<div class="ttc" id="aclass_signal_html_aa8d6b52ae43d386f5a14da67cd3ae84b"><div class="ttname"><a href="class_signal.html#aa8d6b52ae43d386f5a14da67cd3ae84b">Signal::waitFor</a></div><div class="ttdeci">std::cv_status waitFor(std::chrono::milliseconds ms)</div><div class="ttdef"><b>Definition</b> Signal.hh:18</div></div>
+<div class="ttc" id="aclass_signal_html_ab79b74b3b795d6b4fd5dd06cc061610b"><div class="ttname"><a href="class_signal.html#ab79b74b3b795d6b4fd5dd06cc061610b">Signal::isWaiting</a></div><div class="ttdeci">bool isWaiting()</div><div class="ttdef"><b>Definition</b> Signal.hh:35</div></div>
+<div class="ttc" id="aclass_signal_html_ad20897c5c8bd47f5d4005989bead0e55"><div class="ttname"><a href="class_signal.html#ad20897c5c8bd47f5d4005989bead0e55">Signal::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> Signal.hh:29</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

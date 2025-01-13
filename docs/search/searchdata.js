@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "$023_abcdfghilmnprstuwà",
-  1: "bcdpsu",
-  2: "bcdiprstu",
-  3: "_cfghls",
-  4: "$dptw",
+  0: "$023_abcdefghilmnprstuvàé",
+  1: "bcdfpsu",
+  2: "bcdfiprstu",
+  3: "_acdefghilmrstuv",
+  4: "$at",
   5: "023afgps"
 };
 
