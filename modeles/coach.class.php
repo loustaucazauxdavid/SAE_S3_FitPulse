@@ -16,6 +16,12 @@ class Coach {
     private ?bool $estVerifie;
     private ?string $emailPaypal;
     private ?int $idUtilisateur;
+    private ?float $note;
+    private ?array $creneaux;
+    private ?array $seances;
+    private ?array $disciplines;
+    private ?Utilisateur $utilisateur;
+
 
     /**
      * Constructeur de la classe Coach
@@ -33,10 +39,15 @@ class Coach {
         ?int $id = null,
         ?string $contact = null,
         ?string $description = null,
-        ?LieuCours $lieuCours = null,
+        ?string $lieuCours = null,
         ?bool $estVerifie = null,
         ?string $emailPaypal = null,
-        ?int $idUtilisateur = null)
+        ?int $idUtilisateur = null,
+        ?float $note = null,
+        ?array $creneaux = null,
+        ?array $seances = null,
+        ?array $disciplines = null,
+        ?Utilisateur $utilisateur = null)
     {
         $this->id = $id;
         $this->contact = $contact;
@@ -45,6 +56,11 @@ class Coach {
         $this->estVerifie = $estVerifie;
         $this->emailPaypal = $emailPaypal;
         $this->idUtilisateur = $idUtilisateur;
+        $this->note = $note;
+        $this->creneaux = $creneaux;
+        $this->seances = $seances;
+        $this->disciplines = $disciplines;
+        $this->utilisateur = $utilisateur;
     }
 
     /**
@@ -120,7 +136,7 @@ class Coach {
         $valeursValides = ['Distanciel', 'Présentiel', 'Hybride'];
         
         if (!in_array($lieuCours, $valeursValides, true)) {
-            throw new InvalidArgumentException("Valeur invalide passé dans LieuCours : $value");
+            throw new InvalidArgumentException("Valeur invalide passé dans LieuCours : $lieuCours");
         }
 
         $this->lieuCours = $lieuCours;
@@ -178,5 +194,99 @@ class Coach {
     public function setIdUtilisateur(?int $idUtilisateur): void
     {
         $this->idUtilisateur = $idUtilisateur;
+    }
+
+    /**
+     * Getter de la variable membre note
+     * @return float|null La note du coach
+     */
+    public function getNote(): ?float
+    {
+        if ($this->note === null) {
+            return 0.00;
+        }
+        return $this->note;
+    }
+
+    /**
+     * Setter de la variable membre note
+     * @param float|null $note La note du coach
+     */
+    public function setNote(?float $note): void
+    {
+        $this->note = $note;
+    }
+
+    /**
+     * Getter de la variable membre creneaux
+     * @return array|null Les créneaux du coach
+     */
+    public function getCreneaux(): ?array
+    {
+        return $this->creneaux;
+    }
+
+    /**
+     * Setter de la variable membre creneaux
+     * @param array|null $creneaux Les créneaux du coach
+     */
+    public function setCreneaux(?array $creneaux): void
+    {
+        $this->creneaux = $creneaux;
+    }
+
+    /**
+     * Getter de la variable membre seances
+     * @return array|null Les séances du coach
+     */
+    public function getSeances(): ?array
+    {
+        return $this->seances;
+    }
+
+    /**
+     * Setter de la variable membre seances
+     * @param array|null
+     * @return void
+     */
+    public function setSeances(?array $seances): void
+    {
+        $this->seances = $seances;
+    }
+
+    /**
+     * Getter de la variable membre disciplines
+     * @return array|null Les disciplines du coach
+     */
+    public function getDisciplines(): ?array
+    {
+        return $this->disciplines;
+    }
+
+    /**
+     * Setter de la variable membre disciplines
+     * @param Discipline|null $disciplines Les disciplines du coach
+     */
+    public function setDisciplines(?array $disciplines): void
+    {
+        $this->disciplines = $disciplines;
+    }
+
+    /**
+     * Getter de la variable membre utilisateur
+     * @return Utilisateur|null L'utilisateur du coach
+     */
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Setter de la variable membre utilisateur
+     * @param Utilisateur|null $utilisateur L'utilisateur du coach
+     */
+    public function setUtilisateur(?Utilisateur $utilisateur): void
+    {
+        $this->utilisateur = $utilisateur;
     }
 }

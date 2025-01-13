@@ -30,7 +30,7 @@ class CoachDao
      * @param int $idCoach L'ID du coach à récupérer.
      * @return array|null Le tableau associatif représentant un coach.
      */
-    public function findAssoc(int $idCoach): ?array
+    public function find(int $idCoach): ?array
     {
         $sql = "SELECT * FROM " . TABLE_COACH . " WHERE id = :idCoach;";
         $pdoStatement = $this->pdo->prepare($sql);
@@ -44,7 +44,7 @@ class CoachDao
      * Récupère tous les coachs sous forme de tableaux associatifs.
      * @return array[] Un tableau de tableaux associatifs représentant tous les coachs.
      */
-    public function findAllAssoc(): array
+    public function findAll(): array
     {
         $sql = "SELECT * FROM " . TABLE_COACH;
         $pdoStatement = $this->pdo->prepare($sql);
@@ -65,22 +65,53 @@ class CoachDao
         $coach->setContact($coachAssoc['contact']);
         $coach->setDescription($coachAssoc['description']);
         $coach->setLieuCours($coachAssoc['lieuCours']);
-        $coach->setEstVerifie((bool) $coachAssoc['estVerifie']); // Conversion en booléen
+        $coach->setEstVerifie((bool) $coachAssoc['estVerifie']);
         $coach->setEmailPaypal($coachAssoc['emailPaypal']);
         $coach->setIdUtilisateur($coachAssoc['idUtilisateur']);
+
+        if (isset($coachAssoc['creneaux'])) {
+            $creneauxData = json_decode($coachAssoc['creneaux'], true);
+            $creneaux = [];
+            foreach ($creneauxData as $creneauAssoc) {
+                $creneau = new Creneau();
+                $creneau->setId($creneauAssoc['id']);
+                $creneau->setDateDebut(new DateTime($creneauAssoc['dateDebut']));
+                $creneau->setDateFin(new DateTime($creneauAssoc['dateFin']));
+                $creneaux[] = $creneau;
+            }
+            $coach->setCreneaux($creneaux);
+        }
+
+        if (isset($coachAssoc['disciplines'])) {
+            $disciplinesData = explode(',', $coachAssoc['disciplines']); // Sépare les noms des disciplines par des virgules
+            $disciplines = [];
+            foreach ($disciplinesData as $nom) {
+                $discipline = new Discipline();
+                $discipline->setNom($nom);
+                $disciplines[] = $discipline;
+            }
+            $coach->setDisciplines($disciplines);
+        }
+
+        if (isset($coachAssoc['utilisateur_prenom']) && isset($coachAssoc['utilisateur_nom'])) {
+            $utilisateur = new Utilisateur();
+            $utilisateur->setPrenom($coachAssoc['utilisateur_prenom']);
+            $utilisateur->setNom($coachAssoc['utilisateur_nom']);
+            $coach->setUtilisateur($utilisateur);
+        }
+
+        if (isset($coachAssoc['commentaire_note'])) {
+            $coach->setNote($coachAssoc['commentaire_note']);
+        }
+
         return $coach;
     }
 
-    /**
-     * Méthode pour hydrater un tableau d'objets Coach
-     * @param array[] $coachsAssoc Le tableau associatif représentant des objets Coach
-     * @return Coach[] Les objets Coach hydratés
-     */
     public function hydrateAll(array $coachsAssoc): array
     {
         $coachs = [];
         foreach ($coachsAssoc as $coachAssoc) {
-            $coachs[] = $this->hydrate($coachAssoc); // Hydrate chaque tableau associatif
+            $coachs[] = $this->hydrate($coachAssoc);
         }
         return $coachs;
     }
@@ -103,33 +134,34 @@ class CoachDao
         $this->pdo = $pdo;
     }
 
-    /**
-     * Récupère les coachs disponibles pour des créneaux.
-     * @return array Un tableau associatif représentant les coachs et leurs créneaux.
-     */
-    public function findAvailableCoachs(): array
+    public function findAllWithDetails(): array
     {
         $now = date('Y-m-d H:i:s');
         $sql = "
-        SELECT c.id,
-               c.description,
-               u.prenom,
-               u.nom,
-               s.id AS seanceId, 
-               GROUP_CONCAT(DISTINCT d.nom ORDER BY d.nom) AS sports,
-               cr.id AS creneauId,
-               cr.dateDebut, 
-               cr.dateFin
-        FROM " . TABLE_CRENEAU . " cr
-        INNER JOIN " . TABLE_COACH . " c ON cr.idCoach = c.id
+        SELECT c.*,
+        u.prenom AS utilisateur_prenom,
+        u.nom AS utilisateur_nom,
+        AVG(com.note) AS commentaire_note,
+        JSON_ARRAYAGG(
+           JSON_OBJECT(
+               'id', cr.id,
+               'dateDebut', cr.dateDebut,
+               'dateFin', cr.dateFin
+           )
+        ) AS creneaux,
+        s.id AS seances,
+        GROUP_CONCAT(DISTINCT d.nom) AS disciplines
+        FROM " . TABLE_COACH . " c
+        INNER JOIN " . TABLE_CRENEAU . " cr ON c.id = cr.idCoach
         INNER JOIN " . TABLE_UTILISATEUR . " u ON u.id = c.idUtilisateur
+        INNER JOIN " . TABLE_PRATIQUER . " p ON c.id = p.idCoach
+        INNER JOIN " . TABLE_DISCIPLINE . " d ON p.idDiscipline = d.id
         LEFT JOIN " . TABLE_SEANCE . " s ON cr.id = s.idCreneau
-        LEFT JOIN " . TABLE_DISCIPLINE . " d ON cr.idDiscipline = d.id
-        WHERE cr.dateDebut >= :now
-              AND s.id IS NULL
-        GROUP BY c.id, cr.id, u.prenom, u.nom, cr.dateDebut, cr.dateFin, s.id
-        ORDER BY cr.dateDebut ASC;
-    ";
+        LEFT JOIN " . TABLE_COMMENTER . " com ON c.id = com.idCoach
+        WHERE cr.dateDebut >= :now AND s.id IS NULL
+        GROUP BY c.id, u.prenom, u.nom, s.id 
+        ORDER BY MIN(cr.dateDebut) ASC;
+        ";
 
         $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute([':now' => $now]);
@@ -137,57 +169,6 @@ class CoachDao
 
         $coachsAssoc = $pdoStatement->fetchAll();
 
-        // Organiser les coachs et leurs créneaux
-        $coachs = [];
-        foreach ($coachsAssoc as $row) {
-            if (!isset($coachs[$row['id']])) {
-                $coachs[$row['id']] = [
-                    'coach' => [
-                        'id' => $row['id'],
-                        'prenom' => $row['prenom'],
-                        'nom' => $row['nom'],
-                        'description' => $row['description'],
-                        'sports' => $row['sports'],
-                    ],
-                    'creneaux' => [],
-                ];
-            }
-
-            // Ajouter les créneaux du coach
-            $coachs[$row['id']]['creneaux'][] = [
-                'creneau_id' => $row['creneauId'],
-                'date_debut' => $row['dateDebut'],
-                'date_fin' => $row['dateFin'],
-            ];
-        }
-
-        // Ajouter la note moyenne pour chaque coach
-        foreach ($coachs as &$coachData) {
-            $noteMoyenne = $this->getNoteMoyenne($coachData['coach']['id']);
-            $coachData['coach']['note_moyenne'] = $noteMoyenne;
-        }
-
-        return $coachs;
-    }
-
-
-    /**
-     * Récupère un coach et ses séances par son ID.
-     * @param int $idCoach L'ID du coach à récupérer.
-     * @return array|null Le tableau associatif représentant un coach et ses séances.
-     */
-    public function getNoteMoyenne(int $idCoach): float
-    {
-        $sql = "
-        SELECT AVG(note) AS moyenne
-        FROM " . TABLE_COMMENTER . "
-        WHERE idCoach = :idCoach;
-        ";
-        $pdoStatement = $this->pdo->prepare($sql);
-        $pdoStatement->execute([':idCoach' => $idCoach]);
-        $result = $pdoStatement->fetch(PDO::FETCH_ASSOC);
-
-        /* Si la moyenne est NULL, on retourne 0.0 */
-        return $result['moyenne'] ? (float) $result['moyenne'] : 0.0;
+        return $this->hydrateAll($coachsAssoc);
     }
 }
