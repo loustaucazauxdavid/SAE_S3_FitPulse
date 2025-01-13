@@ -44,43 +44,55 @@ class ControllerCoach extends Controller
     }
 
 
-    public function getAvailableCoachs() : array
+    public function listerAvecDetails()
     {
-        // Récupérer la liste des coachs ayant des séances disponibles
-        $managerCoach = new CoachDao($this->getPdo());
 
         // Récupération des données du formulaire
         $filters = [
-            'date' => isset($_POST['date']) ? $_POST['date'] : null,
-            'note' => isset($_POST['note']) ? $_POST['note'] : null,
-            'search_name' => isset($_POST['search_name']) ? $_POST['search_name'] : null,
-            'budget' => isset($_POST['budget']) ? $_POST['budget'] : null,
-            'seance_type' => isset($_POST['seance_type']) ? $_POST['seance_type'] : [],
-            'participants' => isset($_POST['participants']) ? $_POST['participants'] : null,
+            'date' => isset($_GET['date']) ? $_GET['date'] : null,
+            'note' => isset($_GET['note']) ? $_GET['note'] : null,
+            'search_name' => isset($_GET['search_name']) ? $_GET['search_name'] : null,
+            'budget' => isset($_GET['budget']) ? $_GET['budget'] : null,
+            'seance_type' => isset($_GET['seance_type']) ? $_GET['seance_type'] : [],
+            'participants' => isset($_GET['participants']) ? $_GET['participants'] : null,
         ];
         
-        // Appel à la méthode findAllWithDetails en passant les filtres
+        // Récupérer la liste des coachs ayant des séances disponibles
+        $managerCoach = new CoachDao($this->getPdo());
         $coachs = $managerCoach->findAllWithDetails($filters);
+        $coachsTab = $this->serializeCoachData($coachs);
 
-        // Sérialiser les données des coachs
-        $coachData = $this->serializeCoachData($coachs);
+        // Récupérer les tarifs min et max
+        $managerCreneau = new CreneauDao($this->getPdo());
+        $minTarif = (int) round($managerCreneau->fetchMinTarif());
+        $maxTarif = (int) round($managerCreneau->fetchMaxTarif());
 
-        return $coachData;
+        // Chargement du template index
+        $template = $this->getTwig()->load('rechercher.html.twig');
+
+        // Affichage de la page
+        echo $template->render([
+            'menu' => 'Recherche',
+            'description' => 'Page de recherche pour FitPulse',
+            'estConnecte' => false, // Change à true si l'utilisateur est connecté
+            'coachs' => $coachsTab, // Liste des coachs avec leurs informations
+            'maxTarif' => $maxTarif, // Tarif maximum pour le budget
+            'minTarif' => $minTarif, // Tarif minimum pour le budget
+        ]);
 
     }
 
     /**
-     * Sérialise les données des coachs avant de les passer à Twig
+     * Convertit les données du coach en un tableau associatif
      *
      * @param array $coachs Tableau des objets coachs à sérialiser
-     * @return array Tableau des coachs sérialisés
+     * @return array Tableau associatif des coachs
      */
     private function serializeCoachData(array $coachs): array
     {
         $coachData = [];
 
         foreach ($coachs as $coach) {
-            // Convertir les données du coach en un tableau associatif
             $coachData[] = [
                 'id' => $coach->getId(),
                 'contact' => $coach->getContact(),
@@ -105,7 +117,7 @@ class ControllerCoach extends Controller
                         'dateDebut' => $creneau->getDateDebut()->format('Y-m-d H:i:s'),
                         'dateFin' => $creneau->getDateFin()->format('Y-m-d H:i:s'),
                     ];
-                }, $coach->getCreneaux()), // Assurez-vous de formater les dates au besoin
+                }, $coach->getCreneaux()),
             ];
         }
 

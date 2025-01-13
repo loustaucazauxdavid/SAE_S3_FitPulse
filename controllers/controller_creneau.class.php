@@ -22,20 +22,4 @@ class ControllerCreneau extends Controller
         parent::__construct($twig, $loader);
     }
 
-    /**
-     * @brief Récupère le budget min et max
-     * @return array
-     */
-    public function getBudget(): array
-    {
-        // Récupération des tarifs minimum et maximum
-        $managerCreneau = new CreneauDao($this->getPdo());
-        $minTarif = (int) round($managerCreneau->fetchMinTarif());
-        $maxTarif = (int) round($managerCreneau->fetchMaxTarif());
-
-        return [
-            'min' => $minTarif,
-            'max' => $maxTarif,
-        ];
-    }
 }
