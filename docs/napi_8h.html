@@ -1,0 +1,641 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence du fichier node_modules/node-addon-api/napi.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_38c77f718452e525d3679b89d9aed0dd.html">node-addon-api</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#namespaces">Espaces de nommage</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier napi.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;node_api.h&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;initializer_list&gt;</code><br />
+<code>#include &lt;memory&gt;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="napi-inl_8h_source.html">napi-inl.h</a>&quot;</code><br />
+</div>
+<p><a href="napi_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_maybe.html">Maybe&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_env.html">Env</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_value.html">Value</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_boolean.html">Boolean</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript boolean value.  <a href="class_napi_1_1_boolean.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_number.html">Number</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript number value.  <a href="class_napi_1_1_number.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_name.html">Name</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript string or symbol value (that can be used as a property name).  <a href="class_napi_1_1_name.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_string.html">String</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript string value.  <a href="class_napi_1_1_string.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_symbol.html">Symbol</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript symbol value.  <a href="class_napi_1_1_symbol.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_type_taggable.html">TypeTaggable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_object.html">Object</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript object value.  <a href="class_napi_1_1_object.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_object_1_1_property_l_value.html">Object::PropertyLValue&lt; Key &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_external.html">External&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_array.html">Array</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_array_buffer.html">ArrayBuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A JavaScript array buffer value.  <a href="class_napi_1_1_array_buffer.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_typed_array.html">TypedArray</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_typed_array_of.html">TypedArrayOf&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_data_view.html">DataView</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_function.html">Function</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_promise.html">Promise</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_promise_1_1_deferred.html">Promise::Deferred</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_buffer.html">Buffer&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_reference.html">Reference&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_object_reference.html">ObjectReference</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_function_reference.html">FunctionReference</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_error.html">Error</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_type_error.html">TypeError</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_range_error.html">RangeError</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_callback_info.html">CallbackInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_property_descriptor.html">PropertyDescriptor</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_class_property_descriptor.html">ClassPropertyDescriptor&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_napi_1_1_method_callback_data.html">MethodCallbackData&lt; T, TCallback &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_napi_1_1_accessor_callback_data.html">AccessorCallbackData&lt; T, TGetterCallback, TSetterCallback &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_instance_wrap.html">InstanceWrap&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_object_wrap.html">ObjectWrap&lt; T &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_handle_scope.html">HandleScope</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_escapable_handle_scope.html">EscapableHandleScope</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_async_context.html">AsyncContext</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_async_worker.html">AsyncWorker</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_memory_management.html">MemoryManagement</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_napi_1_1_version_management.html">VersionManagement</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Espaces de nommage</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html">Napi</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a7252a1c23e2f85f5f1b997be18b730a7" id="r_a7252a1c23e2f85f5f1b997be18b730a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7252a1c23e2f85f5f1b997be18b730a7">NAPI_HAS_THREADS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a7252a1c23e2f85f5f1b997be18b730a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cdc5bd1c8b408a84f055ff0f652567a" id="r_a5cdc5bd1c8b408a84f055ff0f652567a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cdc5bd1c8b408a84f055ff0f652567a">NAPI_HAS_CONSTEXPR</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a5cdc5bd1c8b408a84f055ff0f652567a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af19ffafbac1ad7f34733912344e274a2" id="r_af19ffafbac1ad7f34733912344e274a2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af19ffafbac1ad7f34733912344e274a2">NAPI_WIDE_TEXT</a>(x)</td></tr>
+<tr class="separator:af19ffafbac1ad7f34733912344e274a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0549e8092c78a35134e6b34510dfb277" id="r_a0549e8092c78a35134e6b34510dfb277"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0549e8092c78a35134e6b34510dfb277">NAPI_NOEXCEPT</a>&#160;&#160;&#160;noexcept</td></tr>
+<tr class="separator:a0549e8092c78a35134e6b34510dfb277"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b282075cd4d97dbb45b628ee0c4374" id="r_a41b282075cd4d97dbb45b628ee0c4374"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41b282075cd4d97dbb45b628ee0c4374">NAPI_THROW</a>(e, ...)</td></tr>
+<tr class="separator:a41b282075cd4d97dbb45b628ee0c4374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e1294afd7b7de1fc627592bf00c5b47" id="r_a6e1294afd7b7de1fc627592bf00c5b47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e1294afd7b7de1fc627592bf00c5b47">NAPI_THROW_VOID</a>(e)</td></tr>
+<tr class="separator:a6e1294afd7b7de1fc627592bf00c5b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cdee1e97eb430de17e8839fbcf3db97" id="r_a2cdee1e97eb430de17e8839fbcf3db97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cdee1e97eb430de17e8839fbcf3db97">NAPI_THROW_IF_FAILED</a>(env,  status, ...)</td></tr>
+<tr class="separator:a2cdee1e97eb430de17e8839fbcf3db97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac36643b3916c3dd8c17ec9c4bebae860" id="r_ac36643b3916c3dd8c17ec9c4bebae860"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac36643b3916c3dd8c17ec9c4bebae860">NAPI_THROW_IF_FAILED_VOID</a>(env,  status)</td></tr>
+<tr class="separator:ac36643b3916c3dd8c17ec9c4bebae860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd92f0860426c7dd0e3ae144c59397e" id="r_a0dd92f0860426c7dd0e3ae144c59397e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0dd92f0860426c7dd0e3ae144c59397e">NAPI_MAYBE_THROW_IF_FAILED</a>(env,  status,  type)</td></tr>
+<tr class="separator:a0dd92f0860426c7dd0e3ae144c59397e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aabefea1dc28209775a88dbf4c378e1" id="r_a0aabefea1dc28209775a88dbf4c378e1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aabefea1dc28209775a88dbf4c378e1">NAPI_RETURN_OR_THROW_IF_FAILED</a>(env,  status,  result,  type)</td></tr>
+<tr class="separator:a0aabefea1dc28209775a88dbf4c378e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc5a71e215a42a4c2e20fcd5b8278d1" id="r_adfc5a71e215a42a4c2e20fcd5b8278d1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfc5a71e215a42a4c2e20fcd5b8278d1">NAPI_DISALLOW_ASSIGN</a>(CLASS)</td></tr>
+<tr class="separator:adfc5a71e215a42a4c2e20fcd5b8278d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a5832cd8e984573d88bc7637eaa12d" id="r_a91a5832cd8e984573d88bc7637eaa12d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91a5832cd8e984573d88bc7637eaa12d">NAPI_DISALLOW_COPY</a>(CLASS)</td></tr>
+<tr class="separator:a91a5832cd8e984573d88bc7637eaa12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fe49b7ac99996e67768b27fcfe4e27c" id="r_a6fe49b7ac99996e67768b27fcfe4e27c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fe49b7ac99996e67768b27fcfe4e27c">NAPI_DISALLOW_ASSIGN_COPY</a>(CLASS)</td></tr>
+<tr class="separator:a6fe49b7ac99996e67768b27fcfe4e27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaea8a598a09ab908a305b8db312ba3c7" id="r_aaea8a598a09ab908a305b8db312ba3c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaea8a598a09ab908a305b8db312ba3c7">NAPI_CHECK</a>(condition,  location,  message)</td></tr>
+<tr class="separator:aaea8a598a09ab908a305b8db312ba3c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02392ea1f79a21afffe73fce7d898958" id="r_a02392ea1f79a21afffe73fce7d898958"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02392ea1f79a21afffe73fce7d898958">NAPI_FATAL_IF_FAILED</a>(status,  location,  message)</td></tr>
+<tr class="separator:a02392ea1f79a21afffe73fce7d898958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:aa4af9ace3f6011def6e6db03ba4a1ab2" id="r_aa4af9ace3f6011def6e6db03ba4a1ab2"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#aa4af9ace3f6011def6e6db03ba4a1ab2">Int8Array</a></td></tr>
+<tr class="memdesc:aa4af9ace3f6011def6e6db03ba4a1ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of signed 8-bit integers.  <br /></td></tr>
+<tr class="separator:aa4af9ace3f6011def6e6db03ba4a1ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56550762287eb024547c6394d3fde26f" id="r_a56550762287eb024547c6394d3fde26f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a56550762287eb024547c6394d3fde26f">Uint8Array</a></td></tr>
+<tr class="memdesc:a56550762287eb024547c6394d3fde26f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of unsigned 8-bit integers.  <br /></td></tr>
+<tr class="separator:a56550762287eb024547c6394d3fde26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf23499682afc8052bcde6b5f8b7855f" id="r_aaf23499682afc8052bcde6b5f8b7855f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#aaf23499682afc8052bcde6b5f8b7855f">Int16Array</a></td></tr>
+<tr class="memdesc:aaf23499682afc8052bcde6b5f8b7855f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of signed 16-bit integers.  <br /></td></tr>
+<tr class="separator:aaf23499682afc8052bcde6b5f8b7855f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afefc2f2aee6185ad3ccff29615b3fe12" id="r_afefc2f2aee6185ad3ccff29615b3fe12"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#afefc2f2aee6185ad3ccff29615b3fe12">Uint16Array</a></td></tr>
+<tr class="memdesc:afefc2f2aee6185ad3ccff29615b3fe12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of unsigned 16-bit integers.  <br /></td></tr>
+<tr class="separator:afefc2f2aee6185ad3ccff29615b3fe12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496a3405d99e5d8507eebe4d34ee74a3" id="r_a496a3405d99e5d8507eebe4d34ee74a3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a496a3405d99e5d8507eebe4d34ee74a3">Int32Array</a></td></tr>
+<tr class="memdesc:a496a3405d99e5d8507eebe4d34ee74a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of signed 32-bit integers.  <br /></td></tr>
+<tr class="separator:a496a3405d99e5d8507eebe4d34ee74a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcedd6d726dc90427b8b1837437361df" id="r_adcedd6d726dc90427b8b1837437361df"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#adcedd6d726dc90427b8b1837437361df">Uint32Array</a></td></tr>
+<tr class="memdesc:adcedd6d726dc90427b8b1837437361df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of unsigned 32-bit integers.  <br /></td></tr>
+<tr class="separator:adcedd6d726dc90427b8b1837437361df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29ba35efe039305447d37d7c5ce1f99d" id="r_a29ba35efe039305447d37d7c5ce1f99d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a29ba35efe039305447d37d7c5ce1f99d">Float32Array</a></td></tr>
+<tr class="memdesc:a29ba35efe039305447d37d7c5ce1f99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of 32-bit floating-point values.  <br /></td></tr>
+<tr class="separator:a29ba35efe039305447d37d7c5ce1f99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4af89a60c8c8c6c2dad798a339be4f" id="r_a5c4af89a60c8c8c6c2dad798a339be4f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a5c4af89a60c8c8c6c2dad798a339be4f">Float64Array</a></td></tr>
+<tr class="memdesc:a5c4af89a60c8c8c6c2dad798a339be4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typed-array of 64-bit floating-point values.  <br /></td></tr>
+<tr class="separator:a5c4af89a60c8c8c6c2dad798a339be4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3e4fbee8255572d11b4f0aa629d640" id="r_a4a3e4fbee8255572d11b4f0aa629d640"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a4a3e4fbee8255572d11b4f0aa629d640">ModuleRegisterCallback</a> = <a class="el" href="class_napi_1_1_object.html">Object</a> (*)(<a class="el" href="class_napi_1_1_env.html">Env</a> env, <a class="el" href="class_napi_1_1_object.html">Object</a> exports)</td></tr>
+<tr class="separator:a4a3e4fbee8255572d11b4f0aa629d640"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47cf0f1b104695f43f2367e6a408250e" id="r_a47cf0f1b104695f43f2367e6a408250e"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a47cf0f1b104695f43f2367e6a408250e"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a47cf0f1b104695f43f2367e6a408250e">MaybeOrValue</a> = T</td></tr>
+<tr class="separator:a47cf0f1b104695f43f2367e6a408250e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af7e9f82f1dde81aefd5f5cf1b069a982" id="r_af7e9f82f1dde81aefd5f5cf1b069a982"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:af7e9f82f1dde81aefd5f5cf1b069a982"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_maybe.html">Maybe</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_napi.html#af7e9f82f1dde81aefd5f5cf1b069a982">Nothing</a> ()</td></tr>
+<tr class="separator:af7e9f82f1dde81aefd5f5cf1b069a982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bf6d637fd40b372a29943f0d59a2dc9" id="r_a4bf6d637fd40b372a29943f0d59a2dc9"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a4bf6d637fd40b372a29943f0d59a2dc9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_maybe.html">Maybe</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a4bf6d637fd40b372a29943f0d59a2dc9">Just</a> (const T &amp;t)</td></tr>
+<tr class="separator:a4bf6d637fd40b372a29943f0d59a2dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab32635674f2ac917ba9c0eee0b0772ae" id="r_ab32635674f2ac917ba9c0eee0b0772ae"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ab32635674f2ac917ba9c0eee0b0772ae"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_reference.html">Reference</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_napi.html#ab32635674f2ac917ba9c0eee0b0772ae">Weak</a> (T value)</td></tr>
+<tr class="separator:ab32635674f2ac917ba9c0eee0b0772ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42a780af7c96a7758720fb648cce7439" id="r_a42a780af7c96a7758720fb648cce7439"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_object_reference.html">ObjectReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a42a780af7c96a7758720fb648cce7439">Weak</a> (<a class="el" href="class_napi_1_1_object.html">Object</a> value)</td></tr>
+<tr class="separator:a42a780af7c96a7758720fb648cce7439"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf9a4d72a29460696b303f1b2936005b" id="r_aaf9a4d72a29460696b303f1b2936005b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_function_reference.html">FunctionReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#aaf9a4d72a29460696b303f1b2936005b">Weak</a> (<a class="el" href="class_napi_1_1_function.html">Function</a> value)</td></tr>
+<tr class="separator:aaf9a4d72a29460696b303f1b2936005b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceac98296e5e9e4b84e11e963212c290" id="r_aceac98296e5e9e4b84e11e963212c290"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:aceac98296e5e9e4b84e11e963212c290"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_reference.html">Reference</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_napi.html#aceac98296e5e9e4b84e11e963212c290">Persistent</a> (T value)</td></tr>
+<tr class="separator:aceac98296e5e9e4b84e11e963212c290"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600e3ea35ad1bee556fcde4ee52fc906" id="r_a600e3ea35ad1bee556fcde4ee52fc906"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_object_reference.html">ObjectReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#a600e3ea35ad1bee556fcde4ee52fc906">Persistent</a> (<a class="el" href="class_napi_1_1_object.html">Object</a> value)</td></tr>
+<tr class="separator:a600e3ea35ad1bee556fcde4ee52fc906"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff8ba895aa0e8c505a845662d9b48448" id="r_aff8ba895aa0e8c505a845662d9b48448"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_napi_1_1_function_reference.html">FunctionReference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_napi.html#aff8ba895aa0e8c505a845662d9b48448">Persistent</a> (<a class="el" href="class_napi_1_1_function.html">Function</a> value)</td></tr>
+<tr class="separator:aff8ba895aa0e8c505a845662d9b48448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="aaea8a598a09ab908a305b8db312ba3c7" name="aaea8a598a09ab908a305b8db312ba3c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaea8a598a09ab908a305b8db312ba3c7">&#9670;&#160;</a></span>NAPI_CHECK</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_CHECK</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>condition</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>location</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
+<div class="line">    if (!(condition)) {                                                        \</div>
+<div class="line">      Napi::Error::Fatal((location), (message));                               \</div>
+<div class="line">    }                                                                          \</div>
+<div class="line">  } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="adfc5a71e215a42a4c2e20fcd5b8278d1" name="adfc5a71e215a42a4c2e20fcd5b8278d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc5a71e215a42a4c2e20fcd5b8278d1">&#9670;&#160;</a></span>NAPI_DISALLOW_ASSIGN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_DISALLOW_ASSIGN</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CLASS</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line"><span class="keywordtype">void</span> operator=(<span class="keyword">const</span> CLASS&amp;) = <span class="keyword">delete</span>;</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6fe49b7ac99996e67768b27fcfe4e27c" name="a6fe49b7ac99996e67768b27fcfe4e27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe49b7ac99996e67768b27fcfe4e27c">&#9670;&#160;</a></span>NAPI_DISALLOW_ASSIGN_COPY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_DISALLOW_ASSIGN_COPY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CLASS</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <a class="code hl_define" href="#adfc5a71e215a42a4c2e20fcd5b8278d1">NAPI_DISALLOW_ASSIGN</a>(CLASS)                                                  \</div>
+<div class="line">  NAPI_DISALLOW_COPY(CLASS)</div>
+<div class="ttc" id="anapi_8h_html_adfc5a71e215a42a4c2e20fcd5b8278d1"><div class="ttname"><a href="#adfc5a71e215a42a4c2e20fcd5b8278d1">NAPI_DISALLOW_ASSIGN</a></div><div class="ttdeci">#define NAPI_DISALLOW_ASSIGN(CLASS)</div><div class="ttdef"><b>Definition</b> napi.h:131</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a91a5832cd8e984573d88bc7637eaa12d" name="a91a5832cd8e984573d88bc7637eaa12d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a5832cd8e984573d88bc7637eaa12d">&#9670;&#160;</a></span>NAPI_DISALLOW_COPY</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_DISALLOW_COPY</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>CLASS</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">CLASS(<span class="keyword">const</span> CLASS&amp;) = <span class="keyword">delete</span>;</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a02392ea1f79a21afffe73fce7d898958" name="a02392ea1f79a21afffe73fce7d898958"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02392ea1f79a21afffe73fce7d898958">&#9670;&#160;</a></span>NAPI_FATAL_IF_FAILED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_FATAL_IF_FAILED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>location</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>message</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <a class="code hl_define" href="#aaea8a598a09ab908a305b8db312ba3c7">NAPI_CHECK</a>((status) == napi_ok, location, message)</div>
+<div class="ttc" id="anapi_8h_html_aaea8a598a09ab908a305b8db312ba3c7"><div class="ttname"><a href="#aaea8a598a09ab908a305b8db312ba3c7">NAPI_CHECK</a></div><div class="ttdeci">#define NAPI_CHECK(condition, location, message)</div><div class="ttdef"><b>Definition</b> napi.h:138</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a5cdc5bd1c8b408a84f055ff0f652567a" name="a5cdc5bd1c8b408a84f055ff0f652567a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cdc5bd1c8b408a84f055ff0f652567a">&#9670;&#160;</a></span>NAPI_HAS_CONSTEXPR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_HAS_CONSTEXPR&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7252a1c23e2f85f5f1b997be18b730a7" name="a7252a1c23e2f85f5f1b997be18b730a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7252a1c23e2f85f5f1b997be18b730a7">&#9670;&#160;</a></span>NAPI_HAS_THREADS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_HAS_THREADS&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0dd92f0860426c7dd0e3ae144c59397e" name="a0dd92f0860426c7dd0e3ae144c59397e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dd92f0860426c7dd0e3ae144c59397e">&#9670;&#160;</a></span>NAPI_MAYBE_THROW_IF_FAILED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_MAYBE_THROW_IF_FAILED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <a class="code hl_define" href="#a2cdee1e97eb430de17e8839fbcf3db97">NAPI_THROW_IF_FAILED</a>(env, status, type())</div>
+<div class="ttc" id="anapi_8h_html_a2cdee1e97eb430de17e8839fbcf3db97"><div class="ttname"><a href="#a2cdee1e97eb430de17e8839fbcf3db97">NAPI_THROW_IF_FAILED</a></div><div class="ttdeci">#define NAPI_THROW_IF_FAILED(env, status,...)</div><div class="ttdef"><b>Definition</b> napi.h:101</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a0549e8092c78a35134e6b34510dfb277" name="a0549e8092c78a35134e6b34510dfb277"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0549e8092c78a35134e6b34510dfb277">&#9670;&#160;</a></span>NAPI_NOEXCEPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_NOEXCEPT&#160;&#160;&#160;noexcept</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0aabefea1dc28209775a88dbf4c378e1" name="a0aabefea1dc28209775a88dbf4c378e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aabefea1dc28209775a88dbf4c378e1">&#9670;&#160;</a></span>NAPI_RETURN_OR_THROW_IF_FAILED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_RETURN_OR_THROW_IF_FAILED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>result</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <a class="code hl_define" href="#a0dd92f0860426c7dd0e3ae144c59397e">NAPI_MAYBE_THROW_IF_FAILED</a>(env, status, type);                               \</div>
+<div class="line">  <span class="keywordflow">return</span> result;</div>
+<div class="ttc" id="anapi_8h_html_a0dd92f0860426c7dd0e3ae144c59397e"><div class="ttname"><a href="#a0dd92f0860426c7dd0e3ae144c59397e">NAPI_MAYBE_THROW_IF_FAILED</a></div><div class="ttdeci">#define NAPI_MAYBE_THROW_IF_FAILED(env, status, type)</div><div class="ttdef"><b>Definition</b> napi.h:123</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a41b282075cd4d97dbb45b628ee0c4374" name="a41b282075cd4d97dbb45b628ee0c4374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b282075cd4d97dbb45b628ee0c4374">&#9670;&#160;</a></span>NAPI_THROW</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_THROW</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>e</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
+<div class="line">    (e).ThrowAsJavaScriptException();                                          \</div>
+<div class="line">    <span class="keywordflow">return</span> __VA_ARGS__;                                                        \</div>
+<div class="line">  } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2cdee1e97eb430de17e8839fbcf3db97" name="a2cdee1e97eb430de17e8839fbcf3db97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cdee1e97eb430de17e8839fbcf3db97">&#9670;&#160;</a></span>NAPI_THROW_IF_FAILED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_THROW_IF_FAILED</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em></em></span>...&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> ((status) != napi_ok) {                                                   \</div>
+<div class="line">    Napi::Error::New(env).ThrowAsJavaScriptException();                        \</div>
+<div class="line">    <span class="keywordflow">return</span> __VA_ARGS__;                                                        \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac36643b3916c3dd8c17ec9c4bebae860" name="ac36643b3916c3dd8c17ec9c4bebae860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac36643b3916c3dd8c17ec9c4bebae860">&#9670;&#160;</a></span>NAPI_THROW_IF_FAILED_VOID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_THROW_IF_FAILED_VOID</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>env</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> ((status) != napi_ok) {                                                   \</div>
+<div class="line">    Napi::Error::New(env).ThrowAsJavaScriptException();                        \</div>
+<div class="line">    <span class="keywordflow">return</span>;                                                                    \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a6e1294afd7b7de1fc627592bf00c5b47" name="a6e1294afd7b7de1fc627592bf00c5b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e1294afd7b7de1fc627592bf00c5b47">&#9670;&#160;</a></span>NAPI_THROW_VOID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_THROW_VOID</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>e</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  <span class="keywordflow">do</span> {                                                                         \</div>
+<div class="line">    (e).ThrowAsJavaScriptException();                                          \</div>
+<div class="line">    <span class="keywordflow">return</span>;                                                                    \</div>
+<div class="line">  } <span class="keywordflow">while</span> (0)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af19ffafbac1ad7f34733912344e274a2" name="af19ffafbac1ad7f34733912344e274a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af19ffafbac1ad7f34733912344e274a2">&#9670;&#160;</a></span>NAPI_WIDE_TEXT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define NAPI_WIDE_TEXT</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">u##x</div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

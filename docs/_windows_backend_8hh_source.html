@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025:  Fichier source de node_modules/@parcel/watcher/src/windows/WindowsBackend.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_393c2ba6f9ee048e284e847860c9f9f9.html">windows</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">WindowsBackend.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_windows_backend_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef WINDOWS_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define WINDOWS_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;winsock2.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;windows.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_brute_force_backend_8hh.html">../shared/BruteForceBackend.hh</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="class_windows_backend.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="class_windows_backend.html">WindowsBackend</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_brute_force_backend.html">BruteForceBackend</a> {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_windows_backend.html#a5d5d9ebd12cd3a7d268bc98a3fc7bf97">start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>  <a class="code hl_function" href="class_windows_backend.html#aa7585c61fe14cbe492c20c264bae2bda">~WindowsBackend</a>();</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_windows_backend.html#aa4c7b52cc97c5e555159f7e71d742883">subscribe</a>(<a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_windows_backend.html#a868d78009921b60f4122e6ff4a908b4f">unsubscribe</a>(<a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keywordtype">bool</span> mRunning;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>};</div>
+</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_brute_force_backend_8hh_html"><div class="ttname"><a href="_brute_force_backend_8hh.html">BruteForceBackend.hh</a></div></div>
+<div class="ttc" id="a_watcher_8hh_html_a8a32f1740da49095a86d32383c012cc9"><div class="ttname"><a href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a></div><div class="ttdeci">std::shared_ptr&lt; Watcher &gt; WatcherRef</div><div class="ttdef"><b>Definition</b> Watcher.hh:17</div></div>
+<div class="ttc" id="aclass_brute_force_backend_html"><div class="ttname"><a href="class_brute_force_backend.html">BruteForceBackend</a></div><div class="ttdef"><b>Definition</b> BruteForceBackend.hh:8</div></div>
+<div class="ttc" id="aclass_windows_backend_html"><div class="ttname"><a href="class_windows_backend.html">WindowsBackend</a></div><div class="ttdef"><b>Definition</b> WindowsBackend.hh:8</div></div>
+<div class="ttc" id="aclass_windows_backend_html_a5d5d9ebd12cd3a7d268bc98a3fc7bf97"><div class="ttname"><a href="class_windows_backend.html#a5d5d9ebd12cd3a7d268bc98a3fc7bf97">WindowsBackend::start</a></div><div class="ttdeci">void start() override</div><div class="ttdef"><b>Definition</b> WindowsBackend.cc:55</div></div>
+<div class="ttc" id="aclass_windows_backend_html_a868d78009921b60f4122e6ff4a908b4f"><div class="ttname"><a href="class_windows_backend.html#a868d78009921b60f4122e6ff4a908b4f">WindowsBackend::unsubscribe</a></div><div class="ttdeci">void unsubscribe(WatcherRef watcher) override</div><div class="ttdef"><b>Definition</b> WindowsBackend.cc:280</div></div>
+<div class="ttc" id="aclass_windows_backend_html_aa4c7b52cc97c5e555159f7e71d742883"><div class="ttname"><a href="class_windows_backend.html#aa4c7b52cc97c5e555159f7e71d742883">WindowsBackend::subscribe</a></div><div class="ttdeci">void subscribe(WatcherRef watcher) override</div><div class="ttdef"><b>Definition</b> WindowsBackend.cc:263</div></div>
+<div class="ttc" id="aclass_windows_backend_html_aa7585c61fe14cbe492c20c264bae2bda"><div class="ttname"><a href="class_windows_backend.html#aa7585c61fe14cbe492c20c264bae2bda">WindowsBackend::~WindowsBackend</a></div><div class="ttdeci">~WindowsBackend()</div><div class="ttdef"><b>Definition</b> WindowsBackend.cc:64</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

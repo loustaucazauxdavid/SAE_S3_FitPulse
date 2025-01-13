@@ -3,38 +3,53 @@
 {% block titre %}FitPulse - {{ mode == 'inscription' ? 'Créer un compte' : 'Connexion' }}{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="CSS/authentification.css">
-{# Inclusion de la feuille de style spécifique à la page d'authentification #}
+    {# Inclusion de la feuille de style spécifique à la page d'authentification #}
+    <link rel="stylesheet" href="CSS/authentification.css">
 {% endblock %}
 
 {% block contenu %}
-<body>
     <div class="container mt-5">
+
+    {% if msgErreurs is not empty %}
+    <div class="row justify-content-center">
+
+      <div class="alert alert-danger" id="msgErreurs">
+        <h5>Erreur(s) lors de la validation des données :</h5>
+        <ul>
+          {% for msgErreur in msgErreurs %}
+            <li>{{ msgErreur }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+
+    {% endif %}
+
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-header text-center">
-                        <h3 class="my-1">{{ mode == 'inscription' ? 'Inscription' : 'Connexion' }}</h3>
+                        <h3 class="my-1">{{ mode == 'inscription' ? 'Créer un compte' : 'Connexion' }}</h3>
                     </div>
-                    <div class="card-body">
-                        <form method="POST" action="index.php?controleur=utilisateur&methode={{mode}}">
+                    <div class="card-body"> 
+                        <form method="POST" action="index.php?controleur=utilisateur&methode={{mode}}" enctype="multipart/form-data">
 
                             {# Si on est en mode inscription, on affiche en plus les champs nom, prénom et photo #}
                             {% if mode == 'inscription' %}
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="nom" class="form-label">Nom</label>
+                                        <label for="nom" class="form-label">Nom <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre nom" required>
                                     </div>
                                     <div class="col">
-                                        <label for="prenom" class="form-label">Prénom</label>
+                                        <label for="prenom" class="form-label">Prénom <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
                                     </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="photo" class="form-label">Photo de profil</label>
-                                    <input type="file" class="form-control" id="photo" name="photo" placeholder="Entrez un URL vers une photo">
+                                    <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
                                 </div>
 
                                 {# Séparateur thématique #}
@@ -43,15 +58,24 @@
 
                             {# Champs email et mot de passe communs aux modes d'inscription et de connexion #}
                             <div class="mb-3">
-                                <label for="email" class="form-label">Adresse email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Entrez votre email" required>
+                                <label for="mail" class="form-label">Adresse email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="mail" name="mail" placeholder="Entrez votre adresse mail" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Mot de passe</label>
-                                <input type="password" class="form-control" id="password" name="motDePasse" placeholder="Entrez votre mot de passe" required>
+                                <label for="password" class="form-label">Mot de passe <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="motDePasse" name="motDePasse" placeholder="Entrez votre mot de passe" required>
                             </div>
-                            <div class="d-grid gap-2">
+
+                            {# Bouton de validation du formulaire commun aux modes d'inscription de connexion #}
+                            {# Mot de passe oublié pour le mode de connexion #}
+                            <div class="d-grid text-center gap-2">
                                 <button id="submit-btn" type="submit" class="btn btn-primary">{{ mode == 'inscription' ? 'Créer un compte' : 'Se connecter' }}</button>
+                                {% if mode != 'inscription' %}
+                                    <a href="index.php?controleur=utilisateur&methode=motdepasseoublie">Mot de passe oublié ?</a>
+                                    
+                                    {# Séparateur thématique #}
+                                    <hr class="my-3">
+                                {% endif %}
                             </div>
                         </form>
 
@@ -59,14 +83,15 @@
                         <div class="text-center mt-3">
                             {% if mode == 'inscription' %}
                                 <a id="demande-btn" href="index.php?controleur=utilisateur&methode=afficher&demande=connexion" class="btn btn-outline-secondary">Déjà un compte ? Connectez-vous</a>
-                            {% else %}
+                            {% else %}                                
                                 <a id="demande-btn" href="index.php?controleur=utilisateur&methode=afficher&demande=inscription" class="btn btn-outline-secondary">Pas encore de compte ? Créer un compte</a>
                             {% endif %}
                         </div>
                     </div>
                 </div>
+
+                <h7 class="mt-3"><span class="text-danger">*</span> : Champs obligatoires</h7>
             </div>
         </div>
     </div>
-</body>
 {% endblock %}

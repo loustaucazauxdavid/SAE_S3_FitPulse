@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025:  Fichier source de node_modules/@parcel/watcher/src/kqueue/KqueueBackend.hh</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_f0f917eac732053dee0cd926a9b580a9.html">kqueue</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">KqueueBackend.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_kqueue_backend_8hh.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef KQUEUE_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define KQUEUE_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sys/event.h&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_brute_force_backend_8hh.html">../shared/BruteForceBackend.hh</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="_dir_tree_8hh.html">../DirTree.hh</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="_signal_8hh.html">../Signal.hh</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="struct_kqueue_subscription.html">   10</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_kqueue_subscription.html">KqueueSubscription</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="struct_kqueue_subscription.html#a197be5de8c8844b6ad5b4e33931acd22">   11</a></span>  <a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> <a class="code hl_variable" href="struct_kqueue_subscription.html#a197be5de8c8844b6ad5b4e33931acd22">watcher</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="struct_kqueue_subscription.html#a4d455efceee21e97d8e21ee40e9b4a20">   12</a></span>  std::string <a class="code hl_variable" href="struct_kqueue_subscription.html#a4d455efceee21e97d8e21ee40e9b4a20">path</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="struct_kqueue_subscription.html#a84c9031c6e21556b4775882b4c0ef38e">   13</a></span>  std::shared_ptr&lt;DirTree&gt; <a class="code hl_variable" href="struct_kqueue_subscription.html#a84c9031c6e21556b4775882b4c0ef38e">tree</a>;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="struct_kqueue_subscription.html#a6f8059414f0228f0256115e024eeed4b">   14</a></span>  <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_kqueue_subscription.html#a6f8059414f0228f0256115e024eeed4b">fd</a>;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
+</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_kqueue_backend.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_kqueue_backend.html">KqueueBackend</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_brute_force_backend.html">BruteForceBackend</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_kqueue_backend.html#a5d5d9ebd12cd3a7d268bc98a3fc7bf97">start</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <a class="code hl_function" href="class_kqueue_backend.html#a53c2b8092ab4af1ec6b78e04587b8a4f">~KqueueBackend</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_kqueue_backend.html#aa4c7b52cc97c5e555159f7e71d742883">subscribe</a>(<a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_kqueue_backend.html#a868d78009921b60f4122e6ff4a908b4f">unsubscribe</a>(<a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keywordtype">int</span> mKqueue;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keywordtype">int</span> mPipe[2];</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  std::unordered_multimap&lt;std::string, KqueueSubscription&gt; mSubscriptions;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  std::unordered_map&lt;int, DirEntry *&gt; mFdToEntry;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <a class="code hl_class" href="class_signal.html">Signal</a> mEndedSignal;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keywordtype">bool</span> watchDir(<a class="code hl_typedef" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher, std::string path, std::shared_ptr&lt;DirTree&gt; tree);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keywordtype">bool</span> compareDir(<span class="keywordtype">int</span> fd, std::string &amp;dir, std::unordered_set&lt;WatcherRef&gt; &amp;watchers);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  std::vector&lt;KqueueSubscription *&gt; findSubscriptions(std::string &amp;path);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_brute_force_backend_8hh_html"><div class="ttname"><a href="_brute_force_backend_8hh.html">BruteForceBackend.hh</a></div></div>
+<div class="ttc" id="a_dir_tree_8hh_html"><div class="ttname"><a href="_dir_tree_8hh.html">DirTree.hh</a></div></div>
+<div class="ttc" id="a_signal_8hh_html"><div class="ttname"><a href="_signal_8hh.html">Signal.hh</a></div></div>
+<div class="ttc" id="a_watcher_8hh_html_a8a32f1740da49095a86d32383c012cc9"><div class="ttname"><a href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a></div><div class="ttdeci">std::shared_ptr&lt; Watcher &gt; WatcherRef</div><div class="ttdef"><b>Definition</b> Watcher.hh:17</div></div>
+<div class="ttc" id="aclass_brute_force_backend_html"><div class="ttname"><a href="class_brute_force_backend.html">BruteForceBackend</a></div><div class="ttdef"><b>Definition</b> BruteForceBackend.hh:8</div></div>
+<div class="ttc" id="aclass_kqueue_backend_html"><div class="ttname"><a href="class_kqueue_backend.html">KqueueBackend</a></div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:17</div></div>
+<div class="ttc" id="aclass_kqueue_backend_html_a53c2b8092ab4af1ec6b78e04587b8a4f"><div class="ttname"><a href="class_kqueue_backend.html#a53c2b8092ab4af1ec6b78e04587b8a4f">KqueueBackend::~KqueueBackend</a></div><div class="ttdeci">~KqueueBackend()</div><div class="ttdef"><b>Definition</b> KqueueBackend.cc:116</div></div>
+<div class="ttc" id="aclass_kqueue_backend_html_a5d5d9ebd12cd3a7d268bc98a3fc7bf97"><div class="ttname"><a href="class_kqueue_backend.html#a5d5d9ebd12cd3a7d268bc98a3fc7bf97">KqueueBackend::start</a></div><div class="ttdeci">void start() override</div><div class="ttdef"><b>Definition</b> KqueueBackend.cc:20</div></div>
+<div class="ttc" id="aclass_kqueue_backend_html_a868d78009921b60f4122e6ff4a908b4f"><div class="ttname"><a href="class_kqueue_backend.html#a868d78009921b60f4122e6ff4a908b4f">KqueueBackend::unsubscribe</a></div><div class="ttdeci">void unsubscribe(WatcherRef watcher) override</div><div class="ttdef"><b>Definition</b> KqueueBackend.cc:292</div></div>
+<div class="ttc" id="aclass_kqueue_backend_html_aa4c7b52cc97c5e555159f7e71d742883"><div class="ttname"><a href="class_kqueue_backend.html#aa4c7b52cc97c5e555159f7e71d742883">KqueueBackend::subscribe</a></div><div class="ttdeci">void subscribe(WatcherRef watcher) override</div><div class="ttdef"><b>Definition</b> KqueueBackend.cc:121</div></div>
+<div class="ttc" id="aclass_signal_html"><div class="ttname"><a href="class_signal.html">Signal</a></div><div class="ttdef"><b>Definition</b> Signal.hh:7</div></div>
+<div class="ttc" id="astruct_kqueue_subscription_html"><div class="ttname"><a href="struct_kqueue_subscription.html">KqueueSubscription</a></div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:10</div></div>
+<div class="ttc" id="astruct_kqueue_subscription_html_a197be5de8c8844b6ad5b4e33931acd22"><div class="ttname"><a href="struct_kqueue_subscription.html#a197be5de8c8844b6ad5b4e33931acd22">KqueueSubscription::watcher</a></div><div class="ttdeci">WatcherRef watcher</div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:11</div></div>
+<div class="ttc" id="astruct_kqueue_subscription_html_a4d455efceee21e97d8e21ee40e9b4a20"><div class="ttname"><a href="struct_kqueue_subscription.html#a4d455efceee21e97d8e21ee40e9b4a20">KqueueSubscription::path</a></div><div class="ttdeci">std::string path</div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:12</div></div>
+<div class="ttc" id="astruct_kqueue_subscription_html_a6f8059414f0228f0256115e024eeed4b"><div class="ttname"><a href="struct_kqueue_subscription.html#a6f8059414f0228f0256115e024eeed4b">KqueueSubscription::fd</a></div><div class="ttdeci">int fd</div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:14</div></div>
+<div class="ttc" id="astruct_kqueue_subscription_html_a84c9031c6e21556b4775882b4c0ef38e"><div class="ttname"><a href="struct_kqueue_subscription.html#a84c9031c6e21556b4775882b4c0ef38e">KqueueSubscription::tree</a></div><div class="ttdeci">std::shared_ptr&lt; DirTree &gt; tree</div><div class="ttdef"><b>Definition</b> KqueueBackend.hh:13</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

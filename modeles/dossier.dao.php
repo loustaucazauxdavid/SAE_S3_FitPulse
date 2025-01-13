@@ -4,65 +4,45 @@
  * @brief Classe DossierDao
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe DossierDao
  * @details Cette classe permet de gérer les dossiers
  */
-class DossierDao {
-    private ?PDO $pdo;
-
+class DossierDao extends Dao {
     /**
      * Constructeur de la classe DossierDao
      * @param PDO|null $pdo
      * @return void
      */
-    public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
+    public function __construct(?PDO $pdo = null) {
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Méthode pour trouver un dossier
+     * Récupère un dossier par son ID.
      * @param int $id L'identifiant du dossier
      * @return Dossier|null Le dossier trouvé
      */
     public function find(int $id): ?Dossier {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_DOSSIER . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['dossier'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Dossier::class);
         return $stmt->fetch();
     }
 
     /**
-     * Méthode pour récupérer tous les dossiers
+     * Récupère tous les dossiers.
      * @return Dossier[] Les dossiers récupérés
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_DOSSIER);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['dossier']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Dossier::class);
         return $stmt->fetchAll();
     }
 
     /**
      * Méthode pour hydrater un objet Dossier
-     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Dossier
+     * @param array $dossierAssoc Le tableau associatif représentant un objet Dossier
      * @return Dossier L'objet Dossier hydraté
      */
     public function hydrate(array $dossierAssoc): Dossier {
@@ -79,7 +59,7 @@ class DossierDao {
     /**
      * Méthode pour hydrater un tableau de Dossiers
      * @param array $dossiersAssoc Un tableau associatif de Dossiers
-     * @return Dossier[] Les dossier hydratés
+     * @return Dossier[] Les dossiers hydratés
      */
     public function hydrateAll(array $dossiersAssoc): array {
         $dossiers = [];
@@ -88,5 +68,4 @@ class DossierDao {
         }
         return $dossiers;
     }
-
 }

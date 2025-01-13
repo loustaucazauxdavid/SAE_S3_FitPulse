@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Répertoire de référence de node_modules/detect-libc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_db987a62e8987a103163524e89b0126d.html">detect-libc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Répertoire de référence de detect-libc</div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<p>Node.js module to detect the C standard library (libc) implementation family and version in use on a given Linux system.</p>
+<p>Provides a value suitable for use with the <code>LIBC</code> option of <a href="https://www.npmjs.com/package/prebuild">prebuild</a>, <a href="https://www.npmjs.com/package/prebuild-ci">prebuild-ci</a> and <a href="https://www.npmjs.com/package/prebuild-install">prebuild-install</a>, therefore allowing build and provision of pre-compiled binaries for musl-based Linux e.g. Alpine as well as glibc-based.</p>
+<p>Currently supports libc detection of <code>glibc</code> and <code>musl</code>.</p>
+<h1><a class="anchor" id="autotoc_md118"></a>
+Install</h1>
+<div class="fragment"><div class="line">npm install detect-libc</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md119"></a>
+Usage</h1>
+<h2><a class="anchor" id="autotoc_md120"></a>
+API</h2>
+<div class="fragment"><div class="line">const { GLIBC, MUSL, family, version, isNonGlibcLinux } = require(&#39;detect-libc&#39;);</div>
+</div><!-- fragment --><ul>
+<li><code>GLIBC</code> is a String containing the value "glibc" for comparison with <code>family</code>.</li>
+<li><code>MUSL</code> is a String containing the value "musl" for comparison with <code>family</code>.</li>
+<li><code>family</code> is a String representing the system libc family.</li>
+<li><code>version</code> is a String representing the system libc version number.</li>
+<li><code>isNonGlibcLinux</code> is a Boolean representing whether the system is a non-glibc Linux, e.g. Alpine.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md121"></a>
+detect-libc command line tool</h2>
+<p>When run on a Linux system with a non-glibc libc, the child command will be run with the <code>LIBC</code> environment variable set to the relevant value.</p>
+<p>On all other platforms will run the child command as-is.</p>
+<p>The command line feature requires <code>spawnSync</code> provided by Node v0.12+.</p>
+<div class="fragment"><div class="line">detect-libc child-command</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md122"></a>
+Integrating with prebuild</h1>
+<div class="fragment"><div class="line">&quot;scripts&quot;: {</div>
+<div class="line">  &quot;install&quot;: &quot;detect-libc prebuild-install || node-gyp rebuild&quot;,</div>
+<div class="line">  &quot;test&quot;: &quot;mocha &amp;&amp; detect-libc prebuild-ci&quot;</div>
+<div class="line">},</div>
+<div class="line">&quot;dependencies&quot;: {</div>
+<div class="line">  &quot;detect-libc&quot;: &quot;^1.0.2&quot;,</div>
+<div class="line">  &quot;prebuild-install&quot;: &quot;^2.2.0&quot;</div>
+<div class="line">},</div>
+<div class="line">&quot;devDependencies&quot;: {</div>
+<div class="line">  &quot;prebuild&quot;: &quot;^6.2.1&quot;,</div>
+<div class="line">  &quot;prebuild-ci&quot;: &quot;^2.2.3&quot;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md123"></a>
+Licence</h1>
+<p>Copyright 2017 Lovell Fuller</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <a href="http://www.apache.org/licenses/LICENSE-2.0.html">http://www.apache.org/licenses/LICENSE-2.0</a></p>
+<p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. </p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

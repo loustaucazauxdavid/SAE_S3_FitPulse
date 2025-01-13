@@ -4,47 +4,27 @@
  * @brief Fichier de la classe PratiquantDao
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe PratiquantDao
  * @details Cette classe permet de gérer les pratiquants
  */
-class PratiquantDao {
-    private ?PDO $pdo;
-
+class PratiquantDao extends Dao {
     /**
      * Constructeur de la classe PratiquantDao
      * @param PDO|null $pdo
      * @return void
      */
-    public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
+    public function __construct(?PDO $pdo = null) {
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Méthode pour trouver un pratiquant
+     * Méthode pour trouver un pratiquant par son identifiant
      * @param int $id L'identifiant du pratiquant
      * @return Pratiquant|null Le pratiquant trouvé
      */
     public function find(int $id): ?Pratiquant {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_PRATIQUANT . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['pratiquant'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Pratiquant::class);
         return $stmt->fetch();
@@ -55,14 +35,14 @@ class PratiquantDao {
      * @return Pratiquant[] Les pratiquants récupérés
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_PRATIQUANT);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['pratiquant']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Pratiquant::class);
         return $stmt->fetchAll();
     }
 
     /**
      * Méthode pour hydrater un objet Pratiquant
-     * @param array $pratiquerAssoc Le tableau associatif représentant un objet Pratiquant
+     * @param array $pratiquantAssoc Le tableau associatif représentant un objet Pratiquant
      * @return Pratiquant L'objet Pratiquant hydraté
      */
     public function hydrate(array $pratiquantAssoc): Pratiquant {

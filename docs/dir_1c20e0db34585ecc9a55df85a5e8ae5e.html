@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Répertoire de référence de node_modules/is-extglob</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_1c20e0db34585ecc9a55df85a5e8ae5e.html">is-extglob</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="headertitle"><div class="title">Répertoire de référence de is-extglob</div></div>
+</div><!--header-->
+<div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<blockquote class="doxtable">
+<p>Returns true if a string has an extglob. </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md163"></a>
+Install</h1>
+<p>Install with <a href="https://www.npmjs.com/">npm</a>:</p>
+<div class="fragment"><div class="line">$ npm install --save is-extglob</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md164"></a>
+Usage</h1>
+<div class="fragment"><div class="line">var isExtglob = require(&#39;is-extglob&#39;);</div>
+</div><!-- fragment --><p><b>True</b></p>
+<div class="fragment"><div class="line">isExtglob(&#39;?(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;@(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;!(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;*(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;+(abc)&#39;);</div>
+</div><!-- fragment --><p><b>False</b></p>
+<p>Escaped extglobs:</p>
+<div class="fragment"><div class="line">isExtglob(&#39;\\?(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;\\@(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;\\!(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;\\*(abc)&#39;);</div>
+<div class="line">isExtglob(&#39;\\+(abc)&#39;);</div>
+</div><!-- fragment --><p>Everything else...</p>
+<div class="fragment"><div class="line">isExtglob(&#39;foo.js&#39;);</div>
+<div class="line">isExtglob(&#39;!foo.js&#39;);</div>
+<div class="line">isExtglob(&#39;*.js&#39;);</div>
+<div class="line">isExtglob(&#39;**/abc.js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/*.js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/(aaa|bbb).js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/[a-z].js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/{a,b}.js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/?.js&#39;);</div>
+<div class="line">isExtglob(&#39;abc.js&#39;);</div>
+<div class="line">isExtglob(&#39;abc/def/ghi.js&#39;);</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md165"></a>
+History</h1>
+<p><b>v2.0</b></p>
+<p>Adds support for escaping. Escaped exglobs no longer return true.</p>
+<h1><a class="anchor" id="autotoc_md166"></a>
+About</h1>
+<h2><a class="anchor" id="autotoc_md167"></a>
+Related projects</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/has-glob">has-glob</a>: Returns <code>true</code> if an array has a glob pattern. | <a href="https://github.com/jonschlinkert/has-glob" title="Returns `true` if an array has a glob pattern.">homepage</a></li>
+<li><a href="https://www.npmjs.com/package/is-glob">is-glob</a>: Returns <code>true</code> if the given string looks like a glob pattern or an extglob pattern… <a href="https://github.com/jonschlinkert/is-glob">more</a> | <a href="https://github.com/jonschlinkert/is-glob" title="Returns `true` if the given string looks like a glob pattern or an extglob pattern. This makes it easy to create code that only uses external modules like node-glob when necessary, resulting in much faster code execution and initialization time, and a bet">homepage</a></li>
+<li><a href="https://www.npmjs.com/package/micromatch">micromatch</a>: <a class="el" href="struct_glob.html">Glob</a> matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch. | <a href="https://github.com/jonschlinkert/micromatch" title="Glob matching for javascript/node.js. A drop-in replacement and faster alternative to minimatch and multimatch.">homepage</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md168"></a>
+Contributing</h2>
+<p>Pull requests and stars are always welcome. For bugs and feature requests, <a href="../../issues/new">please create an issue</a>.</p>
+<h2><a class="anchor" id="autotoc_md169"></a>
+Building docs</h2>
+<p><em>(This document was generated by <a href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</a> (a <a href="https://github.com/verbose/verb">verb</a> generator), please don't edit the readme directly. Any changes to the readme must be made in .verb.md.)</em></p>
+<p>To generate the readme and API documentation with <a href="https://github.com/verbose/verb">verb</a>:</p>
+<div class="fragment"><div class="line">$ npm install -g verb verb-generate-readme &amp;&amp; verb</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md170"></a>
+Running tests</h2>
+<p>Install dev dependencies:</p>
+<div class="fragment"><div class="line">$ npm install -d &amp;&amp; npm test</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md171"></a>
+Author</h2>
+<p><b>Jon Schlinkert</b></p>
+<ul>
+<li><a href="https://github.com/jonschlinkert">github/jonschlinkert</a></li>
+<li><a href="http://twitter.com/jonschlinkert">twitter/jonschlinkert</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md172"></a>
+License</h2>
+<p>Copyright © 2016, <a href="https://github.com/jonschlinkert">Jon Schlinkert</a>. Released under the <a href="https://github.com/jonschlinkert/is-extglob/blob/master/LICENSE">MIT license</a>.</p>
+<hr  />
+<p><em>This file was generated by <a href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</a>, v0.1.31, on October 12, 2016.</em> </p>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

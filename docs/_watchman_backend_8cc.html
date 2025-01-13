@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence du fichier node_modules/@parcel/watcher/src/watchman/WatchmanBackend.cc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025
+   </div>
+   <div id="projectbrief">Application Sport et Bien-être permettant d&#39;organiser de mettre en relation des Coachs sportifs et des Pratiquants pour organiser des séances d&#39;entraînement</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Recherche',false);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){ initResizable(false); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_acd06b18086a0dd2ae699b1e0b775be8.html">node_modules</a></li><li class="navelem"><a class="el" href="dir_4e3ab18540de1688beeb5ed03213355a.html">@parcel</a></li><li class="navelem"><a class="el" href="dir_d661b7c1161168fa71e79234715a7cb6.html">watcher</a></li><li class="navelem"><a class="el" href="dir_61ad78585a251b1bbf894318ce8b2ed0.html">src</a></li><li class="navelem"><a class="el" href="dir_4537fafb72a1a0e006bd4562da949b7b.html">watchman</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier WatchmanBackend.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &quot;<a class="el" href="_dir_tree_8hh_source.html">../DirTree.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_event_8hh_source.html">../Event.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_b_s_e_r_8hh_source.html">./BSER.hh</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_watchman_backend_8hh_source.html">./WatchmanBackend.hh</a>&quot;</code><br />
+<code>#include &lt;sys/stat.h&gt;</code><br />
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a25a22095d4d6d9f4b2cad844ab10bb0f" id="r_a25a22095d4d6d9f4b2cad844ab10bb0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25a22095d4d6d9f4b2cad844ab10bb0f">normalizePath</a>(dir)</td></tr>
+<tr class="separator:a25a22095d4d6d9f4b2cad844ab10bb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ab831893067c976dbd22d4a32909ccd9b" id="r_ab831893067c976dbd22d4a32909ccd9b"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ab831893067c976dbd22d4a32909ccd9b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_b_s_e_r.html">BSER</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab831893067c976dbd22d4a32909ccd9b">readBSER</a> (T &amp;&amp;do_read)</td></tr>
+<tr class="separator:ab831893067c976dbd22d4a32909ccd9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a558ddfc3e149c90efc176138b4897f" id="r_a6a558ddfc3e149c90efc176138b4897f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a558ddfc3e149c90efc176138b4897f">getSockPath</a> ()</td></tr>
+<tr class="separator:a6a558ddfc3e149c90efc176138b4897f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9724dc88be578c02942c26a0f52c71a" id="r_ac9724dc88be578c02942c26a0f52c71a"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="class_i_p_c.html">IPC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9724dc88be578c02942c26a0f52c71a">watchmanConnect</a> ()</td></tr>
+<tr class="separator:ac9724dc88be578c02942c26a0f52c71a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43f454806b632451c4657497a5850fea" id="r_a43f454806b632451c4657497a5850fea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_e_r.html">BSER</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43f454806b632451c4657497a5850fea">watchmanRead</a> (<a class="el" href="class_i_p_c.html">IPC</a> *ipc)</td></tr>
+<tr class="separator:a43f454806b632451c4657497a5850fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5348af28bd0528154e639df8f48d18" id="r_a9f5348af28bd0528154e639df8f48d18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f5348af28bd0528154e639df8f48d18">handleFiles</a> (<a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher, <a class="el" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a> obj)</td></tr>
+<tr class="separator:a9f5348af28bd0528154e639df8f48d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a1994338206a558eeaf0f417778e2c" id="r_ac7a1994338206a558eeaf0f417778e2c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a1994338206a558eeaf0f417778e2c">getId</a> (<a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a> watcher)</td></tr>
+<tr class="separator:ac7a1994338206a558eeaf0f417778e2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Documentation des macros</h2>
+<a id="a25a22095d4d6d9f4b2cad844ab10bb0f" name="a25a22095d4d6d9f4b2cad844ab10bb0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25a22095d4d6d9f4b2cad844ab10bb0f">&#9670;&#160;</a></span>normalizePath</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define normalizePath</td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>dir</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">dir</div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ac7a1994338206a558eeaf0f417778e2c" name="ac7a1994338206a558eeaf0f417778e2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a1994338206a558eeaf0f417778e2c">&#9670;&#160;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a></td>          <td class="paramname"><span class="paramname"><em>watcher</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6a558ddfc3e149c90efc176138b4897f" name="a6a558ddfc3e149c90efc176138b4897f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a558ddfc3e149c90efc176138b4897f">&#9670;&#160;</a></span>getSockPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string getSockPath </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f5348af28bd0528154e639df8f48d18" name="a9f5348af28bd0528154e639df8f48d18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5348af28bd0528154e639df8f48d18">&#9670;&#160;</a></span>handleFiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handleFiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_watcher_8hh.html#a8a32f1740da49095a86d32383c012cc9">WatcherRef</a></td>          <td class="paramname"><span class="paramname"><em>watcher</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_b_s_e_r.html#a88c3f97b16a2cb3190e54bd4d7e588e3">BSER::Object</a></td>          <td class="paramname"><span class="paramname"><em>obj</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab831893067c976dbd22d4a32909ccd9b" name="ab831893067c976dbd22d4a32909ccd9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab831893067c976dbd22d4a32909ccd9b">&#9670;&#160;</a></span>readBSER()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_s_e_r.html">BSER</a> readBSER </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>do_read</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9724dc88be578c02942c26a0f52c71a" name="ac9724dc88be578c02942c26a0f52c71a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9724dc88be578c02942c26a0f52c71a">&#9670;&#160;</a></span>watchmanConnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="class_i_p_c.html">IPC</a> &gt; watchmanConnect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a43f454806b632451c4657497a5850fea" name="a43f454806b632451c4657497a5850fea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43f454806b632451c4657497a5850fea">&#9670;&#160;</a></span>watchmanRead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_s_e_r.html">BSER</a> watchmanRead </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_p_c.html">IPC</a> *</td>          <td class="paramname"><span class="paramname"><em>ipc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

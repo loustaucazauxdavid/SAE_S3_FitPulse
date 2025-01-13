@@ -4,47 +4,27 @@
  * @brief Classe SalleDeSportDao
  */
 
-require_once 'config/constantes.php';
-
 /**
  * @brief Classe SalleDeSportDao
  * @details Cette classe permet de gérer les salles de sport
  */
-class SalleDeSportDao {
-    private ?PDO $pdo;
-
+class SalleDeSportDao extends Dao {
     /**
      * Constructeur de la classe SalleDeSportDao
      * @param PDO|null $pdo
      * @return void
      */
-    public function __construct(PDO $pdo = null) {
-        $this->pdo = $pdo;
+    public function __construct(?PDO $pdo = null) {
+        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
     /**
-     * Getter de la variable membre pdo
-     * @return PDO|null
-     */
-    public function getPdo(): ?PDO {
-        return $this->pdo;
-    }
-
-    /**
-     * Setter de la variable membre pdo
-     * @param PDO $pdo
-     */
-    public function setPdo(PDO $pdo): void {
-        $this->pdo = $pdo;
-    }
-
-    /**
-     * Méthode pour trouver une salle de sport
+     * Méthode pour trouver une salle de sport par son identifiant
      * @param int $id L'identifiant de la salle de sport
      * @return SalleDeSport|null La salle de sport trouvée
      */
     public function find(int $id): ?SalleDeSport {
-        $stmt = $this->pdo->prepare('SELECT * FROM ' . TABLE_SALLE_DE_SPORT . ' WHERE id = :id');
+        $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['salle_de_sport'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, SalleDeSport::class);
         return $stmt->fetch();
@@ -55,7 +35,7 @@ class SalleDeSportDao {
      * @return SalleDeSport[] Les salles de sport récupérées
      */
     public function findAll(): array {
-        $stmt = $this->pdo->query('SELECT * FROM ' . TABLE_SALLE_DE_SPORT);
+        $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['salle_de_sport']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, SalleDeSport::class);
         return $stmt->fetchAll();
     }
@@ -83,7 +63,7 @@ class SalleDeSportDao {
 
     /**
      * Méthode pour hydrater un tableau d'objet SalleDeSport
-     * @param array $salleDeSportsAssoc Le tableau associatif représentant une salle de sport
+     * @param array $salleDeSportsAssoc Le tableau associatif représentant des salles de sport
      * @return SalleDeSport[] Le tableau d'objets SalleDeSport hydratés
      */
     public function hydrateAll(array $salleDeSportsAssoc): array {
@@ -93,5 +73,4 @@ class SalleDeSportDao {
         }
         return $salleDeSports;
     }
-
 }

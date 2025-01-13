@@ -1,8 +1,6 @@
 <?php
-/**
- * @file controller.class.php
- * @brief Classe Controller
- */
+
+require_once 'utils/session.php';
 
 /**
  * @brief Classe Controller
@@ -13,7 +11,8 @@ class Controller{
     private \Twig\Loader\FilesystemLoader $loader;
     private \Twig\Environment $twig;
     private ?array $get = null;
-    private ?array $post =null;
+    private ?array $post = null;
+    private ?array $files = null;
 
     /**
      * Constructeur de la classe Controller
@@ -22,17 +21,37 @@ class Controller{
      * @return void
      */
     public function __construct(\Twig\Environment $twig, \Twig\Loader\FilesystemLoader $loader) {
+        // Initialiser la connexion PDO
         $db = Bd::getInstance();
         $this->pdo = $db->getConnexion();
 
+        // Initialiser les variables membres
         $this->loader = $loader;
         $this->twig = $twig;
+        
+        // Variables globales Twig - Base template
+        $this->twig->addGlobal('estConnecte', estConnecte());
 
+        verifierSessionActive(); 
+        $utilisateur = $_SESSION['utilisateur'] ?? null;
+        if ($utilisateur && isset($utilisateur['photo'])) { $utilisateur['photo'] = $this->convertirEnCheminClient($utilisateur['photo']); } // Convertir le chemin absolu de l'image en chemin relatif client
+        $this->twig->addGlobal('utilisateur', $utilisateur); 
+
+        $config = Config::getInstance();
+        $this->twig->addGlobal('website_language', $config->getAppConfig('language'));
+        $this->twig->addGlobal('website_title', $config->getAppConfig('title'));
+        $this->twig->addGlobal('website_description', $config->getAppConfig('description'));
+        $this->twig->addGlobal('website_version', $config->getAppConfig('version'));
+    
+        // Variables des données passés en arguments
         if (isset($_GET) && !empty($_GET)){
             $this->get = $_GET;
         }
         if (isset($_POST) && !empty($_POST)){
             $this->post = $_POST;
+        }
+        if (isset($_FILES) && !empty($_FILES)){
+            $this->files = $_FILES;
         }
     }
 
@@ -43,11 +62,11 @@ class Controller{
      */
     public function call(string $methode): mixed{
 
-        if (!method_exists($this, $methode)){
-            throw new Exception("La méthode $methode n'existe pas dans le controller ". __CLASS__ ); 
+        if (!method_exists($this, $methode) || !is_callable([$this, $methode])) {
+            throw new Exception("La méthode $methode n'existe pas ou n'est pas accessible dans le controlleur " . __CLASS__);
         }
-        return $this->$methode();
-        
+
+        return $this->$methode(); 
     }
 
     /**
@@ -132,8 +151,28 @@ class Controller{
     {
         $this->post = $post;
     }
+
+    /**
+     * Getters de la variable files
+     */ 
+    public function getFiles(): ?array
+    {
+        return $this->files;
+    }
+
+    /**
+     * Setters de la variable files
+     */ 
+    public function setFiles(?array $files): void
+    {
+        $this->files = $files;
+    }
+
+    /**
+     * Convertit un chemin absolu en chemin relatif pour le client.
+     */
+    private function convertirEnCheminClient($chemin): string
+    {
+        return str_replace(APP_ROOT . '/', '', $chemin);
+    }
 }
-
-
-
-

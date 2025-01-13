@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
-<meta name="generator" content="Doxygen 1.11.0"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>SAE 3.A.01 - Projet Fitpulse - Groupe 3 - 2024/2025: Référence de la classe Coach</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -34,7 +34,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.11.0 -->
+<!-- Généré par Doxygen 1.13.2 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 var searchBox = new SearchBox("searchBox", "search/",'.html');
@@ -96,8 +96,8 @@ $(function(){ initResizable(false); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a5ce087e2b71df825660df6c58691f0e6" id="r_a5ce087e2b71df825660df6c58691f0e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ce087e2b71df825660df6c58691f0e6">__construct</a> (?int $id=null, ?string $contact=null, ?string $description=null, ?LieuCours $lieuCours=null, ?bool $estVerifie=null, ?string $emailPaypal=null, ?int $idUtilisateur=null)</td></tr>
-<tr class="separator:a5ce087e2b71df825660df6c58691f0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a825025d626814a2ac1e457867c01bddf" id="r_a825025d626814a2ac1e457867c01bddf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a825025d626814a2ac1e457867c01bddf">__construct</a> (?int $id=null, ?string $contact=null, ?string $description=null, ?string $lieuCours=null, ?bool $estVerifie=null, ?string $emailPaypal=null, ?int $idUtilisateur=null, ?float $note=null, ?array $creneaux=null, ?array $seances=null, ?array $disciplines=null, ?<a class="el" href="class_utilisateur.html">Utilisateur</a> $utilisateur=null)</td></tr>
+<tr class="separator:a825025d626814a2ac1e457867c01bddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12251d0c022e9e21c137a105ff683f13" id="r_a12251d0c022e9e21c137a105ff683f13"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12251d0c022e9e21c137a105ff683f13">getId</a> ()</td></tr>
 <tr class="separator:a12251d0c022e9e21c137a105ff683f13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02a5667ab1839b99445c63ed76e3eb39" id="r_a02a5667ab1839b99445c63ed76e3eb39"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02a5667ab1839b99445c63ed76e3eb39">setId</a> (?int $id)</td></tr>
@@ -126,13 +126,33 @@ Fonctions membres publiques</h2></td></tr>
 <tr class="separator:a0023af5dd0919e1cfd37d6735e434077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b8e0fb6c8a8f83ad967ec39216d903b" id="r_a6b8e0fb6c8a8f83ad967ec39216d903b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b8e0fb6c8a8f83ad967ec39216d903b">setIdUtilisateur</a> (?int $idUtilisateur)</td></tr>
 <tr class="separator:a6b8e0fb6c8a8f83ad967ec39216d903b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f35b1a4fdfd4a12580bfdeb3d89f0c6" id="r_a2f35b1a4fdfd4a12580bfdeb3d89f0c6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f35b1a4fdfd4a12580bfdeb3d89f0c6">getNote</a> ()</td></tr>
+<tr class="separator:a2f35b1a4fdfd4a12580bfdeb3d89f0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3623bdf0741c91d9001531f4d5c4322c" id="r_a3623bdf0741c91d9001531f4d5c4322c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3623bdf0741c91d9001531f4d5c4322c">setNote</a> (?float $note)</td></tr>
+<tr class="separator:a3623bdf0741c91d9001531f4d5c4322c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995594b0c2e2092be8278179f43b1f53" id="r_a995594b0c2e2092be8278179f43b1f53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995594b0c2e2092be8278179f43b1f53">getCreneaux</a> ()</td></tr>
+<tr class="separator:a995594b0c2e2092be8278179f43b1f53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a069d39710b192c4f29d049cfe98233bb" id="r_a069d39710b192c4f29d049cfe98233bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a069d39710b192c4f29d049cfe98233bb">setCreneaux</a> (?array $creneaux)</td></tr>
+<tr class="separator:a069d39710b192c4f29d049cfe98233bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae404f6889bf752e60f5e471743a62a65" id="r_ae404f6889bf752e60f5e471743a62a65"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae404f6889bf752e60f5e471743a62a65">getSeances</a> ()</td></tr>
+<tr class="separator:ae404f6889bf752e60f5e471743a62a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab041bed9112d8307cf6ef1f282dbabbd" id="r_ab041bed9112d8307cf6ef1f282dbabbd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab041bed9112d8307cf6ef1f282dbabbd">setSeances</a> (?array $seances)</td></tr>
+<tr class="separator:ab041bed9112d8307cf6ef1f282dbabbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b04d3d37cb773948bad090cccd896c" id="r_a42b04d3d37cb773948bad090cccd896c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42b04d3d37cb773948bad090cccd896c">getDisciplines</a> ()</td></tr>
+<tr class="separator:a42b04d3d37cb773948bad090cccd896c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a985c7fe2784c93f843fb9f5f334670ca" id="r_a985c7fe2784c93f843fb9f5f334670ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a985c7fe2784c93f843fb9f5f334670ca">setDisciplines</a> (?array $disciplines)</td></tr>
+<tr class="separator:a985c7fe2784c93f843fb9f5f334670ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6eba8ba7a4c6c7de4b7c4385eeb6e5b2" id="r_a6eba8ba7a4c6c7de4b7c4385eeb6e5b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eba8ba7a4c6c7de4b7c4385eeb6e5b2">getUtilisateur</a> ()</td></tr>
+<tr class="separator:a6eba8ba7a4c6c7de4b7c4385eeb6e5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec0e207dfb6fd55ed4fcfc366136735" id="r_aaec0e207dfb6fd55ed4fcfc366136735"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaec0e207dfb6fd55ed4fcfc366136735">setUtilisateur</a> (?<a class="el" href="class_utilisateur.html">Utilisateur</a> $utilisateur)</td></tr>
+<tr class="separator:aaec0e207dfb6fd55ed4fcfc366136735"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Classe pour les coachs. </p>
 <p>Gère les informations des coachs </p>
 </div><h2 class="groupheader">Documentation des constructeurs et destructeur</h2>
-<a id="a5ce087e2b71df825660df6c58691f0e6" name="a5ce087e2b71df825660df6c58691f0e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ce087e2b71df825660df6c58691f0e6">&#9670;&#160;</a></span>__construct()</h2>
+<a id="a825025d626814a2ac1e457867c01bddf" name="a825025d626814a2ac1e457867c01bddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a825025d626814a2ac1e457867c01bddf">&#9670;&#160;</a></span>__construct()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +175,7 @@ Fonctions membres publiques</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">?LieuCours</td>          <td class="paramname"><span class="paramname"><em>$lieuCours</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+          <td class="paramtype">?string</td>          <td class="paramname"><span class="paramname"><em>$lieuCours</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -170,7 +190,32 @@ Fonctions membres publiques</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">?int</td>          <td class="paramname"><span class="paramname"><em>$idUtilisateur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
+          <td class="paramtype">?int</td>          <td class="paramname"><span class="paramname"><em>$idUtilisateur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?float</td>          <td class="paramname"><span class="paramname"><em>$note</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$creneaux</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$seances</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$disciplines</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">?<a class="el" href="class_utilisateur.html">Utilisateur</a></td>          <td class="paramname"><span class="paramname"><em>$utilisateur</em></span><span class="paramdefsep"> = </span><span class="paramdefval">null</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -209,6 +254,24 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a id="a995594b0c2e2092be8278179f43b1f53" name="a995594b0c2e2092be8278179f43b1f53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995594b0c2e2092be8278179f43b1f53">&#9670;&#160;</a></span>getCreneaux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getCreneaux </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter de la variable membre creneaux </p><dl class="section return"><dt>Renvoie</dt><dd>array|null Les créneaux du coach </dd></dl>
+
+</div>
+</div>
 <a id="a2e7bb35c71bf1824456ceb944cb7a845" name="a2e7bb35c71bf1824456ceb944cb7a845"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e7bb35c71bf1824456ceb944cb7a845">&#9670;&#160;</a></span>getDescription()</h2>
 
@@ -224,6 +287,24 @@ Fonctions membres publiques</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Getter de la variable membre description </p><dl class="section return"><dt>Renvoie</dt><dd>string|null La description du coach </dd></dl>
+
+</div>
+</div>
+<a id="a42b04d3d37cb773948bad090cccd896c" name="a42b04d3d37cb773948bad090cccd896c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b04d3d37cb773948bad090cccd896c">&#9670;&#160;</a></span>getDisciplines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getDisciplines </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter de la variable membre disciplines </p><dl class="section return"><dt>Renvoie</dt><dd>array|null Les disciplines du coach </dd></dl>
 
 </div>
 </div>
@@ -317,6 +398,60 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a id="a2f35b1a4fdfd4a12580bfdeb3d89f0c6" name="a2f35b1a4fdfd4a12580bfdeb3d89f0c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f35b1a4fdfd4a12580bfdeb3d89f0c6">&#9670;&#160;</a></span>getNote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getNote </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter de la variable membre note </p><dl class="section return"><dt>Renvoie</dt><dd>float|null La note du coach </dd></dl>
+
+</div>
+</div>
+<a id="ae404f6889bf752e60f5e471743a62a65" name="ae404f6889bf752e60f5e471743a62a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae404f6889bf752e60f5e471743a62a65">&#9670;&#160;</a></span>getSeances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getSeances </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter de la variable membre seances </p><dl class="section return"><dt>Renvoie</dt><dd>array|null Les séances du coach </dd></dl>
+
+</div>
+</div>
+<a id="a6eba8ba7a4c6c7de4b7c4385eeb6e5b2" name="a6eba8ba7a4c6c7de4b7c4385eeb6e5b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eba8ba7a4c6c7de4b7c4385eeb6e5b2">&#9670;&#160;</a></span>getUtilisateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">getUtilisateur </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter de la variable membre utilisateur </p><dl class="section return"><dt>Renvoie</dt><dd>Utilisateur|null L'utilisateur du coach </dd></dl>
+
+</div>
+</div>
 <a id="a8bdc6759f8f7600e63e63f98af61ce44" name="a8bdc6759f8f7600e63e63f98af61ce44"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8bdc6759f8f7600e63e63f98af61ce44">&#9670;&#160;</a></span>setContact()</h2>
 
@@ -340,6 +475,29 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a id="a069d39710b192c4f29d049cfe98233bb" name="a069d39710b192c4f29d049cfe98233bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a069d39710b192c4f29d049cfe98233bb">&#9670;&#160;</a></span>setCreneaux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setCreneaux </td>
+          <td>(</td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$creneaux</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter de la variable membre creneaux </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">array&#160;|&#160;null</td><td class="paramname">$creneaux</td><td>Les créneaux du coach </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acee77db44e361e2773e2734033f2a1c5" name="acee77db44e361e2773e2734033f2a1c5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acee77db44e361e2773e2734033f2a1c5">&#9670;&#160;</a></span>setDescription()</h2>
 
@@ -357,6 +515,29 @@ Fonctions membres publiques</h2></td></tr>
 <p>Setter de la variable membre description </p><dl class="params"><dt>Paramètres</dt><dd>
   <table class="params">
     <tr><td class="paramtype">string&#160;|&#160;null</td><td class="paramname">$description</td><td>La description du coach </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a985c7fe2784c93f843fb9f5f334670ca" name="a985c7fe2784c93f843fb9f5f334670ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985c7fe2784c93f843fb9f5f334670ca">&#9670;&#160;</a></span>setDisciplines()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setDisciplines </td>
+          <td>(</td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$disciplines</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter de la variable membre disciplines </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"><a class="el" href="class_discipline.html" title="Classe Discipline.">Discipline</a>&#160;|&#160;null</td><td class="paramname">$disciplines</td><td>Les disciplines du coach </td></tr>
   </table>
   </dd>
 </dl>
@@ -478,13 +659,83 @@ Fonctions membres publiques</h2></td></tr>
 
 </div>
 </div>
+<a id="a3623bdf0741c91d9001531f4d5c4322c" name="a3623bdf0741c91d9001531f4d5c4322c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3623bdf0741c91d9001531f4d5c4322c">&#9670;&#160;</a></span>setNote()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setNote </td>
+          <td>(</td>
+          <td class="paramtype">?float</td>          <td class="paramname"><span class="paramname"><em>$note</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter de la variable membre note </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype">float&#160;|&#160;null</td><td class="paramname">$note</td><td>La note du coach </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab041bed9112d8307cf6ef1f282dbabbd" name="ab041bed9112d8307cf6ef1f282dbabbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab041bed9112d8307cf6ef1f282dbabbd">&#9670;&#160;</a></span>setSeances()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setSeances </td>
+          <td>(</td>
+          <td class="paramtype">?array</td>          <td class="paramname"><span class="paramname"><em>$seances</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter de la variable membre seances </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array|null</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>void </dd></dl>
+
+</div>
+</div>
+<a id="aaec0e207dfb6fd55ed4fcfc366136735" name="aaec0e207dfb6fd55ed4fcfc366136735"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec0e207dfb6fd55ed4fcfc366136735">&#9670;&#160;</a></span>setUtilisateur()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">setUtilisateur </td>
+          <td>(</td>
+          <td class="paramtype">?<a class="el" href="class_utilisateur.html">Utilisateur</a></td>          <td class="paramname"><span class="paramname"><em>$utilisateur</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter de la variable membre utilisateur </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramtype"><a class="el" href="class_utilisateur.html" title="Classe Utilisateur.">Utilisateur</a>&#160;|&#160;null</td><td class="paramname">$utilisateur</td><td>L'utilisateur du coach </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>modeles/<a class="el" href="coach_8class_8php.html">coach.class.php</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0
+Généré par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2
 </small></address>
 </div><!-- doc-content -->
 </body>
