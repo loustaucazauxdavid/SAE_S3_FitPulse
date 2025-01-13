@@ -18,7 +18,7 @@ class CoachDao extends Dao {
      * @return void
      */
 
-    public function __construct(PDO $pdo = null) {
+    public function __construct(?PDO $pdo = null) {
         parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
 
     }
@@ -91,7 +91,7 @@ class CoachDao extends Dao {
         }
 
         if (isset($coachAssoc['utilisateur_prenom']) && isset($coachAssoc['utilisateur_nom'])) {
-            $utilisateur = new Utilisateur();
+            $utilisateur = new Utilisateur("", "");
             $utilisateur->setPrenom($coachAssoc['utilisateur_prenom']);
             $utilisateur->setNom($coachAssoc['utilisateur_nom']);
             $coach->setUtilisateur($utilisateur);
@@ -130,13 +130,13 @@ class CoachDao extends Dao {
         ) AS creneaux,
         s.id AS seances,
         GROUP_CONCAT(DISTINCT d.nom) AS disciplines
-        FROM " . TABLE_COACH . " c
-        INNER JOIN " . TABLE_CRENEAU . " cr ON c.id = cr.idCoach
-        INNER JOIN " . TABLE_UTILISATEUR . " u ON u.id = c.idUtilisateur
-        INNER JOIN " . TABLE_PRATIQUER . " p ON c.id = p.idCoach
-        INNER JOIN " . TABLE_DISCIPLINE . " d ON p.idDiscipline = d.id
-        LEFT JOIN " . TABLE_SEANCE . " s ON cr.id = s.idCreneau
-        LEFT JOIN " . TABLE_COMMENTER . " com ON c.id = com.idCoach
+        FROM " . $this->tables['coach'] . " c
+        INNER JOIN " . $this->tables['creneau'] . " cr ON c.id = cr.idCoach
+        INNER JOIN " . $this->tables['utilisateur'] . " u ON u.id = c.idUtilisateur
+        INNER JOIN " . $this->tables['pratiquer'] . " p ON c.id = p.idCoach
+        INNER JOIN " . $this->tables['discipline'] . " d ON p.idDiscipline = d.id
+        LEFT JOIN " . $this->tables['seance'] . " s ON cr.id = s.idCreneau
+        LEFT JOIN " . $this->tables['commenter'] . " com ON c.id = com.idCoach
         WHERE cr.dateDebut >= :now AND s.id IS NULL
         GROUP BY c.id, u.prenom, u.nom, s.id 
         ORDER BY MIN(cr.dateDebut) ASC;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file creneau.dao.php
  * @brief DAO pour creneau
@@ -13,7 +14,7 @@ class CreneauDao extends Dao {
      * Constructeur de la classe CreneauDao
      * @param PDO|null $pdo Objet PDO à utiliser pour la communication avec la base de données.
      */
-    public function __construct(PDO $pdo = null) {
+    public function __construct(?PDO $pdo = null) {
         parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
@@ -42,16 +43,19 @@ class CreneauDao extends Dao {
     /**
      * Méthode pour hydrater un objet Creneau
      * @param array $creneauAssoc Le tableau associatif représentant un objet Creneau
+     * @param array $creneauAssoc Le tableau associatif représentant un objet Creneau
      * @return Creneau L'objet Creneau hydraté
      */
-    public function hydrate(array $creneauAssoc): Creneau {
+    public function hydrate(array $creneauAssoc): Creneau
+    {
         $creneau = new Creneau();
         $creneau->setId($creneauAssoc['id']);
-        $creneau->setDateDebut($creneauAssoc['heureDebut']);
-        $creneau->setDateFin($creneauAssoc['heureFin']);
+        $creneau->setDateDebut($creneauAssoc['dateDebut']);
+        $creneau->setDateFin($creneauAssoc['dateFin']);
         $creneau->setCapacite($creneauAssoc['capacite']);
         $creneau->setIdCoach($creneauAssoc['idCoach']);
         $creneau->setTarif($creneauAssoc['tarif']);
+
         return $creneau;
     }
 
@@ -60,7 +64,8 @@ class CreneauDao extends Dao {
      * @param array $creneauxAssoc Le tableau associatif représentant les créneaux
      * @return Creneau[] Les créneaux hydratés
      */
-    public function hydrateAll(array $creneauxAssoc): array {
+    public function hydrateAll(array $creneauxAssoc): array
+    {
         $creneaux = [];
         foreach ($creneauxAssoc as $creneauAssoc) {
             $creneaux[] = $this->hydrate($creneauAssoc);
@@ -68,3 +73,4 @@ class CreneauDao extends Dao {
         return $creneaux;
     }
 }
+
