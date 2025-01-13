@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.getElementById('budget-range');
+    const budgetValue = document.getElementById('budget-max-value');
+
+    // Mettre à jour la valeur lorsque l'utilisateur change le slider
+    slider.addEventListener('input', function() {
+        budgetValue.textContent = slider.value + ' €';
+    });
+
+    // Initialiser la valeur affichée avec la valeur par défaut
+    budgetValue.textContent = slider.value + ' €';
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     const daysOfWeek = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
     const visibleDaysCount = 4;

@@ -9,12 +9,14 @@
  * @brief Classe CreneauDao
  * @details Cette classe permet de gérer les créneaux
  */
-class CreneauDao extends Dao {
+class CreneauDao extends Dao
+{
     /**
      * Constructeur de la classe CreneauDao
      * @param PDO|null $pdo Objet PDO à utiliser pour la communication avec la base de données.
      */
-    public function __construct(?PDO $pdo = null) {
+    public function __construct(?PDO $pdo = null)
+    {
         parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
     }
 
@@ -23,7 +25,8 @@ class CreneauDao extends Dao {
      * @param int $id L'identifiant du créneau
      * @return Creneau|null Le créneau trouvé
      */
-    public function find(int $id): ?Creneau {
+    public function find(int $id): ?Creneau
+    {
         $stmt = $this->pdo->prepare('SELECT * FROM ' . $this->tables['creneau'] . ' WHERE id = :id');
         $stmt->execute(['id' => $id]);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Creneau::class);
@@ -34,7 +37,8 @@ class CreneauDao extends Dao {
      * Méthode pour récupérer tous les créneaux
      * @return Creneau[] Les créneaux récupérés
      */
-    public function findAll(): array {
+    public function findAll(): array
+    {
         $stmt = $this->pdo->query('SELECT * FROM ' . $this->tables['creneau']);
         $stmt->setFetchMode(PDO::FETCH_CLASS, Creneau::class);
         return $stmt->fetchAll();
@@ -72,5 +76,34 @@ class CreneauDao extends Dao {
         }
         return $creneaux;
     }
-}
 
+    /**
+     * Récupère le tarif maximum des créneaux.
+     * 
+     * @return int Le tarif maximum des créneaux.
+     */
+    public function fetchMaxTarif(): int
+    {
+        $sql = "SELECT MAX(tarif) FROM " . $this->tables['creneau'] . " ;";
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute();
+        $maxTarif = $pdoStatement->fetchColumn();
+
+        return (int) round($maxTarif);
+    }
+
+    /**
+     * Récupère le tarif minimum des créneaux.
+     * 
+     * @return float Le tarif minimum des créneaux.
+     */
+    public function fetchMinTarif(): int
+    {
+        $sql = "SELECT MIN(tarif) FROM " . $this->tables['creneau'];
+        $pdoStatement = $this->pdo->prepare($sql);
+        $pdoStatement->execute();
+        $minTarif = $pdoStatement->fetchColumn();
+
+        return (int) round($minTarif);
+    }
+}

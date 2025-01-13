@@ -54,16 +54,17 @@
 			</div>
 
 			<!-- Slider budget -->
-			<div class="sidebar-budget">
-				<h6>Budget</h6>
-				<input type="range" id="budget-range" name="budget" min="0" max="1000" step="1" value="200">
+			<input type="range" id="budget-range" name="budget" min="{{ minTarif }}" max="{{ maxTarif }}" step="1" value="{{ minTarif }}">
 				<div class="budget-values">
-					<span id="budget-min-value">20</span>
-					€ -
-					<span id="budget-max-value">1000</span>
+					<span id="budget-min-value">{{ minTarif }}</span>
 					€
+					<!-- Affiche la valeur min par défaut -->
+					-
+					<span id="budget-max-value">{{ maxTarif }}</span>
+
+					<!-- Affiche la valeur max -->
 				</div>
-			</div>
+			</input>
 
 			<!-- Type de séance -->
 			<div class="sidebar-checkbox">
@@ -98,72 +99,71 @@
 
 			<!-- Bouton valider -->
 			<button type="submit" class="btn btn-primary">Valider</button>
-		</form>
-	</nav>
-	<main class="page-content">
-		<div class="container-fluid">
-			<h2>Résultats</h2>
-			<hr>
-			<div class="row">
-				<div class="form-group col-md-12">
-					{% for coach in coachs %}
-						<div class="card mb-4">
+
+		</div>
+	</form>
+</nav>
+<main class="page-content">
+	<div class="container-fluid">
+		<h2>Résultats</h2>
+		<hr>
+		<div class="row">
+			<div class="form-group col-md-12">
+				{% for coach in coachs %}
+					<div class="card mb-4">
+						<div
+							class="d-flex">
+							<!-- Image du coach (colonne gauche) -->
+							<div class="flex-shrink-0">
+								<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
+							</div>
+
+							<!-- Contenu principal du coach (colonne gauche) -->
 							<div
-								class="d-flex">
-								<!-- Image du coach (colonne gauche) -->
-								<div class="flex-shrink-0">
-									<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
-								</div>
-
-								<!-- Contenu principal du coach (colonne gauche) -->
-								<div
-									class="card-body d-flex flex-column justify-content-between" style="flex: 1;">
-									<!-- Informations du coach -->
-									<div>
-										<h5 class="card-title">
-											{{ coach.utilisateur.prenom }}
-											{{ coach.utilisateur.nom }}
-										</h5>
-										<h6 class="card-subtitle mb-2 text-muted">
-											<div class="star-rating">
-												{% for i in 0..4 %}
-													<span class="star {% if i < (coach.commentaire_note|round(0, 'floor')|default(0)) %}filled{% else %}empty{% endif %}"></span>
-												{% endfor %}
-											</div>
-											{% for discipline in coach.disciplines %}
-												{{ discipline.nom }}
-												<br>
+								class="card-body d-flex flex-column justify-content-between" style="flex: 1;">
+								<!-- Informations du coach -->
+								<div>
+									<h5 class="card-title">
+										{{ coach.utilisateur.prenom }}
+										{{ coach.utilisateur.nom }}
+									</h5>
+									<h6 class="card-subtitle mb-2 text-muted">
+										<div class="star-rating">
+											{% for i in 0..4 %}
+												<span class="star {% if i < (coach.commentaire_note|round(0, 'floor')|default(0)) %}filled{% else %}empty{% endif %}"></span>
 											{% endfor %}
-										</h6>
-										<p class="card-text">{{ coach.description }}</p>
-										<a href="#" class="btn btn-primary">Voir plus</a>
-									</div>
+										</div>
+										{% for discipline in coach.disciplines %}
+											{{ discipline.nom }}
+											<br>
+										{% endfor %}
+									</h6>
+									<p class="card-text">{{ coach.description }}</p>
+									<a href="#" class="btn btn-primary">Voir plus</a>
+								</div>
+							</div>
+
+							<!-- Calendrier des séances (colonne droite) -->
+							<div
+								class="card-calendar mt-3" id="calendar-coach-{{ coach.id }}" data-coach="{{ coach|json_encode(constant('JSON_UNESCAPED_UNICODE')) }}" style="min-width: 300px; flex-grow: 1;">
+								<!-- En-tête du calendrier -->
+								<div class="calendar-header d-flex justify-content-between align-items-center">
+									<button class="btn btn-outline-secondary btn-sm prevDay" data-coach-id="{{ coach.id }}">«</button>
+									<h5 class="mb-0">Séances disponibles</h5>
+									<button class="btn btn-outline-secondary btn-sm nextDay" data-coach-id="{{ coach.id }}">»</button>
 								</div>
 
-								<!-- Calendrier des séances (colonne droite) -->
+								<!-- Contenu des jours -->
 								<div
-									class="card-calendar mt-3" id="calendar-coach-{{ coach.id }}" data-coach="{{ coach|json_encode(constant('JSON_UNESCAPED_UNICODE')) }}" style="min-width: 300px; flex-grow: 1;">
-									<!-- En-tête du calendrier -->
-									<div class="calendar-header d-flex justify-content-between align-items-center">
-										<button class="btn btn-outline-secondary btn-sm prevDay" data-coach-id="{{ coach.id }}">«</button>
-										<h5 class="mb-0">Séances disponibles</h5>
-										<button class="btn btn-outline-secondary btn-sm nextDay" data-coach-id="{{ coach.id }}">»</button>
-									</div>
-
-									<!-- Contenu des jours -->
-									<div
-										class="week-days d-flex justify-content-between" id="week-days-{{ coach.id }}"><!-- Les jours seront injectés par JavaScript -->
-									</div>
+									class="week-days d-flex justify-content-between" id="week-days-{{ coach.id }}"><!-- Les jours seront injectés par JavaScript -->
 								</div>
 							</div>
 						</div>
-					{% endfor %}
-				</div>
-			</main>
-		{% endblock %}
-
-		{% block script %}
-			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
-			<script src="JS/rechercher.js"></script>
-		{% endblock %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</main>{% endblock %}{% block script %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+ <script src="JS/rechercher.js"></script>{% endblock %}

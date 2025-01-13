@@ -44,7 +44,7 @@ class ControllerCoach extends Controller
     }
 
 
-    public function displayAvailableCoachs()
+    public function getAvailableCoachs() : array
     {
         // Récupérer la liste des coachs ayant des séances disponibles
         $managerCoach = new CoachDao($this->getPdo());
@@ -53,16 +53,8 @@ class ControllerCoach extends Controller
         // Sérialiser les données des coachs
         $coachData = $this->serializeCoachData($coachs);
 
-        // Charger le template 'rechercher.html.twig'
-        $template = $this->getTwig()->load('rechercher.html.twig');
+        return $coachData;
 
-        // Passer les données sérialisées à Twig
-        echo $template->render([
-            'menu' => 'Recherche',
-            'description' => 'Page de recherche pour FitPulse',
-            'estConnecte' => false, // Change à true si l'utilisateur est connecté
-            'coachs' => $coachData, // Liste des coachs avec leurs informations
-        ]);
     }
 
     /**
