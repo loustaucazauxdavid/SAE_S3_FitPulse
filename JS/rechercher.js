@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Ajouter les créneaux horaires
             (coachData.creneaux || [])
-                .sort((a, b) => parseDatabaseDate(a.date_debut) - parseDatabaseDate(b.date_debut))
+                .sort((a, b) => parseDatabaseDate(a.dateDebut) - parseDatabaseDate(b.dateDebut))
                 .forEach((creneau) => {
-                    const creneauDate = parseDatabaseDate(creneau.date_debut);
+                    const creneauDate = parseDatabaseDate(creneau.dateDebut);
                     if (isSameDay(creneauDate, currentDate)) {
                         const button = document.createElement("button");
                         button.className = "btn btn-primary btn-sm";
@@ -68,8 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".card-calendar").forEach((calendar) => {
         const coachDataJson = calendar.getAttribute("data-coach");
         const coachData = JSON.parse(coachDataJson); // Convertit le JSON en objet JavaScript
-        console.log(coachData); // Débogage
-        const coachId = coachData.coach.id;
+        const coachId = coachData.id;
         const daysContainer = document.getElementById(`week-days-${coachId}`);
         let startIndex = 0;
 
