@@ -46,21 +46,25 @@ class ControllerCoach extends Controller
 
     public function listerAvecDetails()
     {
-
-        // Récupération des données du formulaire
-        $filters = [
-            'date' => isset($_GET['date']) ? $_GET['date'] : null,
-            'note' => isset($_GET['note']) ? $_GET['note'] : null,
-            'search_name' => isset($_GET['search_name']) ? $_GET['search_name'] : null,
-            'budget' => isset($_GET['budget']) ? $_GET['budget'] : null,
-            'seance_type' => isset($_GET['seance_type']) ? $_GET['seance_type'] : [],
-            'participants' => isset($_GET['participants']) ? $_GET['participants'] : null,
-        ];
-        
-        // Récupérer la liste des coachs ayant des séances disponibles
         $managerCoach = new CoachDao($this->getPdo());
-        $coachs = $managerCoach->findAllWithDetails($filters);
-        $coachsTab = $this->serializeCoachData($coachs);
+
+        $filtres = [];
+
+        // Récupérer les filtres envoyés via POST
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $filtres['budget'] = $_POST['budget'] ?? null;
+            $filtres['discipline'] = $_POST['discipline'] ?? null;
+            $filtres['date'] = $_POST['date'] ?? null;
+            $filtres['note'] = $_POST['note'] ?? null;
+            $filtres['nom'] = $_POST['nom'] ?? null;
+            $filtres['sport'] = $_POST['sport'] ?? null;
+            $filtres['seance_type'] = $_POST['seance_type'] ?? [];
+            $filtres['participants'] = $_POST['participants'] ?? null;
+        }
+
+        // Récupérer la liste des coachs ayant des séances disponibles
+        $coachs = $managerCoach->findAllWithDetails($filtres);
+        $coachsTab = $this->getCoachData($coachs);
 
         // Récupérer les tarifs min et max
         $managerCreneau = new CreneauDao($this->getPdo());
@@ -78,17 +82,17 @@ class ControllerCoach extends Controller
             'coachs' => $coachsTab, // Liste des coachs avec leurs informations
             'maxTarif' => $maxTarif, // Tarif maximum pour le budget
             'minTarif' => $minTarif, // Tarif minimum pour le budget
+            'filtres' => $filtres, // Filtres de recherche
         ]);
-
     }
 
     /**
      * Convertit les données du coach en un tableau associatif
      *
-     * @param array $coachs Tableau des objets coachs à sérialiser
+     * @param array $coachs Tableau des objets coachs à transformer
      * @return array Tableau associatif des coachs
      */
-    private function serializeCoachData(array $coachs): array
+    private function getCoachData(array $coachs): array
     {
         $coachData = [];
 
@@ -123,5 +127,4 @@ class ControllerCoach extends Controller
 
         return $coachData;
     }
-
 }

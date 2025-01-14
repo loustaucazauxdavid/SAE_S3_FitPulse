@@ -117,22 +117,23 @@ class CoachDao extends Dao
         return $coachs;
     }
 
-    public function findAllWithDetails(array $filters): array
+    public function findAllWithDetails(?array $filtres): array
     {
         $now = date('Y-m-d H:i:s');
         $sql = "
-        SELECT c.*,
-        u.prenom AS utilisateur_prenom,
-        u.nom AS utilisateur_nom,
-        AVG(com.note) AS commentaire_note,
-        JSON_ARRAYAGG(
-           JSON_OBJECT(
-               'id', cr.id,
-               'dateDebut', cr.dateDebut,
-               'dateFin', cr.dateFin
-           )
-        ) AS creneaux,
-        GROUP_CONCAT(DISTINCT d.nom) AS disciplines
+        SELECT 
+            c.*,
+            u.prenom AS utilisateur_prenom,
+            u.nom AS utilisateur_nom,
+            AVG(com.note) AS commentaire_note,
+            JSON_ARRAYAGG(
+                JSON_OBJECT(
+                    'id', cr.id,
+                    'dateDebut', cr.dateDebut,
+                    'dateFin', cr.dateFin
+                )
+            ) AS creneaux,
+            GROUP_CONCAT(DISTINCT d.nom) AS disciplines
         FROM " . $this->tables['coach'] . " c
         INNER JOIN " . $this->tables['creneau'] . " cr ON c.id = cr.idCoach
         INNER JOIN " . $this->tables['utilisateur'] . " u ON u.id = c.idUtilisateur
@@ -141,67 +142,54 @@ class CoachDao extends Dao
         LEFT JOIN " . $this->tables['seance'] . " s ON cr.id = s.idCreneau
         LEFT JOIN " . $this->tables['commenter'] . " com ON c.id = com.idCoach
         WHERE cr.dateDebut >= :now AND s.id IS NULL
-        ";
+    ";
 
-        // Filtrage par date
-        if (isset($filters['date']) && $filters['date']) {
-            $sql .= " AND cr.dateDebut >= :date";
-        }
-
-        // Filtrage par note minimale
-        if (isset($filters['note']) && $filters['note']) {
-            $sql .= " HAVING AVG(com.note) >= :note";
-        }
-
-        // Filtrage par nom ou prénom de coach
-        if (isset($filters['search_name']) && $filters['search_name']) {
-            $sql .= " AND (u.prenom LIKE :search_name OR u.nom LIKE :search_name)";
-        }
-
-        // Filtrage par budget
-        if (isset($filters['budget']) && $filters['budget']) {
-            $sql .= " AND cr.tarif <= :budget";
-        }
-
-        // Filtrage par type de séance
-        if (isset($filters['seance_type']) && !empty($filters['seance_type'])) {
-            $seanceTypes = implode("','", $filters['seance_type']);
-            $sql .= " AND s.type IN ('$seanceTypes')";
-        }
-
-        // Filtrage par nombre de participants
-        if (isset($filters['participants']) && $filters['participants']) {
-            $sql .= " AND cr.nbParticipants <= :participants";
-        }
-
-        $sql .= " GROUP BY c.id, u.prenom, u.nom, s.id 
-                  ORDER BY MIN(cr.dateDebut) ASC;
-        ";
-
-        $pdoStatement = $this->pdo->prepare($sql);
         $parameters = [':now' => $now];
 
-        // Paramétrage dynamique des filtres
-        if (isset($filters['date'])) {
-            $parameters[':date'] = $filters['date'];
-        }
-        if (isset($filters['note'])) {
-            $parameters[':note'] = $filters['note'];
-        }
-        if (isset($filters['search_name'])) {
-            $parameters[':search_name'] = '%' . $filters['search_name'] . '%';
-        }
-        if (isset($filters['budget'])) {
-            $parameters[':budget'] = $filters['budget'];
-        }
-        if (isset($filters['participants'])) {
-            $parameters[':participants'] = $filters['participants'];
+        // Gestion dynamique des filtres
+        if (!empty($filtres)) {
+            if (!empty($filtres['date'])) {
+                $sql .= " AND cr.dateDebut >= :date";
+                $parameters[':date'] = $filtres['date'];
+            }
+
+            if (!empty($filtres['note'])) {
+                $sql .= " HAVING AVG(com.note) >= :note";
+                $parameters[':note'] = $filtres['note'];
+            }
+
+            if (!empty($filtres['nom'])) {
+                $sql .= " AND (u.prenom LIKE :nom OR u.nom LIKE :nom)";
+                $parameters[':nom'] = '%' . $filtres['nom'] . '%';
+            }
+
+            if (!empty($filtres['budget'])) {
+                $sql .= " AND cr.tarif <= :budget";
+                $parameters[':budget'] = $filtres['budget'];
+            }
+
+            if (!empty($filtres['seance_type'])) {
+                $placeholders = implode(',', array_fill(0, count($filtres['seance_type']), '?'));
+                $sql .= " AND s.type IN ($placeholders)";
+                $parameters = array_merge($parameters, $filtres['seance_type']);
+            }
+
+            if (!empty($filtres['participants'])) {
+                $sql .= " AND cr.nbParticipants <= :participants";
+                $parameters[':participants'] = $filtres['participants'];
+            }
         }
 
+        $sql .= " GROUP BY c.id, u.prenom, u.nom
+              ORDER BY MIN(cr.dateDebut) ASC";
+
+        // Préparation et exécution de la requête
+        $pdoStatement = $this->pdo->prepare($sql);
         $pdoStatement->execute($parameters);
+
         $pdoStatement->setFetchMode(PDO::FETCH_ASSOC);
         $coachsAssoc = $pdoStatement->fetchAll();
-        
+
         return $this->hydrateAll($coachsAssoc);
     }
 }
