@@ -21,7 +21,7 @@ class CoachDao extends Dao
 
     public function __construct(?PDO $pdo = null)
     {
-        parent::__construct($pdo);  // Appelle le constructeur de la classe parent (Dao)
+        parent::__construct($pdo);
 
     }
 
@@ -108,6 +108,12 @@ class CoachDao extends Dao
         return $coach;
     }
 
+    /**
+     * Méthode pour hydrater un tableau d'objets Coach
+     * @param array[] $coachsAssoc Le tableau associatif représentant un tableau d'objets Coach
+     * @return Coach[] Le tableau d'objets Coach hydratés
+     */
+
     public function hydrateAll(array $coachsAssoc): array
     {
         $coachs = [];
@@ -117,11 +123,17 @@ class CoachDao extends Dao
         return $coachs;
     }
 
+    /**
+     * Récupère tous les coachs avec leurs détails.
+     * @param array|null $filtres Les filtres de recherche.
+     * @return Coach[] Le tableau d'objets Coach hydratés.
+     */
+
     public function findAllWithDetails(?array $filtres): array
     {
         $now = date('Y-m-d H:i:s');
         $sql = "
-        SELECT 
+            SELECT 
             c.*,
             u.prenom AS utilisateur_prenom,
             u.nom AS utilisateur_nom,
@@ -133,16 +145,17 @@ class CoachDao extends Dao
                     'dateFin', cr.dateFin
                 )
             ) AS creneaux,
+            MIN(cr.dateDebut) AS min_dateDebut,
             GROUP_CONCAT(DISTINCT d.nom) AS disciplines
-        FROM " . $this->tables['coach'] . " c
-        INNER JOIN " . $this->tables['creneau'] . " cr ON c.id = cr.idCoach
-        INNER JOIN " . $this->tables['utilisateur'] . " u ON u.id = c.idUtilisateur
-        INNER JOIN " . $this->tables['pratiquer'] . " p ON c.id = p.idCoach
-        INNER JOIN " . $this->tables['discipline'] . " d ON p.idDiscipline = d.id
-        LEFT JOIN " . $this->tables['seance'] . " s ON cr.id = s.idCreneau
-        LEFT JOIN " . $this->tables['commenter'] . " com ON c.id = com.idCoach
-        WHERE cr.dateDebut >= :now AND s.id IS NULL
-    ";
+            FROM " . $this->tables['coach'] . " c
+            INNER JOIN " . $this->tables['creneau'] . " cr ON c.id = cr.idCoach
+            INNER JOIN " . $this->tables['utilisateur'] . " u ON u.id = c.idUtilisateur
+            INNER JOIN " . $this->tables['pratiquer'] . " p ON c.id = p.idCoach
+            INNER JOIN " . $this->tables['discipline'] . " d ON p.idDiscipline = d.id
+            LEFT JOIN " . $this->tables['seance'] . " s ON cr.id = s.idCreneau
+            LEFT JOIN " . $this->tables['commenter'] . " com ON c.id = com.idCoach
+            WHERE cr.dateDebut >= :now AND s.id IS NULL
+            ";
 
         $parameters = [':now' => $now];
 
@@ -151,11 +164,6 @@ class CoachDao extends Dao
             if (!empty($filtres['date'])) {
                 $sql .= " AND cr.dateDebut >= :date";
                 $parameters[':date'] = $filtres['date'];
-            }
-
-            if (!empty($filtres['note'])) {
-                $sql .= " HAVING AVG(com.note) >= :note";
-                $parameters[':note'] = $filtres['note'];
             }
 
             if (!empty($filtres['nom'])) {
@@ -169,19 +177,25 @@ class CoachDao extends Dao
             }
 
             if (!empty($filtres['seance_type'])) {
-                $placeholders = implode(',', array_fill(0, count($filtres['seance_type']), '?'));
-                $sql .= " AND s.type IN ($placeholders)";
-                $parameters = array_merge($parameters, $filtres['seance_type']);
+                $sql .= " AND c.lieuCours = :seance_type";
+                $parameters[':seance_type'] = $filtres['seance_type'];
             }
 
             if (!empty($filtres['participants'])) {
-                $sql .= " AND cr.nbParticipants <= :participants";
+                $sql .= " AND cr.capacite <= :participants";
                 $parameters[':participants'] = $filtres['participants'];
             }
+
         }
 
-        $sql .= " GROUP BY c.id, u.prenom, u.nom
-              ORDER BY MIN(cr.dateDebut) ASC";
+        $sql .= " GROUP BY c.id, u.prenom, u.nom";
+
+        if (!empty($filtres['note'])) {
+            $sql .= " HAVING AVG(com.note) >= :note";
+            $parameters[':note'] = $filtres['note'];
+        }
+
+        $sql .= " ORDER BY min_dateDebut ASC";
 
         // Préparation et exécution de la requête
         $pdoStatement = $this->pdo->prepare($sql);
