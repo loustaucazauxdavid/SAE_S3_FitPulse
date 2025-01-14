@@ -60,6 +60,7 @@ class ControllerCoach extends Controller
             $filtres['sport'] = $_POST['sport'] ?? null;
             $filtres['seance_type'] = $_POST['seance_type'] ?? [];
             $filtres['participants'] = $_POST['participants'] ?? null;
+
         }
 
         // Récupérer la liste des coachs ayant des séances disponibles
@@ -68,8 +69,8 @@ class ControllerCoach extends Controller
 
         // Récupérer les tarifs min et max
         $managerCreneau = new CreneauDao($this->getPdo());
-        $minTarif = (int) round($managerCreneau->fetchMinTarif());
-        $maxTarif = (int) round($managerCreneau->fetchMaxTarif());
+        $minTarif = $managerCreneau->fetchMinTarif();
+        $maxTarif = $managerCreneau->fetchMaxTarif();
 
         // Chargement du template index
         $template = $this->getTwig()->load('rechercher.html.twig');
