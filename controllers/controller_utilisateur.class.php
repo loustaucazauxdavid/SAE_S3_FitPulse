@@ -6,6 +6,8 @@
 
 require_once 'utils/session.php';
 require_once 'utils/fileupload.php';
+require_once 'utils/cleaner.php';
+require_once 'utils/validator.php'; 
 
 /**
  * @brief Controller pour utilisateur
@@ -112,7 +114,24 @@ class ControllerUtilisateur extends Controller {
         // Récupération des données du formulaire
         $mail = parent::getPost()['mail'] ?? '';
         $motDePasse = parent::getPost()['motDePasse'] ?? '';
+
+        // Nettoyage des données pour éviter les failles XSS, le mot de passe est traité différemment par la classe Validator
+        $mail = Cleaner::nettoyerChaine($mail);
+
+        // Instanciation de la classe Validator avec les règles de validation
+        $regles = [
+            'mail' => ['obligatoire' => true, 'format' => FILTER_VALIDATE_EMAIL],
+            'motDePasse' => ['obligatoire' => true, 'mdp_robuste']
+        ];
+        $validator = new Validator($regles);
+        $donnees = ['mail' => $mail, 'motDePasse' => $motDePasse];    
+
+        // Validation des données du formulaire
+        if (!$validator->valider($donnees)) {
+            return $validator->getMessagesErreurs(); // Retourner les messages d'erreurs s'il y en a
+        }
     
+        // Création d'une instance de la classe Utilisateur avec les données du formulaire
         $utilisateur = new Utilisateur($mail, $motDePasse);
     
         $msgErreurs = null; // Tableau des erreurs (nullable)
@@ -171,6 +190,26 @@ class ControllerUtilisateur extends Controller {
         $motDePasse = parent::getPost()['motDePasse'] ?? '';
         $nom = parent::getPost()['nom'] ?? '';
         $prenom = parent::getPost()['prenom'] ?? '';
+
+        // Nettoyage des données pour éviter les failles XSS, le mot de passe est traité différemment par la classe Validator
+        $mail = Cleaner::nettoyerEmail($mail);
+        $nom = Cleaner::nettoyerChaine($nom);
+        $prenom = Cleaner::nettoyerChaine($prenom);
+
+        // Instanciation de la classe Validator avec les règles de validation
+        $regles = [
+            'mail' => ['obligatoire' => true, 'format' => FILTER_VALIDATE_EMAIL],
+            'motDePasse' => ['obligatoire' => true, 'mdp_robuste'],
+            'nom' => ['obligatoire' => true, 'longueur_min' => 2, 'longueur_max' => 100],
+            'prenom' => ['obligatoire' => true, 'longueur_min' => 2, 'longueur_max' => 100]
+        ];
+        $validator = new Validator($regles);
+        $donnees = ['mail' => $mail, 'motDePasse' => $motDePasse, 'nom' => $nom, 'prenom' => $prenom];    
+
+        // Validation des données du formulaire
+        if (!$validator->valider($donnees)) {
+            return $validator->getMessagesErreurs(); // Retourner les messages d'erreurs s'il y en a
+        }
     
         // Création d'une instance de la classe Utilisateur avec les données du formulaire
         $utilisateur = new Utilisateur($mail, $motDePasse);
@@ -207,7 +246,7 @@ class ControllerUtilisateur extends Controller {
                     break;
     
                 case "mdp_faible":
-                    $msgErreurs[] = "Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.";
+                    $msgErreurs[] = "Le mot de passe doit comporter au moins 8 caractères, une lettre minuscule, une majuscule, un chiffre et un caractère spécial.";
                     break;
     
                 // Exceptions upload photo
