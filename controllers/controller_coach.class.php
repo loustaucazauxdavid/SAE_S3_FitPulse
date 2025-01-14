@@ -79,7 +79,6 @@ class ControllerCoach extends Controller
         echo $template->render([
             'menu' => 'Recherche',
             'description' => 'Page de recherche pour FitPulse',
-            'estConnecte' => false, // Change à true si l'utilisateur est connecté
             'coachs' => $coachsTab, // Liste des coachs avec leurs informations
             'maxTarif' => $maxTarif, // Tarif maximum pour le budget
             'minTarif' => $minTarif, // Tarif minimum pour le budget
