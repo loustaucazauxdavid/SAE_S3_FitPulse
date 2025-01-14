@@ -7,12 +7,12 @@ class FileUpload {
      * Initialiser le dossier d'uploads si nécessaire.
      */
     public static function init(): void {
-        if (!is_dir(self::$dossierUpload)) {
-            try {
+        try {
+            if (!is_dir(self::$dossierUpload)) {
                 mkdir(self::$dossierUpload, 0755, true);
-            } catch (Exception $e) {
-                throw new Exception("erreur_creation_dossier");
             }
+        } catch (Exception $e) {
+            throw new Exception("erreur_creation_dossier");
         }
     }
 
@@ -34,8 +34,7 @@ class FileUpload {
      * @return string|null Chemin du fichier enregistré, ou null si erreur.
      */
     public static function enregistrerPhotoProfil(Utilisateur $utilisateur, array $files): string {
-        if (self::validerImage($files)) 
-        {
+        if (self::validerImage($files)) {
             $dossierUtilisateur = self::getDossierUtilisateur($utilisateur->getId());
             // Initialiser le dossier d'uploads de l'utilisateur si nécessaire.
             if (!is_dir($dossierUtilisateur)) {
@@ -62,18 +61,20 @@ class FileUpload {
      * @return bool True si valide, False sinon.
      */
     private static function validerImage(array $files): bool {
-        $extensionsAutorisees = ['jpg', 'jpeg', 'png'];
-        $tailleMaximale = 5 * 1024 * 1024; // 5 Mo, taille arbitraire pour le moment.
+        // On utilise le type MIME pour valider le fichier, les extensions étant facilement falsifiables.
+        $finfo = new finfo(FILEINFO_MIME_TYPE);
+        $mimeType = $finfo->file($files['tmp_name']);
+        $typesAutorises = ['image/jpeg', 'image/png'];
 
-        $extensionFichier = pathinfo($files['name'], PATHINFO_EXTENSION);
+        $tailleMaximale = 5 * 1024 * 1024; // 5 Mo, taille arbitraire pour le moment.
 
         if ($files['error'] !== UPLOAD_ERR_OK) { // Upload sans erreur
             throw new Exception("erreur_upload");
             return false;
         }
 
-        if (!in_array(strtolower($extensionFichier), $extensionsAutorisees)) { // Extension autorisée
-            throw new Exception("extension_invalide");
+        if (!in_array($mimeType, $typesAutorises)) { // Type de fichier autorisé
+            throw new Exception("type_invalide");
             return false;
         }
 
