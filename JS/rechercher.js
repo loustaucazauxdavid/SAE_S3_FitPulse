@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const slider = document.getElementById('budget-range');
     const budgetValue = document.getElementById('budget-max-value');
 
     // Mettre à jour la valeur lorsque l'utilisateur change le slider
-    slider.addEventListener('input', function() {
+    slider.addEventListener('input', function () {
         budgetValue.textContent = slider.value + ' €';
     });
 
@@ -36,14 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const today = new Date();
+        // Utiliser la date passée depuis PHP (filtres.date)
+        const selectedDate = filtresDate ? new Date(filtresDate) : new Date(); // Utilisation de la date sélectionnée ou de la date actuelle si elle est vide
+        console.log(selectedDate);
+
         container.innerHTML = ""; // Efface les jours précédents
         for (let i = startIndex; i < startIndex + visibleDaysCount; i++) {
-            const currentDate = new Date(today);
-            currentDate.setDate(today.getDate() + i);
+            selectedDate.setDate(selectedDate.getDate() + i);
 
-            const dayName = daysOfWeek[currentDate.getDay()];
-            const formattedDate = currentDate.toLocaleDateString("fr-FR", {
+            const dayName = daysOfWeek[selectedDate.getDay()];
+            const formattedDate = selectedDate.toLocaleDateString("fr-FR", {
                 day: "2-digit",
                 month: "2-digit",
             });
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .sort((a, b) => parseDatabaseDate(a.dateDebut) - parseDatabaseDate(b.dateDebut))
                 .forEach((creneau) => {
                     const creneauDate = parseDatabaseDate(creneau.dateDebut);
-                    if (isSameDay(creneauDate, currentDate)) {
+                    if (isSameDay(creneauDate, selectedDate)) {
                         const button = document.createElement("button");
                         button.className = "btn btn-primary btn-sm";
                         button.textContent = creneauDate.toLocaleTimeString("fr-FR", {
@@ -70,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             minute: "2-digit",
                         });
                         dayDiv.appendChild(button);
-                        
                     }
                 });
 
