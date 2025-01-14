@@ -63,19 +63,25 @@
 			</div>
 
 			<!-- Type de séance -->
-			<div class="sidebar-checkbox">
+			<div class="sidebar-radio">
 				<h6>Type de séance</h6>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="Présentiel" id="flexCheckPresentiel" name="seance_type[]" {% if 'Présentiel' in filtres.seance_type %} checked {% endif %}>
-					<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
+					<input class="form-check-input" type="radio" id="flexCheckPresentiel" name="seance_type" value="Présentiel" {% if filtres.seance_type == 'Présentiel' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckPresentiel">
+						Présentiel
+					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="Hybride" id="flexCheckHybride" name="seance_type[]" {% if 'Hybride' in filtres.seance_type %} checked {% endif %}>
-					<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+					<input class="form-check-input" type="radio" id="flexCheckHybride" name="seance_type" value="Hybride" {% if filtres.seance_type == 'Hybride' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckHybride">
+						Hybride
+					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="Distanciel" id="flexCheckDistanciel" name="seance_type[]" {% if 'Distanciel' in filtres.seance_type %} checked {% endif %}>
-					<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+					<input class="form-check-input" type="radio" id="flexCheckDistanciel" name="seance_type" value="Distanciel" {% if filtres.seance_type == 'Distanciel' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckDistanciel">
+						Distanciel
+					</label>
 				</div>
 			</div>
 
@@ -153,12 +159,10 @@
 		</div>
 	</main>
 {% endblock %}
-{% block script %} 
-	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
-	<script src="JS/rechercher.js"></script>
-	<script>
-	    const filtresDate = {{ filtres.date|json_encode()|raw }};
-	    console.log("Date sélectionnée:", filtresDate);
-	</script>
+{% block script %} <script src="node_modules/jquery/dist/jquery.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+	 <script src="JS/rechercher.js"></script>
+	 <script>
+			const filtresDate = {{ filtres.date|json_encode()|raw }};
+		 </script>
 {% endblock %}
