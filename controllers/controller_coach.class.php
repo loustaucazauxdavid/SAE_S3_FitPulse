@@ -9,6 +9,10 @@
  * @brief Controller pour les coachs
  * @details Gère les actions liées aux coachs
  */
+
+require_once 'utils/cleaner.php';
+require_once 'utils/validator.php';
+
 class ControllerCoach extends Controller
 {
     /**
@@ -46,24 +50,48 @@ class ControllerCoach extends Controller
 
     public function listerAvecDetails()
     {
-        $managerCoach = new CoachDao($this->getPdo());
+        // Récupération des données du formulaire
+        $filtres = [
+            'budget' => parent::getPost()['budget'] ?? '',
+            'date' => parent::getPost()['date'] ?? '',
+            'note' => parent::getPost()['note'] ?? '',
+            'nom' => parent::getPost()['nom'] ?? '',
+            'sport' => parent::getPost()['sport'] ?? '',
+            'seance_type' => parent::getPost()['seance_type'] ?? '',
+            'participants' => parent::getPost()['participants'] ?? '',
+        ];
 
-        $filtres = [];
+        // Nettoyage des données pour éviter les failles XSS
+        $filtres['nom'] = Cleaner::nettoyerChaine($filtres['nom']);
+        $filtres['sport'] = Cleaner::nettoyerChaine($filtres['sport']);
 
-        // Récupérer les filtres envoyés via POST
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $filtres['budget'] = $_POST['budget'] ?? null;
-            $filtres['discipline'] = $_POST['discipline'] ?? null;
-            $filtres['date'] = $_POST['date'] ?? null;
-            $filtres['note'] = $_POST['note'] ?? null;
-            $filtres['nom'] = $_POST['nom'] ?? null;
-            $filtres['sport'] = $_POST['sport'] ?? null;
-            $filtres['seance_type'] = $_POST['seance_type'] ?? [];
-            $filtres['participants'] = $_POST['participants'] ?? null;
+        $dateFormat = DateTime::createFromFormat('Y-m-d', $filtres['date']);
 
+        // Instanciation de la classe Validator avec les règles de validation
+        $regles = [
+            'nom' => ['longueur_min' => 2,'longueur_max' => 100],
+            'sport' => ['longueur_min' => 2, 'longueur_max' => 100],
+            'date' => ['date_format' => 'Y-m-d'],
+            'note' => ['numeric' => true, 'min' => 0, 'max' => 5],
+            'participants' => ['integer' => true, 'min' => 0, 'max' => 100],
+        ];
+        $validator = new Validator($regles);
+        $donnees = [
+            'nom' => $filtres['nom'],
+            'sport' => $filtres['sport'],
+            'date' => $dateFormat,
+            'note' => $filtres['note'],
+            'participants' => $filtres['participants'],
+            
+        ];
+
+        // Validation des données du formulaire
+        if (!$validator->valider($donnees)) {
+            return $validator->getMessagesErreurs(); // Retourner les messages d'erreurs s'il y en a
         }
 
         // Récupérer la liste des coachs ayant des séances disponibles
+        $managerCoach = new CoachDao($this->getPdo());
         $coachs = $managerCoach->findAllWithDetails($filtres);
         $coachsTab = $this->getCoachData($coachs);
 

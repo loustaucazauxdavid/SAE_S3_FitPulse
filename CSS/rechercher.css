@@ -25,7 +25,6 @@ body {
     padding: 30px;
     padding-bottom: 180px;
     overflow-y: auto;
-    z-index: 5;
     scrollbar-color: linear-gradient(to bottom, #99dc8f, #86f3e6) #232322;
     padding-top: 30px;
 }

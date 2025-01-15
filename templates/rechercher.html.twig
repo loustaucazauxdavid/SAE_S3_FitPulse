@@ -20,20 +20,20 @@
 			<!-- Widget calendrier -->
 			<div id="sidebar-calendar">
 				<h6>Date</h6>
-				<input type="date" class="form-control" name="date" id="date" placeholder="jj/mm/aaaa" value="{{ filtres.date|default('') }}">
+				<input type="date" class="form-control" name="date" id="date" placeholder="jj/mm/aaaa" value="{{ filtres.date }}">
 			</div>
 
 			<!-- Note -->
 			<div class="sidebar-note">
 				<h6>Note minimale</h6>
-				<input type="number" id="note" name="note" min="0.00" max="5.00" placeholder="4.5" step="0.1" value="{{ filtres.note|default('') }}">
+				<input type="number" id="note" name="note" min="0.00" max="5.00" placeholder="4.5" step="0.1" value="{{ filtres.note }}">
 			</div>
 
 			<!-- Rechercher par nom -->
 			<div class="sidebar-search">
 				<h6>Nom du coach</h6>
 				<div class="input-group">
-					<input type="text" class="form-control search-menu" name="nom" placeholder="Rechercher..." value="{{ filtres.nom|default('') }}">
+					<input type="text" class="form-control search-menu" name="nom" placeholder="Rechercher..." value="{{ filtres.nom }}">
 				</div>
 			</div>
 
@@ -41,7 +41,7 @@
 			<div class="sidebar-search">
 				<h6>Sport</h6>
 				<div class="input-group">
-					<input type="text" class="form-control search-menu" name="sport" placeholder="Rechercher..." value="{{ filtres.sport|default('') }}">
+					<input type="text" class="form-control search-menu" name="sport" placeholder="Rechercher..." value="{{ filtres.sport }}">
 				</div>
 			</div>
 
@@ -88,7 +88,7 @@
 			<!-- Nombre de participants -->
 			<div class="sidebar-participants">
 				<h6>Nombre de participants</h6>
-				<input type="number" id="participants" name="participants" min="1" max="100" placeholder="6" value="{{ filtres.participants|default('') }}">
+				<input type="number" id="participants" name="participants" min="1" max="100" placeholder="6" value="{{ filtres.participants}}">
 			</div>
 
 			<!-- Bouton valider -->
@@ -98,6 +98,20 @@
 
 	<main class="page-content">
 		<div class="container-fluid">
+			{% if msgErreurs is not empty %}
+				<div class="row justify-content-center">
+
+					<div class="alert alert-danger" id="msgErreurs">
+						<h5>Erreur(s) lors de la validation des données :</h5>
+						<ul>
+							{% for msgErreur in msgErreurs %}
+								<li>{{ msgErreur }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+			{% endif %}
 			<h2>Résultats</h2>
 			<hr>
 			<div class="row">
@@ -163,6 +177,6 @@
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
 	 <script src="JS/rechercher.js"></script>
 	 <script>
-			const filtresDate = {{ filtres.date|json_encode()|raw }};
-		 </script>
+				const filtresDate = {{ filtres.date|json_encode()|raw }};
+			 </script>
 {% endblock %}
