@@ -199,7 +199,6 @@ class Utilisateur {
         }
     }
 
-
     /**
      * Met à jour les données de l'utilisateur depuis les informations contenues BD
      */
@@ -268,17 +267,18 @@ class Utilisateur {
       
     }
 
-    private function estRobuste(string $password): bool {
-        $regex = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'; // Regex pour un mot de passe robuste
-
-        return preg_match($regex, $password) === 1; // Retourne 1 si l'évaluation regex réussie.
-    }
-
     public function inscription($pdo): void {
         $managerUtilisateur = new UtilisateurDao($pdo);
+    
+        // Instanciation de la classe Validator avec les règles de validation
+        $regles = ['motDePasse' => ['obligatoire' => true, 'mdp_robuste']]; 
+        $validator = new Validator($regles);
+        $donnees = ['motDePasse' => $this->motDePasse];    
 
         // Vérifie si le mot de passe est robuste
-        if (!$this->estRobuste($this->motDePasse)) {
+        // Normalement, les mots de passe défini par le setter sont déjà robustes 
+        // On vérifie quand même au cas où cette validation serait oubliée
+        if (!$validator->valider($donnees)) {
             throw new Exception("mdp_faible");
         }
 
