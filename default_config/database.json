@@ -1,0 +1,22 @@
+{
+  "db": {
+    "host": "",
+    "name": "",
+    "user": "",
+    "pass": "",
+    "tables": {
+      "commenter": "commenter",
+      "coach": "Coach",
+      "creneau": "Creneau",
+      "discipline": "Discipline",
+      "dossier": "Dossier",
+      "pratiquant": "Pratiquant",
+      "pratiquer": "pratiquer",
+      "proposer_dans": "proposer_dans",
+      "salle_de_sport": "Salle_de_sport",
+      "seance": "Seance",
+      "utilisateur": "Utilisateur"
+    },
+    "tables_prefix": "fitpulse_"
+  }
+}
