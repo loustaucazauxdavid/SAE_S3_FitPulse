@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const slider = document.getElementById('budget-range');
     const budgetValue = document.getElementById('budget-max-value');
 
     // Mettre à jour la valeur lorsque l'utilisateur change le slider
-    slider.addEventListener('input', function() {
+    slider.addEventListener('input', function () {
         budgetValue.textContent = slider.value + ' €';
     });
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     budgetValue.textContent = slider.value + ' €';
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
     const daysOfWeek = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
     const visibleDaysCount = 7;
 
@@ -36,14 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const today = new Date();
-        container.innerHTML = ""; // Efface les jours précédents
-        for (let i = startIndex; i < startIndex + visibleDaysCount; i++) {
-            const currentDate = new Date(today);
-            currentDate.setDate(today.getDate() + i);
+        // Utilisation de la date sélectionnée ou de la date actuelle si elle est vide
+        const baseDate = filtresDate ? new Date(filtresDate) : new Date(); 
+        container.innerHTML = "";
 
-            const dayName = daysOfWeek[currentDate.getDay()];
-            const formattedDate = currentDate.toLocaleDateString("fr-FR", {
+        for (let i = 0; i < visibleDaysCount; i++) {
+            const currentDay = new Date(baseDate);
+            currentDay.setDate(currentDay.getDate() + startIndex + i);
+
+            const dayName = daysOfWeek[currentDay.getDay()];
+            const formattedDate = currentDay.toLocaleDateString("fr-FR", {
                 day: "2-digit",
                 month: "2-digit",
             });
@@ -51,26 +53,29 @@ document.addEventListener("DOMContentLoaded", () => {
             const dayDiv = document.createElement("div");
             dayDiv.className = "day text-center";
             dayDiv.innerHTML = `
-                <h6 style ="font-size: 14px !important;">${dayName}</h6>
-                <p class="date" style ="font-size: 12px !important; color: #6c757d !important; margin-bottom: 5px !important;">
+                <h6 style="font-size: 14px !important;">${dayName}</h6>
+                <p class="date" style="font-size: 12px !important; color: #6c757d !important; margin-bottom: 5px !important;">
                     ${formattedDate}
                 </p>
             `;
 
-            // Ajouter les créneaux horaires
+            const addedTimes = new Set(); // Empêche les doublons de créneaux
+
             (coachData.creneaux || [])
                 .sort((a, b) => parseDatabaseDate(a.dateDebut) - parseDatabaseDate(b.dateDebut))
                 .forEach((creneau) => {
                     const creneauDate = parseDatabaseDate(creneau.dateDebut);
-                    if (isSameDay(creneauDate, currentDate)) {
+                    const creneauTime = creneauDate.toLocaleTimeString("fr-FR", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                    });
+
+                    if (isSameDay(creneauDate, currentDay) && !addedTimes.has(creneauTime)) {
                         const button = document.createElement("button");
                         button.className = "btn btn-primary btn-sm";
-                        button.textContent = creneauDate.toLocaleTimeString("fr-FR", {
-                            hour: "2-digit",
-                            minute: "2-digit",
-                        });
+                        button.textContent = creneauTime;
                         dayDiv.appendChild(button);
-                        
+                        addedTimes.add(creneauTime);
                     }
                 });
 
@@ -80,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".card-calendar").forEach((calendar) => {
         const coachDataJson = calendar.getAttribute("data-coach");
-        const coachData = JSON.parse(coachDataJson); // Convertit le JSON en objet JavaScript
+        const coachData = JSON.parse(coachDataJson);
         const coachId = coachData.id;
         const daysContainer = document.getElementById(`week-days-${coachId}`);
         let startIndex = 0;
@@ -89,17 +94,25 @@ document.addEventListener("DOMContentLoaded", () => {
             loadDays(startIndex, daysContainer, coachData);
         };
 
-        calendar.querySelector(`.prevDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
-            if (startIndex > 0) {
-                startIndex -= 7;
-                updateDays();
-            }
-        });
+        // Attach event listeners for navigation
+        const prevButton = calendar.querySelector(`.prevDay[data-coach-id="${coachId}"]`);
+        const nextButton = calendar.querySelector(`.nextDay[data-coach-id="${coachId}"]`);
 
-        calendar.querySelector(`.nextDay[data-coach-id="${coachId}"]`).addEventListener("click", () => {
-            startIndex += 7;
-            updateDays();
-        });
+        if (prevButton) {
+            prevButton.addEventListener("click", () => {
+                if (startIndex > 0) {
+                    startIndex -= 7;
+                    updateDays();
+                }
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener("click", () => {
+                startIndex += 7;
+                updateDays();
+            });
+        }
 
         updateDays();
     });

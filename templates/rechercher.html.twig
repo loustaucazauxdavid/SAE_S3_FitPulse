@@ -15,49 +15,25 @@
 		id="sidebar" class="sidebar-content">
 		<!-- Formulaire de recherche -->
 		<form
-			method="GET" action="index.php?controller=coach&action=getAvailableCoachs" class="container-fluid">
+			method="POST" action="index.php?controleur=coach&methode=listerAvecDetails" class="container-fluid">
 
 			<!-- Widget calendrier -->
-			<div class="sidebar-calendar">
+			<div id="sidebar-calendar">
 				<h6>Date</h6>
-				<input
-				type="date" class="form-control" name="date" id="date">
-			<!--<div class="input-group date" id="datepicker"></div>-->
+				<input type="date" class="form-control" name="date" id="date" placeholder="jj/mm/aaaa" value="{{ filtres.date }}">
 			</div>
 
 			<!-- Note -->
 			<div class="sidebar-note">
 				<h6>Note minimale</h6>
-				<input type="number" id="note" name="note" min="0.00" max="5.00" placeholder="5.0" step="0.1">
+				<input type="number" id="note" name="note" min="0.00" max="5.00" placeholder="4.5" step="0.1" value="{{ filtres.note }}">
 			</div>
 
-			<!-- Boutons radio étoiles -->
-			<!--
-									<div class="sidebar-stars">
-										<h6>Note minimale</h6>
-										<div>
-											<input type="radio" id="star5" name="star" value="5">
-											<label for="star5" class="star"></label>
-						
-											<input type="radio" id="star4" name="star" value="4">
-											<label for="star4" class="star"></label>
-						
-											<input type="radio" id="star3" name="star" value="3">
-											<label for="star3" class="star"></label>
-						
-											<input type="radio" id="star2" name="star" value="2">
-											<label for="star2" class="star"></label>
-						
-											<input type="radio" id="star1" name="star" value="1">
-											<label for="star1" class="star"></label>
-										</div>
-									</div>
-									-->
-
 			<!-- Rechercher par nom -->
-				<div class="sidebar-search"> <h6>Nom du coach</h6>
+			<div class="sidebar-search">
+				<h6>Nom du coach</h6>
 				<div class="input-group">
-					<input type="text" class="form-control search-menu" name="search_name" placeholder="Rechercher...">
+					<input type="text" class="form-control search-menu" name="nom" placeholder="Rechercher..." value="{{ filtres.nom }}">
 				</div>
 			</div>
 
@@ -65,7 +41,7 @@
 			<div class="sidebar-search">
 				<h6>Sport</h6>
 				<div class="input-group">
-					<input type="text" class="form-control search-menu" name="search_name" placeholder="Rechercher...">
+					<input type="text" class="form-control search-menu" name="sport" placeholder="Rechercher..." value="{{ filtres.sport }}">
 				</div>
 			</div>
 
@@ -73,7 +49,7 @@
 
 			<div class="sidebar-budget">
 				<h6>Budget</h6>
-				<input type="range" id="budget-range" name="budget" min="{{ minTarif }}" max="{{ maxTarif }}" step="1" value="{{ maxTarif }}">
+				<input type="range" id="budget-range" name="budget" min="{{ minTarif }}" max="{{ maxTarif }}" step="1" value="{{ filtres.budget|default(maxTarif) }}">
 					<div class="budget-values">
 						<span id="budget-min-value">{{ minTarif }}</span>
 						€
@@ -87,95 +63,120 @@
 			</div>
 
 			<!-- Type de séance -->
-			<div class="sidebar-checkbox">
+			<div class="sidebar-radio">
 				<h6>Type de séance</h6>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="presentiel" id="flexCheckPresentiel" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckPresentiel">Présentiel</label>
+					<input class="form-check-input" type="radio" id="flexCheckPresentiel" name="seance_type" value="Présentiel" {% if filtres.seance_type == 'Présentiel' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckPresentiel">
+						Présentiel
+					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="hybride" id="flexCheckHybride" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckHybride">Hybride</label>
+					<input class="form-check-input" type="radio" id="flexCheckHybride" name="seance_type" value="Hybride" {% if filtres.seance_type == 'Hybride' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckHybride">
+						Hybride
+					</label>
 				</div>
 				<div class="form-check">
-					<input class="form-check-input" type="checkbox" value="distanciel" id="flexCheckDistanciel" name="seance_type[]">
-					<label class="form-check-label" for="flexCheckDistanciel">Distanciel</label>
+					<input class="form-check-input" type="radio" id="flexCheckDistanciel" name="seance_type" value="Distanciel" {% if filtres.seance_type == 'Distanciel' %} checked {% endif %}>
+					<label class="form-check-label" for="flexCheckDistanciel">
+						Distanciel
+					</label>
 				</div>
 			</div>
 
 			<!-- Nombre de participants -->
 			<div class="sidebar-participants">
 				<h6>Nombre de participants</h6>
-				<input type="number" id="participants" name="participants" min="1" max="100" value="1">
+				<input type="number" id="participants" name="participants" min="1" max="100" placeholder="6" value="{{ filtres.participants}}">
 			</div>
 
 			<!-- Bouton valider -->
 			<button type="submit" class="btn btn-primary">Valider</button>
+		</form>
+	</nav>
 
-		</div>
-	</form>
-</nav>
-<main class="page-content">
-	<div class="container-fluid">
-		<h2>Résultats</h2>
-		<hr>
-		<div class="row">
-			<div class="form-group col-md-12">
-				{% for coach in coachs %}
-					<div class="card mb-4">
-						<div
-							class="d-flex flex-column flex-md-row align-items-center">
-							<!-- Image du coach (colonne gauche) -->
-							<div class="flex-shrink-0 mb-3 mb-md-0" style="max-width: 150px;">
-								<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
-							</div>
+	<main class="page-content">
+		<div class="container-fluid">
+			{% if msgErreurs is not empty %}
+				<div class="row justify-content-center">
 
-							<!-- Contenu principal du coach (colonne gauche) -->
+					<div class="alert alert-danger" id="msgErreurs">
+						<h5>Erreur(s) lors de la validation des données :</h5>
+						<ul>
+							{% for msgErreur in msgErreurs %}
+								<li>{{ msgErreur }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+			{% endif %}
+			<h2>Résultats</h2>
+			<hr>
+			<div class="row">
+				<div class="form-group col-md-12">
+					{% for coach in coachs %}
+						<div class="card mb-4">
 							<div
-								class="card-body d-flex flex-column justify-content-between" style="flex: 1;">
-								<!-- Informations du coach -->
-								<div>
-									<h5 class="card-title">
-										{{ coach.utilisateur.prenom }}
-										{{ coach.utilisateur.nom }}
-									</h5>
-									<h6 class="card-subtitle mb-2 text-muted">
-										<div class="star-rating">
-											{% for i in 0..4 %}
-												<span class="star {% if i < (coach.commentaire_note|round(0, 'floor')|default(0)) %}filled{% else %}empty{% endif %}"></span>
-											{% endfor %}
-										</div>
-										{% for discipline in coach.disciplines %}
-											{{ discipline.nom }}
-											<br>
-										{% endfor %}
-									</h6>
-									<p class="card-text">{{ coach.description }}</p>
-									<a href="#" class="btn btn-primary">Voir plus</a>
-								</div>
-							</div>
-
-							<!-- Calendrier des séances (colonne droite) -->
-							<div
-								class="card-calendar mt-3 mt-md-0" id="calendar-coach-{{ coach.id }}" data-coach="{{ coach|json_encode(constant('JSON_UNESCAPED_UNICODE')) }}" style="min-width: 300px; flex-grow: 1;">
-								<!-- En-tête du calendrier -->
-								<div class="calendar-header d-flex justify-content-between align-items-center">
-									<button class="btn btn-outline-secondary btn-sm prevDay" data-coach-id="{{ coach.id }}">«</button>
-									<h5 class="mb-0">Séances disponibles</h5>
-									<button class="btn btn-outline-secondary btn-sm nextDay" data-coach-id="{{ coach.id }}">»</button>
+								class="d-flex flex-column flex-md-row align-items-center">
+								<!-- Image du coach (colonne gauche) -->
+								<div class="flex-shrink-0 mb-3 mb-md-0" style="max-width: 150px;">
+									<img src="images/default-profile.png" class="card-img-left" alt="Profile du coach" style="width: 150px; height: auto; object-fit: contain;">
 								</div>
 
-								<!-- Contenu des jours -->
+								<!-- Contenu principal du coach (colonne gauche) -->
 								<div
-									class="week-days d-flex justify-content-between" id="week-days-{{ coach.id }}"><!-- Les jours seront injectés par JavaScript -->
+									class="card-body d-flex flex-column justify-content-between" style="flex: 1;">
+									<!-- Informations du coach -->
+									<div>
+										<h5 class="card-title">
+											{{ coach.utilisateur.prenom }}
+											{{ coach.utilisateur.nom }}
+										</h5>
+										<h6 class="card-subtitle mb-2 text-muted">
+											<div class="star-rating">
+												{% for i in 0..4 %}
+													<span class="star {% if i < (coach.commentaire_note|round(0, 'floor')|default(0)) %}filled{% else %}empty{% endif %}"></span>
+												{% endfor %}
+											</div>
+											{% for discipline in coach.disciplines %}
+												{{ discipline.nom }}
+												<br>
+											{% endfor %}
+										</h6>
+										<p class="card-text">{{ coach.description }}</p>
+										<a href="#" class="btn btn-primary">Voir plus</a>
+									</div>
+								</div>
+
+								<!-- Calendrier des séances (colonne droite) -->
+								<div
+									class="card-calendar mt-3 mt-md-0" id="calendar-coach-{{ coach.id }}" data-coach="{{ coach|json_encode(constant('JSON_UNESCAPED_UNICODE')) }}" style="min-width: 300px; flex-grow: 1;">
+									<!-- En-tête du calendrier -->
+									<div class="calendar-header d-flex justify-content-between align-items-center">
+										<button class="btn btn-outline-secondary btn-sm prevDay" data-coach-id="{{ coach.id }}">«</button>
+										<h5 class="mb-0">Séances disponibles</h5>
+										<button class="btn btn-outline-secondary btn-sm nextDay" data-coach-id="{{ coach.id }}">»</button>
+									</div>
+
+									<!-- Contenu des jours -->
+									<div
+										class="week-days d-flex justify-content-between" id="week-days-{{ coach.id }}"><!-- Les jours seront injectés par JavaScript -->
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
+					{% endfor %}
+				</div>
 			</div>
 		</div>
-	</div>
-</main>{% endblock %}{% block script %} <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
- <script src="JS/rechercher.js"></script>{% endblock %}
+	</main>
+{% endblock %}
+{% block script %} <script src="node_modules/jquery/dist/jquery.min.js"></script>
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"></script>
+	 <script src="JS/rechercher.js"></script>
+	 <script>
+				const filtresDate = {{ filtres.date|json_encode()|raw }};
+			 </script>
+{% endblock %}

@@ -9,6 +9,10 @@
  * @brief Controller pour les coachs
  * @details Gère les actions liées aux coachs
  */
+
+require_once 'utils/cleaner.php';
+require_once 'utils/validator.php';
+
 class ControllerCoach extends Controller
 {
     /**
@@ -44,43 +48,83 @@ class ControllerCoach extends Controller
     }
 
 
-    public function getAvailableCoachs() : array
+    public function listerAvecDetails()
     {
+        // Récupération des données du formulaire
+        $filtres = [
+            'budget' => parent::getPost()['budget'] ?? '',
+            'date' => parent::getPost()['date'] ?? '',
+            'note' => parent::getPost()['note'] ?? '',
+            'nom' => parent::getPost()['nom'] ?? '',
+            'sport' => parent::getPost()['sport'] ?? '',
+            'seance_type' => parent::getPost()['seance_type'] ?? '',
+            'participants' => parent::getPost()['participants'] ?? '',
+        ];
+
+        // Nettoyage des données pour éviter les failles XSS
+        $filtres['nom'] = Cleaner::nettoyerChaine($filtres['nom']);
+        $filtres['sport'] = Cleaner::nettoyerChaine($filtres['sport']);
+
+        $dateFormat = DateTime::createFromFormat('Y-m-d', $filtres['date']);
+
+        // Instanciation de la classe Validator avec les règles de validation
+        $regles = [
+            'nom' => ['longueur_min' => 2,'longueur_max' => 100],
+            'sport' => ['longueur_min' => 2, 'longueur_max' => 100],
+            'date' => ['date_format' => 'Y-m-d'],
+            'note' => ['numeric' => true, 'min' => 0, 'max' => 5],
+            'participants' => ['integer' => true, 'min' => 0, 'max' => 100],
+        ];
+        $validator = new Validator($regles);
+        $donnees = [
+            'nom' => $filtres['nom'],
+            'sport' => $filtres['sport'],
+            'date' => $dateFormat,
+            'note' => $filtres['note'],
+            'participants' => $filtres['participants'],
+            
+        ];
+
+        // Validation des données du formulaire
+        if (!$validator->valider($donnees)) {
+            return $validator->getMessagesErreurs(); // Retourner les messages d'erreurs s'il y en a
+        }
+
         // Récupérer la liste des coachs ayant des séances disponibles
         $managerCoach = new CoachDao($this->getPdo());
+        $coachs = $managerCoach->findAllWithDetails($filtres);
+        $coachsTab = $this->getCoachData($coachs);
 
-        // Récupération des données du formulaire
-        $filters = [
-            'date' => isset($_POST['date']) ? $_POST['date'] : null,
-            'note' => isset($_POST['note']) ? $_POST['note'] : null,
-            'search_name' => isset($_POST['search_name']) ? $_POST['search_name'] : null,
-            'budget' => isset($_POST['budget']) ? $_POST['budget'] : null,
-            'seance_type' => isset($_POST['seance_type']) ? $_POST['seance_type'] : [],
-            'participants' => isset($_POST['participants']) ? $_POST['participants'] : null,
-        ];
-        
-        // Appel à la méthode findAllWithDetails en passant les filtres
-        $coachs = $managerCoach->findAllWithDetails($filters);
+        // Récupérer les tarifs min et max
+        $managerCreneau = new CreneauDao($this->getPdo());
+        $minTarif = $managerCreneau->fetchMinTarif();
+        $maxTarif = $managerCreneau->fetchMaxTarif();
 
-        // Sérialiser les données des coachs
-        $coachData = $this->serializeCoachData($coachs);
+        // Chargement du template index
+        $template = $this->getTwig()->load('rechercher.html.twig');
 
-        return $coachData;
-
+        // Affichage de la page
+        echo $template->render([
+            'menu' => 'Recherche',
+            'description' => 'Page de recherche pour FitPulse',
+            'coachs' => $coachsTab, // Liste des coachs avec leurs informations
+            'maxTarif' => $maxTarif, // Tarif maximum pour le budget
+            'minTarif' => $minTarif, // Tarif minimum pour le budget
+            'filtres' => $filtres, // Filtres de recherche
+        ]);
     }
 
     /**
-     * Sérialise les données des coachs avant de les passer à Twig
+     * Convertit les données du coach en un tableau associatif
      *
-     * @param array $coachs Tableau des objets coachs à sérialiser
-     * @return array Tableau des coachs sérialisés
+     * @param array $coachs Tableau des objets coachs à transformer
+     * @return array Tableau associatif des coachs
      */
-    private function serializeCoachData(array $coachs): array
+    private function getCoachData(array $coachs): array
     {
         $coachData = [];
 
         foreach ($coachs as $coach) {
-            // Convertir les données du coach en un tableau associatif
             $coachData[] = [
                 'id' => $coach->getId(),
                 'contact' => $coach->getContact(),
@@ -105,11 +149,10 @@ class ControllerCoach extends Controller
                         'dateDebut' => $creneau->getDateDebut()->format('Y-m-d H:i:s'),
                         'dateFin' => $creneau->getDateFin()->format('Y-m-d H:i:s'),
                     ];
-                }, $coach->getCreneaux()), // Assurez-vous de formater les dates au besoin
+                }, $coach->getCreneaux()),
             ];
         }
 
         return $coachData;
     }
-
 }

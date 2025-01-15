@@ -31,7 +31,6 @@ require_once 'controllers/controller_proposer_dans.class.php';
 require_once 'controllers/controller_salle_de_sport.class.php';
 require_once 'controllers/controller_seance.class.php';
 require_once 'controllers/controller_utilisateur.class.php';
-require_once 'controllers/controller_rechercher.class.php';
 
 // Ajout des modèles classes
 require_once 'modeles/coach.class.php';
