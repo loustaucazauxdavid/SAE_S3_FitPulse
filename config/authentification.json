@@ -1,6 +1,0 @@
-{
-  "auth": {
-    "max_failed_logins": 3,
-    "lockout_duration": 1800
-  }
-}
