@@ -50,14 +50,15 @@ Les pratiquants peuvent  réserver des séances au selon leur préférence : en 
 3. Compiler le fichier SCSS en CSS avec SASS en exécutant la commande suivante :
 `sass SCSS/custom.scss css/styles.css`
 
-4. Modifier les informations de connexion à la base de données dans le fichier de configuration *config/constantes.php* :
+4. Modifier les informations de connexion à la base de données dans le fichier de configuration de la base de données.
+Le dossier `config` à la racine de l'application contient les fichiers de configuration de l'application. Par défaut, ce dossier est vide.
 
-	* DB_HOST : Adresse du service de bases de données
-	* DB_NAME : Nom de la base de données
-	* DB_USER : Nom d'utilisateur utilisé pour se connecter à la base de données
-	* DB_PASS : Mot de passe utilisé pour se connecter à la base de données
+**Les modèles des fichiers de configuration sont disponibles dans le dossier `default_config` à la racine de l'application.**
+Il vous faudra copier les modèles des fichiers de configuration dans ce dossier puis, à minima, entrer les informations de connexion à votre base de données.
 
-5. Déployer le site web sur un serveur Apache et PHP avec l'extension PDO activée.
+**Les fichiers de configuration sont documentés dans le README du dossier `default_config`.**
+
+5. Déployer le site web sur un serveur Apache et PHP (version 8.0 ou supérieur) avec l'extension PDO activée.
 	
 <!-- Réalisé avec -->
 ## Réalisé avec
