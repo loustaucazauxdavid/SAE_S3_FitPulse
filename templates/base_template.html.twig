@@ -20,6 +20,15 @@
     {# CSS spécifiques à la page #}
     <link rel="stylesheet" type="text/css" href="CSS/base_template.css">
 
+    {# JS Analytics : Tarteaucitron #}
+    <script type="text/javascript" src="node_modules/tarteaucitronjs/tarteaucitron.js"></script>
+    <script type="text/javascript" src="JS/tarteaucitron_init.js"></script>
+    <script type="text/javascript">
+        tarteaucitron.user.gtagUa = 'G-WFL5TX8JKB';
+        tarteaucitron.user.gtagMore = function () {  };
+        (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+    </script>
+
     {% block css %}{% endblock %}
 </head>
 
